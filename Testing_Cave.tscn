@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Robot.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Robot_with_cam_sensor.tscn" type="PackedScene" id=1]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 20, 20 )
@@ -11,40 +11,39 @@ extents = Vector3( 10.074, 0.1, 10.063 )
 [sub_resource type="PlaneMesh" id=3]
 size = Vector2( 40, 40 )
 
-[sub_resource type="BoxShape" id=11]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 22.5943, 0.1, 20.4503 )
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=5]
 extents = Vector3( 19.9053, 0.1, 20.4701 )
 
-[sub_resource type="PhysicsMaterial" id=8]
+[sub_resource type="PhysicsMaterial" id=6]
 
-[sub_resource type="CubeMesh" id=5]
+[sub_resource type="CubeMesh" id=7]
 size = Vector3( 3, 3, 3 )
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=8]
 albedo_color = Color( 0.788235, 0.0509804, 0.0509804, 1 )
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=9]
 extents = Vector3( 1.5, 1.5, 1.5 )
 
-[sub_resource type="PhysicsMaterial" id=9]
-
 [sub_resource type="PhysicsMaterial" id=10]
+
+[sub_resource type="PhysicsMaterial" id=11]
 
 [node name="Testing_Cave" type="Spatial"]
 
 [node name="Environment" type="Spatial" parent="."]
 
 [node name="Floor_Plane_Open" type="MeshInstance" parent="Environment"]
-transform = Transform( 1.94157, 0, 0, 0, 0.665252, 0, 0, 0, 2.09387, 0, 0, 0 )
+transform = Transform( 1.94157, 0, 0, 0, 0.665252, 0, 0, 0, 2.09387, -0.231172, 0.0378408, 0.0793076 )
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Environment/Floor_Plane_Open"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Environment/Floor_Plane_Open/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="Floor_Plane_Corridor" type="MeshInstance" parent="Environment"]
@@ -66,7 +65,7 @@ material/0 = null
 [node name="StaticBody" type="StaticBody" parent="Environment/Wall_1"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Environment/Wall_1/StaticBody"]
-shape = SubResource( 11 )
+shape = SubResource( 4 )
 
 [node name="Wall_2" type="MeshInstance" parent="Environment"]
 transform = Transform( -0.268137, -0.974529, 0.12363, 0.965086, -0.262907, 0.0363382, -0.0328299, 0.0538427, 1.14258, 14.9696, 1.39287, 0 )
@@ -76,7 +75,7 @@ material/0 = null
 [node name="StaticBody" type="StaticBody" parent="Environment/Wall_2"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Environment/Wall_2/StaticBody"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Wall_3" type="MeshInstance" parent="Environment"]
 transform = Transform( 0.0758142, 0.109315, -1.11726, 0.688454, -0.0321031, 0.0352206, -0.0433901, -1.00348, -0.0623665, 6.86198, 3.06671, 20.4189 )
@@ -86,7 +85,7 @@ material/0 = null
 [node name="StaticBody" type="StaticBody" parent="Environment/Wall_3"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Environment/Wall_3/StaticBody"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Wall_4" type="MeshInstance" parent="Environment"]
 transform = Transform( 0.0404242, 0.0582869, -0.595723, 0.200747, -0.951031, -0.0460585, -0.91433, -0.445788, -0.0759926, 0.584984, 18.5549, 0.158002 )
@@ -96,45 +95,45 @@ material/0 = null
 [node name="StaticBody" type="StaticBody" parent="Environment/Wall_4"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Environment/Wall_4/StaticBody"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Obstacles" type="Spatial" parent="."]
 
 [node name="RedBox" type="RigidBody" parent="Obstacles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.27684, 1.82629, 0.035 )
-physics_material_override = SubResource( 8 )
+physics_material_override = SubResource( 6 )
 gravity_scale = 3.0
 
 [node name="MeshInstance" type="MeshInstance" parent="Obstacles/RedBox"]
-mesh = SubResource( 5 )
-material/0 = SubResource( 6 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obstacles/RedBox"]
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="RedBox2" type="RigidBody" parent="Obstacles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75444, 5.07782, 0.07 )
-physics_material_override = SubResource( 9 )
-gravity_scale = 3.0
-
-[node name="MeshInstance" type="MeshInstance" parent="Obstacles/RedBox2"]
-mesh = SubResource( 5 )
-material/0 = SubResource( 6 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Obstacles/RedBox2"]
-shape = SubResource( 7 )
-
-[node name="RedBox3" type="RigidBody" parent="Obstacles"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.44079, 2.78665, -3.4921 )
 physics_material_override = SubResource( 10 )
 gravity_scale = 3.0
 
+[node name="MeshInstance" type="MeshInstance" parent="Obstacles/RedBox2"]
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Obstacles/RedBox2"]
+shape = SubResource( 9 )
+
+[node name="RedBox3" type="RigidBody" parent="Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.44079, 2.78665, -3.4921 )
+physics_material_override = SubResource( 11 )
+gravity_scale = 3.0
+
 [node name="MeshInstance" type="MeshInstance" parent="Obstacles/RedBox3"]
-mesh = SubResource( 5 )
-material/0 = SubResource( 6 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obstacles/RedBox3"]
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
-[node name="Robot" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.97045, 0 )
+[node name="Robot_with_sensor" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12633, -1.76397, -6.19924 )
