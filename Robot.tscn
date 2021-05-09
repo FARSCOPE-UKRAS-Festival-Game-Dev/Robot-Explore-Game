@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Vehicle.gd" type="Script" id=1]
+[ext_resource path="res://Vehicle_Follow_Camera.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=4]
+
+[sub_resource type="CylinderMesh" id=2]
+height = 0.2
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.74902, 0.882353, 0.109804, 1 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1, 0.430586, 1.54197 )
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 2, 0.75, 3 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.145098, 0.870588, 0.25098, 1 )
+
+[node name="Robot" type="Spatial"]
+
+[node name="Body" type="VehicleBody" parent="."]
+physics_material_override = SubResource( 4 )
+script = ExtResource( 1 )
+
+[node name="Wheel_1" type="VehicleWheel" parent="Body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10744, -0.197368, 1.16665 )
+use_as_traction = true
+use_as_steering = true
+wheel_radius = 0.549
+
+[node name="Wheel" type="MeshInstance" parent="Body/Wheel_1"]
+transform = Transform( -2.18557e-08, 0.5, -2.18557e-08, 0, -2.18557e-08, -0.5, -0.5, -2.18557e-08, 9.55343e-16, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 6 )
+
+[node name="Wheel_2" type="VehicleWheel" parent="Body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09534, -0.197368, 1.16665 )
+use_as_traction = true
+use_as_steering = true
+wheel_radius = 0.549
+
+[node name="Wheel" type="MeshInstance" parent="Body/Wheel_2"]
+transform = Transform( -2.18557e-08, 0.5, -2.18557e-08, 0, -2.18557e-08, -0.5, -0.5, -2.18557e-08, 9.55343e-16, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 6 )
+
+[node name="Wheel_3" type="VehicleWheel" parent="Body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09534, -0.197368, -1.23724 )
+use_as_traction = true
+wheel_radius = 0.549
+
+[node name="Wheel" type="MeshInstance" parent="Body/Wheel_3"]
+transform = Transform( -2.18557e-08, 0.5, -2.18557e-08, 0, -2.18557e-08, -0.5, -0.5, -2.18557e-08, 9.55343e-16, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 6 )
+
+[node name="Wheel_4" type="VehicleWheel" parent="Body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08254, -0.197368, -1.23724 )
+use_as_traction = true
+wheel_radius = 0.549
+
+[node name="Wheel" type="MeshInstance" parent="Body/Wheel_4"]
+transform = Transform( -2.18557e-08, 0.5, -2.18557e-08, 0, -2.18557e-08, -0.5, -0.5, -2.18557e-08, 9.55343e-16, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Body"]
+shape = SubResource( 3 )
+
+[node name="Body" type="MeshInstance" parent="Body"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 5 )
+
+[node name="CameraBase" type="Spatial" parent="Body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.988208, 0 )
+
+[node name="Camera" type="Camera" parent="Body/CameraBase"]
+transform = Transform( -1, -8.88179e-16, -8.74228e-08, -3.6642e-08, 0.907924, 0.419135, 7.93732e-08, 0.419135, -0.907924, 0, 1.4543, -3.22982 )
+current = true
+fov = 81.2588
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
