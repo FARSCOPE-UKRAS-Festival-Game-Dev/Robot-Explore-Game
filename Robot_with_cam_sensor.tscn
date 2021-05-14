@@ -9,9 +9,9 @@
 script = ExtResource( 4 )
 
 [node name="Robot" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.46134, 0 )
 
 [node name="CameraSensor" parent="Robot" instance=ExtResource( 2 )]
-transform = Transform( 0.99866, 0, 0.0517607, 0, 1, 0, -0.0517607, 0, 0.99866, 0.0513461, 1.45838, -0.132573 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0513461, 1.45838, -0.132573 )
+camera_resolution = Vector2( 500, 400 )
 
 [node name="Sensor_HUD" parent="." instance=ExtResource( 3 )]

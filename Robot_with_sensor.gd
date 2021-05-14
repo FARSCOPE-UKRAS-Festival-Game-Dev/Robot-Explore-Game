@@ -6,5 +6,6 @@ extends Spatial
 func _ready():
 	#Get the viewport texture to display it to the GUI, we only need to do this once for viewports
 	$Sensor_HUD.set_render_target($Robot/CameraSensor/CameraBody/Viewport.get_texture())
-
+	#Remove the robot's camera so we only see the camera feed on the HUD
+	$Robot/CameraBase/Camera.queue_free()
 

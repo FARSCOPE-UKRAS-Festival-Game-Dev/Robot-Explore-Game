@@ -16,8 +16,9 @@ func _ready():
 func _process(delta):
 	#Camera doesn't follow parent's tranform so we set it manually
 	$CameraBody/Viewport/Camera.global_transform = $CameraBody.global_transform
-	$CameraBody/Viewport/Camera.translate_object_local (Vector3(0,1,0))
-	$CameraBody/Viewport/Camera.rotate_object_local(Vector3(0, 1, 0),-PI/2) #I don't know why it's this angle 
+	
+	#$CameraBody/Viewport/Camera.rotate_object_local(Vector3(0, 1, 0),-PI)  
+	$CameraBody/Viewport/Camera.translate_object_local (Vector3(0,0,-0.3))
 func _render_view():
 	#cameras will send what they capture to the nearist viewport in the tree
 	#so we make the camera a child of the viewport
