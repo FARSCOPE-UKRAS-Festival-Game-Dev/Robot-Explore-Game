@@ -2,6 +2,7 @@
 
 [ext_resource path="res://Vehicle.gd" type="Script" id=1]
 [ext_resource path="res://Vehicle_Follow_Camera.gd" type="Script" id=2]
+[ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 2, 0.75, 3 )
@@ -62,3 +63,16 @@ transform = Transform( -1, -8.88179e-16, -8.74228e-08, -3.6642e-08, 0.907924, 0.
 current = true
 fov = 81.2588
 script = ExtResource( 2 )
+
+[node name="UI" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Joystick" parent="UI" instance=ExtResource( 3 )]
+margin_left = 722.148
+margin_top = -302.67
+margin_right = 1022.15
+margin_bottom = -2.66968
