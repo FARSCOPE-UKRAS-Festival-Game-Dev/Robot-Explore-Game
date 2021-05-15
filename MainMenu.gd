@@ -43,3 +43,18 @@ func set_current_selection(_current_selection):
 		selector_two.text = ">"
 	elif _current_selection == 2:
 		selector_three.text = ">"
+
+
+func _on_Button_pressed():
+	current_selection = 0
+	handle_selection(current_selection)
+
+
+func _on_Button2_pressed():
+	current_selection = 1
+	handle_selection(current_selection)
+	
+
+func _on_Button3_pressed():
+	current_selection = 2
+	handle_selection(current_selection)
