@@ -8,13 +8,13 @@
 size = 24
 font_data = ExtResource( 1 )
 
+[sub_resource type="StyleBoxEmpty" id=2]
+
 [sub_resource type="StyleBoxEmpty" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=5]
-
-[sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="MainMenu" type="MarginContainer"]
 margin_right = 1024.0
@@ -91,10 +91,10 @@ margin_top = -9.24493
 margin_right = 60.8181
 margin_bottom = 22.7551
 rect_min_size = Vector2( 76, 0 )
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 5 )
-custom_styles/normal = SubResource( 2 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
 custom_fonts/font = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -136,10 +136,10 @@ margin_top = -4.0
 margin_right = 61.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 76, 0 )
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 5 )
-custom_styles/normal = SubResource( 2 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
 custom_fonts/font = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -181,10 +181,10 @@ margin_top = -0.55545
 margin_right = 60.5421
 margin_bottom = 31.4445
 rect_min_size = Vector2( 76, 0 )
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 5 )
-custom_styles/normal = SubResource( 2 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
 custom_fonts/font = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
