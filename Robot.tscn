@@ -1,21 +1,22 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Vehicle.gd" type="Script" id=1]
 [ext_resource path="res://Vehicle_Follow_Camera.gd" type="Script" id=2]
+[ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=3]
 
-[sub_resource type="CylinderMesh" id=2]
+[sub_resource type="CylinderMesh" id=1]
 height = 0.2
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.74902, 0.882353, 0.109804, 1 )
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 1, 0.430586, 1.54197 )
 
-[sub_resource type="CubeMesh" id=8]
+[sub_resource type="CubeMesh" id=4]
 size = Vector3( 2, 0.75, 3 )
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.145098, 0.870588, 0.25098, 1 )
 
 [node name="Robot" type="VehicleBody"]
@@ -31,8 +32,8 @@ wheel_radius = 0.549
 
 [node name="Wheel" type="MeshInstance" parent="Wheel_1"]
 transform = Transform( -2.18557e-08, 0.5, -2.18557e-08, 0, -2.18557e-08, -0.5, -0.5, -2.18557e-08, 9.55343e-16, 0, 0, 0 )
-mesh = SubResource( 2 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
 
 [node name="Wheel_2" type="VehicleWheel" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09534, -0.197368, 1.16665 )
@@ -42,8 +43,8 @@ wheel_radius = 0.549
 
 [node name="Wheel" type="MeshInstance" parent="Wheel_2"]
 transform = Transform( -2.18557e-08, 0.5, -2.18557e-08, 0, -2.18557e-08, -0.5, -0.5, -2.18557e-08, 9.55343e-16, 0, 0, 0 )
-mesh = SubResource( 2 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
 
 [node name="Wheel_3" type="VehicleWheel" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09534, -0.197368, -1.23724 )
@@ -52,8 +53,8 @@ wheel_radius = 0.549
 
 [node name="Wheel" type="MeshInstance" parent="Wheel_3"]
 transform = Transform( -2.18557e-08, 0.5, -2.18557e-08, 0, -2.18557e-08, -0.5, -0.5, -2.18557e-08, 9.55343e-16, 0, 0, 0 )
-mesh = SubResource( 2 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
 
 [node name="Wheel_4" type="VehicleWheel" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08254, -0.197368, -1.23724 )
@@ -62,15 +63,15 @@ wheel_radius = 0.549
 
 [node name="Wheel" type="MeshInstance" parent="Wheel_4"]
 transform = Transform( -2.18557e-08, 0.5, -2.18557e-08, 0, -2.18557e-08, -0.5, -0.5, -2.18557e-08, 9.55343e-16, 0, 0, 0 )
-mesh = SubResource( 2 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Body2" type="MeshInstance" parent="."]
-mesh = SubResource( 8 )
-material/0 = SubResource( 6 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
 
 [node name="CameraBase" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.988208, 0 )
@@ -80,3 +81,16 @@ transform = Transform( -1, -8.88179e-16, -8.74228e-08, -3.6642e-08, 0.907924, 0.
 current = true
 fov = 81.2588
 script = ExtResource( 2 )
+
+[node name="UI" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Joystick" parent="UI" instance=ExtResource( 3 )]
+margin_left = 722.148
+margin_top = -302.67
+margin_right = 1022.15
+margin_bottom = -2.66968
