@@ -1,6 +1,7 @@
 extends MarginContainer
 
 const scene = preload("res://Testing_Cave.tscn")
+const dialog = preload("res://Textbox.tscn")
 
 onready var selector_one = $CenterContainer/VBoxContainer/VBoxContainer/CenterContainer/HBoxContainer/Selector
 onready var selector_two = $CenterContainer/VBoxContainer/VBoxContainer/CenterContainer2/HBoxContainer/Selector
@@ -26,7 +27,8 @@ func handle_selection(_current_selection):
 		get_parent().add_child(scene.instance())
 		queue_free()
 	elif _current_selection == 1:
-		print("Not yet implemented")
+		get_parent().add_child(dialog.instance())
+		queue_free()
 	elif _current_selection == 2:
 		get_tree().quit()
 
