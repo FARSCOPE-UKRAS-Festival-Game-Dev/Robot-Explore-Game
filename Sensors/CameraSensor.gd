@@ -18,7 +18,8 @@ func _process(delta):
 	$CameraBody/Viewport/Camera.global_transform = $CameraBody.global_transform
 	$CameraBody/Viewport/Camera.translate_object_local (Vector3(0,1,0))
 	$CameraBody/Viewport/Camera.rotate_object_local(Vector3(0, 1, 0),-PI/2) #I don't know why it's this angle 
-func _render_view():
+	
+func render_view():
 	#cameras will send what they capture to the nearist viewport in the tree
 	#so we make the camera a child of the viewport
 	return $CameraBody/Viewport.get_texture()
