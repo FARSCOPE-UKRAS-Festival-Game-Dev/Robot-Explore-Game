@@ -1,6 +1,12 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://Robot_with_whisk_sensor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Testing_Cave.gd" type="Script" id=2]
+[ext_resource path="res://Robot_with_cam_sensor.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Environment" id=18]
+background_energy = 3.66
+ambient_light_color = Color( 0.917647, 0.639216, 0.639216, 1 )
+ambient_light_energy = 1.09
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 100, 100 )
@@ -51,22 +57,25 @@ extents = Vector3( 20, 20, 1 )
 [sub_resource type="CubeMesh" id=13]
 size = Vector3( 3, 3, 3 )
 
-[sub_resource type="SpatialMaterial" id=14]
+[sub_resource type="SpatialMaterial" id=19]
 albedo_color = Color( 0.788235, 0.0509804, 0.0509804, 1 )
 
-[sub_resource type="BoxShape" id=15]
+[sub_resource type="BoxShape" id=20]
 extents = Vector3( 1.5, 1.5, 1.5 )
 
-[sub_resource type="PhysicsMaterial" id=16]
+[sub_resource type="PhysicsMaterial" id=21]
 
 [sub_resource type="PhysicsMaterial" id=17]
 
-[sub_resource type="Environment" id=18]
-background_energy = 3.66
-ambient_light_color = Color( 0.917647, 0.639216, 0.639216, 1 )
-ambient_light_energy = 0.77
-
 [node name="Testing_Cave" type="Spatial"]
+script = ExtResource( 2 )
+robotScene = ExtResource( 3 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 18 )
+
+[node name="RobotStartLocation" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.56345, 2.28315, 0 )
 
 [node name="Environment" type="Spatial" parent="."]
 
@@ -309,22 +318,22 @@ gravity_scale = 3.0
 
 [node name="MeshInstance" type="MeshInstance" parent="Obstacles/RedBox"]
 mesh = SubResource( 13 )
-material/0 = SubResource( 14 )
+material/0 = SubResource( 19 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obstacles/RedBox"]
-shape = SubResource( 15 )
+shape = SubResource( 20 )
 
 [node name="RedBox2" type="RigidBody" parent="Obstacles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75444, 5.07782, 0.07 )
-physics_material_override = SubResource( 16 )
+physics_material_override = SubResource( 21 )
 gravity_scale = 3.0
 
 [node name="MeshInstance" type="MeshInstance" parent="Obstacles/RedBox2"]
 mesh = SubResource( 13 )
-material/0 = SubResource( 14 )
+material/0 = SubResource( 19 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obstacles/RedBox2"]
-shape = SubResource( 15 )
+shape = SubResource( 20 )
 
 [node name="RedBox3" type="RigidBody" parent="Obstacles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.44079, 2.78665, -3.4921 )
@@ -333,10 +342,10 @@ gravity_scale = 3.0
 
 [node name="MeshInstance" type="MeshInstance" parent="Obstacles/RedBox3"]
 mesh = SubResource( 13 )
-material/0 = SubResource( 14 )
+material/0 = SubResource( 19 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obstacles/RedBox3"]
-shape = SubResource( 15 )
+shape = SubResource( 20 )
 
 [node name="RedBox4" type="RigidBody" parent="Obstacles"]
 transform = Transform( 1, 0, 0, 0, 9.44845, 0, 0, 0, 1.63236, 15.7447, 11.8072, -16.711 )
@@ -345,15 +354,10 @@ gravity_scale = 3.0
 
 [node name="MeshInstance" type="MeshInstance" parent="Obstacles/RedBox4"]
 mesh = SubResource( 13 )
-material/0 = SubResource( 14 )
+material/0 = SubResource( 19 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obstacles/RedBox4"]
-shape = SubResource( 15 )
-
-[node name="Robot_with_sensor2" parent="." instance=ExtResource( 1 )]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 18 )
+shape = SubResource( 20 )
 
 [node name="Lights" type="Spatial" parent="."]
 
