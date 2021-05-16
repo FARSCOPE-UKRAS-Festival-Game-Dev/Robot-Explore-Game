@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Sensors/LidarSensor.gd" type="Script" id=1]
-[ext_resource path="res://Sensors/LidarPlot.gd" type="Script" id=2]
-[ext_resource path="res://Sensors/Camera.gd" type="Script" id=3]
-[ext_resource path="res://Sensors/Head.gd" type="Script" id=4]
+[ext_resource path="res://Sensors/Lidar/LidarSensor.gd" type="Script" id=1]
+[ext_resource path="res://Sensors/Lidar/LidarPlot.gd" type="Script" id=2]
+[ext_resource path="res://Sensors/Lidar/Camera.gd" type="Script" id=3]
+[ext_resource path="res://Sensors/Lidar/Head.gd" type="Script" id=4]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.22502, 0.14343, 0.246511 )
