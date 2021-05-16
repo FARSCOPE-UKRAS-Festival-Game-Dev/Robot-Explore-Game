@@ -1,23 +1,23 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Vehicle.gd" type="Script" id=1]
-[ext_resource path="res://Vehicle_Follow_Camera.gd" type="Script" id=2]
-[ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Robot/Vehicle.gd" type="Script" id=2]
+[ext_resource path="res://Robot/Vehicle_Follow_Camera.gd" type="Script" id=3]
 
 [sub_resource type="CylinderMesh" id=1]
 height = 0.3
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.536824, 0.545426, 1.03252 )
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="CubeMesh" id=3]
 size = Vector3( 1, 1, 2 )
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.145098, 0.870588, 0.25098, 1 )
 
 [node name="Robot" type="VehicleBody"]
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -64,11 +64,11 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="Body2" type="MeshInstance" parent="."]
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
 
 [node name="CameraBase" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.988208, 0 )
@@ -77,7 +77,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.988208, 0 )
 transform = Transform( -1, -8.88179e-16, -8.74228e-08, -3.6642e-08, 0.907924, 0.419135, 7.93732e-08, 0.419135, -0.907924, 0, 1.4543, -3.22982 )
 current = true
 fov = 81.2588
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="UI" type="Control" parent="."]
 margin_right = 1024.0
@@ -86,7 +86,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Joystick" parent="UI" instance=ExtResource( 3 )]
+[node name="Joystick" parent="UI" instance=ExtResource( 1 )]
 margin_left = 722.148
 margin_top = -302.67
 margin_right = 1022.15
