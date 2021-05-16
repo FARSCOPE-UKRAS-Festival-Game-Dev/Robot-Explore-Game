@@ -1,13 +1,17 @@
 extends Node
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+#### Options
+var debug_mode = true
+
+##### Control Interface
 var control_panel_ui_scene_pl = preload('res://Utilities/Control_Panel_UI.tscn')
 var joystick_loaded = false
 var is_joystick_enabled = true
 var joystick
+
+
+#####
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,3 +31,4 @@ func show_joystick():
 		joystick_loaded = true
 		if not OS.has_touchscreen_ui_hint() and joystick.visibility_mode == joystick.VisibilityMode.TOUCHSCREEN_ONLY:
 			is_joystick_enabled = false
+
