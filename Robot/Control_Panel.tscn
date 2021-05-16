@@ -43,32 +43,32 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
-anchor_left = 0.1
-anchor_top = 0.1
-anchor_right = 0.9
-anchor_bottom = 0.9
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -500.0
+margin_top = -260.0
+margin_right = 500.0
+margin_bottom = 260.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/Panel/MarginContainer"]
-margin_right = 859.0
+margin_right = 1000.0
 margin_bottom = 520.0
-custom_constants/vseparation = 100
-custom_constants/hseparation = 100
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
 columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Panel" type="Panel" parent="MarginContainer/Panel/MarginContainer/GridContainer"]
-margin_right = 379.0
-margin_bottom = 210.0
+margin_right = 495.0
+margin_bottom = 255.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 2 )
@@ -89,13 +89,13 @@ __meta__ = {
 [node name="HUD1" parent="MarginContainer/Panel/MarginContainer/GridContainer/Panel/MarginContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 354.0
-margin_bottom = 195.0
+margin_right = 470.0
+margin_bottom = 240.0
 
 [node name="Panel2" type="Panel" parent="MarginContainer/Panel/MarginContainer/GridContainer"]
-margin_left = 479.0
-margin_right = 858.0
-margin_bottom = 210.0
+margin_left = 505.0
+margin_right = 1000.0
+margin_bottom = 255.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 2 )
@@ -116,12 +116,12 @@ __meta__ = {
 [node name="HUD2" parent="MarginContainer/Panel/MarginContainer/GridContainer/Panel2/MarginContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 354.0
-margin_bottom = 195.0
+margin_right = 470.0
+margin_bottom = 240.0
 
 [node name="Panel3" type="Panel" parent="MarginContainer/Panel/MarginContainer/GridContainer"]
-margin_top = 310.0
-margin_right = 379.0
+margin_top = 265.0
+margin_right = 495.0
 margin_bottom = 520.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -143,8 +143,8 @@ __meta__ = {
 [node name="HUD3" parent="MarginContainer/Panel/MarginContainer/GridContainer/Panel3/MarginContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 354.0
-margin_bottom = 195.0
+margin_right = 470.0
+margin_bottom = 240.0
 
 [node name="DebugTools" type="Control" parent="MarginContainer/Panel"]
 margin_left = 816.858
