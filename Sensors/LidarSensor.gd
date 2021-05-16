@@ -16,10 +16,10 @@ var counter =0
 var pixel_draw = Vector2(0,0)
 #middle pixel assigned to robot
 var sensor_pixel= Vector2(round(lidar_resolution.x/2),round(lidar_resolution.y/2));
+onready var head = $LidarBody/Head
 #raycast
-onready var ray = $LidarBody/RayCast
-# laser vector in its local frame
-var point_laser=Vector3(max_range,0,0)
+onready var ray = $LidarBody/Head/RayCast
+onready var raygeom = $LidarBody/Head/RayCast/ImmediateGeometry
 
 #the following still need to be implemented
 var angle_range = 45.0 #The maximum deviation from forward dir that will get readings (degrees)
@@ -51,34 +51,20 @@ func _ready():
 	occupancy_map.unlock()
 
 	$Viewport/LidarPlot.flip_v = true
-	head_location= $LidarBody/Head.global_transform.origin
-
+	head_location = $LidarBody/Head.global_transform.origin
+	
 func _process(delta):
-	#rotation of lidar ray
-	$LidarBody/RayCast.rotate_y(deg2rad(rotation_speed)*delta)
-	#get location of head which coincides with laser origin
-	head_location= $LidarBody/Head.global_transform.origin
-	#get value of total amount of rotation so far
-	counter=counter+rotation_speed*delta
+	$LidarBody/Head.global_transform = $LidarBody/Head/Position3D.global_transform
+	$LidarBody/Head/RayCast.global_transform = $LidarBody/Head/Position3D.global_transform
+	
+	print(head_location, ray.global_transform.origin, head_location + ray.cast_to)
 	# draw ray 
-	$LidarBody/RayCast/ImmediateGeometry.clear()
-	$LidarBody/RayCast/ImmediateGeometry.begin(1, null) #
-	$LidarBody/RayCast/ImmediateGeometry.add_vertex(ray.global_transform.origin)
-	$LidarBody/RayCast/ImmediateGeometry.add_vertex(ray.global_transform.origin+ to_global(ray.cast_to))
-	$LidarBody/RayCast/ImmediateGeometry.end() #
-	#check lidar collision data
-	hit_location = scanning()
-	# in case there is a collision compute the pixel location in occupancy map
-	if hit_location[0]:
-		var laserVec = hit_location[1] - head_location
-		#compute pixel location: middle pixel + mag in x-z plane*unit vector in that plane 
-		#and divided by value of each pixek
-		pixel_draw= (sensor_pixel+ (Vector2(hit_location[1].x,hit_location[1].z).length()/grid_val)*Vector2(hit_location[1].x,hit_location[1].z).normalized()).round()
-		#draw collision points as black dots
-		occupancy_map.lock()
-		occupancy_map.set_pixel(pixel_draw.x,pixel_draw.y,Color(0,0,0,1))
-		occupancy_map.unlock()
-
+	raygeom.clear()
+	raygeom.begin(1, null) #
+	raygeom.add_vertex(head_location)
+	raygeom.add_vertex(head_location + ray.cast_to)
+	raygeom.end() #
+	
 	#once whole rotation is done clear counter and occupancy map
 	if counter>=360:
 		counter=0;
@@ -92,6 +78,32 @@ func _process(delta):
 	# set the texture to the computed occupancy map
 	texture.create_from_image(occupancy_map)
 	$Viewport/LidarPlot.texture = texture
+
+func _physics_process(delta):
+	#rotation of lidar ray
+	head.rotate_y(deg2rad(rotation_speed*delta))
+	
+	#get location of head which coincides with laser origin
+	#ray.global_transform.origin = head_location
+	
+	#get value of total amount of rotation so far
+	counter = counter + rotation_speed*delta
+
+	#check lidar collision data
+	hit_location = scanning()
+	# in case there is a collision compute the pixel location in occupancy map
+	if hit_location[0]:
+		var laserVec = hit_location[1] - head_location
+		#compute pixel location: middle pixel + mag in x-z plane*unit vector in that plane 
+		#and divided by value of each pixek
+		pixel_draw= (sensor_pixel+ (Vector2(hit_location[1].x,hit_location[1].z).length()/grid_val)*Vector2(hit_location[1].x,hit_location[1].z).normalized()).round()
+		#draw collision points as black dots
+		occupancy_map.lock()
+		occupancy_map.set_pixel(pixel_draw.x,pixel_draw.y,Color(0,0,0,1))
+		occupancy_map.unlock()
+
+
+
 	
 func render_view():
 	return $Viewport/LidarPlot.get_texture()

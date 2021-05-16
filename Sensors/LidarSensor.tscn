@@ -35,7 +35,7 @@ __meta__ = {
 }
 
 [node name="LidarBody" type="CollisionShape" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.110817, 0.0786373 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.110817, 0.0445593 )
 shape = SubResource( 1 )
 
 [node name="Base" type="MeshInstance" parent="LidarBody"]
@@ -49,16 +49,18 @@ layers = 2
 mesh = SubResource( 4 )
 material/0 = SubResource( 7 )
 
-[node name="RayCast" type="RayCast" parent="LidarBody"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.218909, -0.0786373 )
+[node name="RayCast" type="RayCast" parent="LidarBody/Head"]
 enabled = true
 cast_to = Vector3( -500, 0, 0 )
 collide_with_areas = true
 
-[node name="ImmediateGeometry" type="ImmediateGeometry" parent="LidarBody/RayCast"]
+[node name="ImmediateGeometry" type="ImmediateGeometry" parent="LidarBody/Head/RayCast"]
 material_override = SubResource( 2 )
 
+[node name="Position3D" type="Position3D" parent="LidarBody/Head"]
+
 [node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 300, 300 )
 
 [node name="LidarPlot" type="TextureRect" parent="Viewport"]
 margin_right = 100.0
