@@ -75,8 +75,9 @@ func _process(delta):
 	# in case there is a collision compute the pixel location in occupancy map
 	if hit_location[0]:
 		var laserVec = hit_location[1] - head_location
-		#comput pixel location
-		pixel_draw= (sensor_pixel+ (hit_location[1].length()/grid_val)*Vector2(hit_location[1].x,hit_location[1].z).normalized()).round()
+		#compute pixel location: middle pixel + mag in x-z plane*unit vector in that plane 
+		#and divided by value of each pixek
+		pixel_draw= (sensor_pixel+ (Vector2(hit_location[1].x,hit_location[1].z).length()/grid_val)*Vector2(hit_location[1].x,hit_location[1].z).normalized()).round()
 		#draw collision points as black dots
 		occupancy_map.lock()
 		occupancy_map.set_pixel(pixel_draw.x,pixel_draw.y,Color(0,0,0,1))
