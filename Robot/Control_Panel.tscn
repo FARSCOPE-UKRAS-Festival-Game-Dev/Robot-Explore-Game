@@ -174,5 +174,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ToggleHuds" type="CheckButton" parent="MarginContainer/Panel/DebugTools"]
+margin_left = -166.598
+margin_top = 0.8909
+margin_right = -11.5984
+margin_bottom = 40.8909
+pressed = true
+text = "Toggle HUD"
+
 [connection signal="pressed" from="MarginContainer/Panel/DebugTools/CheckButton" to="." method="_on_toggle_background_button"]
 [connection signal="toggled" from="MarginContainer/Panel/DebugTools/CheckButton" to="." method="_on_toggle_background_button"]
+[connection signal="toggled" from="MarginContainer/Panel/DebugTools/ToggleHuds" to="." method="_on_ToggleHuds_toggled"]

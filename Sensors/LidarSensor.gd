@@ -1,16 +1,14 @@
-extends "res://Sensors/BaseSensor.gd"
+extends "BaseSensor.gd"
 # occupancy map
 export var lidar_resolution = Vector2(300,300) # pixel used to show occupancy map
 # create texture required to show occupancy mao
 var texture = ImageTexture.new()
 var occupancy_map = Image.new()
 
-var grid_val=0.1 #each grid is 0.01
-var rotation_speed = 90.0 # The angular speed (degrees/s) of the ray
+export var grid_val=0.1 #each grid is 0.01
+export var rotation_speed = 90.0 # The angular speed (degrees/s) of the ray
 
-var max_range = 500 # maximum range of lidar
-
-
+export var max_range = 500 # maximum range of lidar
 
 var hit_location
 var head_location
@@ -42,7 +40,8 @@ func scanning():
 	return [flag,hit]
 
 func _ready():
-	$Viewport.size=lidar_resolution
+	$Viewport.size = lidar_resolution
+
 	# create occupancy map, each pixel can be linked to a value of distance
 	occupancy_map.create(lidar_resolution.x,lidar_resolution.y, false, Image.FORMAT_RGBA8)
 	occupancy_map.fill(Color(1,1,1,1))
@@ -53,9 +52,6 @@ func _ready():
 
 	$Viewport/LidarPlot.flip_v = true
 	head_location= $LidarBody/Head.global_transform.origin
-
-
-	
 
 func _process(delta):
 	#rotation of lidar ray
@@ -95,11 +91,10 @@ func _process(delta):
 	
 	# set the texture to the computed occupancy map
 	texture.create_from_image(occupancy_map)
-	$Viewport/LidarPlot.set_texture(texture)
+	$Viewport/LidarPlot.texture = texture
 	
-
 func render_view():
-	return $Viewport.get_texture()
+	return $Viewport/LidarPlot.get_texture()
 	
 
 
