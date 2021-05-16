@@ -8,15 +8,15 @@ export var camera_resolution = Vector2(400, 500)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Viewport.size = camera_resolution
+	$Body/Viewport.size = camera_resolution
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 	#Camera doesn't follow parent's tranform so we set it manually
-	$Viewport/Camera.global_transform = $gopro/CameraPosition.global_transform
+	$Body/Viewport/Camera.global_transform = $Body/CameraPosition.global_transform
 	
 func render_view():
 	#cameras will send what they capture to the nearist viewport in the tree
 	#so we make the camera a child of the viewport
-	return $Viewport.get_texture()
+	return $Body/Viewport.get_texture()
