@@ -32,6 +32,7 @@ color = Color( 0.490196, 0.462745, 0.964706, 1 )
 [node name="CenterContainer" type="CenterContainer" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 458.0
@@ -186,6 +187,43 @@ custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 custom_fonts/font = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DebugNode" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+
+[node name="MapChoice" type="OptionButton" parent="DebugNode"]
+margin_left = 768.0
+margin_top = 72.0
+margin_right = 960.0
+margin_bottom = 92.0
+hint_tooltip = "[DEBUG] Choose the map"
+focus_mode = 1
+enabled_focus_mode = 1
+text = "[DEBUG] Choose The Map"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DebugNode/MapChoice"]
+margin_top = -16.0
+margin_right = 104.0
+margin_bottom = -2.0
+text = "Choose the map"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DebugNode"]
+margin_left = 824.0
+margin_top = 24.0
+margin_right = 920.0
+margin_bottom = 38.0
+text = "Debug Options"
 __meta__ = {
 "_edit_use_anchors_": false
 }

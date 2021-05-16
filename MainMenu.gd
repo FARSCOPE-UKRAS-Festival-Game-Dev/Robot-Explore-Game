@@ -1,8 +1,15 @@
 extends MarginContainer
 
-const scene = preload("res://Environments/Cave_Y_Junction.tscn")
+export (String) var game_name = "The Best Robot Sensor Exploration Game"
+
+export(Array, Array, String) var scene_locations = [
+	["Cave Y Junction", "res://Environments/Cave_Y_Junction.tscn"],
+	["Testing Maze", "res://Environments/Testing_Maze.tscn"]
+]
+
 const dialog = preload("res://Utilities/Textbox.tscn")
 
+onready var globals = get_node('/root/Globals')
 onready var selector_one = $CenterContainer/VBoxContainer/VBoxContainer/CenterContainer/HBoxContainer/Selector
 onready var selector_two = $CenterContainer/VBoxContainer/VBoxContainer/CenterContainer2/HBoxContainer/Selector
 onready var selector_three = $CenterContainer/VBoxContainer/VBoxContainer/CenterContainer3/HBoxContainer/Selector
@@ -11,6 +18,15 @@ var current_selection = 0
 
 func _ready():
 	set_current_selection(0)
+	
+	$CenterContainer/VBoxContainer/CenterContainer/Label.text = game_name
+	
+	if !globals.debug_mode:
+		$DebugNode.visible = false
+	
+	for maps in scene_locations:
+		$DebugNode/MapChoice.add_item(maps[0])
+	
 	
 func _process(delta):
 	if Input.is_action_just_pressed("ui_down") and current_selection < 2:
@@ -24,8 +40,9 @@ func _process(delta):
 
 func handle_selection(_current_selection):
 	if _current_selection == 0:
-		get_parent().add_child(scene.instance())
-		queue_free()
+		get_tree().change_scene(scene_locations[$DebugNode/MapChoice.get_selected_id()][1])
+		#get_parent().add_child(scene.instance())
+		#queue_free()
 	elif _current_selection == 1:
 		get_parent().add_child(dialog.instance())
 		queue_free()
