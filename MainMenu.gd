@@ -1,6 +1,6 @@
 extends MarginContainer
 
-const scene = preload("res://Environments/Testing_Cave_2.tscn")
+const scene = preload("res://Environments/Cave_Y_Junction.tscn")
 const dialog = preload("res://Utilities/Textbox.tscn")
 
 onready var selector_one = $CenterContainer/VBoxContainer/VBoxContainer/CenterContainer/HBoxContainer/Selector
