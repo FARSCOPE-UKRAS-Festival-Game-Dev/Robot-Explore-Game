@@ -8,12 +8,13 @@ var steer_target = 0
 export var engine_force_value = 40
 
 # Joystick node
-onready var joystick = $UI/Joystick
-var is_joystick_enabled = true
+var joystick
+var is_joystick_enabled
 
 func _ready() -> void:
-	if not OS.has_touchscreen_ui_hint() and joystick.visibility_mode == joystick.VisibilityMode.TOUCHSCREEN_ONLY:
-		is_joystick_enabled = false
+	var globals = get_node('/root/Globals')
+	joystick = globals.joystick
+	is_joystick_enabled = globals.is_joystick_enabled
 
 func _physics_process(delta):
 	var fwd_mps = transform.basis.xform_inv(linear_velocity).x
