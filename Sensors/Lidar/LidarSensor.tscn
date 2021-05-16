@@ -1,10 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sensors/Lidar/LidarSensor.gd" type="Script" id=1]
-[ext_resource path="res://Sensors/Lidar/Base.gd" type="Script" id=2]
 [ext_resource path="res://Sensors/Lidar/Camera.gd" type="Script" id=3]
-[ext_resource path="res://Sensors/Lidar/Head.gd" type="Script" id=4]
-[ext_resource path="res://Sensors/Lidar/ImmediateGeometry.gd" type="Script" id=5]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.22502, 0.14343, 0.246511 )
@@ -29,27 +26,24 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00843167, 0.0199989, 0 )
 shape = SubResource( 1 )
 
 [node name="RayCast" type="RayCast" parent="LidarBody"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.604148, 6.1196e-09 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.6, 0 )
 enabled = true
 cast_to = Vector3( -500, 0, 0 )
 collide_with_areas = true
 
 [node name="ImmediateGeometry" type="ImmediateGeometry" parent="LidarBody/RayCast"]
 material_override = SubResource( 4 )
-script = ExtResource( 5 )
 
 [node name="Base" type="MeshInstance" parent="LidarBody"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = null
-script = ExtResource( 2 )
 
 [node name="Head" type="MeshInstance" parent="LidarBody"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.6, 0 )
 layers = 2
 mesh = SubResource( 3 )
 material/0 = null
-script = ExtResource( 4 )
 
 [node name="Viewport" type="Viewport" parent="."]
 
@@ -68,5 +62,3 @@ transform = Transform( -1, -8.88179e-16, -8.74228e-08, -3.6642e-08, 0.907924, 0.
 current = true
 fov = 81.2588
 script = ExtResource( 3 )
-
-[node name="lidarOcc" type="Sprite3D" parent="."]
