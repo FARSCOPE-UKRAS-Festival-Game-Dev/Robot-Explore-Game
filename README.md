@@ -1,35 +1,34 @@
 # Robot-Explore-Game
 
-Contributors 
+## Contributors 
 
-**Game Developers**
+* Game Developers
 
-Mickey Li
+  * Mickey Li
 
-Arturs Elksnis 
+  * Arturs Elksnis 
 
-Kirsty Aquilina 
+  * Kirsty Aquilina 
 
-Peter Wharton 
+  * Peter Wharton 
 
-Julian Hird 
+  * Julian Hird 
 
-Hendrik Eichhorn 
+  * Hendrik Eichhorn 
 
-Wong Weijie
+  * Wong Weijie
 
-Mihai Anca 
-
-
+  * Mihai Anca 
 
 
-**Game Design**
 
-Gabriella Miles
+* Game Design
 
-Valentina Lo Gatto 
+  * Gabriella Miles
 
-Alex Smith
+  * Valentina Lo Gatto 
+
+  * Alex Smith
 
 
 
