@@ -1,27 +1,23 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Robot/Control_Panel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Environments/LidarTestScene.gd" type="Script" id=2]
 [ext_resource path="res://Sensors/LidarSensor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sensors/CameraSensor.tscn" type="PackedScene" id=4]
 
-[sub_resource type="CubeMesh" id=1]
-
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=1]
 extents = Vector3( 1.00384, 1, 1 )
 
-[sub_resource type="CylinderMesh" id=3]
+[sub_resource type="CubeMesh" id=2]
 
-[sub_resource type="CylinderShape" id=4]
-radius = 1.26059
-height = 2.87835
+[sub_resource type="CylinderShape" id=3]
+
+[sub_resource type="CylinderMesh" id=4]
 
 [node name="LidarTestScene" type="Spatial"]
 script = ExtResource( 2 )
 
 [node name="CameraBase" type="Spatial" parent="."]
-
-[node name="Camera" type="Camera" parent="CameraBase"]
-transform = Transform( 0.964396, -0.0977798, 0.245722, -0.0210071, 0.89788, 0.439739, -0.263627, -0.429245, 0.863858, 2.04555, 3.134, 3.65796 )
 
 [node name="Lidar" parent="." instance=ExtResource( 3 )]
 collision_layer = 2
@@ -29,29 +25,40 @@ collision_mask = 2
 gravity_scale = 0.0
 
 [node name="Box" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+transform = Transform( 0.701668, 0, 0.712504, 0, 1, 0, -0.712504, 0, 0.701668, -2.48983, 0.363205, -0.415218 )
 gravity_scale = 0.0
-
-[node name="MeshInstance" type="MeshInstance" parent="Box"]
-transform = Transform( 0.935974, 0, 0.35207, 0, 1, 0, -0.35207, 0, 0.935974, -1.61694, 0.45474, -0.0836611 )
-mesh = SubResource( 1 )
-material/0 = null
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape" type="CollisionShape" parent="Box"]
-transform = Transform( 0.935974, 0, 0.35207, 0, 1, 0, -0.35207, 0, 0.935974, -1.61694, 0.45474, -0.0836611 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
-[node name="Cylinder" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35507, 0, 0 )
-gravity_scale = 0.0
-
-[node name="MeshInstance" type="MeshInstance" parent="Cylinder"]
-transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 2.85501, 0.627441, -0.157691 )
-mesh = SubResource( 3 )
+[node name="MeshInstance" type="MeshInstance" parent="Box/CollisionShape"]
+mesh = SubResource( 2 )
 material/0 = null
 
+[node name="Cylinder" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61107, 0.0462804, -0.458407 )
+gravity_scale = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
 [node name="CollisionShape" type="CollisionShape" parent="Cylinder"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21901, 0.898899, -0.722771 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Cylinder/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0676577, 0.0119534, -0.0163908 )
+mesh = SubResource( 4 )
+material/0 = null
 
 [node name="ControlPanel" parent="." instance=ExtResource( 1 )]
+
+[node name="SideView" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.51932 )
+mode = 1
+
+[node name="TopView" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8, 0 )
+mode = 1
