@@ -52,6 +52,8 @@ func _physics_process(delta):
 	
 	#print("AE: " + str(steering) + " : " + str(steer_target) + " : " + str(STEER_SPEED * delta) + " : " + str(transform))
 
+	# Try to prevent the robot from flipping over.
+	# If it's rotations look bad, then fix them
 	var robot_rotation = get_rotation_degrees()
 	#print("AE: " + str(robot_rotation))
 	if (abs(robot_rotation.z) > 80):
