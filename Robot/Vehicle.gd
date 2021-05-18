@@ -49,5 +49,14 @@ func _physics_process(delta):
 			brake = 1
 	else:
 		brake = 0.0
+	
+	#print("AE: " + str(steering) + " : " + str(steer_target) + " : " + str(STEER_SPEED * delta) + " : " + str(transform))
 
+	var robot_rotation = get_rotation_degrees()
+	#print("AE: " + str(robot_rotation))
+	if (abs(robot_rotation.z) > 80):
+		set_rotation_degrees(Vector3(robot_rotation.x, robot_rotation.y, 0))
+	elif (abs(robot_rotation.x) > 80):
+		set_rotation_degrees(Vector3(0, robot_rotation.y, robot_rotation.z))
+		
 	steering = move_toward(steering, steer_target, STEER_SPEED * delta)
