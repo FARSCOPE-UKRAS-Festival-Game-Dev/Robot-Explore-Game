@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=1]
+
+[node name="ControlPanelUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Joystick" parent="." instance=ExtResource( 1 )]
+margin_left = 721.0
+margin_right = 1021.0
+joystick_mode = 1
+_pressed_color = Color( 0.176471, 0.160784, 0.168627, 1 )

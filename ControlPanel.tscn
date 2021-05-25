@@ -1,8 +1,0 @@
-[gd_scene format=2]
-
-[node name="ControlPanel" type="Node2D"]
-
-[node name="ViewSpace1" type="Node2D" parent="."]
-
-[node name="Viewport" type="Viewport" parent="ViewSpace1"]
-size = Vector2( 10, 10 )

@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Sensors/LidarSensor.gd" type="Script" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.214474, 0.244944, 0.302021 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 0.8, 0.5, 1.2 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.921569, 0.890196, 0.0862745, 1 )
+
+[sub_resource type="CylinderMesh" id=4]
+top_radius = 0.15
+bottom_radius = 0.2
+height = 0.2
+
+[sub_resource type="NoiseTexture" id=5]
+as_normalmap = true
+bump_strength = 7.0
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0, 0, 0, 1 )
+roughness_texture = SubResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.121569, 0.623529, 0.282353, 1 )
+
+[node name="Lidar" type="RigidBody"]
+input_ray_pickable = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LidarBody" type="CollisionShape" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.110817, 0.0445593 )
+shape = SubResource( 1 )
+
+[node name="Base" type="MeshInstance" parent="LidarBody"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.110817, 0.00472115 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="Head" type="MeshInstance" parent="LidarBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0891825, -0.0786373 )
+layers = 2
+mesh = SubResource( 4 )
+material/0 = SubResource( 6 )
+
+[node name="RayCast" type="RayCast" parent="LidarBody/Head"]
+enabled = true
+cast_to = Vector3( -500, 0, 0 )
+collide_with_areas = true
+
+[node name="ImmediateGeometry" type="ImmediateGeometry" parent="LidarBody/Head/RayCast"]
+material_override = SubResource( 7 )
+
+[node name="Position3D" type="Position3D" parent="LidarBody/Head"]
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 300, 300 )
+
+[node name="LidarPlot" type="TextureRect" parent="Viewport"]
+margin_right = 100.0
+margin_bottom = 142.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

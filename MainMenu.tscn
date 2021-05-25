@@ -1,0 +1,233 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Fonts/Born2bSportyV2.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Fonts/Born2bSportyV2.tres" type="DynamicFont" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[node name="MainMenu" type="MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.490196, 0.462745, 0.964706, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 458.0
+margin_top = 234.0
+margin_right = 566.0
+margin_bottom = 366.0
+custom_constants/separation = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 108.0
+margin_bottom = 32.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer"]
+margin_right = 108.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Title text"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 52.0
+margin_right = 108.0
+margin_bottom = 132.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_right = 108.0
+margin_bottom = 24.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/VBoxContainer/CenterContainer"]
+margin_left = 8.0
+margin_right = 99.0
+margin_bottom = 24.0
+
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 11.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 11, 0 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = ">"
+
+[node name="Option" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 15.0
+margin_right = 91.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 76, 0 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer/CenterContainer/HBoxContainer/Option"]
+margin_left = -15.1819
+margin_top = -9.24493
+margin_right = 60.8181
+margin_bottom = 22.7551
+rect_min_size = Vector2( 76, 0 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 108.0
+margin_bottom = 52.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/VBoxContainer/CenterContainer2"]
+margin_left = 8.0
+margin_right = 99.0
+margin_bottom = 24.0
+
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_right = 11.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 11, 0 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = ">"
+
+[node name="Option" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_left = 15.0
+margin_right = 91.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 76, 0 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Dialog"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer/CenterContainer2/HBoxContainer/Option"]
+margin_left = -15.0
+margin_top = -4.0
+margin_right = 61.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 76, 0 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 56.0
+margin_right = 108.0
+margin_bottom = 80.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/VBoxContainer/CenterContainer3"]
+margin_left = 8.0
+margin_right = 99.0
+margin_bottom = 24.0
+
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer/CenterContainer3/HBoxContainer"]
+margin_right = 11.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 11, 0 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = ">"
+
+[node name="Option" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer/CenterContainer3/HBoxContainer"]
+margin_left = 15.0
+margin_right = 91.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 76, 0 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer/CenterContainer3/HBoxContainer/Option"]
+margin_left = -15.4579
+margin_top = -0.55545
+margin_right = 60.5421
+margin_bottom = 31.4445
+rect_min_size = Vector2( 76, 0 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DebugNode" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+
+[node name="MapChoice" type="OptionButton" parent="DebugNode"]
+margin_left = 768.0
+margin_top = 72.0
+margin_right = 960.0
+margin_bottom = 92.0
+hint_tooltip = "[DEBUG] Choose the map"
+focus_mode = 1
+enabled_focus_mode = 1
+text = "[DEBUG] Choose The Map"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DebugNode/MapChoice"]
+margin_top = -16.0
+margin_right = 104.0
+margin_bottom = -2.0
+text = "Choose the map"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DebugNode"]
+margin_left = 824.0
+margin_top = 24.0
+margin_right = 920.0
+margin_bottom = 38.0
+text = "Debug Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/CenterContainer/HBoxContainer/Option/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/CenterContainer2/HBoxContainer/Option/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/CenterContainer3/HBoxContainer/Option/Button3" to="." method="_on_Button3_pressed"]
