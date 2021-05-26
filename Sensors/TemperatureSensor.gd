@@ -1,5 +1,7 @@
 extends "BaseSensor.gd"
 
+# Texture can be created with https://github.com/hendrikE/Heatmap
+
 
 # Distances
 var temperature = 0
