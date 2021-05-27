@@ -4,7 +4,8 @@ export (String) var game_name = "The Best Robot Sensor Exploration Game"
 
 export(Array, Array, String) var scene_locations = [
 	["Cave Y Junction", "res://Environments/Cave_Y_Junction.tscn"],
-	["Testing Maze", "res://Environments/Testing_Maze.tscn"]
+	["Testing Maze", "res://Environments/Testing_Maze.tscn"],
+	["Mission 1 alpha", "res://Environments/Mission_1.tscn"]
 ]
 
 const dialog = preload("res://Utilities/Textbox.tscn")
