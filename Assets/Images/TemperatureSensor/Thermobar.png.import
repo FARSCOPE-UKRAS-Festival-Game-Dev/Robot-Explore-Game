@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/Thermobar.png-74d5bedfe3171efa0cd064f458c0a381.image"
+
+[deps]
+
+source_file="res://Assets/Images/TemperatureSensor/Thermobar.png"
+dest_files=[ "res://.import/Thermobar.png-74d5bedfe3171efa0cd064f458c0a381.image" ]
+
+[params]
+

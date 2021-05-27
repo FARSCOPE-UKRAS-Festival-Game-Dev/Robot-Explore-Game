@@ -57,7 +57,7 @@ func _process(delta):
 	$LidarBody/Head.global_transform = $LidarBody/Head/Position3D.global_transform
 	$LidarBody/Head/RayCast.global_transform = $LidarBody/Head/Position3D.global_transform
 	
-	print(head_location, ray.global_transform.origin, head_location + ray.cast_to)
+	#print(head_location, ray.global_transform.origin, head_location + ray.cast_to)
 	# draw ray 
 	raygeom.clear()
 	raygeom.begin(1, null) #
