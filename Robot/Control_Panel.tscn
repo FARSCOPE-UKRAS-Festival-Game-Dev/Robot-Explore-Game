@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Robot/Control_Panel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/sensor_frame.jpg" type="Texture" id=2]
 [ext_resource path="res://Sensors/Sensor_HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Utilities/Textbox.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -212,6 +213,8 @@ margin_right = -11.5984
 margin_bottom = 40.8909
 pressed = true
 text = "Toggle HUD"
+
+[node name="Textbox" parent="." instance=ExtResource( 4 )]
 
 [connection signal="pressed" from="MarginContainer/Panel/DebugTools/CheckButton" to="." method="_on_toggle_background_button"]
 [connection signal="toggled" from="MarginContainer/Panel/DebugTools/CheckButton" to="." method="_on_toggle_background_button"]

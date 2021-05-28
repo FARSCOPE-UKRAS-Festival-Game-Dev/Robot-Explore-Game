@@ -13,3 +13,5 @@ func _ready():
 		'Temperature'
 	])
 	
+func recieve_dialog(text):
+	$ControlPanel._on_recieve_dialog(text)

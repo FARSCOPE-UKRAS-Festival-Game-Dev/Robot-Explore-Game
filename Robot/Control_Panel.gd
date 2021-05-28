@@ -57,3 +57,6 @@ func _on_toggle_background_button(button):
 
 func _on_ToggleHuds_toggled(button_pressed):
 	$MarginContainer/Panel/MarginContainer.visible = button_pressed
+
+func _on_recieve_dialog(text):
+	$Textbox.queue_text(text)

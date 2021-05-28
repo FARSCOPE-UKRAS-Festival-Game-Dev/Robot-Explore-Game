@@ -30,3 +30,9 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.7691
 
 [node name="TemperatureSensor" parent="Robot" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.547839, 0 )
+
+[node name="OmniLight2" type="SpotLight" parent="Robot"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.8, 1 )
+spot_range = 11.5
+spot_attenuation = 0.435276
+spot_angle = 40.5
