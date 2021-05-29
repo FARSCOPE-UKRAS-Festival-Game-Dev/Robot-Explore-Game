@@ -29,13 +29,13 @@ onready var fov_cone: Image = load("res://Assets/Images/lidar_fov_cone.png").get
 func scanning():
 	# update raycast
 	ray.force_raycast_update()
-	#check for collision
+	# check for collision
 	var flag= ray.is_colliding()
 	var hit=[]
 	# in case of collision get collision point
 	if flag:
 		hit=ray.get_collision_point()
-		#useful for debugging
+		# useful for debugging
 		#print(ray.get_collider().name)
 	return [flag,hit]
 
@@ -58,14 +58,12 @@ func _ready():
 	head_location = $LidarBody/Head.global_transform.origin
 	
 func _process(delta):
-
 	# draw ray relative to sensor location
-
 	raygeom.clear()
-	raygeom.begin(1, null) #
+	raygeom.begin(1, null)
 	raygeom.add_vertex(Vector3(0, 0, 0))
 	raygeom.add_vertex(ray.cast_to)
-	raygeom.end() #
+	raygeom.end()
 	
 	#once whole rotation is done clear counter and occupancy map
 	if counter>=int(field_of_view*3/2):
@@ -82,29 +80,26 @@ func _process(delta):
 		var angle = Vector2(global_forward.x, global_forward.z).angle_to(Vector2(local_forward.x, local_forward.z))
 		var laserVec: Vector3 = hit_location[1] - head_location
 		laserVec = laserVec.rotated(Vector3.UP, angle)
-		#compute pixel location: middle pixel + mag in x-z plane*unit vector in that plane 
-		#and divided by value of each pixek
+		# compute pixel location: middle pixel + mag in x-z plane*unit vector in that plane 
+		# and divided by value of each pixek
 		pixel_draw = (sensor_pixel+ (Vector2(laserVec.x, laserVec.z).length()/grid_val) * Vector2(laserVec.x, laserVec.z).normalized()).round()
-		#draw collision points as black dots
+		# draw collision points as black dots
 		draw_pixels(pixel_draw)
 
 
 func _physics_process(delta):
-	#rotation of lidar ray
+	# rotation of lidar ray
 	ray.set_cast_to(point_laser.rotated(Vector3(0,1,0),deg2rad(counter)))
-	# head.rotate_y(deg2rad(rotation_speed*delta))
 	
-	#get location of head which coincides with laser origin
-	#ray.global_transform.origin = head_location
-	
-	#get value of total amount of rotation so far
+	# get value of total amount of rotation so far
 	counter = counter + rotation_speed*delta
 
-	#check lidar collision data
+	# check lidar collision data
 	hit_location = scanning()
 	# in case there is a collision compute the pixel location in occupancy map
 
 
+# Method to draw a dot at a certain point on the image
 func draw_pixels(position: Vector2):
 	var size = occupancy_map.get_size()
 	occupancy_map.lock()
@@ -118,6 +113,7 @@ func draw_pixels(position: Vector2):
 	occupancy_map.unlock()
 
 
+# Reset the LIDAR image background
 func reset_lidar_background():
 	occupancy_map.fill(Color(0,0,0,1))
 	# set middle pixel to red colour
@@ -127,13 +123,7 @@ func reset_lidar_background():
 	
 	occupancy_map.blend_rect(fov_cone, Rect2(Vector2(0,0), fov_cone.get_size()), sensor_pixel - Vector2(7,0) - ((fov_cone.get_size() / 2.0)))
 	occupancy_map.blend_rect(robot_sprite, Rect2(Vector2(0,0), robot_sprite.get_size()), sensor_pixel - Vector2(robot_sprite.get_width()/2, 0))
-	
 
-	
+
 func render_view():
 	return $Viewport/LidarPlot.get_texture()
-	
-
-
-
-
