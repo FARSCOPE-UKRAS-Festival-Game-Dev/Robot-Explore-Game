@@ -21,6 +21,8 @@ var pixel_draw = Vector2(0,0)
 
 # List of pixels drawn on the LIDAR screen
 var drawn_pixel_locations: Array = []
+var last_num_of_frames: int = INF
+var frames_this_sweep: int = 0
 
 # middle pixel assigned to robot
 var sensor_pixel= Vector2(round(lidar_resolution.x/2),round(lidar_resolution.y * 9.0 / 10.0));
@@ -73,6 +75,8 @@ func _process(delta):
 	#once whole rotation is done clear counter and occupancy map
 	if counter >= int(field_of_view * 3/2):
 		counter = int(field_of_view / 2)
+		last_num_of_frames = frames_this_sweep
+		frames_this_sweep = 0
 		#counter_direction = -1
 		#reset_lidar_background()
 	elif counter < int(field_of_view / 2):
@@ -97,11 +101,12 @@ func _process(delta):
 			# draw collision points as black dots
 			draw_pixels(pixel_draw)
 			drawn_pixel_locations.append(pixel_draw)
-			if len(drawn_pixel_locations) > 80:
+			if len(drawn_pixel_locations) > last_num_of_frames * (3.0 / 2.0):
 				clear_pixels(drawn_pixel_locations.pop_front())
 	occupancy_map.blend_rect(fov_cone, Rect2(Vector2(0,0), fov_cone.get_size()), sensor_pixel - Vector2(7,0) - ((fov_cone.get_size() / 2.0)))
 	occupancy_map.blend_rect(robot_sprite, Rect2(Vector2(0,0), robot_sprite.get_size()), sensor_pixel - Vector2(robot_sprite.get_width()/2, 0))
 	hit_locations.clear()
+	frames_this_sweep += 1
 
 
 func _physics_process(delta):
