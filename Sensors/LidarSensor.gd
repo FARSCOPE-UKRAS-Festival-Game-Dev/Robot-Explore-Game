@@ -18,11 +18,14 @@ var head_location
 var counter = 0
 var counter_direction = 1;
 var pixel_draw = Vector2(0,0)
-#middle pixel assigned to robot
+
+# List of pixels drawn on the LIDAR screen
+var drawn_pixel_locations: Array = []
+
+# middle pixel assigned to robot
 var sensor_pixel= Vector2(round(lidar_resolution.x/2),round(lidar_resolution.y * 9.0 / 10.0));
 onready var head = $LidarBody/Head
-#raycast
-#onready var ray = $LidarBody/Head/RayCasts/RayCast
+# raycast
 onready var rays = $LidarBody/Head/RayCasts
 onready var raygeom = $LidarBody/Head/RayCasts/RayCast/ImmediateGeometry
 onready var robot_sprite: Image = load("res://Assets/Images/lidar_robot_sprite.png").get_data()
@@ -69,11 +72,13 @@ func _process(delta):
 	
 	#once whole rotation is done clear counter and occupancy map
 	if counter >= int(field_of_view * 3/2):
-		counter_direction = -1
-		reset_lidar_background()
+		counter = int(field_of_view / 2)
+		#counter_direction = -1
+		#reset_lidar_background()
 	elif counter < int(field_of_view / 2):
-		counter_direction = 1
-		reset_lidar_background()
+		#counter_direction = 1
+		#reset_lidar_background()
+		pass
 	# check when one resolution has been made
 	texture.create_from_image(occupancy_map)
 	$Viewport/LidarPlot.texture = texture
@@ -91,6 +96,11 @@ func _process(delta):
 			pixel_draw = (sensor_pixel+ (Vector2(laserVec.x, laserVec.z).length()/grid_val) * Vector2(laserVec.x, laserVec.z).normalized()).round()
 			# draw collision points as black dots
 			draw_pixels(pixel_draw)
+			drawn_pixel_locations.append(pixel_draw)
+			if len(drawn_pixel_locations) > 80:
+				clear_pixels(drawn_pixel_locations.pop_front())
+	occupancy_map.blend_rect(fov_cone, Rect2(Vector2(0,0), fov_cone.get_size()), sensor_pixel - Vector2(7,0) - ((fov_cone.get_size() / 2.0)))
+	occupancy_map.blend_rect(robot_sprite, Rect2(Vector2(0,0), robot_sprite.get_size()), sensor_pixel - Vector2(robot_sprite.get_width()/2, 0))
 	hit_locations.clear()
 
 
@@ -122,6 +132,19 @@ func draw_pixels(position: Vector2):
 					and pixel_pos.y < size.y and pixel_pos.y >= 0:
 				var greenness = 1.0 - (0.4 * abs(1 - x)) - (0.4 * (abs(1 - y)))
 				occupancy_map.set_pixel(pixel_pos.x, pixel_pos.y, Color(0,greenness,0,1))
+	occupancy_map.unlock()
+
+
+# Method to clear a dot at a certain point on the image
+func clear_pixels(position: Vector2):
+	var size = occupancy_map.get_size()
+	occupancy_map.lock()
+	for x in range(3):
+		for y in range(3):
+			var pixel_pos = Vector2(position.x - 1 + x, position.y - 1 + y)
+			if pixel_pos.x < size.x and pixel_pos.x >= 0\
+					and pixel_pos.y < size.y and pixel_pos.y >= 0:
+				occupancy_map.set_pixel(pixel_pos.x, pixel_pos.y, Color(0,0,0,1))
 	occupancy_map.unlock()
 
 
