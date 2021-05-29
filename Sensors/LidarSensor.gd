@@ -52,7 +52,6 @@ func _ready():
 	# Resize images
 	var robot_sprite_initial_size = robot_sprite.get_size()
 	robot_sprite.resize(robot_sprite_initial_size.x * 2, robot_sprite_initial_size.y * 2, 0)
-	fov_cone
 	
 	# create occupancy map, each pixel can be linked to a value of distance
 	occupancy_map.create(lidar_resolution.x,lidar_resolution.y, false, Image.FORMAT_RGBA8)
@@ -101,7 +100,7 @@ func _process(delta):
 			# draw collision points as black dots
 			draw_pixels(pixel_draw)
 			drawn_pixel_locations.append(pixel_draw)
-			if len(drawn_pixel_locations) > last_num_of_frames * (3.0 / 2.0):
+			if len(drawn_pixel_locations) > last_num_of_frames * len(hit_locations) * 0.65:
 				clear_pixels(drawn_pixel_locations.pop_front())
 	occupancy_map.blend_rect(fov_cone, Rect2(Vector2(0,0), fov_cone.get_size()), sensor_pixel - Vector2(7,0) - ((fov_cone.get_size() / 2.0)))
 	occupancy_map.blend_rect(robot_sprite, Rect2(Vector2(0,0), robot_sprite.get_size()), sensor_pixel - Vector2(robot_sprite.get_width()/2, 0))
