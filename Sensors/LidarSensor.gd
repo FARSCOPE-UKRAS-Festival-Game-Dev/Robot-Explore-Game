@@ -18,7 +18,7 @@ var head_location
 var counter =0
 var pixel_draw = Vector2(0,0)
 #middle pixel assigned to robot
-var sensor_pixel= Vector2(round(lidar_resolution.x/2),round(lidar_resolution.y/2));
+var sensor_pixel= Vector2(round(lidar_resolution.x/2),round(lidar_resolution.y * 9.0 / 10.0));
 onready var head = $LidarBody/Head
 #raycast
 onready var ray = $LidarBody/Head/RayCast
@@ -43,11 +43,7 @@ func _ready():
 
 	# create occupancy map, each pixel can be linked to a value of distance
 	occupancy_map.create(lidar_resolution.x,lidar_resolution.y, false, Image.FORMAT_RGBA8)
-	occupancy_map.fill(Color(1,1,1,1))
-	# set middle pixel to red colour representing robot
-	occupancy_map.lock()
-	occupancy_map.set_pixel(sensor_pixel.x,sensor_pixel.y,Color(1,0,0,1))
-	occupancy_map.unlock()
+	reset_lidar_background()
 
 	$Viewport/LidarPlot.flip_v = true
 	head_location = $LidarBody/Head.global_transform.origin
@@ -65,16 +61,26 @@ func _process(delta):
 	#once whole rotation is done clear counter and occupancy map
 	if counter>=int(field_of_view*3/2):
 		counter=int(field_of_view / 2);
-		occupancy_map.fill(Color(1,1,1,1))
-	# set middle pixel to red colour
-		occupancy_map.lock()
-		occupancy_map.set_pixel(sensor_pixel.x,sensor_pixel.y,Color(1,0,0,1))
-		occupancy_map.unlock()
+		reset_lidar_background()
 	# check when one resolution has been made
 	
 	# set the texture to the computed occupancy map
 	texture.create_from_image(occupancy_map)
 	$Viewport/LidarPlot.texture = texture
+	
+	if hit_location[0]:
+		head_location = $LidarBody/Head.global_transform.origin
+		var local_forward = global_transform.basis * Vector3.FORWARD
+		var global_forward = Vector3.FORWARD
+		var angle = Vector2(global_forward.x, global_forward.z).angle_to(Vector2(local_forward.x, local_forward.z))
+		var laserVec: Vector3 = hit_location[1] - head_location
+		laserVec = laserVec.rotated(Vector3.UP, angle)
+		#compute pixel location: middle pixel + mag in x-z plane*unit vector in that plane 
+		#and divided by value of each pixek
+		pixel_draw = (sensor_pixel+ (Vector2(laserVec.x, laserVec.z).length()/grid_val) * Vector2(laserVec.x, laserVec.z).normalized()).round()
+		#draw collision points as black dots
+		draw_pixels(pixel_draw)
+
 
 func _physics_process(delta):
 	#rotation of lidar ray
@@ -90,22 +96,27 @@ func _physics_process(delta):
 	#check lidar collision data
 	hit_location = scanning()
 	# in case there is a collision compute the pixel location in occupancy map
-	if hit_location[0]:
-		head_location = $LidarBody/Head.global_transform.origin
-		var local_forward = global_transform.basis * Vector3.FORWARD
-		var global_forward = Vector3.FORWARD
-		var angle = Vector2(global_forward.x, global_forward.z).angle_to(Vector2(local_forward.x, local_forward.z))
-		var laserVec: Vector3 = hit_location[1] - head_location
-		laserVec = laserVec.rotated(Vector3.UP, angle)
-		#compute pixel location: middle pixel + mag in x-z plane*unit vector in that plane 
-		#and divided by value of each pixek
-		pixel_draw = (sensor_pixel+ (Vector2(laserVec.x, laserVec.z).length()/grid_val) * Vector2(laserVec.x, laserVec.z).normalized()).round()
-		#draw collision points as black dots
-		occupancy_map.lock()
-		occupancy_map.set_pixel(pixel_draw.x,pixel_draw.y,Color(0,0,0,1))
-		occupancy_map.unlock()
 
 
+func draw_pixels(position: Vector2):
+	var size = occupancy_map.get_size()
+	occupancy_map.lock()
+	for x in range(3):
+		for y in range(3):
+			var pixel_pos = Vector2(position.x - 1 + x, position.y - 1 + y)
+			if pixel_pos.x < size.x and pixel_pos.x >= 0\
+					and pixel_pos.y < size.y and pixel_pos.y >= 0:
+				var greenness = 1.0 - (0.4 * abs(1 - x)) - (0.4 * (abs(1 - y)))
+				occupancy_map.set_pixel(pixel_pos.x, pixel_pos.y, Color(0,greenness,0,1))
+	occupancy_map.unlock()
+
+
+func reset_lidar_background():
+	occupancy_map.fill(Color(0,0,0,1))
+	# set middle pixel to red colour
+	occupancy_map.lock()
+	occupancy_map.set_pixel(sensor_pixel.x,sensor_pixel.y,Color(1,0,0,1))
+	occupancy_map.unlock()
 
 	
 func render_view():
