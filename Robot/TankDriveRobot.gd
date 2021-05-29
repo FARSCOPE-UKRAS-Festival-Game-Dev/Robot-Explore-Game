@@ -51,9 +51,9 @@ func get_input(delta):
 	var vy = velocity.y
 	velocity = Vector3.ZERO
 	if Input.is_action_pressed("ui_up"):
-		velocity += -transform.basis.z * speed
+		velocity += -global_transform.basis.z * speed
 	if Input.is_action_pressed("ui_down"):
-		velocity += transform.basis.z * speed
+		velocity += global_transform.basis.z * speed
 	if Input.is_action_pressed("ui_right"):
 		rotate_y(-rot_speed * delta)
 	if Input.is_action_pressed("ui_left"):
