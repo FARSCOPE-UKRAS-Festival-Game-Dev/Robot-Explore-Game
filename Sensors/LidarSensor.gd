@@ -6,7 +6,7 @@ var texture = ImageTexture.new()
 var occupancy_map = Image.new()
 
 export var grid_val=0.1 #each grid is 0.01
-export var rotation_speed = 90.0 # The angular speed (degrees/s) of the ray
+export var rotation_speed = 180.0 # The angular speed (degrees/s) of the ray
 
 export var max_range = 500 # maximum range of lidar
 var point_laser = Vector3(max_range,0,0)
@@ -24,10 +24,6 @@ onready var head = $LidarBody/Head
 onready var ray = $LidarBody/Head/RayCast
 onready var raygeom = $LidarBody/Head/RayCast/ImmediateGeometry
 
-#the following still need to be implemented
-var angle_range = 45.0 #The maximum deviation from forward dir that will get readings (degrees)
-var poll_rate = 3.0 #distance reads per second (Hz)
-var noise = 1.5 # standard deviation of distance read noise- (make % based?)
 
 func scanning():
 	# update raycast
@@ -96,10 +92,14 @@ func _physics_process(delta):
 	# in case there is a collision compute the pixel location in occupancy map
 	if hit_location[0]:
 		head_location = $LidarBody/Head.global_transform.origin
-		var laserVec = hit_location[1] - head_location
+		var local_forward = global_transform.basis * Vector3.FORWARD
+		var global_forward = Vector3.FORWARD
+		var angle = Vector2(global_forward.x, global_forward.z).angle_to(Vector2(local_forward.x, local_forward.z))
+		var laserVec: Vector3 = hit_location[1] - head_location
+		laserVec = laserVec.rotated(Vector3.UP, angle)
 		#compute pixel location: middle pixel + mag in x-z plane*unit vector in that plane 
 		#and divided by value of each pixek
-		pixel_draw= (sensor_pixel+ (Vector2(laserVec.x, laserVec.z).length()/grid_val)*Vector2(laserVec.x, laserVec.z).normalized()).round()
+		pixel_draw = (sensor_pixel+ (Vector2(laserVec.x, laserVec.z).length()/grid_val) * Vector2(laserVec.x, laserVec.z).normalized()).round()
 		#draw collision points as black dots
 		occupancy_map.lock()
 		occupancy_map.set_pixel(pixel_draw.x,pixel_draw.y,Color(0,0,0,1))
