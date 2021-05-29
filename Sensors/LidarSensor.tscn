@@ -49,13 +49,23 @@ layers = 2
 mesh = SubResource( 4 )
 material/0 = SubResource( 6 )
 
-[node name="RayCast" type="RayCast" parent="LidarBody/Head"]
+[node name="RayCasts" type="Spatial" parent="LidarBody/Head"]
+
+[node name="RayCast" type="RayCast" parent="LidarBody/Head/RayCasts"]
 enabled = true
 cast_to = Vector3( -500, 0, 0 )
 collide_with_areas = true
 
-[node name="ImmediateGeometry" type="ImmediateGeometry" parent="LidarBody/Head/RayCast"]
+[node name="ImmediateGeometry" type="ImmediateGeometry" parent="LidarBody/Head/RayCasts/RayCast"]
 material_override = SubResource( 7 )
+
+[node name="RayCast2" type="RayCast" parent="LidarBody/Head/RayCasts"]
+transform = Transform( 0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, 0, 0, 0 )
+cast_to = Vector3( -500, -1, 0 )
+
+[node name="RayCast3" type="RayCast" parent="LidarBody/Head/RayCasts"]
+transform = Transform( 0.999848, 0, -0.0174524, 0, 1, 0, 0.0174524, 0, 0.999848, 0, 0, 0 )
+cast_to = Vector3( -500, -1, 0 )
 
 [node name="Position3D" type="Position3D" parent="LidarBody/Head"]
 

@@ -5,7 +5,7 @@ export var lidar_resolution = Vector2(300,300) # pixel used to show occupancy ma
 var texture = ImageTexture.new()
 var occupancy_map = Image.new()
 
-export var grid_val=0.1 #each grid is 0.01
+export var grid_val = 0.1 #each grid is 0.01
 export var rotation_speed = 180.0 # The angular speed (degrees/s) of the ray
 
 export var max_range = 500 # maximum range of lidar
@@ -13,20 +13,22 @@ var point_laser = Vector3(max_range,0,0)
 
 export var field_of_view = 90 # how many degrees in front will the sensor see?
 
-var hit_location
+var hit_locations: Array
 var head_location
-var counter =0
+var counter = 0
+var counter_direction = 1;
 var pixel_draw = Vector2(0,0)
 #middle pixel assigned to robot
 var sensor_pixel= Vector2(round(lidar_resolution.x/2),round(lidar_resolution.y * 9.0 / 10.0));
 onready var head = $LidarBody/Head
 #raycast
-onready var ray = $LidarBody/Head/RayCast
-onready var raygeom = $LidarBody/Head/RayCast/ImmediateGeometry
+#onready var ray = $LidarBody/Head/RayCasts/RayCast
+onready var rays = $LidarBody/Head/RayCasts
+onready var raygeom = $LidarBody/Head/RayCasts/RayCast/ImmediateGeometry
 onready var robot_sprite: Image = load("res://Assets/Images/lidar_robot_sprite.png").get_data()
 onready var fov_cone: Image = load("res://Assets/Images/lidar_fov_cone.png").get_data()
 
-func scanning():
+func scanning(ray: RayCast):
 	# update raycast
 	ray.force_raycast_update()
 	# check for collision
@@ -62,40 +64,50 @@ func _process(delta):
 	raygeom.clear()
 	raygeom.begin(1, null)
 	raygeom.add_vertex(Vector3(0, 0, 0))
-	raygeom.add_vertex(ray.cast_to)
+	raygeom.add_vertex(rays.get_children()[0].cast_to)
 	raygeom.end()
 	
 	#once whole rotation is done clear counter and occupancy map
-	if counter>=int(field_of_view*3/2):
-		counter=int(field_of_view / 2);
+	if counter >= int(field_of_view * 3/2):
+		counter_direction = -1
+		reset_lidar_background()
+	elif counter < int(field_of_view / 2):
+		counter_direction = 1
 		reset_lidar_background()
 	# check when one resolution has been made
 	texture.create_from_image(occupancy_map)
 	$Viewport/LidarPlot.texture = texture
 	
-	if hit_location[0]:
-		head_location = $LidarBody/Head.global_transform.origin
-		var local_forward = global_transform.basis * Vector3.FORWARD
-		var global_forward = Vector3.FORWARD
-		var angle = Vector2(global_forward.x, global_forward.z).angle_to(Vector2(local_forward.x, local_forward.z))
-		var laserVec: Vector3 = hit_location[1] - head_location
-		laserVec = laserVec.rotated(Vector3.UP, angle)
-		# compute pixel location: middle pixel + mag in x-z plane*unit vector in that plane 
-		# and divided by value of each pixek
-		pixel_draw = (sensor_pixel+ (Vector2(laserVec.x, laserVec.z).length()/grid_val) * Vector2(laserVec.x, laserVec.z).normalized()).round()
-		# draw collision points as black dots
-		draw_pixels(pixel_draw)
+	for i in len(hit_locations):
+		if hit_locations[i][0]:
+			head_location = $LidarBody/Head.global_transform.origin
+			var local_forward = global_transform.basis * Vector3.FORWARD
+			var global_forward = Vector3.FORWARD
+			var angle = Vector2(global_forward.x, global_forward.z).angle_to(Vector2(local_forward.x, local_forward.z))
+			var laserVec: Vector3 = hit_locations[i][1] - head_location
+			laserVec = laserVec.rotated(Vector3.UP, angle)
+			# compute pixel location: middle pixel + mag in x-z plane*unit vector in that plane 
+			# and divided by value of each pixek
+			pixel_draw = (sensor_pixel+ (Vector2(laserVec.x, laserVec.z).length()/grid_val) * Vector2(laserVec.x, laserVec.z).normalized()).round()
+			# draw collision points as black dots
+			draw_pixels(pixel_draw)
+	hit_locations.clear()
 
 
 func _physics_process(delta):
 	# rotation of lidar ray
-	ray.set_cast_to(point_laser.rotated(Vector3(0,1,0),deg2rad(counter)))
+	#ray.set_cast_to(point_laser.rotated(Vector3(0,1,0),deg2rad(counter)))
+	rays.rotation.y = 0
+	rays.rotate(Vector3(0,1,0), -deg2rad(counter))
 	
 	# get value of total amount of rotation so far
-	counter = counter + rotation_speed*delta
-
+	counter = counter + counter_direction * rotation_speed * delta
+	
+	var raycasts = rays.get_children()
+	for i in len (raycasts):
+		if raycasts[i] is RayCast:
+			hit_locations.append(scanning(raycasts[i]))
 	# check lidar collision data
-	hit_location = scanning()
 	# in case there is a collision compute the pixel location in occupancy map
 
 
