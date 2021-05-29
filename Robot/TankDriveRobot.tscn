@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Models/Robot/tracks.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Robot/Vehicle_Follow_Camera.gd" type="Script" id=2]
+[ext_resource path="res://Robot/TankDriveRobot.gd" type="Script" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 1.5, 1, 1.5 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.0588235, 0.215686, 0.913725, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.0392157, 0.00392157, 0.00392157, 1 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.997872, 0.600292, 0.810493 )
+
+[node name="TankRobot" type="KinematicBody"]
+script = ExtResource( 3 )
+
+[node name="Body" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Track1" type="MeshInstance" parent="Body"]
+transform = Transform( -2.62268e-10, 0.008, -2.62268e-10, 0, -3.49691e-10, -0.006, -0.006, -3.49691e-10, 1.14641e-17, 0.754079, -0.703631, 0.80896 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="RayCast" type="RayCast" parent="Body/Track1"]
+transform = Transform( -7.28523e-06, -2.80504e-19, -166.667, 125, -5.46392e-06, -5.46392e-06, -7.28523e-06, -166.667, 3.18447e-13, 134.251, 16.7238, -71.6284 )
+enabled = true
+cast_to = Vector3( 0, -2, 0 )
+
+[node name="Track2" type="MeshInstance" parent="Body"]
+transform = Transform( -2.62268e-10, 0.008, -2.62268e-10, 0, -3.49691e-10, -0.006, -0.006, -3.49691e-10, 1.14641e-17, -0.996933, -0.703631, 0.80896 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="RayCast" type="RayCast" parent="Body/Track2"]
+transform = Transform( -7.28523e-06, -2.07568e-19, -166.667, 125, -5.46392e-06, -5.46392e-06, -7.28523e-06, -166.667, 3.18447e-13, 134.252, 13.7201, -88.2568 )
+enabled = true
+cast_to = Vector3( 0, -2, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0957794, 0 )
+shape = SubResource( 4 )
+
+[node name="CameraBase" type="Spatial" parent="."]
+
+[node name="Camera" type="Camera" parent="CameraBase"]
+transform = Transform( 1, 0, 0, 0, 0.810543, 0.585679, 0, -0.585679, 0.810543, 0, 2.15602, 3.62943 )
+script = ExtResource( 2 )
