@@ -23,7 +23,8 @@ onready var head = $LidarBody/Head
 #raycast
 onready var ray = $LidarBody/Head/RayCast
 onready var raygeom = $LidarBody/Head/RayCast/ImmediateGeometry
-
+onready var robot_sprite: Image = load("res://Assets/Images/lidar_robot_sprite.png").get_data()
+onready var fov_cone: Image = load("res://Assets/Images/lidar_fov_cone.png").get_data()
 
 func scanning():
 	# update raycast
@@ -43,6 +44,9 @@ func _ready():
 
 	# create occupancy map, each pixel can be linked to a value of distance
 	occupancy_map.create(lidar_resolution.x,lidar_resolution.y, false, Image.FORMAT_RGBA8)
+	# set the texture to the computed occupancy map
+	texture.create_from_image(occupancy_map)
+	$Viewport/LidarPlot.texture = texture
 	reset_lidar_background()
 
 	$Viewport/LidarPlot.flip_v = true
@@ -63,8 +67,6 @@ func _process(delta):
 		counter=int(field_of_view / 2);
 		reset_lidar_background()
 	# check when one resolution has been made
-	
-	# set the texture to the computed occupancy map
 	texture.create_from_image(occupancy_map)
 	$Viewport/LidarPlot.texture = texture
 	
@@ -117,6 +119,10 @@ func reset_lidar_background():
 	occupancy_map.lock()
 	occupancy_map.set_pixel(sensor_pixel.x,sensor_pixel.y,Color(1,0,0,1))
 	occupancy_map.unlock()
+	
+	occupancy_map.blend_rect(fov_cone, Rect2(Vector2(0,0), fov_cone.get_size() * 2), sensor_pixel - (fov_cone.get_size() / 2.0))
+	occupancy_map.blend_rect(robot_sprite, Rect2(Vector2(0,0), robot_sprite.get_size()), sensor_pixel - (robot_sprite.get_size() / 2.0))
+	
 
 	
 func render_view():
