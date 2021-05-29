@@ -9,6 +9,9 @@ export var grid_val=0.1 #each grid is 0.01
 export var rotation_speed = 90.0 # The angular speed (degrees/s) of the ray
 
 export var max_range = 500 # maximum range of lidar
+var point_laser = Vector3(max_range,0,0)
+
+export var field_of_view = 90 # how many degrees in front will the sensor see?
 
 var hit_location
 var head_location
@@ -54,20 +57,18 @@ func _ready():
 	head_location = $LidarBody/Head.global_transform.origin
 	
 func _process(delta):
-	$LidarBody/Head.global_transform = $LidarBody/Head/Position3D.global_transform
-	$LidarBody/Head/RayCast.global_transform = $LidarBody/Head/Position3D.global_transform
-	
-	#print(head_location, ray.global_transform.origin, head_location + ray.cast_to)
-	# draw ray 
+
+	# draw ray relative to sensor location
+
 	raygeom.clear()
 	raygeom.begin(1, null) #
-	raygeom.add_vertex(head_location)
-	raygeom.add_vertex(head_location + ray.cast_to)
+	raygeom.add_vertex(Vector3(0, 0, 0))
+	raygeom.add_vertex(ray.cast_to)
 	raygeom.end() #
 	
 	#once whole rotation is done clear counter and occupancy map
-	if counter>=360:
-		counter=0;
+	if counter>=int(field_of_view*3/2):
+		counter=int(field_of_view / 2);
 		occupancy_map.fill(Color(1,1,1,1))
 	# set middle pixel to red colour
 		occupancy_map.lock()
@@ -81,7 +82,8 @@ func _process(delta):
 
 func _physics_process(delta):
 	#rotation of lidar ray
-	head.rotate_y(deg2rad(rotation_speed*delta))
+	ray.set_cast_to(point_laser.rotated(Vector3(0,1,0),deg2rad(counter)))
+	# head.rotate_y(deg2rad(rotation_speed*delta))
 	
 	#get location of head which coincides with laser origin
 	#ray.global_transform.origin = head_location
