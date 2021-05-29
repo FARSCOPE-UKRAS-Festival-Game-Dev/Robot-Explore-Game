@@ -4,8 +4,9 @@ extends Control
 onready var hud1 = $MarginContainer/Panel/MarginContainer/GridContainer/Panel/MarginContainer/HUD1
 onready var hud2 = $MarginContainer/Panel/MarginContainer/GridContainer/Panel2/MarginContainer/HUD2
 onready var hud3 = $MarginContainer/Panel/MarginContainer/GridContainer/Panel3/MarginContainer/HUD3
+onready var hud4 = $MarginContainer/Panel/MarginContainer/GridContainer/Panel4/MarginContainer/HUD4
 
-onready var hud_to_id = [hud1, hud2, hud3]
+onready var hud_to_id = [hud1, hud2, hud3,hud4]
 
 var sensor_to_class = null
 var sensor_descriptions = null
@@ -19,7 +20,7 @@ func _ready():
 		$MarginContainer/Panel/DebugTools.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if sensor_to_class != null:
 		for i in range(min(len(sensor_to_class), len(hud_to_id))):
 			var sclass = sensor_to_class[i]
