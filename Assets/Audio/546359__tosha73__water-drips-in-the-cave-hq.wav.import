@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/546359__tosha73__water-drips-in-the-cave-hq.wav-3454d3d3e2aa23cf4c49610cc864a0e9.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/546359__tosha73__water-drips-in-the-cave-hq.wav"
+dest_files=[ "res://.import/546359__tosha73__water-drips-in-the-cave-hq.wav-3454d3d3e2aa23cf4c49610cc864a0e9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

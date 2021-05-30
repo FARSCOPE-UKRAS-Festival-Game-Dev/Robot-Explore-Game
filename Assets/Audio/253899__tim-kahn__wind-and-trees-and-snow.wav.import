@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/253899__tim-kahn__wind-and-trees-and-snow.wav-2b94abd6b2ad46a5fbbb7ddbefe0905a.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/253899__tim-kahn__wind-and-trees-and-snow.wav"
+dest_files=[ "res://.import/253899__tim-kahn__wind-and-trees-and-snow.wav-2b94abd6b2ad46a5fbbb7ddbefe0905a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
