@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Take_Picture_2.png-5ae4f0088eae35b0e53d353b7da60b00.stex"
+path="res://.import/SpecialActions_pressed.png-7455ed837b9612ed3c43fc707054c301.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Take_Picture_2.png"
-dest_files=[ "res://.import/Take_Picture_2.png-5ae4f0088eae35b0e53d353b7da60b00.stex" ]
+source_file="res://Assets/Images/ControlPanel/SpecialActions_pressed.png"
+dest_files=[ "res://.import/SpecialActions_pressed.png-7455ed837b9612ed3c43fc707054c301.stex" ]
 
 [params]
 

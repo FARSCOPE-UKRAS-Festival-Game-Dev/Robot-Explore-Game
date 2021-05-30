@@ -57,4 +57,12 @@ func _on_toggle_background_button(button):
 	bg.visible = button
 
 func _on_ToggleHuds_toggled(button_pressed):
-	$MarginContainer/Panel/MarginContainer.visible = button_pressed
+	$MarginContainer/Panel.visible = button_pressed
+
+func _on_OpenSpecialsButton_pressed():
+	$MarginContainer/Panel/SpecialsMenu.visible = !$MarginContainer/Panel/SpecialsMenu.visible
+
+
+func _on_OpenBookButton_pressed():
+	# Open Book Menu! Globals.openMenu
+	pass # Replace with function body.
