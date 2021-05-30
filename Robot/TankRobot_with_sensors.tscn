@@ -24,5 +24,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19031, -0.948806 )
 [node name="WhiskerSensor" parent="Robot" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.292629, -0.623034 )
 
-[node name="TemperatureSensor" parent="Robot" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05316, -0.75269 )
+[node name="TempLeft" parent="Robot" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.682099, 0.05316, -0.75269 )
+
+[node name="TempRight" parent="Robot" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.674074, 0.05316, -0.75269 )
