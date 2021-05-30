@@ -1,7 +1,7 @@
 extends KinematicBody
 
 
-export var gravity = Vector3.UP * -10
+export var gravity = Vector3.UP * -4
 export var speed = 4
 export var rot_speed = 0.85
 
