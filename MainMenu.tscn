@@ -9,7 +9,7 @@
 [ext_resource path="res://Assets/Images/AnimatedBackground/3.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Images/AnimatedBackground/2.png" type="Texture" id=9]
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 9 ) ],
 "loop": true,
@@ -17,11 +17,9 @@ animations = [ {
 "speed": 6.0
 } ]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 80
 font_data = ExtResource( 1 )
-
-[sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=3]
 
@@ -29,11 +27,13 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="DynamicFont" id=7]
 size = 80
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=8]
 size = 32
 font_data = ExtResource( 1 )
 
@@ -63,8 +63,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Background"]
 position = Vector2( 512, 300 )
-scale = Vector2( 1, 1 )
-frames = SubResource( 8 )
+frames = SubResource( 1 )
 frame = 1
 playing = true
 
@@ -146,7 +145,7 @@ margin_bottom = 80.0
 margin_right = 35.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 11, 0 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = ">"
 
@@ -155,7 +154,7 @@ margin_left = 39.0
 margin_right = 194.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 76, 0 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Start"
 __meta__ = {
@@ -167,10 +166,10 @@ margin_left = -102.0
 margin_right = 218.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 76, 0 )
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
 custom_fonts/font = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -190,7 +189,7 @@ margin_bottom = 80.0
 margin_right = 35.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 11, 0 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = ">"
 
@@ -199,7 +198,7 @@ margin_left = 39.0
 margin_right = 254.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 76, 0 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Options"
 __meta__ = {
@@ -211,10 +210,10 @@ margin_left = -94.0
 margin_right = 226.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 76, 0 )
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
 custom_fonts/font = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -234,7 +233,7 @@ margin_bottom = 80.0
 margin_right = 35.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 11, 0 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = ">"
 
@@ -243,7 +242,7 @@ margin_left = 39.0
 margin_right = 149.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 76, 0 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Exit"
 __meta__ = {
@@ -255,10 +254,10 @@ margin_left = -120.0
 margin_right = 196.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 76, 0 )
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
 custom_fonts/font = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -269,7 +268,7 @@ margin_left = 408.0
 margin_top = -8.0
 margin_right = 1024.0
 margin_bottom = 155.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "RoC-Ex Robot Cave Explorer"
 align = 2
 autowrap = true
@@ -282,7 +281,7 @@ margin_left = 696.0
 margin_top = 250.0
 margin_right = 1008.0
 margin_bottom = 317.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 text = "Unearth the mystery of cave system #0393"
 align = 2
 autowrap = true
