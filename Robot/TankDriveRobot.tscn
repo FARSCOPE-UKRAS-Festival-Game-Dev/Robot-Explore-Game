@@ -29,7 +29,12 @@ mesh = ExtResource( 1 )
 material/0 = SubResource( 3 )
 
 [node name="RayCast" type="RayCast" parent="Body/Track1"]
-transform = Transform( -7.28523e-06, -2.80504e-19, -166.667, 125, -5.46392e-06, -5.46392e-06, -7.28523e-06, -166.667, 3.18447e-13, 134.251, 16.7238, -71.6284 )
+transform = Transform( -7.28523e-06, 7.28525e-06, -166.667, 125, -7.28525e-06, -9.71366e-06, -5.46392e-06, -166.667, -7.28525e-06, 214.251, 16.724, -71.628 )
+enabled = true
+cast_to = Vector3( 0, -2, 0 )
+
+[node name="RayCast2" type="RayCast" parent="Body/Track1"]
+transform = Transform( -7.28523e-06, 7.28525e-06, -166.667, 125, -7.28525e-06, -9.71366e-06, -5.46392e-06, -166.667, -7.28525e-06, 54.251, 16.724, -71.628 )
 enabled = true
 cast_to = Vector3( 0, -2, 0 )
 
@@ -39,7 +44,12 @@ mesh = ExtResource( 1 )
 material/0 = SubResource( 3 )
 
 [node name="RayCast" type="RayCast" parent="Body/Track2"]
-transform = Transform( -7.28523e-06, -2.07568e-19, -166.667, 125, -5.46392e-06, -5.46392e-06, -7.28523e-06, -166.667, 3.18447e-13, 134.252, 13.7201, -88.2568 )
+transform = Transform( -7.28523e-06, -2.07568e-19, -166.667, 125, -5.46392e-06, -5.46392e-06, -7.28523e-06, -166.667, 3.18447e-13, 214.252, 13.72, -88.257 )
+enabled = true
+cast_to = Vector3( 0, -2, 0 )
+
+[node name="RayCast2" type="RayCast" parent="Body/Track2"]
+transform = Transform( -7.28523e-06, -2.07568e-19, -166.667, 125, -5.46392e-06, -5.46392e-06, -7.28523e-06, -166.667, 3.18447e-13, 54.252, 13.72, -88.257 )
 enabled = true
 cast_to = Vector3( 0, -2, 0 )
 

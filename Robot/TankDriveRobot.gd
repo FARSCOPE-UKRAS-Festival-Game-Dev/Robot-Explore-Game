@@ -45,10 +45,16 @@ func _physics_process(delta):
 	
 	# move_and_slide takes the PRE-DELTA velocity, so don't multiply anything
 	# in velocity by delta
-	velocity = move_and_slide_with_snap(velocity, Vector3.DOWN*2, Vector3.UP, true, 4, deg2rad(30))
-	var n = $Body/Track1/RayCast.get_collision_normal()
-	#var xform = align_with_y(global_transform, n)
-#	global_transform = global_transform.interpolate_with(xform, 0.2)
+	velocity = move_and_slide(velocity, Vector3.UP, true, 4, deg2rad(30))
+	var n_left1 = $Body/Track1/RayCast.get_collision_normal()
+	var n_left2 = $Body/Track1/RayCast2.get_collision_normal()
+	var n_right1 = $Body/Track2/RayCast.get_collision_normal()
+	var n_right2 = $Body/Track2/RayCast2.get_collision_normal()
+	var normal = ((n_left1 + n_left2 + n_right1 + n_right2) / 4.0).normalized()
+	var angle = normal.dot(Vector3.UP)
+	
+	var xform = align_with_y(global_transform, normal)
+	global_transform = global_transform.interpolate_with(xform, 0.2)
 
 func get_input(delta):
 	var vy = velocity.y
