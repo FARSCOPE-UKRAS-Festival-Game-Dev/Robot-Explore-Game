@@ -3,6 +3,7 @@ extends "BaseSensor.gd"
 export var lidar_resolution = Vector2(300,300) # pixel used to show occupancy map
 # create texture required to show occupancy mao
 var texture = ImageTexture.new()
+var texture_image = Image.new()
 var occupancy_map = Image.new()
 
 export var grid_val = 0.1 #each grid is 0.01
@@ -45,6 +46,7 @@ func scanning(ray: RayCast):
 		#print(ray.get_collider().name)
 	return [flag,hit]
 
+
 func _ready():
 	$Viewport.size = lidar_resolution
 	
@@ -55,14 +57,17 @@ func _ready():
 	
 	# create occupancy map, each pixel can be linked to a value of distance
 	occupancy_map.create(lidar_resolution.x,lidar_resolution.y, false, Image.FORMAT_RGBA8)
-	# set the texture to the computed occupancy map
-	texture.create_from_image(occupancy_map)
+	occupancy_map.fill(Color(0, 0, 0, 0))
+	# Create and set texture image
+	texture_image.create(lidar_resolution.x,lidar_resolution.y, false, Image.FORMAT_RGBA8)
+	texture.create_from_image(texture_image)
 	$Viewport/LidarPlot.texture = texture
 	reset_lidar_background()
 
 	$Viewport/LidarPlot.flip_v = true
 	head_location = $LidarBody/Head.global_transform.origin
-	
+
+
 func _process(delta):
 	# draw ray relative to sensor location
 	raygeom.clear()
@@ -79,7 +84,7 @@ func _process(delta):
 		frames_this_sweep = 0
 	
 	# check when one resolution has been made
-	texture.create_from_image(occupancy_map)
+	texture.create_from_image(texture_image)
 	$Viewport/LidarPlot.texture = texture
 	
 	for i in len(hit_locations):
@@ -91,14 +96,14 @@ func _process(delta):
 			var laserVec: Vector3 = hit_locations[i][1] - head_location
 			laserVec = laserVec.rotated(Vector3.UP, angle)
 			# compute pixel location: middle pixel + mag in x-z plane*unit vector in that plane 
-			# and divided by value of each pixek
+			# and divided by value of each pixel
 			pixel_draw = (sensor_pixel+ (Vector2(laserVec.x, laserVec.z).length()/grid_val) * Vector2(laserVec.x, laserVec.z).normalized()).round()
-			# draw collision points as black dots
+			# draw collision points as green dots
 			draw_pixels(pixel_draw)
 			drawn_pixel_locations.append(pixel_draw)
 			if len(drawn_pixel_locations) > last_num_of_frames * len(hit_locations) * 0.65:
 				clear_pixels(drawn_pixel_locations.pop_front())
-	repaint_sprites()
+	reset_lidar_background()
 	hit_locations.clear()
 	frames_this_sweep += 1
 
@@ -142,23 +147,20 @@ func clear_pixels(position: Vector2):
 			var pixel_pos = Vector2(position.x - 1 + x, position.y - 1 + y)
 			if pixel_pos.x < size.x and pixel_pos.x >= 0\
 					and pixel_pos.y < size.y and pixel_pos.y >= 0:
-				occupancy_map.set_pixel(pixel_pos.x, pixel_pos.y, Color(0,0,0,1))
+				occupancy_map.set_pixel(pixel_pos.x, pixel_pos.y, Color(0,0,0,0))
 	occupancy_map.unlock()
 
 
-# Reset the LIDAR image background
+# Reset the LIDAR image background and update info
 func reset_lidar_background():
-	occupancy_map.fill(Color(0,0,0,1))
-	# set middle pixel to red colour
-	occupancy_map.lock()
-	occupancy_map.set_pixel(sensor_pixel.x,sensor_pixel.y,Color(1,0,0,1))
-	occupancy_map.unlock()
-	repaint_sprites()
+	texture_image.fill(Color(0,0,0,1))
+	update_texture_image()
 
 
-func repaint_sprites():
-	occupancy_map.blend_rect(fov_cone, Rect2(Vector2(0,0), fov_cone.get_size()), sensor_pixel - Vector2(3,-5) - ((fov_cone.get_size() / 2.0)))
-	occupancy_map.blend_rect(robot_sprite, Rect2(Vector2(0,0), robot_sprite.get_size()), sensor_pixel - Vector2(robot_sprite.get_width()/2, 0))
+func update_texture_image():
+	texture_image.blend_rect(fov_cone, Rect2(Vector2(0,0), fov_cone.get_size()), sensor_pixel - Vector2(3,-5) - ((fov_cone.get_size() / 2.0)))
+	texture_image.blend_rect(robot_sprite, Rect2(Vector2(0,0), robot_sprite.get_size()), sensor_pixel - Vector2(robot_sprite.get_width()/2, 0))
+	texture_image.blend_rect(occupancy_map, Rect2(Vector2(0,0), occupancy_map.get_size()), Vector2(0, 0))
 
 
 func render_view():
