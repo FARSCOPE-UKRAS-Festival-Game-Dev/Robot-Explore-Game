@@ -1,16 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Robot/Control_Panel.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Images/sensor_frame.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/Take_Picture_2.png" type="Texture" id=2]
 [ext_resource path="res://Sensors/Sensor_HUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Images/Background.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Images/Camera.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Images/Whiskers.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Images/Take_Picture.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Images/Drilling_2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Images/Drilling.png" type="Texture" id=9]
 
 [sub_resource type="StyleBoxEmpty" id=1]
-
-[sub_resource type="StyleBoxTexture" id=2]
-texture = ExtResource( 2 )
-region_rect = Rect2( 0, 0, 334, 212 )
 
 [node name="ControlPanel" type="Control"]
 anchor_right = 1.0
@@ -68,6 +68,9 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -76.0
+margin_right = 54.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -77,14 +80,14 @@ __meta__ = {
 [node name="HUD1" parent="MarginContainer/Panel/Panel/MarginContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 350.0
-margin_bottom = 250.0
+margin_right = 480.0
+margin_bottom = 286.0
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/Panel"]
-margin_left = -11.0
-margin_top = -11.0
-margin_right = 360.0
-margin_bottom = 260.0
+margin_left = -92.0
+margin_top = -10.0
+margin_right = 416.0
+margin_bottom = 294.0
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 1
@@ -93,9 +96,9 @@ __meta__ = {
 }
 
 [node name="Panel2" type="Panel" parent="MarginContainer/Panel"]
-margin_left = 555.0
+margin_left = 600.0
 margin_top = 50.0
-margin_right = 805.0
+margin_right = 906.0
 margin_bottom = 300.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -115,13 +118,13 @@ __meta__ = {
 [node name="HUD2" parent="MarginContainer/Panel/Panel2/MarginContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 250.0
+margin_right = 306.0
 margin_bottom = 250.0
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/Panel2"]
 margin_left = -8.0
 margin_top = -8.0
-margin_right = 258.0
+margin_right = 312.0
 margin_bottom = 258.0
 texture = ExtResource( 5 )
 expand = true
@@ -131,14 +134,12 @@ __meta__ = {
 }
 
 [node name="Panel3" type="Panel" parent="MarginContainer/Panel"]
-visible = false
-margin_left = 27.0
-margin_top = 41.0
-margin_right = 506.0
-margin_bottom = 560.0
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 85.0
+margin_bottom = 304.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 2 )
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/Panel3"]
 anchor_right = 1.0
@@ -156,18 +157,16 @@ __meta__ = {
 [node name="HUD3" parent="MarginContainer/Panel/Panel3/MarginContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 454.0
-margin_bottom = 504.0
+margin_right = 28.0
+margin_bottom = 241.0
 
 [node name="Panel4" type="Panel" parent="MarginContainer/Panel"]
-visible = false
-margin_left = 27.0
-margin_top = 41.0
-margin_right = 511.0
-margin_bottom = 560.0
+margin_left = 928.0
+margin_top = 48.0
+margin_right = 984.0
+margin_bottom = 304.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -188,8 +187,47 @@ __meta__ = {
 [node name="HUD4" parent="MarginContainer/Panel/Panel4/MarginContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 459.0
-margin_bottom = 504.0
+margin_right = 31.0
+margin_bottom = 241.0
+
+[node name="Panel5" type="Panel" parent="MarginContainer/Panel"]
+margin_left = 264.0
+margin_top = 344.0
+margin_right = 731.0
+margin_bottom = 565.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/Panel5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 46.0
+margin_right = -55.0
+margin_bottom = -43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HUD5" parent="MarginContainer/Panel/Panel5/MarginContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 402.0
+margin_bottom = 132.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/Panel5"]
+margin_right = 467.0
+margin_bottom = 221.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="DebugTools" type="Control" parent="MarginContainer/Panel"]
 margin_left = 816.858
@@ -226,6 +264,30 @@ margin_right = -11.5984
 margin_bottom = 40.8909
 pressed = true
 text = "Toggle HUD"
+
+[node name="OpenBookButton" type="TextureButton" parent="MarginContainer/Panel"]
+margin_left = 24.0
+margin_top = 416.0
+margin_right = 133.0
+margin_bottom = 510.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OpenSpecialsButton" type="TextureButton" parent="MarginContainer/Panel"]
+margin_left = 144.0
+margin_top = 416.0
+margin_right = 253.0
+margin_bottom = 510.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="MarginContainer/Panel/DebugTools/CheckButton" to="." method="_on_toggle_background_button"]
 [connection signal="toggled" from="MarginContainer/Panel/DebugTools/CheckButton" to="." method="_on_toggle_background_button"]

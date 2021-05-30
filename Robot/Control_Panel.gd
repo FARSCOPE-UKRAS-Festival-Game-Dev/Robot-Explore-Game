@@ -5,8 +5,9 @@ onready var hud1 = $MarginContainer/Panel/Panel/MarginContainer/HUD1
 onready var hud2 = $MarginContainer/Panel/Panel2/MarginContainer/HUD2
 onready var hud3 = $MarginContainer/Panel/Panel3/MarginContainer/HUD3
 onready var hud4 = $MarginContainer/Panel/Panel4/MarginContainer/HUD4
+onready var hud5 = $MarginContainer/Panel/Panel5/MarginContainer/HUD5
 
-onready var hud_to_id = [hud1, hud2, hud3,hud4]
+onready var hud_to_id = [hud1, hud2, hud3, hud4, hud5]
 
 var sensor_to_class = null
 var sensor_descriptions = null
