@@ -1,10 +1,10 @@
 extends Control
 
 # Declare member variables here. Examples:
-onready var hud1 = $MarginContainer/Panel/MarginContainer/GridContainer/Panel/MarginContainer/HUD1
-onready var hud2 = $MarginContainer/Panel/MarginContainer/GridContainer/Panel2/MarginContainer/HUD2
-onready var hud3 = $MarginContainer/Panel/MarginContainer/GridContainer/Panel3/MarginContainer/HUD3
-onready var hud4 = $MarginContainer/Panel/MarginContainer/GridContainer/Panel4/MarginContainer/HUD4
+onready var hud1 = $MarginContainer/Panel/Panel/MarginContainer/HUD1
+onready var hud2 = $MarginContainer/Panel/Panel2/MarginContainer/HUD2
+onready var hud3 = $MarginContainer/Panel/Panel3/MarginContainer/HUD3
+onready var hud4 = $MarginContainer/Panel/Panel4/MarginContainer/HUD4
 
 onready var hud_to_id = [hud1, hud2, hud3,hud4]
 
