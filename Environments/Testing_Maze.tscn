@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Environments/LoadEnvironment.gd" type="Script" id=1]
-[ext_resource path="res://Robot/Robot_with_sensors.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Environment" id=1]
 background_energy = 3.66
