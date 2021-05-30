@@ -16,7 +16,6 @@ export var field_of_view = 90 # how many degrees in front will the sensor see?
 var hit_locations: Array
 var head_location
 var counter = 0
-var counter_direction = 1;
 var pixel_draw = Vector2(0,0)
 
 # List of pixels drawn on the LIDAR screen
@@ -72,17 +71,13 @@ func _process(delta):
 	raygeom.add_vertex(rays.get_children()[0].cast_to)
 	raygeom.end()
 	
-	#once whole rotation is done clear counter and occupancy map
+	# Once a sweep is completed, rotate the LIDAR's raycasts back to its
+	# original position
 	if counter >= int(field_of_view * 3/2):
 		counter = int(field_of_view / 2)
 		last_num_of_frames = frames_this_sweep
 		frames_this_sweep = 0
-		#counter_direction = -1
-		#reset_lidar_background()
-	elif counter < int(field_of_view / 2):
-		#counter_direction = 1
-		#reset_lidar_background()
-		pass
+	
 	# check when one resolution has been made
 	texture.create_from_image(occupancy_map)
 	$Viewport/LidarPlot.texture = texture
@@ -110,19 +105,18 @@ func _process(delta):
 
 func _physics_process(delta):
 	# rotation of lidar ray
-	#ray.set_cast_to(point_laser.rotated(Vector3(0,1,0),deg2rad(counter)))
 	rays.rotation.y = 0
 	rays.rotate(Vector3(0,1,0), -deg2rad(counter))
 	
 	# get value of total amount of rotation so far
-	counter = counter + counter_direction * rotation_speed * delta
+	counter = counter + rotation_speed * delta
 	
 	var raycasts = rays.get_children()
 	for i in len (raycasts):
+		# check lidar collision data
+		# in case there is a collision compute the pixel location in occupancy map
 		if raycasts[i] is RayCast:
 			hit_locations.append(scanning(raycasts[i]))
-	# check lidar collision data
-	# in case there is a collision compute the pixel location in occupancy map
 
 
 # Method to draw a dot at a certain point on the image
