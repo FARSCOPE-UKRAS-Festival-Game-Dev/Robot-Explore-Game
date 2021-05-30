@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Environments/LoadEnvironment.gd" type="Script" id=1]
-[ext_resource path="res://Robot/Robot_with_sensors.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Models/Terrain/Cave_2.escn" type="PackedScene" id=3]
 
 [sub_resource type="Environment" id=1]
@@ -14,7 +14,7 @@ robotScene = ExtResource( 2 )
 environment = SubResource( 1 )
 
 [node name="RobotStartLocation" type="Position3D" parent="."]
-transform = Transform( 0.82091, 0, -0.571057, 0, 1, 0, 0.571057, 0, 0.82091, 27.6646, -1.02503, -14.4102 )
+transform = Transform( -0.656757, 0, 0.754102, 0, 1, 0, -0.754102, 0, -0.656757, 27.6646, -1.02503, -14.4102 )
 
 [node name="Cave_2" parent="." instance=ExtResource( 3 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0584993, -0.0199337, 0.0381203 )

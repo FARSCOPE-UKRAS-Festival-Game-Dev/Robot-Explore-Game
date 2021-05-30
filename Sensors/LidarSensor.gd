@@ -81,7 +81,6 @@ func _process(delta):
 	if counter >= int(field_of_view * 3/2):
 		counter = int(field_of_view / 2)
 		last_num_of_hits = hits_this_sweep
-		print(last_num_of_hits)
 		hits_this_sweep = 0
 	
 	# check when one resolution has been made

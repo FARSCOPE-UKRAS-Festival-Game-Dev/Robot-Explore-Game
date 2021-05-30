@@ -1,6 +1,4 @@
-extends MarginContainer
-
-export (String) var game_name = "The Best Robot Sensor Exploration Game"
+extends Control
 
 export(Array, Array, String) var scene_locations = [
 	["Cave Y Junction", "res://Environments/Cave_Y_Junction.tscn"],
@@ -19,8 +17,6 @@ var current_selection = 0
 
 func _ready():
 	set_current_selection(0)
-	
-	$CenterContainer/VBoxContainer/CenterContainer/Label.text = game_name
 	
 	if !globals.debug_mode:
 		$DebugNode.visible = false

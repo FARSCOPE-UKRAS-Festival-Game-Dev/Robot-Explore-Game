@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/tracks.obj-608c27e7d1bf26c0a52ae7f62a40b994.mesh"
+
+[deps]
+
+files=[ "res://.import/tracks.obj-608c27e7d1bf26c0a52ae7f62a40b994.mesh" ]
+
+source_file="res://Assets/Models/Robot/tracks.obj"
+dest_files=[ "res://.import/tracks.obj-608c27e7d1bf26c0a52ae7f62a40b994.mesh", "res://.import/tracks.obj-608c27e7d1bf26c0a52ae7f62a40b994.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
