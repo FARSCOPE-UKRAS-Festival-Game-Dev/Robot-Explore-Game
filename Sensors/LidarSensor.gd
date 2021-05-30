@@ -31,7 +31,7 @@ onready var head = $LidarBody/Head
 onready var rays = $LidarBody/Head/RayCasts
 onready var raygeom = $LidarBody/Head/RayCasts/RayCast/ImmediateGeometry
 onready var robot_sprite: Image = load("res://Assets/Images/lidar_robot_sprite.png").get_data()
-onready var fov_cone: Image = load("res://Assets/Images/lidar_fov_cone.png").get_data()
+onready var fov_cone: Image = load("res://Assets/Images/lidar_fov_cone_with_measurements.png").get_data()
 
 func scanning(ray: RayCast):
 	# update raycast
@@ -53,7 +53,7 @@ func _ready():
 	# Resize images
 	var robot_sprite_initial_size = robot_sprite.get_size()
 	robot_sprite.resize(robot_sprite_initial_size.x * 2, robot_sprite_initial_size.y * 2, 0)
-	fov_cone.resize(fov_cone.get_width() / 2, fov_cone.get_height() / 2, 0)
+	fov_cone.resize(fov_cone.get_width() * 2, fov_cone.get_height() * 2, 0)
 	
 	# create occupancy map, each pixel can be linked to a value of distance
 	occupancy_map.create(lidar_resolution.x,lidar_resolution.y, false, Image.FORMAT_RGBA8)
@@ -158,7 +158,7 @@ func reset_lidar_background():
 
 
 func update_texture_image():
-	texture_image.blend_rect(fov_cone, Rect2(Vector2(0,0), fov_cone.get_size()), sensor_pixel - Vector2(3,-5) - ((fov_cone.get_size() / 2.0)))
+	texture_image.blend_rect(fov_cone, Rect2(Vector2(0,0), fov_cone.get_size()), sensor_pixel - Vector2(14,-5) - ((fov_cone.get_size() / 2.0)))
 	texture_image.blend_rect(robot_sprite, Rect2(Vector2(0,0), robot_sprite.get_size()), sensor_pixel - Vector2(robot_sprite.get_width()/2, 0))
 	texture_image.blend_rect(occupancy_map, Rect2(Vector2(0,0), occupancy_map.get_size()), Vector2(0, 0))
 
