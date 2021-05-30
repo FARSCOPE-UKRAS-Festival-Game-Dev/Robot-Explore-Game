@@ -2,8 +2,8 @@ extends KinematicBody
 
 
 export var gravity = Vector3.UP * -4
-export var speed = 4
-export var rot_speed = 0.85
+export var speed = 2
+export var rot_speed = 0.60
 export var max_floor_angle_degrees = 30
 
 export var engine_power = 3.0
@@ -21,8 +21,13 @@ var wheel_base
 var wheel_vel = Vector2.ZERO
 var accel_vel = Vector2.ZERO # Controlled by player
 
+var joystick
+var is_joystick_enabled: bool
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	joystick = Globals.joystick
+	is_joystick_enabled = Globals.is_joystick_enabled
 #	wheel_base = ($Body/Track1.transform.origin - $Body/Track2.transform.origin).length()
 	pass # Replace with function body.
 	
@@ -62,14 +67,20 @@ func _physics_process(delta):
 func get_input(delta):
 	var vy = velocity.y
 	velocity = Vector3.ZERO
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("accelerate") or joystick.output.y < 0:
 		velocity += -global_transform.basis.z * speed
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("reverse") or joystick.output.y > 0:
 		velocity += global_transform.basis.z * speed
-	if Input.is_action_pressed("ui_right"):
-		rotate_y(-rot_speed * delta)
-	if Input.is_action_pressed("ui_left"):
-		rotate_y(rot_speed * delta)
+	if is_joystick_enabled:
+		var joystick_y_output = joystick.output.y
+		velocity *= abs(joystick_y_output)
+		var joystick_x_output = joystick.output.x * -1
+		rotate_y(rot_speed * joystick_x_output * delta)
+	else:
+		if Input.is_action_pressed("ui_right"):
+			rotate_y(-rot_speed * delta)
+		if Input.is_action_pressed("ui_left"):
+			rotate_y(rot_speed * delta)
 	velocity.y = vy
 
 #func get_input(delta):
