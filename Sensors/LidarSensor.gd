@@ -21,8 +21,8 @@ var pixel_draw = Vector2(0,0)
 
 # List of pixels drawn on the LIDAR screen
 var drawn_pixel_locations: Array = []
-var last_num_of_frames: int = INF
-var frames_this_sweep: int = 0
+var last_num_of_hits: int = INF
+var hits_this_sweep: int = 0
 
 # middle pixel assigned to robot
 var sensor_pixel= Vector2(round(lidar_resolution.x/2),round(lidar_resolution.y * 9.0 / 10.0));
@@ -80,15 +80,16 @@ func _process(delta):
 	# original position
 	if counter >= int(field_of_view * 3/2):
 		counter = int(field_of_view / 2)
-		last_num_of_frames = frames_this_sweep
-		frames_this_sweep = 0
+		last_num_of_hits = hits_this_sweep
+		print(last_num_of_hits)
+		hits_this_sweep = 0
 	
 	# check when one resolution has been made
 	texture.create_from_image(texture_image)
 	$Viewport/LidarPlot.texture = texture
-	
 	for i in len(hit_locations):
 		if hit_locations[i][0]:
+			hits_this_sweep += 1
 			head_location = $LidarBody/Head.global_transform.origin
 			var local_forward = global_transform.basis * Vector3.FORWARD
 			var global_forward = Vector3.FORWARD
@@ -101,11 +102,10 @@ func _process(delta):
 			# draw collision points as green dots
 			draw_pixels(pixel_draw)
 			drawn_pixel_locations.append(pixel_draw)
-			if len(drawn_pixel_locations) > last_num_of_frames * len(hit_locations) * 0.65:
+			if len(drawn_pixel_locations) > last_num_of_hits * 0.45:
 				clear_pixels(drawn_pixel_locations.pop_front())
 	reset_lidar_background()
 	hit_locations.clear()
-	frames_this_sweep += 1
 
 
 func _physics_process(delta):
