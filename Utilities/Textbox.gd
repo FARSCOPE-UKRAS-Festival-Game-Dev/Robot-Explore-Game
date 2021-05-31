@@ -15,20 +15,21 @@ enum State {
 
 var current_state = State.READY
 var text_queue = []
-
+var timeout = false
 func _ready():
 	print("Starting state: State.READY")
 	hide_textbox()
-	queue_text("Excuse me wanderer where can I find the bathroom?")
-	queue_text("Why do we not look like the others?")
-	queue_text("Because we are free assets from opengameart!")
-	queue_text("Thanks for watching!")
+#	queue_text("Excuse me wanderer where can I find the bathroom?")
+#	queue_text("Why do we not look like the others?")
+#	queue_text("Because we are free assets from opengameart!")
+#	queue_text("Thanks for watching!")
 
 func _process(delta):
 	match current_state:
 		State.READY:
 			if !text_queue.empty():
 				display_text()
+				timeout = false
 		State.READING:
 			if Input.is_action_just_pressed("ui_accept"):
 				label.percent_visible = 1.0
@@ -36,9 +37,10 @@ func _process(delta):
 				end_symbol.text = "v"
 				change_state(State.FINISHED)
 		State.FINISHED:
-			if Input.is_action_just_pressed("ui_accept"):
+			if timeout or Input.is_action_just_pressed("ui_accept"):
 				change_state(State.READY)
-				hide_textbox()
+				if text_queue.empty():
+					hide_textbox()
 
 func queue_text(next_text):
 	text_queue.push_back(next_text)
@@ -70,8 +72,14 @@ func change_state(next_state):
 		State.READING:
 			print("Changing state to: State.READING")
 		State.FINISHED:
+			$TimeoutTimer.start()
 			print("Changing state to: State.FINISHED")
 
 func _on_Tween_tween_completed(object, key):
 	end_symbol.text = "v"
 	change_state(State.FINISHED)
+	
+
+func _on_TimeoutTimer_timeout():
+	timeout = true
+	print(timeout)

@@ -14,3 +14,5 @@ func _ready():
 		'Whisker',
 	])
 	
+func recieve_dialog(text):
+	$ControlPanel._on_recieve_dialog(text)
