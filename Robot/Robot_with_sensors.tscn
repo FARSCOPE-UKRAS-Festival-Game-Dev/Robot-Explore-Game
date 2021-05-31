@@ -28,5 +28,8 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.2
 [node name="Lidar" parent="Robot" instance=ExtResource( 6 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.76914e-09, 0.172231, 1.2365 )
 
-[node name="TemperatureSensor" parent="Robot" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.547839, 0 )
+[node name="TempLeft" parent="Robot" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409874, 0.547839, 0 )
+
+[node name="TempRight" parent="Robot" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.347973, 0.547839, 0 )

@@ -1,10 +1,69 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sensors/CameraSensor.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Models/Camera/gopro.escn" type="PackedScene" id=2]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.774, 1.126, 1.676 )
+
+[sub_resource type="Shader" id=2]
+code = "// For Godot we have to specify the shader type. Since this shader goes on a ColorRect node, it's 2D and all 2D shaders are of type `canvas_item`.
+shader_type canvas_item;
+
+// The original shader contains these variables below with `#define` but since we don't have access to that we just declare them as uniforms instead.
+
+// The amount of grain to apply to the night vision.
+uniform float noise = 5;
+// The amount that the screen should flicker.
+uniform float flicker = 0.02;
+// Affects how bright the night vision effect is.
+uniform float luminance = 0.5;
+
+// `mainImage` is always `fragment` in Godot and it takes no arguments.
+void fragment() {
+    // Shadertoy has an `iResolution` global variable but we don't have access to that in Godot. The Godot docs recommend either using the following definition below or passing it in manually.
+	vec2 i_resolution = 1.0 / SCREEN_PIXEL_SIZE;
+
+	// Normalized pixel coordinates (from 0 to 1)
+    // `fragCoord` is `FRAGCOORD` in Godot.
+	vec2 uv = FRAGCOORD.xy / i_resolution.xy;
+
+	// scene color
+    // Instead of `iChannel0` we have `TEXTURE` and `SCREEN_TEXTURE` available to us and since we want this to be a screen shader we use `SCREEN_TEXTURE`.
+	vec4 color = texture(SCREEN_TEXTURE, uv) * vec4(0.5, 0.9, 0.52, 1.0);
+
+	// vigenette
+	float d = length(uv - 0.5);
+	float c = 1.0;
+	// float c = 1.3 - d;
+	float vignette = smoothstep(0.5, 1.0, c);
+
+	// Luminance
+	color = luminance * color;
+
+	// simple noise effect
+    // Instead of `iTime` we use the global `TIME`.
+	float noise_2 = noise * fract(sin(dot(uv, vec2(10.0, 80.0) + (TIME))) * 10000.0);
+
+	// apply noise
+	color += noise_2 / (vignette * 2.2);
+
+	// apply vignette
+	color *= vignette * 1.5;
+
+	// Screen flicker
+	color += flicker * cos(sin(TIME * 120.0));
+
+	// Final output
+    // `fragColor` is `COLOR` in Godot.
+	COLOR = vec4(color);
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/noise = 0.2
+shader_param/flicker = 0.02
+shader_param/luminance = 0.5
 
 [node name="CameraSensor" type="RigidBody"]
 script = ExtResource( 1 )
@@ -27,3 +86,8 @@ render_target_update_mode = 3
 gui_disable_input = true
 
 [node name="Camera" type="Camera" parent="Body/Viewport"]
+
+[node name="ColorRect" type="ColorRect" parent="Body/Viewport"]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
