@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hover_menu.png-f29d2d67c37c16dbec28a29a5dfc2ff7.stex"
+path="res://.import/Option6_pressed_with_cross.png-7042720604c0b3bfb91e55e07e5e670a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/hover_menu.png"
-dest_files=[ "res://.import/hover_menu.png-f29d2d67c37c16dbec28a29a5dfc2ff7.stex" ]
+source_file="res://Assets/Images/ControlPanel/Option6_pressed_with_cross.png"
+dest_files=[ "res://.import/Option6_pressed_with_cross.png-7042720604c0b3bfb91e55e07e5e670a.stex" ]
 
 [params]
 

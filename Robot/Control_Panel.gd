@@ -12,11 +12,13 @@ onready var hud_to_id = [hud1, hud2, hud3, hud4, hud5]
 var sensor_to_class = null
 var sensor_descriptions = null
 
+onready var globals = get_node('/root/Globals')
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var globals = get_node('/root/Globals')
-	globals.show_joystick()
 	
+	
+	globals.init_control_panel()
 	if not globals.debug_mode:
 		$MarginContainer/Panel/DebugTools.visible = false
 
@@ -63,6 +65,10 @@ func _on_OpenSpecialsButton_pressed():
 	$MarginContainer/Panel/SpecialsMenu.visible = !$MarginContainer/Panel/SpecialsMenu.visible
 
 
-func _on_OpenBookButton_pressed():
-	# Open Book Menu! Globals.openMenu
-	pass # Replace with function body.
+
+	
+
+
+func _on_OpenBookButton_toggled(button_pressed):
+	print(button_pressed)
+	globals.set_book_visible(button_pressed)

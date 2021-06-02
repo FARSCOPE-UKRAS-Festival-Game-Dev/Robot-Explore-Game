@@ -1,7 +1,26 @@
-{
-    "dialog1": "Hello world!",
-	
-	"dialog2": "Hi Michael the robot!",
-	
-    "dialog3": "It's a bit dark in here",
+{	
+	"mission_test": {
+					"dialog" : "Ah nice one! You found the blue box",
+					"next_dialog" : "mission_test2"
+					},
+	"mission_test2": {
+					"dialog" : "With this blue box we will be unstoppable",
+					"next_dialog" : "mission_test3"
+					},
+	"mission_test3": {
+					"dialog" : "Why don't you look for the red box now?",
+					},
+	"pink_box1": {
+					"dialog" : "Ah nice you found a pink box",
+					},
+	"pink_box2": {
+					"dialog" : "What a cool box, lets look for some more",
+					},
+					
+	"pink_box3": {
+					"dialog" : "Who would just leave these around? Such a nice box!",
+					},	
+	"pink_box_complete": {
+					"dialog" : "Well done you found all the pink boxes",
+					},	
 }

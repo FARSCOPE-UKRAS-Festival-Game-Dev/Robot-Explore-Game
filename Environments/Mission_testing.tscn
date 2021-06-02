@@ -1,7 +1,10 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Environments/LoadEnvironment.gd" type="Script" id=1]
 [ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Missions/MissionContainer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Missions/ObjectiveSingle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Missions/MultiObjective.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Environment" id=1]
 background_energy = 3.66
@@ -54,18 +57,20 @@ extents = Vector3( 20, 20, 1 )
 
 [sub_resource type="PhysicsMaterial" id=13]
 
-[sub_resource type="CubeMesh" id=14]
-size = Vector3( 3, 3, 3 )
-
-[sub_resource type="SpatialMaterial" id=15]
-albedo_color = Color( 0.788235, 0.0509804, 0.0509804, 1 )
-
-[sub_resource type="BoxShape" id=16]
+[sub_resource type="BoxShape" id=14]
 extents = Vector3( 1.5, 1.5, 1.5 )
 
-[sub_resource type="PhysicsMaterial" id=17]
+[sub_resource type="CubeMesh" id=15]
+size = Vector3( 3, 3, 3 )
 
-[sub_resource type="PhysicsMaterial" id=18]
+[sub_resource type="SpatialMaterial" id=16]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=17]
+albedo_color = Color( 0, 0.00784314, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_color = Color( 1, 0, 0.866667, 1 )
 
 [node name="Testing_Cave" type="Spatial"]
 script = ExtResource( 1 )
@@ -293,6 +298,7 @@ mesh = SubResource( 11 )
 material/0 = SubResource( 10 )
 
 [node name="StaticBody" type="StaticBody" parent="Environment/Wall19"]
+visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Environment/Wall19/StaticBody"]
 transform = Transform( 1, 0, 2.38419e-07, 0, 1, 0, 0, 0, 1, 0, -10.9719, 0 )
@@ -308,57 +314,6 @@ material/0 = SubResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Environment/Ceiling/StaticBody"]
 shape = SubResource( 6 )
-
-[node name="Obstacles" type="Spatial" parent="."]
-
-[node name="RedBox" type="RigidBody" parent="Obstacles"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.27684, 1.82629, 0.035 )
-physics_material_override = SubResource( 13 )
-gravity_scale = 3.0
-
-[node name="MeshInstance" type="MeshInstance" parent="Obstacles/RedBox"]
-mesh = SubResource( 14 )
-material/0 = SubResource( 15 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Obstacles/RedBox"]
-shape = SubResource( 16 )
-
-[node name="RedBox2" type="RigidBody" parent="Obstacles"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75444, 5.07782, 0.07 )
-physics_material_override = SubResource( 17 )
-gravity_scale = 3.0
-
-[node name="MeshInstance" type="MeshInstance" parent="Obstacles/RedBox2"]
-mesh = SubResource( 14 )
-material/0 = SubResource( 15 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Obstacles/RedBox2"]
-shape = SubResource( 16 )
-
-[node name="RedBox3" type="RigidBody" parent="Obstacles"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.44079, 2.78665, -3.4921 )
-physics_material_override = SubResource( 18 )
-gravity_scale = 3.0
-
-[node name="MeshInstance" type="MeshInstance" parent="Obstacles/RedBox3"]
-mesh = SubResource( 14 )
-material/0 = SubResource( 15 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Obstacles/RedBox3"]
-shape = SubResource( 16 )
-
-[node name="RedBox4" type="RigidBody" parent="Obstacles"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7447, 11.8072, -16.711 )
-physics_material_override = SubResource( 13 )
-gravity_scale = 3.0
-
-[node name="CollisionShape" type="CollisionShape" parent="Obstacles/RedBox4"]
-shape = SubResource( 16 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Obstacles/RedBox4/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 14 )
-material/0 = SubResource( 15 )
 
 [node name="Lights" type="Spatial" parent="."]
 
@@ -385,3 +340,110 @@ transform = Transform( -0.0459423, -0.815349, 0.577144, -0.266143, 0.566862, 0.7
 light_energy = 3.0
 spot_range = 22.3982
 spot_angle = 31.7205
+
+[node name="Mission1" parent="." instance=ExtResource( 3 )]
+
+[node name="ObjectiveSingle" parent="Mission1" instance=ExtResource( 4 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 3, 0, 1.34099, -9.22558 )
+visible = false
+enabled = true
+display_text = "Go to blue box"
+disable_on_complete = true
+on_complete_dialogue = "mission_test"
+next_objective_enable = NodePath("../ObjectiveSingle2")
+
+[node name="ObjectiveSingle2" parent="Mission1" instance=ExtResource( 4 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 3, -22.7406, 1.34099, -20.7204 )
+visible = false
+display_text = "Go to red box"
+
+[node name="RedBox" type="RigidBody" parent="Mission1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7959, 2.78665, -20.421 )
+physics_material_override = SubResource( 13 )
+gravity_scale = 3.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Mission1/RedBox"]
+shape = SubResource( 14 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Mission1/RedBox/CollisionShape"]
+mesh = SubResource( 15 )
+material/0 = SubResource( 16 )
+
+[node name="BlueBox" type="RigidBody" parent="Mission1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.944715, 2.78665, -8.92612 )
+physics_material_override = SubResource( 13 )
+gravity_scale = 3.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Mission1/BlueBox"]
+shape = SubResource( 14 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Mission1/BlueBox/CollisionShape"]
+mesh = SubResource( 15 )
+material/0 = SubResource( 17 )
+
+[node name="Mission2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3196, 0, 18.3626 )
+mission_name = "Mission 2"
+mission_desc = "These pink boxes are desirable. Go to all the pink boxes"
+
+[node name="MultiObjective" parent="Mission2" instance=ExtResource( 5 )]
+enabled = true
+display_text = "Go to the pink boxes"
+on_complete_dialogue = "pink_box_complete"
+
+[node name="ObjectiveSingle" parent="Mission2/MultiObjective" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 2, 0, 0, 0, 5, -40.5659, 1.34099, -20.1623 )
+visible = false
+enabled = true
+display_text = "Go to pink box"
+on_complete_dialogue = "pink_box1"
+
+[node name="ObjectiveSingle2" parent="Mission2/MultiObjective" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 2, 0, 0, 0, 5, -28.822, 1.34099, -9.32654 )
+visible = false
+enabled = true
+display_text = "Go to pink box"
+on_complete_dialogue = "pink_box2"
+
+[node name="ObjectiveSingle3" parent="Mission2/MultiObjective" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 2, 0, 0, 0, 5, -17.1473, 1.34099, -4.35595 )
+visible = false
+enabled = true
+display_text = "Go to pink box"
+on_complete_dialogue = "pink_box3"
+
+[node name="PinkBox3" type="RigidBody" parent="Mission2/MultiObjective"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1473, 1.34099, -4.35595 )
+physics_material_override = SubResource( 13 )
+gravity_scale = 3.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Mission2/MultiObjective/PinkBox3"]
+shape = SubResource( 14 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Mission2/MultiObjective/PinkBox3/CollisionShape"]
+mesh = SubResource( 15 )
+material/0 = SubResource( 18 )
+
+[node name="PinkBox2" type="RigidBody" parent="Mission2/MultiObjective"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.822, 1.34099, -9.32654 )
+physics_material_override = SubResource( 13 )
+gravity_scale = 3.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Mission2/MultiObjective/PinkBox2"]
+shape = SubResource( 14 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Mission2/MultiObjective/PinkBox2/CollisionShape"]
+mesh = SubResource( 15 )
+material/0 = SubResource( 18 )
+
+[node name="PinkBox" type="RigidBody" parent="Mission2/MultiObjective"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.5659, 1.34099, -20.1623 )
+physics_material_override = SubResource( 13 )
+gravity_scale = 3.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Mission2/MultiObjective/PinkBox"]
+shape = SubResource( 14 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Mission2/MultiObjective/PinkBox/CollisionShape"]
+mesh = SubResource( 15 )
+material/0 = SubResource( 18 )

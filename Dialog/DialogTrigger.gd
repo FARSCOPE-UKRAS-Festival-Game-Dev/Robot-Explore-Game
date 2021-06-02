@@ -1,24 +1,20 @@
 extends Area
 
 export var dialog_text_key = "dialog1"
+export(bool) var trigger_on_touch = true
 var dialog_text= ""
 var max_trigger_count = 1
+var robot
 
-func load_text_from_file():
-	var file = File.new()
-	
-	file.open("res://Dialog/dialog_JSON.json", File.READ)
-	var dialog_dict =  parse_json(file.get_as_text())
-	dialog_text = dialog_dict[dialog_text_key]
-	
 func _ready():
-	load_text_from_file()
+	robot =  get_tree().get_root().get_node("Robot")
 
+func trigger_dialog():
+	robot.trigger_dialog()
 
 func _on_DialogTrigger_body_entered(body):
 
-		if body.get_name() == "Robot":
+		if trigger_on_touch and body.get_name() == "Robot":
 			if max_trigger_count > 0:
 				max_trigger_count-=1
-				body.get_parent().recieve_dialog(dialog_text)
-		
+				trigger_dialog()
