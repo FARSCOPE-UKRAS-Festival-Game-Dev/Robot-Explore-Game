@@ -54,8 +54,8 @@ anchor_right = 0.586
 anchor_bottom = 0.6
 
 [node name="LidarPanel" parent="Panel" instance=ExtResource( 6 )]
-anchor_left = 0.578
-anchor_top = 0.093
+anchor_left = 0.594
+anchor_top = 0.095
 anchor_right = 0.891
 anchor_bottom = 0.547
 
@@ -65,8 +65,8 @@ anchor_bottom = 0.547
 
 [node name="WhiskerPanel" parent="Panel" instance=ExtResource( 2 )]
 anchor_left = 0.273
-anchor_top = 0.6
-anchor_right = 0.703
+anchor_top = 0.627
+anchor_right = 0.702
 anchor_bottom = 0.96
 
 [node name="SpecialsMenu" parent="Panel" instance=ExtResource( 8 )]
