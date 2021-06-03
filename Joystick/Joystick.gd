@@ -5,6 +5,9 @@ class_name Joystick
 # If the joystick is receiving inputs.
 var is_working := false
 
+#Is the joystick enabled, false when hidden
+var enabled = false
+
 # The joystick output.
 var output := Vector2.ZERO
 
@@ -64,7 +67,7 @@ func _input(event: InputEvent) -> void:
 	if not (event is InputEventScreenTouch or event is InputEventScreenDrag):
 		return
 	
-	if event is InputEventScreenTouch:
+	if event is InputEventScreenTouch and enabled:
 		if _touch_started(event) and _is_inside_control_rect(event.position, self):
 			if (joystick_mode == JoystickMode.DYNAMIC or joystick_mode == JoystickMode.FOLLOWING):
 				_center_control(_background, event.position)
@@ -151,3 +154,7 @@ func _update_joystick(event_position: Vector2):
 		is_working = false
 		output = Vector2.ZERO
 		_reset_handle()
+
+
+func _on_Joystick_visibility_changed():
+	enabled = visible

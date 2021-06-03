@@ -348,16 +348,17 @@ material/0 = SubResource( 15 )
 shape = SubResource( 16 )
 
 [node name="RedBox4" type="RigidBody" parent="Obstacles"]
-transform = Transform( 1, 0, 0, 0, 9.44845, 0, 0, 0, 1.63236, 15.7447, 11.8072, -16.711 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7447, 11.8072, -16.711 )
 physics_material_override = SubResource( 13 )
 gravity_scale = 3.0
 
-[node name="MeshInstance" type="MeshInstance" parent="Obstacles/RedBox4"]
-mesh = SubResource( 14 )
-material/0 = SubResource( 15 )
-
 [node name="CollisionShape" type="CollisionShape" parent="Obstacles/RedBox4"]
 shape = SubResource( 16 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Obstacles/RedBox4/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
 
 [node name="Lights" type="Spatial" parent="."]
 

@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Utilities/Overlays/BookOverlay.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Utilities/Overlays/ObjectivePopup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Utilities/Overlays/Textbox.tscn" type="PackedScene" id=4]
 
 [node name="ControlPanelUI" type="Control"]
 anchor_right = 1.0
@@ -15,3 +18,11 @@ margin_left = 721.0
 margin_right = 1021.0
 joystick_mode = 1
 _pressed_color = Color( 0.176471, 0.160784, 0.168627, 1 )
+
+[node name="ObjectivePopup" parent="." instance=ExtResource( 3 )]
+
+[node name="BookOverlay" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.13
+mouse_filter = 2
+
+[node name="DialogPopup" parent="." instance=ExtResource( 4 )]

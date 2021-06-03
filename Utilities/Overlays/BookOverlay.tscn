@@ -1,0 +1,238 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Utilities/Overlays/BookElements/MissionItem.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Utilities/Overlays/BookElements/LogEntry.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Utilities/Overlays/BookOverlay.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Images/ControlDescription.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Images/SensorDescription.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Fonts/NormalTextFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Utilities/OptionsPanel.tscn" type="PackedScene" id=7]
+
+[node name="BookOverlay" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OverlayTabs" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="OverlayTabs"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1014.0
+margin_bottom = 590.0
+
+[node name="MarginContainer" type="MarginContainer" parent="OverlayTabs/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 997.0
+margin_bottom = 573.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="OverlayTabs/PanelContainer/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 985.0
+margin_bottom = 561.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mission" type="Panel" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 50.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Mission"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MissionVBox" type="VBoxContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Mission/ScrollContainer"]
+margin_right = 972.0
+margin_bottom = 502.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MissionItem" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Mission/ScrollContainer/MissionVBox" instance=ExtResource( 1 )]
+anchor_right = 0.0
+margin_right = 972.0
+margin_bottom = 160.0
+
+[node name="MissionItem2" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Mission/ScrollContainer/MissionVBox" instance=ExtResource( 1 )]
+anchor_right = 0.0
+margin_top = 164.0
+margin_right = 972.0
+margin_bottom = 324.0
+
+[node name="Journal" type="Panel" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 50.0
+margin_right = -4.0
+margin_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Journal"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JournalVBox" type="VBoxContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Journal/ScrollContainer"]
+margin_right = 972.0
+margin_bottom = 502.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="JournalEntry" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Journal/ScrollContainer/JournalVBox" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 972.0
+margin_bottom = 312.0
+
+[node name="Sensors" type="Panel" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 50.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Sensors"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Sensors/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 962.0
+margin_bottom = 492.0
+ratio = 1.51
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Sensors/MarginContainer/AspectRatioContainer"]
+margin_left = 112.09
+margin_right = 839.91
+margin_bottom = 482.0
+size_flags_horizontal = 3
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Panel" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 50.0
+margin_right = -4.0
+margin_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Controls"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Controls/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 962.0
+margin_bottom = 492.0
+ratio = 1.7
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Controls/MarginContainer/AspectRatioContainer"]
+margin_left = 66.3
+margin_right = 885.7
+margin_bottom = 482.0
+size_flags_horizontal = 3
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="Panel" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 50.0
+margin_right = -4.0
+margin_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsPanel" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Options" instance=ExtResource( 7 )]

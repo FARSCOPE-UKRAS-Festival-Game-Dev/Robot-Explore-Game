@@ -9,16 +9,29 @@ onready var hud5 = $MarginContainer/Panel/Panel5/MarginContainer/HUD5
 
 onready var hud_to_id = [hud1, hud2, hud3, hud4, hud5]
 
+onready var book_btn = $MarginContainer/Panel/OpenBookButton
+
+onready var book_unread_texture = preload("res://Assets/Images/ControlPanel/Options6_unread.png")
+onready var book_read_texture = preload("res://Assets/Images/ControlPanel/Options6.png")
+
 var sensor_to_class = null
 var sensor_descriptions = null
 
+onready var globals = get_node('/root/Globals')
+
+signal take_picture_button_pressed
+signal drill_button_pressed
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var globals = get_node('/root/Globals')
-	globals.show_joystick()
 	
-	if not globals.debug_mode:
-		$MarginContainer/Panel/DebugTools.visible = false
+	
+	globals.init_control_panel()
+	$MarginContainer/Panel/SpecialsMenu.visible  = false
+	update_elements_from_options()
+	globals.connect("options_updated",self,"update_elements_from_options")
+
+func update_elements_from_options():
+	$MarginContainer/DebugTools.visible = globals.debug_mode
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -62,7 +75,17 @@ func _on_ToggleHuds_toggled(button_pressed):
 func _on_OpenSpecialsButton_pressed():
 	$MarginContainer/Panel/SpecialsMenu.visible = !$MarginContainer/Panel/SpecialsMenu.visible
 
+func _on_OpenBookButton_toggled(button_pressed):
+	globals.set_book_visible(button_pressed)
+	mark_read_book_icon(true)
 
-func _on_OpenBookButton_pressed():
-	# Open Book Menu! Globals.openMenu
-	pass # Replace with function body.
+func _on_TakeHighResPictureButton_pressed():
+	emit_signal("take_picture_button_pressed")
+	$MarginContainer/Panel/OpenSpecialsButton.emit_signal("pressed")
+	$MarginContainer/Panel/OpenSpecialsButton.pressed = false
+func _on_DrillSampleButton_pressed():
+	emit_signal("drill_button_pressed")
+	$MarginContainer/Panel/OpenSpecialsButton.emit_signal("pressed")
+	$MarginContainer/Panel/OpenSpecialsButton.pressed = false
+func mark_read_book_icon(read):
+		book_btn.texture_normal =  book_read_texture if read else book_unread_texture
