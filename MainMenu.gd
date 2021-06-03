@@ -25,12 +25,12 @@ func _ready():
 	set_current_selection(0)
 	
 #	$CenterContainer/VBoxContainer/VBoxContainer/CenterContainer/Label.text = game_name
-	options_menu.hide()
+	hide_options()
 	if !globals.debug_mode:
 		$DebugNode.visible = false
 	
 	for maps in scene_locations:
-		$DebugNode/MapChoice.add_item(maps[0])
+		$DebugNode/MarginContainer/MapChoice.add_item(maps[0])
 		print(maps)
 	
 	
@@ -48,7 +48,7 @@ func _process(delta):
 			hide_options()# Not implimenting options via keyboard atm
 func handle_selection(_current_selection):
 	if _current_selection == 0:
-		get_tree().change_scene(scene_locations[$DebugNode/MapChoice.get_selected_id()][1])
+		get_tree().change_scene(scene_locations[$DebugNode/MarginContainer/MapChoice.get_selected_id()][1])
 		#get_parent().add_child(scene.instance())
 		#queue_free()
 	elif _current_selection == 1:

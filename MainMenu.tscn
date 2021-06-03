@@ -65,37 +65,18 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Background"]
 position = Vector2( 512, 300 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="DebugNode" type="Control" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+anchor_left = 1.0
+anchor_top = 0.723
+anchor_right = 1.0
+anchor_bottom = 0.723
+margin_left = -387.0
+margin_top = -21.8
+margin_right = -8.0
+margin_bottom = 15.2
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MapChoice" type="OptionButton" parent="DebugNode"]
-margin_left = 680.0
-margin_top = 472.0
-margin_right = 997.0
-margin_bottom = 510.0
-hint_tooltip = "[DEBUG] Choose the map"
-focus_mode = 1
-custom_fonts/font = ExtResource( 10 )
-enabled_focus_mode = 1
-text = "[DEBUG] Choose The Map"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="DebugNode/MapChoice"]
-margin_top = -52.0
-margin_right = 200.0
-margin_bottom = -20.0
-custom_fonts/font = ExtResource( 3 )
-text = "Choose the map"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -111,35 +92,68 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MarginContainer" type="MarginContainer" parent="DebugNode"]
+margin_right = 40.0
+margin_bottom = 40.0
+size_flags_horizontal = 15
+size_flags_vertical = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapChoice" type="OptionButton" parent="DebugNode/MarginContainer"]
+margin_right = 317.0
+margin_bottom = 38.0
+grow_horizontal = 0
+hint_tooltip = "[DEBUG] Choose the map"
+focus_mode = 1
+size_flags_horizontal = 15
+size_flags_vertical = 15
+custom_fonts/font = ExtResource( 10 )
+enabled_focus_mode = 1
+text = "[DEBUG] Choose The Map"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DebugNode/MarginContainer/MapChoice"]
+margin_top = -52.0
+margin_right = 200.0
+margin_bottom = -20.0
+custom_fonts/font = ExtResource( 3 )
+text = "Choose the map"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MainMenu" type="MarginContainer" parent="."]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_top = -195.0
-margin_right = 320.0
-margin_bottom = 195.0
+anchor_left = 0.05
+anchor_top = 0.2
+anchor_right = 0.05
+anchor_bottom = 0.2
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MainPage" type="VBoxContainer" parent="MainMenu"]
-margin_right = 395.0
+margin_right = 254.0
 margin_bottom = 390.0
 custom_constants/separation = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MainPage"]
-margin_right = 395.0
+margin_right = 254.0
 margin_bottom = 390.0
 custom_constants/separation = 75
 alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="MainMenu/MainPage/VBoxContainer"]
-margin_right = 395.0
+margin_right = 254.0
 margin_bottom = 80.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/MainPage/VBoxContainer/CenterContainer"]
-margin_left = 100.0
-margin_right = 294.0
+margin_left = 30.0
+margin_right = 224.0
 margin_bottom = 80.0
 
 [node name="Selector" type="Label" parent="MainMenu/MainPage/VBoxContainer/CenterContainer/HBoxContainer"]
@@ -178,12 +192,11 @@ __meta__ = {
 
 [node name="CenterContainer2" type="CenterContainer" parent="MainMenu/MainPage/VBoxContainer"]
 margin_top = 155.0
-margin_right = 395.0
+margin_right = 254.0
 margin_bottom = 235.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/MainPage/VBoxContainer/CenterContainer2"]
-margin_left = 70.0
-margin_right = 324.0
+margin_right = 254.0
 margin_bottom = 80.0
 
 [node name="Selector" type="Label" parent="MainMenu/MainPage/VBoxContainer/CenterContainer2/HBoxContainer"]
@@ -222,12 +235,12 @@ __meta__ = {
 
 [node name="CenterContainer3" type="CenterContainer" parent="MainMenu/MainPage/VBoxContainer"]
 margin_top = 310.0
-margin_right = 395.0
+margin_right = 254.0
 margin_bottom = 390.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/MainPage/VBoxContainer/CenterContainer3"]
-margin_left = 123.0
-margin_right = 272.0
+margin_left = 52.0
+margin_right = 201.0
 margin_bottom = 80.0
 
 [node name="Selector" type="Label" parent="MainMenu/MainPage/VBoxContainer/CenterContainer3/HBoxContainer"]
@@ -265,8 +278,9 @@ __meta__ = {
 }
 
 [node name="OptionPage" type="VBoxContainer" parent="MainMenu"]
-margin_right = 395.0
-margin_bottom = 390.0
+visible = false
+margin_right = 493.0
+margin_bottom = 404.0
 custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
@@ -317,10 +331,12 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="."]
-margin_left = 408.0
-margin_top = -8.0
-margin_right = 1024.0
-margin_bottom = 155.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -644.145
+margin_top = 1.7818
+margin_right = -14.1453
+margin_bottom = 164.782
 custom_fonts/font = SubResource( 7 )
 text = "RoC-Ex Robot Cave Explorer"
 align = 2
@@ -330,10 +346,13 @@ __meta__ = {
 }
 
 [node name="Subtitle" type="Label" parent="."]
-margin_left = 696.0
-margin_top = 250.0
-margin_right = 1008.0
-margin_bottom = 317.0
+anchor_left = 0.98
+anchor_top = 0.35
+anchor_right = 0.98
+anchor_bottom = 0.35
+margin_left = -377.0
+margin_right = 1.0
+margin_bottom = 67.0
 custom_fonts/font = SubResource( 8 )
 text = "Unearth the mystery of cave system #0393"
 align = 2

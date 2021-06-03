@@ -20,8 +20,8 @@ __meta__ = {
 [node name="GridContainer" type="GridContainer" parent="."]
 margin_left = 40.0
 margin_top = 40.0
-margin_right = 355.0
-margin_bottom = 114.0
+margin_right = 453.0
+margin_bottom = 164.0
 custom_constants/vseparation = 10
 custom_constants/hseparation = 5
 columns = 2
@@ -30,7 +30,7 @@ __meta__ = {
 }
 
 [node name="FontSize" type="Label" parent="GridContainer"]
-margin_right = 110.0
+margin_right = 208.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -39,8 +39,8 @@ text = "Font Size"
 align = 1
 
 [node name="FontSlider" type="HSlider" parent="GridContainer"]
-margin_left = 115.0
-margin_right = 315.0
+margin_left = 213.0
+margin_right = 413.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 3
@@ -53,7 +53,7 @@ rounded = true
 
 [node name="Volume" type="Label" parent="GridContainer"]
 margin_top = 42.0
-margin_right = 110.0
+margin_right = 208.0
 margin_bottom = 74.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -62,9 +62,9 @@ text = "Volume"
 align = 1
 
 [node name="VolumeSlider" type="HSlider" parent="GridContainer"]
-margin_left = 115.0
+margin_left = 213.0
 margin_top = 42.0
-margin_right = 315.0
+margin_right = 413.0
 margin_bottom = 74.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -72,5 +72,24 @@ max_value = 50.0
 step = 2.0
 value = 50.0
 
+[node name="Debug" type="Label" parent="GridContainer"]
+margin_top = 88.0
+margin_right = 208.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 1 )
+text = "Show debug tools"
+align = 1
+
+[node name="Debug_tools" type="CheckButton" parent="GridContainer"]
+margin_left = 213.0
+margin_top = 84.0
+margin_right = 413.0
+margin_bottom = 124.0
+size_flags_horizontal = 3
+
+[connection signal="visibility_changed" from="." to="." method="_on_OptionsPanel_visibility_changed"]
 [connection signal="value_changed" from="GridContainer/FontSlider" to="." method="_on_FontSlider_value_changed"]
 [connection signal="value_changed" from="GridContainer/VolumeSlider" to="." method="_on_VolumeSlider_value_changed"]
+[connection signal="toggled" from="GridContainer/Debug_tools" to="." method="_on_Debug_tools_toggled"]

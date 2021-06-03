@@ -19,15 +19,27 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Joystick/Joystick.gd"
 }, {
-"base": "Node",
+"base": "Spatial",
 "class": "ObjectiveBase",
 "language": "GDScript",
-"path": "res://Missions/ObjectiveBase.gd"
+"path": "res://Scripting/MissionSystem/ObjectiveBase.gd"
+}, {
+"base": "Spatial",
+"class": "Trigger",
+"language": "GDScript",
+"path": "res://Scripting/Trigger.gd"
+}, {
+"base": "Spatial",
+"class": "TriggeredResource",
+"language": "GDScript",
+"path": "res://Scripting/TriggeredResource.gd"
 } ]
 _global_script_class_icons={
 "GitAPI": "",
 "Joystick": "",
-"ObjectiveBase": ""
+"ObjectiveBase": "",
+"Trigger": "",
+"TriggeredResource": ""
 }
 
 [application]

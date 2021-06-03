@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/DialogTrigger.png-221c490870b28fb7c9b1a8dff7631af3.s3tc.stex"
-path.etc="res://.import/DialogTrigger.png-221c490870b28fb7c9b1a8dff7631af3.etc.stex"
+path.s3tc="res://.import/Trigger.png-eab7eb616ccb09980d2738332adc0d32.s3tc.stex"
+path.etc="res://.import/Trigger.png-eab7eb616ccb09980d2738332adc0d32.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Images/DialogTrigger.png"
-dest_files=[ "res://.import/DialogTrigger.png-221c490870b28fb7c9b1a8dff7631af3.s3tc.stex", "res://.import/DialogTrigger.png-221c490870b28fb7c9b1a8dff7631af3.etc.stex" ]
+source_file="res://Assets/Images/Trigger.png"
+dest_files=[ "res://.import/Trigger.png-eab7eb616ccb09980d2738332adc0d32.s3tc.stex", "res://.import/Trigger.png-eab7eb616ccb09980d2738332adc0d32.etc.stex" ]
 
 [params]
 

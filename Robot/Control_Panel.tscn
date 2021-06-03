@@ -246,7 +246,6 @@ __meta__ = {
 }
 
 [node name="SpecialsMenu" type="Control" parent="MarginContainer/Panel"]
-visible = false
 margin_right = 256.0
 margin_bottom = 600.0
 mouse_filter = 2
@@ -298,6 +297,7 @@ margin_left = 144.0
 margin_top = 416.0
 margin_right = 256.0
 margin_bottom = 510.0
+toggle_mode = true
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 12 )
 expand = true
@@ -353,6 +353,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="pressed" from="MarginContainer/Panel/SpecialsMenu/MarginContainer/Panel/TakeHighResPictureButton" to="." method="_on_TakeHighResPictureButton_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/SpecialsMenu/MarginContainer/Panel/DrillSampleButton" to="." method="_on_DrillSampleButton_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/OpenSpecialsButton" to="." method="_on_OpenSpecialsButton_pressed"]
 [connection signal="toggled" from="MarginContainer/Panel/OpenBookButton" to="." method="_on_OpenBookButton_toggled"]
 [connection signal="pressed" from="MarginContainer/DebugTools/Panel/CheckButton" to="." method="_on_toggle_background_button"]

@@ -1,6 +1,9 @@
 extends ObjectiveBase
 onready var trigger = null
 
+#A single objective completed by the trigger activating
+#can either be used on its own or as a child of MultiObjective 
+
 func set_enable(value):
 	.set_enable(value)
 	if trigger != null:

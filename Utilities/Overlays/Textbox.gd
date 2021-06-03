@@ -13,6 +13,8 @@ enum State {
 	FINISHED
 }
 
+signal finished_dialog_queue
+
 var current_state = State.READY
 var text_queue = []
 var timeout = false
@@ -44,7 +46,7 @@ func _process(delta):
 				change_state(State.READY)
 				if text_queue.empty():
 					hide_textbox()
-
+					emit_signal("finished_dialog_queue")
 func queue_text(next_text):
 	text_queue.push_back(next_text)
 
@@ -72,12 +74,14 @@ func change_state(next_state):
 	current_state = next_state
 	match current_state:
 		State.READY:
-			print("Changing state to: State.READY")
+			pass
+			#print("Changing state to: State.READY")
 		State.READING:
-			print("Changing state to: State.READING")
+			pass
+			#print("Changing state to: State.READING")
 		State.FINISHED:
 			$TimeoutTimer.start()
-			print("Changing state to: State.FINISHED")
+			#print("Changing state to: State.FINISHED")
 
 func _on_Tween_tween_completed(object, key):
 	end_symbol.text = "v"
@@ -93,10 +97,4 @@ func _on_Textbox_visibility_changed():
 		$MarginContainer.mouse_filter = Control.MOUSE_FILTER_STOP
 	else:
 		$MarginContainer.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	print("------0-")
-	print($MarginContainer.visible)
-	print($MarginContainer.mouse_filter)
-	print(mouse_filter)
-	print(Control.MOUSE_FILTER_STOP)
-	print("-------")
 

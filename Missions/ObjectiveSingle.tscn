@@ -1,14 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Missions/Trigger.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Missions/ObjectiveSingle.gd" type="Script" id=2]
 
 [node name="ObjectiveSingle" type="Spatial" groups=[
 "Objectives",
 ]]
 script = ExtResource( 2 )
-
-[node name="ObjectiveTrigger" parent="." instance=ExtResource( 1 )]
-enabled = true
-
-[connection signal="on_trigger" from="ObjectiveTrigger" to="." method="_on_ObjectiveTrigger_on_trigger"]

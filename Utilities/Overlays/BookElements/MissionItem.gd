@@ -6,6 +6,7 @@ onready var name_txtbox = $Panel/VBoxContainer/MissionName
 onready var description_txtbox = $Panel/VBoxContainer/MissionDescription
 onready var subobjective_container = $Panel/VBoxContainer/SubObjectives/VBoxContainer
 
+export var complete = false
 export var mission_name = "Mission" setget set_name
 export var mission_description = "This is a mission description" setget set_description
 
@@ -31,7 +32,7 @@ func set_sub_objectives(objective_list):
 
 func on_mission_complete():
 	set_name("[COMPLETED] - " + mission_name)
-	
+	complete = true
 
 
 

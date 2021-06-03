@@ -1,0 +1,25 @@
+{	
+	"mission_test": {
+					"dialog" : "What a pretty picture. I might frame it",
+					"next_dialog" : "mission_test2"
+					},
+	"mission_test2": {
+					"dialog" : "Now drill a sample of the red box",
+					},
+	"pink_box1": {
+					"dialog" : "Ah nice you found a pink box",
+					},
+	"pink_box2": {
+					"dialog" : "What a cool box, lets look for some more",
+					},
+					
+	"pink_box3": {
+					"dialog" : "Who would just leave these around? Such a nice box!",
+					},	
+	"pink_box_complete": {
+					"dialog" : "Well done you found all the pink boxes",
+					},
+	"secret_dialog": {
+					"dialog" : "This is a super secret_dialog",
+					},	
+}

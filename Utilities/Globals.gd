@@ -16,13 +16,25 @@ var dialog_popup
 var objective_popup
 #####
 var dialog_JSON_data
+
+var robot = null
+
+signal dialog_finished
+signal options_updated 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_dialog_from_file()
 
+func on_dialog_finished():
+	emit_signal("dialog_finished")
+	
+func on_options_updated():
+	emit_signal("options_updated")
+	print("signal emited")
 func load_dialog_from_file():
 	var file = File.new()
-	file.open("res://Dialog/dialog_JSON.json", File.READ)
+	file.open("res://Assets/Dialog/dialog_JSON.json", File.READ)
 	dialog_JSON_data =  parse_json(file.get_as_text())
 	
 func init_control_panel():
@@ -42,16 +54,18 @@ func init_control_panel():
 		
 		dialog_popup = control_panel_ui.get_node('DialogPopup')
 		
+		dialog_popup.connect("finished_dialog_queue",self,"on_dialog_finished")
 		
 		objective_popup = control_panel_ui.get_node("ObjectivePopup")
 		
 		for mission_node in get_tree().get_nodes_in_group("Missions"):
 			for objective in mission_node.objective_list:
 				objective.connect("on_objective_complete",self,"show_objective_complete_popup")
-		
+				objective.connect("on_enable",self,"show_new_objective_complete_popup",[objective,])
+			
 		control_panel_loaded = true
+
 func set_book_visible(value):
-	
 	book_overlay.visible = value
 	joystick.enabled = !value
 	 
@@ -60,11 +74,18 @@ func queue_dialog(dialog_key):
 	
 	var dialog_data = dialog_JSON_data[dialog_key]
 	dialog_popup.queue_text(dialog_data["dialog"])
-	print(dialog_data)
+	
+	
+	book_overlay.add_journal_entry(dialog_data["dialog"])
+	
+
 	if dialog_data.has("next_dialog"):
 		queue_dialog(dialog_data["next_dialog"])
-		print("queue")
+
 func show_objective_complete_popup(objective):
 	objective_popup.display_text("Objective Complete - "+objective.display_text)
-	
+
+func show_new_objective_complete_popup(objective):
+	objective_popup.display_text("New Objective - "+objective.display_text)
+	robot.get_node("ControlPanel").mark_read_book_icon(false)
 

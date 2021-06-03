@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripting/MissionSystem/ObjectiveSingle.gd" type="Script" id=1]
+
+[node name="ObjectiveSingle" type="Spatial" groups=[
+"Objectives",
+]]
+script = ExtResource( 1 )

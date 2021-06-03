@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Missions/Trigger.gd" type="Script" id=1]
+[ext_resource path="res://ScriptingObjects/Trigger.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Images/Trigger.png" type="Texture" id=2]
 
 [sub_resource type="BoxShape" id=1]
 
 [sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+flags_unshaded = true
+albedo_texture = ExtResource( 2 )
 
 [node name="Trigger" type="Spatial"]
 script = ExtResource( 1 )
@@ -16,9 +22,8 @@ collision_layer = 0
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="TriggerArea/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00204706, 0.00781548, -0.00374675 )
 mesh = SubResource( 2 )
-material/0 = null
+material/0 = SubResource( 3 )
 
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_TriggerArea_body_entered"]
 [connection signal="body_exited" from="TriggerArea" to="." method="_on_TriggerArea_body_exited"]
