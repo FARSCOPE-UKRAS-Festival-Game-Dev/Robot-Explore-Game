@@ -1,47 +1,56 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Sensors/Sensor_HUD.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sensors/Sensor_HUD.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Fonts/NormalTextFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Images/Camera.png" type="Texture" id=3]
 
-[node name="Panel" type="Panel"]
-margin_left = 180.0
-margin_top = 50.0
-margin_right = 220.0
-margin_bottom = 90.0
+[node name="CameraControlPanel" type="Control"]
+anchor_right = 0.275
+anchor_bottom = 0.348
+margin_right = 0.399994
+margin_bottom = 1.19998
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="CameraDisplay" type="TextureRect" parent="."]
+anchor_left = 0.026
+anchor_top = 0.038
+anchor_right = 0.967
+anchor_bottom = 0.964
+margin_left = -0.20628
+margin_top = -0.224602
+margin_right = -0.288086
+margin_bottom = 0.100586
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="."]
+anchor_left = 0.085
+anchor_top = 0.138
+anchor_right = 0.085
+anchor_bottom = 0.138
+margin_left = 0.188248
+margin_top = -0.03936
+margin_right = 200.188
+margin_bottom = 99.9606
+rect_min_size = Vector2( 200, 100 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.054902, 0.819608, 0.270588, 1 )
+text = "Camera"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Border" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -76.0
-margin_right = 364.0
-margin_bottom = 246.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HUD1" type="Control" parent="MarginContainer" instance=ExtResource( 1 )]
-margin_right = 480.0
-margin_bottom = 286.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_left = -92.0
-margin_top = -10.0
-margin_right = 416.0
-margin_bottom = 294.0
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 1
