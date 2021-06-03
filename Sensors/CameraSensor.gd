@@ -11,7 +11,7 @@ func _ready():
 	$Body/Viewport.size = camera_resolution
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 	#Camera doesn't follow parent's tranform so we set it manually
 	$Body/Viewport/Camera.global_transform = $Body/CameraPosition.global_transform

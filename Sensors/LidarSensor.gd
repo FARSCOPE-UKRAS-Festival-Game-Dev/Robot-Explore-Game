@@ -68,7 +68,7 @@ func _ready():
 	head_location = $LidarBody/Head.global_transform.origin
 
 
-func _process(delta):
+func _process(_delta):
 	# draw ray relative to sensor location
 	raygeom.clear()
 	raygeom.begin(1, null)

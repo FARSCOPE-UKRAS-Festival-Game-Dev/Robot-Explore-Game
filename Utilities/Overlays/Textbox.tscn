@@ -1,0 +1,120 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Utilities/Overlays/Textbox.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/NormalTextFont.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+
+[node name="Textbox" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 10.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="TimeoutTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 300
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextboxContainer" type="MarginContainer" parent="MarginContainer"]
+margin_left = 10.0
+margin_top = 300.0
+margin_right = 1014.0
+margin_bottom = 580.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="MarginContainer/TextboxContainer"]
+margin_right = 1004.0
+margin_bottom = 280.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TextboxContainer"]
+margin_right = 1004.0
+margin_bottom = 280.0
+mouse_filter = 2
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+
+[node name="Panel" type="Panel" parent="MarginContainer/TextboxContainer/MarginContainer"]
+visible = false
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 996.0
+margin_bottom = 272.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TextboxContainer/MarginContainer"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 996.0
+margin_bottom = 272.0
+mouse_filter = 2
+
+[node name="Start" type="Label" parent="MarginContainer/TextboxContainer/MarginContainer/HBoxContainer"]
+margin_right = 14.0
+margin_bottom = 264.0
+rect_min_size = Vector2( 9, 0 )
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 2 )
+text = "*"
+align = 3
+
+[node name="Text" type="Label" parent="MarginContainer/TextboxContainer/MarginContainer/HBoxContainer"]
+margin_left = 18.0
+margin_right = 970.0
+margin_bottom = 264.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Example intrusctions. Sample text. Sample text. Sample text. Sample text. Sample text. Sample text. Sample text. Sample text. Sample text. Sample text. "
+align = 3
+autowrap = true
+clip_text = true
+
+[node name="Finish" type="Label" parent="MarginContainer/TextboxContainer/MarginContainer/HBoxContainer"]
+margin_left = 974.0
+margin_top = 232.0
+margin_right = 988.0
+margin_bottom = 264.0
+rect_min_size = Vector2( 9, 0 )
+size_flags_vertical = 12
+custom_fonts/font = ExtResource( 2 )
+text = "v"
+align = 3
+
+[connection signal="visibility_changed" from="." to="." method="_on_Textbox_visibility_changed"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="timeout" from="TimeoutTimer" to="." method="_on_TimeoutTimer_timeout"]

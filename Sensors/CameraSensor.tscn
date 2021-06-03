@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sensors/CameraSensor.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Models/Camera/gopro.escn" type="PackedScene" id=2]
+[ext_resource path="res://Scripting/CameraShaker.tscn" type="PackedScene" id=3]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.774, 1.126, 1.676 )
@@ -86,6 +87,8 @@ render_target_update_mode = 3
 gui_disable_input = true
 
 [node name="Camera" type="Camera" parent="Body/Viewport"]
+
+[node name="CameraShaker" parent="Body/Viewport/Camera" instance=ExtResource( 3 )]
 
 [node name="ColorRect" type="ColorRect" parent="Body/Viewport"]
 material = SubResource( 3 )

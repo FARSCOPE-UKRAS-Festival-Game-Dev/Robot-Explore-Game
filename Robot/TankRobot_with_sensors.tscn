@@ -29,3 +29,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.682099, 0.05316, -0.75269 )
 
 [node name="TempRight" parent="Robot" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.674074, 0.05316, -0.75269 )
+
+[connection signal="drill_button_pressed" from="ControlPanel" to="." method="drill_sample"]
+[connection signal="take_picture_button_pressed" from="ControlPanel" to="." method="take_picture"]

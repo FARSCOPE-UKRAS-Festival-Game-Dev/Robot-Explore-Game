@@ -47,3 +47,5 @@ stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="visibility_changed" from="." to="." method="_on_Joystick_visibility_changed"]

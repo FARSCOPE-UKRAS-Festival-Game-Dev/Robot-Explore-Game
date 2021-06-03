@@ -6,7 +6,7 @@ onready var register = false
 func _ready():
 	type = "whiskers"
 
-func _process(delta):
+func _process(_delta):
 	pass
 	if register and bodies.size() > 0:
 		for c in bodies[0].get_children():
