@@ -44,7 +44,6 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-scene_locations = [ [ "Mission 1 alpha", "res://Environments/Mission_1.tscn" ], [ "Testing Maze", "res://Environments/Testing_Maze.tscn" ], [ "Cave Y Junction", "res://Environments/Cave_Y_Junction.tscn" ] ]
 
 [node name="Background" type="CenterContainer" parent="."]
 margin_right = 1024.0
@@ -64,7 +63,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Background"]
 position = Vector2( 512, 300 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="DebugNode" type="Control" parent="."]
@@ -77,9 +75,9 @@ __meta__ = {
 
 [node name="MapChoice" type="OptionButton" parent="DebugNode"]
 margin_left = 680.0
-margin_top = 472.0
+margin_top = 471.0
 margin_right = 997.0
-margin_bottom = 510.0
+margin_bottom = 509.0
 hint_tooltip = "[DEBUG] Choose the map"
 focus_mode = 1
 custom_fonts/font = ExtResource( 3 )
@@ -163,8 +161,9 @@ __meta__ = {
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer/CenterContainer/HBoxContainer/Option"]
 margin_left = -102.0
+margin_top = 1.0
 margin_right = 218.0
-margin_bottom = 80.0
+margin_bottom = 81.0
 rect_min_size = Vector2( 76, 0 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )

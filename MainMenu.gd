@@ -3,7 +3,8 @@ extends Control
 export(Array, Array, String) var scene_locations = [
 	["Cave Y Junction", "res://Environments/Cave_Y_Junction.tscn"],
 	["Testing Maze", "res://Environments/Testing_Maze.tscn"],
-	["Mission 1 alpha", "res://Environments/Mission_1.tscn"]
+	["Mission 1 alpha", "res://Environments/Mission_1.tscn"],
+	["Tutorial Test Cave", "res://Environments/tutorialTest.tscn"]
 ]
 
 const dialog = preload("res://Utilities/Textbox.tscn")
