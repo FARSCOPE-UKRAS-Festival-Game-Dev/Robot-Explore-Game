@@ -60,8 +60,16 @@ anchor_right = 0.891
 anchor_bottom = 0.547
 
 [node name="TemperaturePanelLeft" parent="Panel" instance=ExtResource( 5 )]
+anchor_left = 0.031
+anchor_top = 0.095
+anchor_right = 0.078
+anchor_bottom = 0.613
 
 [node name="TemperaturePanelRight" parent="Panel" instance=ExtResource( 5 )]
+anchor_left = 0.914
+anchor_top = 0.107
+anchor_right = 0.977
+anchor_bottom = 0.544
 
 [node name="WhiskerPanel" parent="Panel" instance=ExtResource( 2 )]
 anchor_left = 0.273
@@ -70,10 +78,12 @@ anchor_right = 0.702
 anchor_bottom = 0.96
 
 [node name="SpecialsMenu" parent="Panel" instance=ExtResource( 8 )]
-margin_left = -10.1021
-margin_top = 134.695
-margin_right = 245.898
-margin_bottom = 734.695
+anchor_right = 0.062
+anchor_bottom = 0.107
+margin_left = -8.0
+margin_top = 136.0
+margin_right = 184.512
+margin_bottom = 671.8
 
 [node name="OpenBookButton" type="TextureButton" parent="Panel"]
 margin_left = 24.0
