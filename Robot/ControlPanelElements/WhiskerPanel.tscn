@@ -1,48 +1,48 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Sensors/Sensor_HUD.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sensors/Sensor_HUD.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Fonts/NormalTextGreen.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Images/Whiskers.png" type="Texture" id=3]
 
-[node name="Panel5" type="Panel"]
-margin_left = 264.0
-margin_top = 344.0
-margin_right = 731.0
-margin_bottom = 560.0
+[node name="WhiskerPanel" type="Control"]
+anchor_right = 0.625
+anchor_bottom = 0.533
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Border" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 46.0
-margin_right = -30.0
-margin_bottom = 6.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HUD5" type="Control" parent="MarginContainer" instance=ExtResource( 1 )]
-margin_right = 427.0
-margin_bottom = 176.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 467.0
-margin_bottom = 221.0
 texture = ExtResource( 3 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WhiskerDisplay" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 64.0
+margin_right = -80.0
+margin_bottom = -63.8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 64.0
+margin_right = -498.0
+margin_bottom = -215.8
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0666667, 0.811765, 0.278431, 1 )
+text = "Whisker"
 __meta__ = {
 "_edit_use_anchors_": false
 }

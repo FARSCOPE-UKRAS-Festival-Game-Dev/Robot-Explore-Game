@@ -48,22 +48,26 @@ __meta__ = {
 }
 
 [node name="CameraPanel" parent="Panel" instance=ExtResource( 3 )]
-anchor_left = 0.113
-anchor_top = 0.108
-anchor_right = 0.445
-anchor_bottom = 0.423
+anchor_left = 0.094
+anchor_top = 0.093
+anchor_right = 0.586
+anchor_bottom = 0.6
 
 [node name="LidarPanel" parent="Panel" instance=ExtResource( 6 )]
-anchor_left = 0.554
-anchor_top = 0.1
+anchor_left = 0.578
+anchor_top = 0.093
 anchor_right = 0.891
-anchor_bottom = 0.431
+anchor_bottom = 0.547
 
 [node name="TemperaturePanelLeft" parent="Panel" instance=ExtResource( 5 )]
 
 [node name="TemperaturePanelRight" parent="Panel" instance=ExtResource( 5 )]
 
 [node name="WhiskerPanel" parent="Panel" instance=ExtResource( 2 )]
+anchor_left = 0.273
+anchor_top = 0.6
+anchor_right = 0.703
+anchor_bottom = 0.96
 
 [node name="SpecialsMenu" parent="Panel" instance=ExtResource( 8 )]
 margin_left = -10.1021
