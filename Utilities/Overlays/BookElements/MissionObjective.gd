@@ -4,12 +4,10 @@ export var complete = false setget set_complete
 export var text = "Sub-Objective" setget set_text
 export var sub_objective_prefix = "> "
 
-func mark_complete(objective):
-	print("complete!")
+func mark_complete(_objective):
 	set_complete(true)
 
 func update_display_text(value):
-	print("text set")
 	value = sub_objective_prefix + value
 	set_text(value)
 

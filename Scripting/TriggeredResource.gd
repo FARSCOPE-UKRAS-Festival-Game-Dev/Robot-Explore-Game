@@ -10,10 +10,11 @@ func set_enabled(value):
 		trigger.enabled = enabled
 
 func on_triggered():
-	pass
+	print("this isn't being overridden")
 	
 
-func _ready():	
+func _ready():
+	set_enabled(enabled)
 	trigger = get_node_or_null("Trigger")
 	if trigger != null:
 		trigger.connect("on_trigger",self,"on_triggered")

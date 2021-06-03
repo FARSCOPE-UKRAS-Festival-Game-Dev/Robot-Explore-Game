@@ -46,8 +46,7 @@ func move_completed_mission(mission_display):
 				break
 			else:
 				move_to_pos+=1
-	print("move pos :")
-	print(move_to_pos)
+
 	mission_vbox.move_child(mission_display,move_to_pos)
 func add_journal_entry(text):
 	var entry = log_entry.instance()

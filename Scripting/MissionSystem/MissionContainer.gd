@@ -33,12 +33,10 @@ func check_complete():
 	
 func on_objective_complete(objective):
 	
-	print("Objective complete")
 	emit_signal("subobjective_completed")
 	if check_complete() == true:
 		emit_signal("mission_completed")
 		if on_complete_dialogue!=null:
-			print("dialog being displayed")
 			#Queue dialog after final objectives dialog
 			objective.connect("on_dialog_displayed",globals,"queue_dialog",[on_complete_dialogue,])
 	

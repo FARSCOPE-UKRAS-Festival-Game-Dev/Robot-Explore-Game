@@ -65,6 +65,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Background"]
 position = Vector2( 512, 300 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="DebugNode" type="Control" parent="."]
@@ -103,7 +104,7 @@ __meta__ = {
 
 [node name="MapChoice" type="OptionButton" parent="DebugNode/MarginContainer"]
 margin_right = 317.0
-margin_bottom = 38.0
+margin_bottom = 40.0
 grow_horizontal = 0
 hint_tooltip = "[DEBUG] Choose the map"
 focus_mode = 1

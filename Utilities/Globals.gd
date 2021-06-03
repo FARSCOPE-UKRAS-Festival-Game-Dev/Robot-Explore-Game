@@ -31,7 +31,7 @@ func on_dialog_finished():
 	
 func on_options_updated():
 	emit_signal("options_updated")
-	print("signal emited")
+
 func load_dialog_from_file():
 	var file = File.new()
 	file.open("res://Assets/Dialog/dialog_JSON.json", File.READ)

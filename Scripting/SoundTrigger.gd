@@ -7,5 +7,3 @@ extends TriggeredResource
 onready var sound = $Sound
 func on_triggered():
 	sound.play()
-	print("playing")
-

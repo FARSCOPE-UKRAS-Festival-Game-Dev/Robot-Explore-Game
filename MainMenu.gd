@@ -3,11 +3,10 @@ extends Control
 export (String) var game_name = "The Best Robot Sensor Exploration Game"
 
 export(Array, Array, String) var scene_locations = [
-	["Mission_testing", "res://Environments/Mission_testing.tscn"],
+	["Mission 1 alpha", "res://Environments/Mission_1.tscn"],
 	["Cave Y Junction", "res://Environments/Cave_Y_Junction.tscn"],
 	["Testing Maze", "res://Environments/Testing_Maze.tscn"],
-	["Mission 1 alpha", "res://Environments/Mission_1.tscn"]
-
+	["Mission_testing", "res://Environments/Mission_testing.tscn"]
 ]
 
 const dialog = preload("res://Utilities/Overlays/Textbox.tscn")
@@ -31,10 +30,9 @@ func _ready():
 	
 	for maps in scene_locations:
 		$DebugNode/MarginContainer/MapChoice.add_item(maps[0])
-		print(maps)
+
 	
-	
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_down") and current_selection < 2:
 		current_selection += 1
 		set_current_selection(current_selection)

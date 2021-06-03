@@ -29,7 +29,7 @@ func _ready():
 func skip_input_pressed():
 	return Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("dialog_skip") 
 
-func _process(delta):
+func _process(_delta):
 	match current_state:
 		State.READY:
 			if !text_queue.empty():
@@ -59,7 +59,7 @@ func hide_textbox():
 func show_textbox():
 	start_symbol.text = "*"
 	show()
-	print("show har")
+
 func display_text():
 	
 	var next_text = text_queue.pop_front()
@@ -83,7 +83,7 @@ func change_state(next_state):
 			$TimeoutTimer.start()
 			#print("Changing state to: State.FINISHED")
 
-func _on_Tween_tween_completed(object, key):
+func _on_Tween_tween_completed(_object,_key):
 	end_symbol.text = "v"
 	change_state(State.FINISHED)
 	

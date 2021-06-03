@@ -1,7 +1,5 @@
 extends MarginContainer
 
-signal complete_subobjective 
-
 onready var name_txtbox = $Panel/VBoxContainer/MissionName  
 onready var description_txtbox = $Panel/VBoxContainer/MissionDescription
 onready var subobjective_container = $Panel/VBoxContainer/SubObjectives/VBoxContainer

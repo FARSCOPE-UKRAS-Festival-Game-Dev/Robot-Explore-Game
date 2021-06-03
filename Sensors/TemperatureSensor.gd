@@ -104,7 +104,7 @@ func calibrate_from_body(body):
 		var temperature_heatmap_img = c_body.find_node("Heatmap_display").get_active_material(0).get_texture(0).get_data()
 		temperature_heatmap_img.convert(Image.FORMAT_L8)
 		temperature_heatmap = Image.new()
-		var data = temperature_heatmap_img.get_data()
+		#var data = temperature_heatmap_img.get_data()
 		
 		temperature_heatmap =temperature_heatmap_img
 		HEATMAP_RESOLUTION.x = temperature_heatmap.get_width()

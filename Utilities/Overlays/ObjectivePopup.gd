@@ -34,7 +34,7 @@ func on_fade_out_start():
 	emit_signal("on_fade_out_start")
 
 func on_display_idle_complete():
-	
+	emit_signal("on_display_idle_complete")
 	if not text_queue.empty():
 		text_label.text = text_queue.pop_front()
 		$AnimationPlayer.play("text_scroll_only")

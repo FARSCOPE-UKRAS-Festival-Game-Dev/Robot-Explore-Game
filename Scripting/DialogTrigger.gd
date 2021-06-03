@@ -5,6 +5,6 @@ export(String) var dialog = null
 onready var globals = get_node('/root/Globals')
 
 func on_triggered():
+	print("hello")
 	if dialog != null:
 		globals.queue_dialog(dialog)
-		

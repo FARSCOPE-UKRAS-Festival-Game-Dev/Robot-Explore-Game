@@ -351,6 +351,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.16757, 0.881313, -26.5889 )
 dialog = "secret_dialog"
 
 [node name="Trigger" parent="DialogTrigger" instance=ExtResource( 6 )]
+enabled = true
 
 [node name="Spatial" parent="." instance=ExtResource( 9 )]
 transform = Transform( -0.999127, 0, -0.0417711, 0, 1, 0, 0.0417711, 0, -0.999127, 13.2993, 1.19618, -22.5072 )
