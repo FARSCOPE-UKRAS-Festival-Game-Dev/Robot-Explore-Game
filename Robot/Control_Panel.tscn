@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
+[ext_resource path="res://Robot/Control_Panel.gd" type="Script" id=1]
 [ext_resource path="res://Robot/ControlPanelElements/WhiskerPanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Robot/ControlPanelElements/CameraControlPanel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Images/Background.png" type="Texture" id=4]
@@ -16,6 +17,7 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -64,12 +66,20 @@ anchor_left = 0.031
 anchor_top = 0.095
 anchor_right = 0.078
 anchor_bottom = 0.613
+margin_left = 0.256001
+margin_top = 31.0
+margin_right = 8.128
+margin_bottom = -40.8
 
 [node name="TemperaturePanelRight" parent="Panel" instance=ExtResource( 5 )]
 anchor_left = 0.914
 anchor_top = 0.107
 anchor_right = 0.977
 anchor_bottom = 0.544
+margin_left = 0.0640869
+margin_top = 31.8
+margin_right = 136.256
+margin_bottom = 31.8
 
 [node name="WhiskerPanel" parent="Panel" instance=ExtResource( 2 )]
 anchor_left = 0.273

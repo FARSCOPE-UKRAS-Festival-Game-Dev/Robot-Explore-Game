@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Fonts/NormalTextFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Robot/ControlPanelElements/CameraControlPanel.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Images/Camera.png" type="Texture" id=3]
 
 [node name="CameraControlPanel" type="Control"]
@@ -10,19 +11,14 @@ margin_right = 0.399994
 margin_bottom = 1.19998
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CameraDisplay" type="TextureRect" parent="."]
-anchor_left = 0.026
-anchor_top = 0.038
-anchor_right = 0.967
-anchor_bottom = 0.964
-margin_left = -0.20628
-margin_top = -0.224602
-margin_right = -0.288086
-margin_bottom = 0.100586
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 expand = true
