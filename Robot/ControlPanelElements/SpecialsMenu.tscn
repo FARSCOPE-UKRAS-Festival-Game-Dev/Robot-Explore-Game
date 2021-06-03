@@ -1,75 +1,66 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Images/ControlPanel/Take_Picture_2.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Images/Drilling_2.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Images/Drilling.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Images/ControlPanel/Take_Picture.png" type="Texture" id=4]
+[ext_resource path="res://Robot/ControlPanelElements/ActionPanel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Images/ControlPanel/SpecialActions.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Images/ControlPanel/SpecialActions_pressed.png" type="Texture" id=6]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0, 0, 0, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_blend = true
-
 [node name="SpecialsMenu" type="Control"]
-margin_right = 256.0
-margin_bottom = 600.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-margin_left = 144.0
-margin_top = 192.0
-margin_right = 256.0
-margin_bottom = 440.0
-mouse_filter = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.358
+anchor_top = 0.189
+anchor_right = 0.5
+anchor_bottom = 0.863
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="MarginContainer"]
-margin_right = 112.0
-margin_bottom = 248.0
-custom_styles/panel = SubResource( 1 )
-
-[node name="TakeHighResPictureButton" type="TextureButton" parent="MarginContainer/Panel"]
-margin_left = 10.0
-margin_top = 120.0
-margin_right = 104.0
-margin_bottom = 208.0
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 1 )
-expand = true
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer"]
+margin_right = 145.0
+margin_bottom = 200.0
+size_flags_horizontal = 11
+size_flags_vertical = 11
+ratio = 0.5
+stretch_mode = 3
+alignment_vertical = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DrillSampleButton" type="TextureButton" parent="MarginContainer/Panel"]
-margin_left = 10.0
-margin_top = 24.0
-margin_right = 104.0
-margin_bottom = 108.0
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="MarginContainer" parent="VBoxContainer/AspectRatioContainer" instance=ExtResource( 1 )]
+anchor_top = 0.0
+anchor_right = 0.0
+margin_top = -90.0
+margin_right = 145.0
+margin_bottom = 200.0
+size_flags_horizontal = 9
+size_flags_vertical = 9
 
-[node name="OpenSpecialsButton" type="TextureButton" parent="."]
-margin_left = 144.0
-margin_top = 192.0
-margin_right = 256.0
-margin_bottom = 440.0
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="VBoxContainer"]
+margin_top = 204.0
+margin_right = 145.0
+margin_bottom = 404.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch_mode = 3
+
+[node name="OpenSpecialsButton" type="TextureButton" parent="VBoxContainer/AspectRatioContainer2"]
+margin_left = -27.5
+margin_right = 172.5
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 toggle_mode = true
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
 expand = true
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }

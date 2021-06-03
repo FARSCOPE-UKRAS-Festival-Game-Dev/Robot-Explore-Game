@@ -78,22 +78,29 @@ anchor_right = 0.702
 anchor_bottom = 0.96
 
 [node name="SpecialsMenu" parent="Panel" instance=ExtResource( 8 )]
-anchor_right = 0.062
-anchor_bottom = 0.107
-margin_left = -8.0
-margin_top = 136.0
-margin_right = 184.512
-margin_bottom = 671.8
+anchor_left = 0.188
+anchor_top = 0.676
+anchor_right = 0.238
+anchor_bottom = 0.903
+margin_left = 0.487991
+margin_top = -101.6
+margin_right = 29.288
+margin_bottom = 0.199951
 
 [node name="OpenBookButton" type="TextureButton" parent="Panel"]
-margin_left = 24.0
-margin_top = 416.0
-margin_right = 136.0
-margin_bottom = 510.0
+anchor_left = 0.042
+anchor_top = 0.792
+anchor_right = 0.114
+anchor_bottom = 0.9
+margin_left = -0.00800323
+margin_top = -0.200043
+margin_right = 1.26399
+margin_bottom = -2.0
 toggle_mode = true
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 10 )
 expand = true
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
