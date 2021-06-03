@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Images/ControlPanel/Take_Picture_2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Images/Drilling_2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/Drilling.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/ControlPanel/Take_Picture.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Images/ControlPanel/SpecialActions.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Images/ControlPanel/SpecialActions_pressed.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_blend = true
+
+[node name="SpecialsMenu" type="Control"]
+margin_right = 256.0
+margin_bottom = 600.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 144.0
+margin_top = 192.0
+margin_right = 256.0
+margin_bottom = 440.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+margin_right = 112.0
+margin_bottom = 248.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="TakeHighResPictureButton" type="TextureButton" parent="MarginContainer/Panel"]
+margin_left = 10.0
+margin_top = 120.0
+margin_right = 104.0
+margin_bottom = 208.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DrillSampleButton" type="TextureButton" parent="MarginContainer/Panel"]
+margin_left = 10.0
+margin_top = 24.0
+margin_right = 104.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OpenSpecialsButton" type="TextureButton" parent="."]
+margin_left = 144.0
+margin_top = 192.0
+margin_right = 256.0
+margin_bottom = 440.0
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

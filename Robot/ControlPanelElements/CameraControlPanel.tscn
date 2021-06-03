@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sensors/Sensor_HUD.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sensors/Sensor_HUD.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Images/Camera.png" type="Texture" id=3]
+
+[node name="Panel" type="Panel"]
+margin_left = 180.0
+margin_top = 50.0
+margin_right = 220.0
+margin_bottom = 90.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -76.0
+margin_right = 364.0
+margin_bottom = 246.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HUD1" type="Control" parent="MarginContainer" instance=ExtResource( 1 )]
+margin_right = 480.0
+margin_bottom = 286.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -92.0
+margin_top = -10.0
+margin_right = 416.0
+margin_bottom = 294.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
