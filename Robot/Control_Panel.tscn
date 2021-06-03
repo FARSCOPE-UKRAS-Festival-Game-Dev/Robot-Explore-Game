@@ -92,10 +92,10 @@ anchor_left = 0.188
 anchor_top = 0.676
 anchor_right = 0.238
 anchor_bottom = 0.903
-margin_left = 0.487991
-margin_top = -101.6
-margin_right = 29.288
-margin_bottom = 0.199951
+margin_left = -16.512
+margin_top = -61.6
+margin_right = 12.288
+margin_bottom = 40.2
 
 [node name="OpenBookButton" type="TextureButton" parent="Panel"]
 anchor_left = 0.042
