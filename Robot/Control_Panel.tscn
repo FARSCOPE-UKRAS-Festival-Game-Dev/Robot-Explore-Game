@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Robot/Control_Panel.gd" type="Script" id=1]
 [ext_resource path="res://Robot/ControlPanelElements/WhiskerPanel.tscn" type="PackedScene" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://Assets/Images/ControlPanel/Options6.png" type="Texture" id=13]
 
 [sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0.54902 )
 
 [node name="ControlPanel" type="Control"]
 anchor_right = 1.0
@@ -54,17 +57,93 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CameraPanel" parent="HUD" instance=ExtResource( 3 )]
-anchor_left = 0.094
-anchor_top = 0.093
-anchor_right = 0.586
-anchor_bottom = 0.6
+[node name="ButtonContainer" type="HBoxContainer" parent="HUD"]
+anchor_left = 0.025
+anchor_top = 0.171
+anchor_right = 0.316
+anchor_bottom = 0.88
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/ButtonContainer"]
+margin_right = 146.0
+margin_bottom = 425.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 11
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HUD/ButtonContainer/VBoxContainer"]
+margin_right = 146.0
+margin_bottom = 291.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+ratio = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/ButtonContainer/VBoxContainer/AspectRatioContainer"]
+margin_left = 0.25
+margin_right = 145.75
+margin_bottom = 291.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 1
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/ButtonContainer/VBoxContainer"]
+margin_top = 295.0
+margin_right = 146.0
+margin_bottom = 425.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.33
+custom_constants/margin_right = 5
+custom_constants/margin_top = 1
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 1
+
+[node name="OpenBookButton" type="TextureButton" parent="HUD/ButtonContainer/VBoxContainer/MarginContainer"]
+margin_left = 5.0
+margin_top = 1.0
+margin_right = 141.0
+margin_bottom = 129.0
+size_flags_horizontal = 11
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.33
+toggle_mode = true
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpecialsMenu" parent="HUD/ButtonContainer" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 150.0
+margin_right = 297.0
+margin_bottom = 425.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="LidarPanel" parent="HUD" instance=ExtResource( 6 )]
 anchor_left = 0.594
 anchor_top = 0.095
 anchor_right = 0.891
 anchor_bottom = 0.547
+margin_right = 0.263977
 
 [node name="TemperaturePanelLeft" parent="HUD" instance=ExtResource( 5 )]
 anchor_left = 0.01
@@ -92,86 +171,22 @@ margin_left = -0.228119
 margin_right = -0.444153
 margin_bottom = -6.10352e-05
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
-anchor_left = 0.025
-anchor_top = 0.171
-anchor_right = 0.316
-anchor_bottom = 0.88
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/HBoxContainer"]
-margin_right = 146.0
-margin_bottom = 425.0
-mouse_filter = 2
-size_flags_horizontal = 3
-size_flags_vertical = 11
-alignment = 2
+[node name="IsolatingPanel" type="Panel" parent="HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HUD/HBoxContainer/VBoxContainer"]
-margin_right = 146.0
-margin_bottom = 291.0
-mouse_filter = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
-ratio = 0.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="HUD/HBoxContainer/VBoxContainer/AspectRatioContainer"]
-margin_left = 0.25
-margin_right = 145.75
-margin_bottom = 291.0
-custom_constants/margin_right = 5
-custom_constants/margin_top = 1
-custom_constants/margin_left = 5
-custom_constants/margin_bottom = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="HUD/HBoxContainer/VBoxContainer"]
-margin_top = 295.0
-margin_right = 146.0
-margin_bottom = 425.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.33
-custom_constants/margin_right = 5
-custom_constants/margin_top = 1
-custom_constants/margin_left = 5
-custom_constants/margin_bottom = 1
-
-[node name="OpenBookButton" type="TextureButton" parent="HUD/HBoxContainer/VBoxContainer/MarginContainer"]
-margin_left = 5.0
-margin_top = 1.0
-margin_right = 141.0
-margin_bottom = 129.0
-size_flags_horizontal = 11
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.33
-toggle_mode = true
-texture_normal = ExtResource( 13 )
-texture_pressed = ExtResource( 10 )
-expand = true
-stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SpecialsMenu" parent="HUD/HBoxContainer" instance=ExtResource( 8 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 150.0
-margin_right = 297.0
-margin_bottom = 425.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="CameraPanel" parent="HUD" instance=ExtResource( 3 )]
+anchor_left = 0.094
+anchor_top = 0.093
+anchor_right = 0.586
+anchor_bottom = 0.6
+margin_right = 0.400024
+margin_bottom = 1.19995
 
 [node name="DebugTools" parent="." instance=ExtResource( 7 )]
 margin_left = 0.280609
@@ -179,4 +194,4 @@ margin_top = -0.420925
 margin_right = 1024.28
 margin_bottom = 599.579
 
-[connection signal="toggled" from="HUD/HBoxContainer/VBoxContainer/MarginContainer/OpenBookButton" to="." method="_on_OpenBookButton_toggled"]
+[connection signal="toggled" from="HUD/ButtonContainer/VBoxContainer/MarginContainer/OpenBookButton" to="." method="_on_OpenBookButton_toggled"]

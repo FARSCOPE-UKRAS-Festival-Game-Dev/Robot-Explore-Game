@@ -19,8 +19,8 @@ func _ready():
 		'whisker': $Robot/WhiskerSensor
 	})
 	
-	$ControlPanel.SpecialMenu.connect("drill_button_pressed",self,"drill_sample")
-	$ControlPanel.SpecialMenu.connect("take_picture_button_pressed",self,"take_picture")
+	$ControlPanel.special_menu.connect("drill_button_pressed",self,"drill_sample")
+	$ControlPanel.special_menu.connect("take_picture_button_pressed",self,"take_picture")
 
 func take_picture():
 	#play sound

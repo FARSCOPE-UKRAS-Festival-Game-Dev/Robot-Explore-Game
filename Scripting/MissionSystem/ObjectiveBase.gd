@@ -12,7 +12,7 @@ export var dialog_delay = 1.0
 var id = 0
 
 
-signal on_objective_complete
+signal on_objective_complete(ObjectiveBase)
 signal on_display_text_set 
 
 signal enable_changed
@@ -55,7 +55,7 @@ func complete_objective():
 		
 		if next_objective_enable != null:
 			if on_complete_dialogue:#wait for dialogue to finishe before enabling next objective
-				yield(globals,"dialog_finished")
+				yield(globals,"all_dialog_finished")
 			get_node(next_objective_enable).set_enable(true)
 		if disable_on_complete:
 			set_enable(false)

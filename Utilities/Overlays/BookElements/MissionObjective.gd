@@ -13,8 +13,9 @@ func update_display_text(value):
 
 func update_visibility(value):
 	visible = value
-
+	#print("%s - visible set to: %s" % [text,str(value)])
 func set_complete(value):
+	#print("%s - set complete! to %s" %[text,str(value)])
 	var objective_text = get_node_or_null("HBoxContainer/ObjectiveText")
 	var objective_tick =  get_node_or_null("HBoxContainer/AspectRatioContainer/CompleteTick")
 	if objective_text != null and objective_tick!=null:

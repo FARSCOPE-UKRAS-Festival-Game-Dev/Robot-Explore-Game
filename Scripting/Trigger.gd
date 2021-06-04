@@ -9,11 +9,17 @@ const robot_action = preload("res://Robot/Robot_with_sensors.gd").robot_action
 
 export(robot_action) var must_action #Action that robot must perform
 
-export(bool) var enabled = false
+export(NodePath) var custom_criteria_object = null
+export(String) var custom_criteria = null
+
+var custom_criteria_func
+export(bool) var enabled = false setget set_enable
+export(bool) var oneshot = false
 
 signal on_trigger
 onready var must_see_enable = false#(must_see_enable!=null) #NOT IMPLIMENTED
 onready var must_action_enable = (must_action!=robot_action.NONE)
+onready var must_custom_enable = (custom_criteria_object!=null and custom_criteria!=null)
 
 
 var can_see = false
@@ -24,25 +30,33 @@ onready var globals = get_node('/root/Globals')
 
 func _ready():
 	visible = false
+	if must_custom_enable:
+		custom_criteria_func = funcref(custom_criteria_object,"custom_criteria")
 
 func check_robot_can_see():
 	#NOT IMPLIMENTED
 	pass
 
+func set_enable(value):
+	enabled = value
+	trigger()
+
 func trigger():
 	var meets_criteria = in_area
-
+	
 	if must_see_enable:
 		meets_criteria = meets_criteria and check_robot_can_see()
 	
 	if must_action_enable:
 		meets_criteria = meets_criteria and doing_action
-
-	meets_criteria = meets_criteria and in_area
+	
+	if must_custom_enable:
+		meets_criteria = meets_criteria and custom_criteria_func.call_func()
 	
 	if meets_criteria and enabled:
 		emit_signal("on_trigger")
-
+		if oneshot:
+			set_enable(false)
 func _on_TriggerArea_body_entered(body):
 	if body.get_name() == ("Robot"):
 		in_area = true

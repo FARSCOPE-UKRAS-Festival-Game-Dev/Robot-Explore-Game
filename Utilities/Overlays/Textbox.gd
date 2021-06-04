@@ -1,6 +1,7 @@
 extends Control
 
 const CHAR_READ_RATE = 0.05
+const WAIT_TIME_COMPLETE = 3
 
 onready var textbox_container = $MarginContainer/TextboxContainer
 onready var start_symbol = $MarginContainer/TextboxContainer/MarginContainer/HBoxContainer/Start
@@ -14,12 +15,18 @@ enum State {
 }
 
 signal finished_dialog_queue
-
+signal dialog_finished(dialog_key)
 var current_state = State.READY
 var text_queue = []
 var timeout = false
+
+var current_text = ""
+var current_text_key = ""
+
+
 func _ready():
 	print("Starting state: State.READY")
+	
 	hide_textbox()
 #	queue_text("Excuse me wanderer where can I find the bathroom?")
 #	queue_text("Why do we not look like the others?")
@@ -27,28 +34,35 @@ func _ready():
 #	queue_text("Thanks for watching!")
 
 func skip_input_pressed():
-	return Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("dialog_skip") 
+	return Input.is_action_just_pressed("ui_accept") 
 
 func _process(_delta):
+	var skip_button = skip_input_pressed()
 	match current_state:
 		State.READY:
 			if !text_queue.empty():
 				display_text()
 				timeout = false
+				$TimeoutTimer.stop()
+				$TimeoutTimer.wait_time = WAIT_TIME_COMPLETE
 		State.READING:
-			if skip_input_pressed():
+			if skip_button:
+				$TimeoutTimer.wait_time =  WAIT_TIME_COMPLETE + (len(current_text) * CHAR_READ_RATE)*(1.0-label.percent_visible)
+				#print($TimeoutTimer.wait_time)
 				label.percent_visible = 1.0
 				$Tween.stop_all()
 				end_symbol.text = "v"
 				change_state(State.FINISHED)
 		State.FINISHED:
-			if timeout or skip_input_pressed():
+			if timeout or skip_button:
+				#print("dialog ending : timout = %d skip button = %d wait time = %d" % [int(timeout),int(skip_button),$TimeoutTimer.wait_time])
+				emit_signal("dialog_finished",current_text_key)
 				change_state(State.READY)
 				if text_queue.empty():
 					hide_textbox()
 					emit_signal("finished_dialog_queue")
-func queue_text(next_text):
-	text_queue.push_back(next_text)
+func queue_text(next_text,next_text_key):
+	text_queue.push_back([next_text,next_text_key])
 
 func hide_textbox():
 	start_symbol.text = ""
@@ -62,12 +76,16 @@ func show_textbox():
 
 func display_text():
 	
-	var next_text = text_queue.pop_front()
-	label.text = next_text
+	var next_text_pair = text_queue.pop_front()
+	current_text = next_text_pair[0]
+	current_text_key = next_text_pair[1]
+	label.text = current_text
+
+
 	label.percent_visible = 0.0
 	change_state(State.READING)
 	show_textbox()
-	$Tween.interpolate_property(label, "percent_visible", 0.0, 1.0, len(next_text) * CHAR_READ_RATE, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.interpolate_property(label, "percent_visible", 0.0, 1.0, len(current_text) * CHAR_READ_RATE, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
 
 func change_state(next_state):

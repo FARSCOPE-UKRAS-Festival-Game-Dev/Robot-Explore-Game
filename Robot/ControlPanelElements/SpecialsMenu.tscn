@@ -56,6 +56,7 @@ __meta__ = {
 }
 
 [node name="TopOnlyBackground" type="Panel" parent="MarginContainer/VBoxContainer/AspectRatioContainer"]
+visible = false
 margin_left = 409.0
 margin_right = 615.0
 margin_bottom = 412.0
@@ -72,6 +73,7 @@ custom_constants/margin_left = 5
 custom_constants/margin_bottom = 1
 
 [node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer"]
+visible = false
 margin_left = 5.0
 margin_top = 1.0
 margin_right = 201.0
