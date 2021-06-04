@@ -30,6 +30,8 @@ func set_sensor_classes(mapping):
 		$HUD/CameraPanel.set_sensor_class(mapping['camera'])
 	if 'lidar' in mapping:
 		$HUD/LidarPanel.set_sensor_class(mapping['lidar'])
+	if 'whisker' in mapping:
+		$HUD/WhiskerPanel.set_sensor_class(mapping['whisker'])
 	
 func _on_toggle_background_button(button):
 	var bg = $HUD/Background

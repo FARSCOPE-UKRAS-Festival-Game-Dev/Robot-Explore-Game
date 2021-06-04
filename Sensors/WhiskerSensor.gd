@@ -28,4 +28,19 @@ func render_view():
 	if bodies.size() > 0:
 		for c in bodies[0].get_children():
 			if c.get_class() == "MeshInstance":
-				return c.get_active_material(0).get_texture(0)
+				if c.has_node("TactileInfo"):
+					var texture = c.get_node("TactileInfo").value
+					var itex = ImageTexture.new()
+					itex.create_from_image(texture.get_data())		
+					return itex
+				else:
+					var texture = c.get_active_material(0).get_texture(0)
+					if texture != null:
+						return texture
+
+	var image = Image.new()
+	image.create(360,360,false,Image.FORMAT_RGB8)
+	image.fill(Color(1, 1, 1, 1))
+	var itex = ImageTexture.new()
+	itex.create_from_image(image)
+	return itex

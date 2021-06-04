@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Environments/LoadEnvironment.gd" type="Script" id=1]
 [ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Environments/Testing_Maze/TactileInfo.gd" type="Script" id=3]
 
 [sub_resource type="Environment" id=1]
 background_energy = 3.66
@@ -320,6 +321,9 @@ gravity_scale = 3.0
 mesh = SubResource( 14 )
 material/0 = SubResource( 15 )
 
+[node name="TactileInfo" type="Spatial" parent="Obstacles/RedBox/MeshInstance"]
+script = ExtResource( 3 )
+
 [node name="CollisionShape" type="CollisionShape" parent="Obstacles/RedBox"]
 shape = SubResource( 16 )
 
@@ -356,7 +360,6 @@ gravity_scale = 3.0
 shape = SubResource( 16 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Obstacles/RedBox4/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 14 )
 material/0 = SubResource( 15 )
 
