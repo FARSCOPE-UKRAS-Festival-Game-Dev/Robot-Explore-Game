@@ -13,16 +13,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Joystick" parent="." instance=ExtResource( 1 )]
-margin_left = 721.0
-margin_right = 1021.0
-joystick_mode = 1
-_pressed_color = Color( 0.176471, 0.160784, 0.168627, 1 )
-
 [node name="ObjectivePopup" parent="." instance=ExtResource( 3 )]
+visible = false
 
 [node name="BookOverlay" parent="." instance=ExtResource( 2 )]
+visible = false
 anchor_left = 0.13
 mouse_filter = 2
 
 [node name="DialogPopup" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.698
+anchor_top = 0.561
+anchor_right = 1.002
+anchor_bottom = 0.995
+margin_left = 0.247986
+margin_top = -1.60004
+margin_right = -0.0480957
+margin_bottom = -6.10352e-05
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Joystick" parent="MarginContainer" instance=ExtResource( 1 )]
+anchor_top = 0.0
+anchor_bottom = 0.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 306.0
+margin_bottom = 257.0
+joystick_mode = 1
+_pressed_color = Color( 0.176471, 0.160784, 0.168627, 1 )

@@ -1,0 +1,36 @@
+[gd_scene format=2]
+
+[node name="DebugTools" type="Control"]
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 664.0
+margin_top = 1.0
+margin_right = 1024.0
+margin_bottom = 42.0
+
+[node name="ToggleBackground" type="CheckButton" parent="Panel"]
+margin_top = -1.0
+margin_right = 199.0
+margin_bottom = 55.0
+pressed = true
+action_mode = 0
+keep_pressed_outside = true
+text = "Toggle Background"
+align = 1
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToggleHUD" type="CheckButton" parent="Panel"]
+margin_left = 192.0
+margin_right = 360.0
+margin_bottom = 56.0
+pressed = true
+text = "Toggle HUD"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -51,6 +51,8 @@ onready var _handle := $Background/Handle
 onready var _original_color : Color = _handle.self_modulate
 onready var _original_position : Vector2 = _background.rect_position
 
+var STAY_STILL = true
+
 var _touch_index :int = -1
 
 func _ready() -> void:
@@ -70,7 +72,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch and enabled:
 		if _touch_started(event) and _is_inside_control_rect(event.position, self):
 			if (joystick_mode == JoystickMode.DYNAMIC or joystick_mode == JoystickMode.FOLLOWING):
-				_center_control(_background, event.position)
+				if STAY_STILL == false:
+					_center_control(_background, event.position)
 			if _is_inside_control_circle(event.position, _background):
 				_touch_index = event.index
 				_handle.self_modulate = _pressed_color

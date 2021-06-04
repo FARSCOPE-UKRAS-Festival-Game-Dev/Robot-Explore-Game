@@ -84,7 +84,7 @@ func _process(_delta):
 		hits_this_sweep = 0
 	
 	# check when one resolution has been made
-	texture.create_from_image(texture_image)
+	texture.set_data(texture_image)
 	$Viewport/LidarPlot.texture = texture
 	for i in len(hit_locations):
 		if hit_locations[i][0]:

@@ -31,7 +31,7 @@ func on_dialog_finished():
 	
 func on_options_updated():
 	emit_signal("options_updated")
-
+	
 func load_dialog_from_file():
 	var file = File.new()
 	file.open("res://Assets/Dialog/dialog_JSON.json", File.READ)
@@ -45,7 +45,7 @@ func init_control_panel():
 		control_panel_ui = control_panel_ui_scene_pl.instance()
 		root.add_child(control_panel_ui)
 		
-		joystick = control_panel_ui.get_node('Joystick')
+		joystick = control_panel_ui.get_node('MarginContainer/Joystick')
 		if not OS.has_touchscreen_ui_hint() and joystick.visibility_mode == joystick.VisibilityMode.TOUCHSCREEN_ONLY:
 			is_joystick_enabled = false
 		

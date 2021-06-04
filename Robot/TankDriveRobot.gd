@@ -16,8 +16,13 @@ var is_joystick_enabled: bool
 func _ready():
 	joystick = Globals.joystick
 	is_joystick_enabled = Globals.is_joystick_enabled
-
-
+	set_camera_enable()
+	Globals.connect("options_updated",self,"set_camera_enable")
+func set_camera_enable():
+	if Globals.debug_mode:
+		$CameraBase/Camera.make_current()  
+	else:
+		$CameraBase/Camera.clear_current()
 func _physics_process(delta):
 	velocity += gravity
 	get_input(delta)

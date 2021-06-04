@@ -1,27 +1,17 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Robot/Control_Panel.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Images/ControlPanel/Take_Picture_2.png" type="Texture" id=2]
-[ext_resource path="res://Sensors/Sensor_HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Robot/ControlPanelElements/WhiskerPanel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Robot/ControlPanelElements/CameraControlPanel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Images/Background.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Images/Camera.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Images/Whiskers.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Images/ControlPanel/SpecialActions.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Images/Drilling_2.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Images/Drilling.png" type="Texture" id=9]
+[ext_resource path="res://Robot/ControlPanelElements/TemperaturePanel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Robot/ControlPanelElements/LidarControlPanel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Robot/ControlPanelElements/DebugTools.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Robot/ControlPanelElements/SpecialsMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Images/ControlPanel/Option6_pressed_with_cross.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Images/ControlPanel/Take_Picture.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Images/ControlPanel/SpecialActions_pressed.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Images/ControlPanel/Options6.png" type="Texture" id=13]
 
 [sub_resource type="StyleBoxEmpty" id=1]
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0, 0, 0, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_blend = true
 
 [node name="ControlPanel" type="Control"]
 anchor_right = 1.0
@@ -29,334 +19,164 @@ anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel" type="Panel" parent="MarginContainer"]
+[node name="HUD" type="Panel" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
-[node name="Background" type="ColorRect" parent="MarginContainer/Panel"]
+[node name="Background" type="ColorRect" parent="HUD"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel"]
+[node name="TextureRect" type="TextureRect" parent="HUD"]
 margin_left = 1.18921
 margin_top = -1.18921
 margin_right = 1025.19
 margin_bottom = 598.811
 texture = ExtResource( 4 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="MarginContainer/Panel"]
-margin_left = 180.0
-margin_top = 50.0
-margin_right = 220.0
-margin_bottom = 90.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="CameraPanel" parent="HUD" instance=ExtResource( 3 )]
+anchor_left = 0.094
+anchor_top = 0.093
+anchor_right = 0.586
+anchor_bottom = 0.6
+
+[node name="LidarPanel" parent="HUD" instance=ExtResource( 6 )]
+anchor_left = 0.594
+anchor_top = 0.095
+anchor_right = 0.891
+anchor_bottom = 0.547
+
+[node name="TemperaturePanelLeft" parent="HUD" instance=ExtResource( 5 )]
+anchor_left = 0.01
+anchor_top = 0.1
+anchor_right = 0.09
+anchor_bottom = 0.6
+margin_left = -1.90735e-06
+
+[node name="TemperaturePanelRight" parent="HUD" instance=ExtResource( 5 )]
+anchor_left = 0.91
+anchor_top = 0.1
+anchor_right = 0.99
+anchor_bottom = 0.6
+margin_left = -0.336914
+margin_top = -0.236416
+margin_right = -0.336914
+margin_bottom = -0.23642
+
+[node name="WhiskerPanel" parent="HUD" instance=ExtResource( 2 )]
+anchor_left = 0.321
+anchor_top = 0.605
+anchor_right = 0.705
+anchor_bottom = 0.935
+margin_left = -0.228119
+margin_right = -0.444153
+margin_bottom = -6.10352e-05
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+anchor_left = 0.025
+anchor_top = 0.171
+anchor_right = 0.316
+anchor_bottom = 0.88
 __meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -76.0
-margin_right = 364.0
-margin_bottom = 246.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HUD1" parent="MarginContainer/Panel/Panel/MarginContainer" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 480.0
-margin_bottom = 286.0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/Panel"]
-margin_left = -92.0
-margin_top = -10.0
-margin_right = 416.0
-margin_bottom = 294.0
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel2" type="Panel" parent="MarginContainer/Panel"]
-margin_left = 600.0
-margin_top = 50.0
-margin_right = 640.0
-margin_bottom = 90.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/Panel2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 264.0
-margin_bottom = 210.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HUD2" parent="MarginContainer/Panel/Panel2/MarginContainer" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 304.0
-margin_bottom = 250.0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/Panel2"]
-margin_left = -8.0
-margin_top = -8.0
-margin_right = 312.0
-margin_bottom = 258.0
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel3" type="Panel" parent="MarginContainer/Panel"]
-margin_left = 32.0
-margin_top = 48.0
-margin_right = 80.0
-margin_bottom = 300.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/Panel3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 8.0
-margin_right = -15.0
-margin_bottom = -7.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HUD3" parent="MarginContainer/Panel/Panel3/MarginContainer" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 23.0
-margin_bottom = 237.0
-
-[node name="Panel4" type="Panel" parent="MarginContainer/Panel"]
-margin_left = 928.0
-margin_top = 50.0
-margin_right = 968.0
-margin_bottom = 300.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/Panel4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 8.0
-margin_right = -15.0
-margin_bottom = -7.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HUD4" parent="MarginContainer/Panel/Panel4/MarginContainer" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 15.0
-margin_bottom = 235.0
-
-[node name="Panel5" type="Panel" parent="MarginContainer/Panel"]
-margin_left = 264.0
-margin_top = 344.0
-margin_right = 731.0
-margin_bottom = 560.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/Panel5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 46.0
-margin_right = -30.0
-margin_bottom = 6.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HUD5" parent="MarginContainer/Panel/Panel5/MarginContainer" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 427.0
-margin_bottom = 176.0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/Panel5"]
-margin_right = 467.0
-margin_bottom = 221.0
-texture = ExtResource( 6 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SpecialsMenu" type="Control" parent="MarginContainer/Panel"]
-margin_right = 256.0
-margin_bottom = 600.0
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/HBoxContainer"]
+margin_right = 146.0
+margin_bottom = 425.0
 mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 11
+alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/SpecialsMenu"]
-margin_left = 144.0
-margin_top = 192.0
-margin_right = 256.0
-margin_bottom = 440.0
-mouse_filter = 1
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HUD/HBoxContainer/VBoxContainer"]
+margin_right = 146.0
+margin_bottom = 291.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+ratio = 0.5
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="MarginContainer/Panel/SpecialsMenu/MarginContainer"]
-margin_right = 112.0
-margin_bottom = 248.0
-custom_styles/panel = SubResource( 2 )
+[node name="MarginContainer" type="MarginContainer" parent="HUD/HBoxContainer/VBoxContainer/AspectRatioContainer"]
+margin_left = 0.25
+margin_right = 145.75
+margin_bottom = 291.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 1
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 1
 
-[node name="TakeHighResPictureButton" type="TextureButton" parent="MarginContainer/Panel/SpecialsMenu/MarginContainer/Panel"]
-margin_left = 10.0
-margin_top = 120.0
-margin_right = 104.0
-margin_bottom = 208.0
-texture_normal = ExtResource( 11 )
-texture_pressed = ExtResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="MarginContainer" type="MarginContainer" parent="HUD/HBoxContainer/VBoxContainer"]
+margin_top = 295.0
+margin_right = 146.0
+margin_bottom = 425.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.33
+custom_constants/margin_right = 5
+custom_constants/margin_top = 1
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 1
 
-[node name="DrillSampleButton" type="TextureButton" parent="MarginContainer/Panel/SpecialsMenu/MarginContainer/Panel"]
-margin_left = 10.0
-margin_top = 24.0
-margin_right = 104.0
-margin_bottom = 108.0
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 8 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OpenSpecialsButton" type="TextureButton" parent="MarginContainer/Panel"]
-margin_left = 144.0
-margin_top = 416.0
-margin_right = 256.0
-margin_bottom = 510.0
-toggle_mode = true
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 12 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OpenBookButton" type="TextureButton" parent="MarginContainer/Panel"]
-margin_left = 24.0
-margin_top = 416.0
-margin_right = 136.0
-margin_bottom = 510.0
+[node name="OpenBookButton" type="TextureButton" parent="HUD/HBoxContainer/VBoxContainer/MarginContainer"]
+margin_left = 5.0
+margin_top = 1.0
+margin_right = 141.0
+margin_bottom = 129.0
+size_flags_horizontal = 11
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.33
 toggle_mode = true
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 10 )
 expand = true
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DebugTools" type="Control" parent="MarginContainer"]
-margin_right = 1024.0
-margin_bottom = 600.0
-mouse_filter = 2
+[node name="SpecialsMenu" parent="HUD/HBoxContainer" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 150.0
+margin_right = 297.0
+margin_bottom = 425.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="MarginContainer/DebugTools"]
-margin_left = 664.0
-margin_top = 1.0
-margin_right = 1024.0
-margin_bottom = 42.0
+[node name="DebugTools" parent="." instance=ExtResource( 7 )]
+margin_left = 0.280609
+margin_top = -0.420925
+margin_right = 1024.28
+margin_bottom = 599.579
 
-[node name="CheckButton" type="CheckButton" parent="MarginContainer/DebugTools/Panel"]
-margin_top = -1.0
-margin_right = 199.0
-margin_bottom = 55.0
-pressed = true
-action_mode = 0
-keep_pressed_outside = true
-text = "Toggle Background"
-align = 1
-expand_icon = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ToggleHuds" type="CheckButton" parent="MarginContainer/DebugTools/Panel"]
-margin_left = 192.0
-margin_right = 360.0
-margin_bottom = 56.0
-pressed = true
-text = "Toggle HUD"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[connection signal="pressed" from="MarginContainer/Panel/SpecialsMenu/MarginContainer/Panel/TakeHighResPictureButton" to="." method="_on_TakeHighResPictureButton_pressed"]
-[connection signal="pressed" from="MarginContainer/Panel/SpecialsMenu/MarginContainer/Panel/DrillSampleButton" to="." method="_on_DrillSampleButton_pressed"]
-[connection signal="pressed" from="MarginContainer/Panel/OpenSpecialsButton" to="." method="_on_OpenSpecialsButton_pressed"]
-[connection signal="toggled" from="MarginContainer/Panel/OpenBookButton" to="." method="_on_OpenBookButton_toggled"]
-[connection signal="pressed" from="MarginContainer/DebugTools/Panel/CheckButton" to="." method="_on_toggle_background_button"]
-[connection signal="toggled" from="MarginContainer/DebugTools/Panel/CheckButton" to="." method="_on_toggle_background_button"]
-[connection signal="toggled" from="MarginContainer/DebugTools/Panel/ToggleHuds" to="." method="_on_ToggleHuds_toggled"]
+[connection signal="toggled" from="HUD/HBoxContainer/VBoxContainer/MarginContainer/OpenBookButton" to="." method="_on_OpenBookButton_toggled"]
