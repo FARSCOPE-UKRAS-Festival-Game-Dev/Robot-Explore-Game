@@ -11,7 +11,7 @@ func _ready():
 func _on_Area_body_entered(body):
 	bodies.append(body)
 	
-	if not register and bodies.size() == 2:
+	if not register:
 		register = true
 		bodies.clear()
 		

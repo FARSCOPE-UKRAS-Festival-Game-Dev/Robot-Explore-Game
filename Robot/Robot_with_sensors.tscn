@@ -33,3 +33,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409874, 0.547839, 0 )
 
 [node name="TempRight" parent="Robot" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.347973, 0.547839, 0 )
+
+[connection signal="whisk_sense_new" from="Robot/WhiskerSensor" to="ControlPanel" method="_on_WhiskerSensor_whisk_sense_new"]

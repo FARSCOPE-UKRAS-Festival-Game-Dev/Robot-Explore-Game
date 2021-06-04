@@ -4,6 +4,8 @@ extends Control
 onready var book_btn = $HUD/HBoxContainer/VBoxContainer/MarginContainer/OpenBookButton
 onready var SpecialMenu = $HUD/HBoxContainer/SpecialsMenu
 
+signal whisker_signal
+
 
 onready var book_unread_texture = preload("res://Assets/Images/ControlPanel/Options6_unread.png")
 onready var book_read_texture = preload("res://Assets/Images/ControlPanel/Options6.png")
@@ -47,3 +49,6 @@ func _on_OpenBookButton_toggled(button_pressed):
 
 func mark_read_book_icon(read):
 	book_btn.texture_normal =  book_read_texture if read else book_unread_texture
+
+func _on_WhiskerSensor_whisk_sense_new():
+	emit_signal("whisker_signal")

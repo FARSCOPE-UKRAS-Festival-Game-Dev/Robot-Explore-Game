@@ -48,12 +48,11 @@ func collision_leds_set(set):
 	for l in lights:
 		l.visible = set
 
+func _on_AnimatedSprite_animation_finished():
+	whisker_anim.play("idle")
 
-func _on_WhiskerSensor_whisk_sense_new():
+func _on_ControlPanel_whisker_signal():
 	whisker_anim.rotation_degrees = randi()%4*90
 	whisker_anim.flip_v  = bool(randi()%2)
 	whisker_anim.flip_h  = bool(randi()%2)
 	whisker_anim.play("reveal")
-
-func _on_AnimatedSprite_animation_finished():
-	whisker_anim.play("idle")

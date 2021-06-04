@@ -179,4 +179,5 @@ margin_top = -0.420925
 margin_right = 1024.28
 margin_bottom = 599.579
 
+[connection signal="whisker_signal" from="." to="HUD/WhiskerPanel" method="_on_ControlPanel_whisker_signal"]
 [connection signal="toggled" from="HUD/HBoxContainer/VBoxContainer/MarginContainer/OpenBookButton" to="." method="_on_OpenBookButton_toggled"]
