@@ -18,7 +18,9 @@ func _ready():
 		'tempright': $Robot/TempRight,
 		'whisker': $Robot/WhiskerSensor
 	})
-
+	
+	$ControlPanel.SpecialMenu.connect("drill_button_pressed",self,"drill_sample")
+	$ControlPanel.SpecialMenu.connect("take_picture_button_pressed",self,"take_picture")
 
 func take_picture():
 	#play sound

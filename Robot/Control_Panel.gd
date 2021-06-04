@@ -1,7 +1,9 @@
 extends Control
 
 
-onready var book_btn = $Panel/OpenBookButton
+onready var book_btn = $Panel/HBoxContainer/VBoxContainer/MarginContainer/OpenBookButton
+onready var SpecialMenu = $Panel/HBoxContainer/SpecialsMenu
+
 
 onready var book_unread_texture = preload("res://Assets/Images/ControlPanel/Options6_unread.png")
 onready var book_read_texture = preload("res://Assets/Images/ControlPanel/Options6.png")

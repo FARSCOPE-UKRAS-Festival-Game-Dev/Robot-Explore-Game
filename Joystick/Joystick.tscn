@@ -7,8 +7,6 @@
 [node name="Joystick" type="Control"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -300.0
-margin_right = 300.0
 rect_pivot_offset = Vector2( 150, 150 )
 mouse_filter = 1
 script = ExtResource( 1 )

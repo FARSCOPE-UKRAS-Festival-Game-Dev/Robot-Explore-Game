@@ -6,12 +6,12 @@ extends Control
 # var b = "text"
 onready var hud = $Display
 onready var lights = [
-	$Border/Red1,
-	$Border/Red2,
-	$Border/Red3,
-	$Border/Red4,
-	$Border/Red5,
-	$Border/Red6
+	$Red1,
+	$Red2,
+	$Red3,
+	$Red4,
+	$Red5,
+	$Red6
 ]
 var sensor_class = null
 

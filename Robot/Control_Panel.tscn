@@ -19,6 +19,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -27,6 +28,10 @@ margin_right = 1024.0
 margin_bottom = 600.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
 [node name="DebugTools" parent="Panel" instance=ExtResource( 7 )]
 
@@ -36,6 +41,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -46,6 +52,7 @@ margin_right = 1025.19
 margin_bottom = 598.811
 texture = ExtResource( 4 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -82,30 +89,76 @@ margin_right = 136.256
 margin_bottom = 31.8
 
 [node name="WhiskerPanel" parent="Panel" instance=ExtResource( 2 )]
-anchor_left = 0.273
-anchor_top = 0.627
-anchor_right = 0.702
-anchor_bottom = 0.96
+anchor_left = 0.321
+anchor_top = 0.605
+anchor_right = 0.705
+anchor_bottom = 0.935
+margin_left = -0.228119
+margin_right = -0.444153
+margin_bottom = -6.10352e-05
 
-[node name="SpecialsMenu" parent="Panel" instance=ExtResource( 8 )]
-anchor_left = 0.188
-anchor_top = 0.676
-anchor_right = 0.238
-anchor_bottom = 0.903
-margin_left = -16.512
-margin_top = -61.6
-margin_right = 12.288
-margin_bottom = 40.2
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+anchor_left = 0.025
+anchor_top = 0.171
+anchor_right = 0.316
+anchor_bottom = 0.88
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
 
-[node name="OpenBookButton" type="TextureButton" parent="Panel"]
-anchor_left = 0.042
-anchor_top = 0.792
-anchor_right = 0.114
-anchor_bottom = 0.9
-margin_left = -0.00800323
-margin_top = -0.200043
-margin_right = 1.26399
-margin_bottom = -2.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
+margin_right = 146.0
+margin_bottom = 425.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 11
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Panel/HBoxContainer/VBoxContainer"]
+margin_right = 146.0
+margin_bottom = 291.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+ratio = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/VBoxContainer/AspectRatioContainer"]
+margin_left = 0.25
+margin_right = 145.75
+margin_bottom = 291.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 1
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/VBoxContainer"]
+margin_top = 295.0
+margin_right = 146.0
+margin_bottom = 425.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.33
+custom_constants/margin_right = 5
+custom_constants/margin_top = 1
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 1
+
+[node name="OpenBookButton" type="TextureButton" parent="Panel/HBoxContainer/VBoxContainer/MarginContainer"]
+margin_left = 5.0
+margin_top = 1.0
+margin_right = 141.0
+margin_bottom = 129.0
+size_flags_horizontal = 11
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.33
 toggle_mode = true
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 10 )
@@ -115,4 +168,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="toggled" from="Panel/OpenBookButton" to="." method="_on_OpenBookButton_toggled"]
+[node name="SpecialsMenu" parent="Panel/HBoxContainer" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 150.0
+margin_right = 297.0
+margin_bottom = 425.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="toggled" from="Panel/HBoxContainer/VBoxContainer/MarginContainer/OpenBookButton" to="." method="_on_OpenBookButton_toggled"]
