@@ -4,14 +4,14 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-onready var hud = $Display
+onready var hud = $AspectRatioContainer/Panel/Display
 onready var lights = [
-	$Red1,
-	$Red2,
-	$Red3,
-	$Red4,
-	$Red5,
-	$Red6
+	$AspectRatioContainer/Panel/Red1,
+	$AspectRatioContainer/Panel/Red2,
+	$AspectRatioContainer/Panel/Red3,
+	$AspectRatioContainer/Panel/Red4,
+	$AspectRatioContainer/Panel/Red5,
+	$AspectRatioContainer/Panel/Red6
 ]
 var sensor_class = null
 

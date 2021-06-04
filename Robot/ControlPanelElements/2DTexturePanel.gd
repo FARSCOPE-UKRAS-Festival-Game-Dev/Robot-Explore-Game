@@ -21,10 +21,4 @@ func _process(delta):
 		_render_texture_to_hud(texture)
 
 func _render_texture_to_hud(texture):
-	var image = texture.get_data()
-	var width = hud.rect_size[0]
-	var height = hud.rect_size[1]
-	image.resize(width, height)
-	var itex = ImageTexture.new()
-	itex.create_from_image(image)
-	hud.texture = itex
+	hud.texture = texture

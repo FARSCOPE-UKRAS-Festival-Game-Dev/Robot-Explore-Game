@@ -1,8 +1,8 @@
 extends Control
 
 
-onready var book_btn = $Panel/HBoxContainer/VBoxContainer/MarginContainer/OpenBookButton
-onready var SpecialMenu = $Panel/HBoxContainer/SpecialsMenu
+onready var book_btn = $HUD/HBoxContainer/VBoxContainer/MarginContainer/OpenBookButton
+onready var SpecialMenu = $HUD/HBoxContainer/SpecialsMenu
 
 
 onready var book_unread_texture = preload("res://Assets/Images/ControlPanel/Options6_unread.png")
@@ -13,24 +13,30 @@ func _ready():
 	Globals.init_control_panel()
 	
 	if not Globals.debug_mode:
-		$MarginContainer/Panel/DebugTools.visible = false
+		$DebugTools.visible = false
+	else:
+		$DebugTools/Panel/ToggleBackground.connect("toggled",self,"set_background_visible")
+		$DebugTools/Panel/ToggleHUD.connect("toggled",self,"set_HUD_visible")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(_delta):
-#	pass
+func set_background_visible(value):
+	$HUD/Background.visible = value
+	
+func set_HUD_visible(value):
+	$HUD.visible = value
+	
 
 func set_sensor_classes(mapping):
 	if 'camera' in mapping:
-		$Panel/CameraPanel.set_sensor_class(mapping['camera'])
+		$HUD/CameraPanel.set_sensor_class(mapping['camera'])
 	if 'lidar' in mapping:
-		$Panel/LidarPanel.set_sensor_class(mapping['lidar'])
+		$HUD/LidarPanel.set_sensor_class(mapping['lidar'])
 	
 func _on_toggle_background_button(button):
-	var bg = $Panel/Background
+	var bg = $HUD/Background
 	bg.visible = button
 
 func _on_ToggleHuds_toggled(button_pressed):
-	$Panel.visible = button_pressed
+	$HUD.visible = button_pressed
 
 func _on_OpenBookButton_toggled(button_pressed):
 	# Open Book Menu! Globals.openMenu

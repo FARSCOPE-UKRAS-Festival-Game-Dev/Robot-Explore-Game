@@ -23,7 +23,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="."]
+[node name="HUD" type="Panel" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
 mouse_filter = 2
@@ -33,13 +33,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DebugTools" parent="Panel" instance=ExtResource( 7 )]
-margin_left = 0.280609
-margin_top = -0.420925
-margin_right = 1024.28
-margin_bottom = 599.579
-
-[node name="Background" type="ColorRect" parent="Panel"]
+[node name="Background" type="ColorRect" parent="HUD"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -49,7 +43,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Panel"]
+[node name="TextureRect" type="TextureRect" parent="HUD"]
 margin_left = 1.18921
 margin_top = -1.18921
 margin_right = 1025.19
@@ -60,26 +54,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CameraPanel" parent="Panel" instance=ExtResource( 3 )]
+[node name="CameraPanel" parent="HUD" instance=ExtResource( 3 )]
 anchor_left = 0.094
 anchor_top = 0.093
 anchor_right = 0.586
 anchor_bottom = 0.6
 
-[node name="LidarPanel" parent="Panel" instance=ExtResource( 6 )]
+[node name="LidarPanel" parent="HUD" instance=ExtResource( 6 )]
 anchor_left = 0.594
 anchor_top = 0.095
 anchor_right = 0.891
 anchor_bottom = 0.547
 
-[node name="TemperaturePanelLeft" parent="Panel" instance=ExtResource( 5 )]
+[node name="TemperaturePanelLeft" parent="HUD" instance=ExtResource( 5 )]
 anchor_left = 0.01
 anchor_top = 0.1
 anchor_right = 0.09
 anchor_bottom = 0.6
 margin_left = -1.90735e-06
 
-[node name="TemperaturePanelRight" parent="Panel" instance=ExtResource( 5 )]
+[node name="TemperaturePanelRight" parent="HUD" instance=ExtResource( 5 )]
 anchor_left = 0.91
 anchor_top = 0.1
 anchor_right = 0.99
@@ -89,7 +83,7 @@ margin_top = -0.236416
 margin_right = -0.336914
 margin_bottom = -0.23642
 
-[node name="WhiskerPanel" parent="Panel" instance=ExtResource( 2 )]
+[node name="WhiskerPanel" parent="HUD" instance=ExtResource( 2 )]
 anchor_left = 0.321
 anchor_top = 0.605
 anchor_right = 0.705
@@ -98,7 +92,7 @@ margin_left = -0.228119
 margin_right = -0.444153
 margin_bottom = -6.10352e-05
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
 anchor_left = 0.025
 anchor_top = 0.171
 anchor_right = 0.316
@@ -109,7 +103,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/HBoxContainer"]
 margin_right = 146.0
 margin_bottom = 425.0
 mouse_filter = 2
@@ -120,7 +114,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HUD/HBoxContainer/VBoxContainer"]
 margin_right = 146.0
 margin_bottom = 291.0
 mouse_filter = 2
@@ -132,7 +126,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/VBoxContainer/AspectRatioContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/HBoxContainer/VBoxContainer/AspectRatioContainer"]
 margin_left = 0.25
 margin_right = 145.75
 margin_bottom = 291.0
@@ -141,7 +135,7 @@ custom_constants/margin_top = 1
 custom_constants/margin_left = 5
 custom_constants/margin_bottom = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/HBoxContainer/VBoxContainer"]
 margin_top = 295.0
 margin_right = 146.0
 margin_bottom = 425.0
@@ -153,7 +147,7 @@ custom_constants/margin_top = 1
 custom_constants/margin_left = 5
 custom_constants/margin_bottom = 1
 
-[node name="OpenBookButton" type="TextureButton" parent="Panel/HBoxContainer/VBoxContainer/MarginContainer"]
+[node name="OpenBookButton" type="TextureButton" parent="HUD/HBoxContainer/VBoxContainer/MarginContainer"]
 margin_left = 5.0
 margin_top = 1.0
 margin_right = 141.0
@@ -170,7 +164,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SpecialsMenu" parent="Panel/HBoxContainer" instance=ExtResource( 8 )]
+[node name="SpecialsMenu" parent="HUD/HBoxContainer" instance=ExtResource( 8 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 150.0
@@ -179,4 +173,10 @@ margin_bottom = 425.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[connection signal="toggled" from="Panel/HBoxContainer/VBoxContainer/MarginContainer/OpenBookButton" to="." method="_on_OpenBookButton_toggled"]
+[node name="DebugTools" parent="." instance=ExtResource( 7 )]
+margin_left = 0.280609
+margin_top = -0.420925
+margin_right = 1024.28
+margin_bottom = 599.579
+
+[connection signal="toggled" from="HUD/HBoxContainer/VBoxContainer/MarginContainer/OpenBookButton" to="." method="_on_OpenBookButton_toggled"]
