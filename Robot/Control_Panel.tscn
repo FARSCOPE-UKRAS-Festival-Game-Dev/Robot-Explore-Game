@@ -34,6 +34,10 @@ __meta__ = {
 }
 
 [node name="DebugTools" parent="Panel" instance=ExtResource( 7 )]
+margin_left = 0.280609
+margin_top = -0.420925
+margin_right = 1024.28
+margin_bottom = 599.579
 
 [node name="Background" type="ColorRect" parent="Panel"]
 anchor_right = 1.0
@@ -69,24 +73,21 @@ anchor_right = 0.891
 anchor_bottom = 0.547
 
 [node name="TemperaturePanelLeft" parent="Panel" instance=ExtResource( 5 )]
-anchor_left = 0.031
-anchor_top = 0.095
-anchor_right = 0.078
-anchor_bottom = 0.613
-margin_left = 0.256001
-margin_top = 31.0
-margin_right = 8.128
-margin_bottom = -40.8
+anchor_left = 0.01
+anchor_top = 0.1
+anchor_right = 0.09
+anchor_bottom = 0.6
+margin_left = -1.90735e-06
 
 [node name="TemperaturePanelRight" parent="Panel" instance=ExtResource( 5 )]
-anchor_left = 0.914
-anchor_top = 0.107
-anchor_right = 0.977
-anchor_bottom = 0.544
-margin_left = 0.0640869
-margin_top = 31.8
-margin_right = 136.256
-margin_bottom = 31.8
+anchor_left = 0.91
+anchor_top = 0.1
+anchor_right = 0.99
+anchor_bottom = 0.6
+margin_left = -0.336914
+margin_top = -0.236416
+margin_right = -0.336914
+margin_bottom = -0.23642
 
 [node name="WhiskerPanel" parent="Panel" instance=ExtResource( 2 )]
 anchor_left = 0.321
@@ -104,6 +105,7 @@ anchor_right = 0.316
 anchor_bottom = 0.88
 __meta__ = {
 "_edit_group_": true,
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
