@@ -17,6 +17,9 @@ onready var whisker_anim = $AspectRatioContainer/Panel/Display/AnimatedSprite
 onready var text_holder = $AspectRatioContainer/Panel/Label
 var sensor_class = null
 
+onready var redlight = load("res://Assets/Images/reddot.png")
+onready var greenlight = load("res://Assets/Images/greendot.png")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	whisker_anim.play("idle")
@@ -31,6 +34,8 @@ func _process(delta):
 		_render_texture_to_hud(texture)
 		var text = sensor_class.render_text()
 		_render_text_to_hud(text)
+		var touching = sensor_class.touching
+		_render_lights_to_hud(touching)
 
 func _render_texture_to_hud(texture):
 	var image = texture.get_data()
@@ -43,10 +48,13 @@ func _render_texture_to_hud(texture):
 	
 func _render_text_to_hud(text):
 	text_holder.text = text
-
-func collision_leds_set(set):
-	for l in lights:
-		l.visible = set
+	
+func _render_lights_to_hud(touching):
+	for i in range(len(touching)):
+		if touching[i] == 1:
+			lights[i].texture = redlight
+		else:
+			lights[i].texture = greenlight
 
 func _on_AnimatedSprite_animation_finished():
 	whisker_anim.play("idle")
