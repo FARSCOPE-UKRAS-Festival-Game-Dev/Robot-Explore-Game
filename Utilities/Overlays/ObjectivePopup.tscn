@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Fonts/NormalTextFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Utilities/Overlays/ObjectivePopup.gd" type="Script" id=2]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "display_idle"
 length = 2.5
 tracks/0/type = "bezier"
@@ -51,7 +51,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "fade_in_with_text_scroll"
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("MarginContainer/PanelContainer/MarginContainer/TextLabel:percent_visible")
@@ -98,8 +98,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "fade_out_with_text_scroll"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("MarginContainer/PanelContainer/MarginContainer/TextLabel:percent_visible")
 tracks/0/interp = 1
@@ -148,7 +147,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "text_scroll_only"
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("MarginContainer/PanelContainer/MarginContainer/TextLabel:percent_visible")
@@ -161,7 +160,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="StyleBoxEmpty" id=1]
+[sub_resource type="StyleBoxEmpty" id=5]
 
 [node name="ObjectivePopup" type="Control"]
 margin_right = 402.0
@@ -172,10 +171,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/display_idle = SubResource( 4 )
-anims/fade_in_with_text_scroll = SubResource( 3 )
-anims/fade_out_with_text_scroll = SubResource( 2 )
-anims/text_scroll_only = SubResource( 5 )
+anims/display_idle = SubResource( 1 )
+anims/fade_in_with_text_scroll = SubResource( 2 )
+anims/fade_out_with_text_scroll = SubResource( 3 )
+anims/text_scroll_only = SubResource( 4 )
 next/fade_in_with_text_scroll = "display_idle"
 next/text_scroll_only = "display_idle"
 
@@ -195,7 +194,7 @@ margin_right = 412.0
 margin_bottom = 62.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
