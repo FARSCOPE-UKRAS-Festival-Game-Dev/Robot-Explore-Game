@@ -3,6 +3,7 @@ extends Control
 onready var anim = $AnimationPlayer
 onready var fade_overlay = $FadeOverlay
 func _ready():
+	fade_overlay.hide()
 	anim.connect("animation_finished",self,"on_anim_finished")
 
 func fade_in():

@@ -9,11 +9,15 @@ var lidar_panel
 var whisker_panel
 	
 func _ready():
-	get_node("/root/Mission1").connect("finished_loading",self,"start_tutorial")
-
+	#get_node("/root/Mission1").connect("finished_loading",self,"start_tutorial")
+	pass
 func start_tutorial():
 	print("starting tutorial")
+	get_node("../EnterDarkCaveDialog").enabled = true
+	get_node("../DeadEndDialog").enabled = true	
+	get_node("../NearEndOfCaveDialog").enabled = true	
 	
+	Globals.control_panel_ui.FadeOverlay.show()
 	Globals.joystick.hide()
 	
 	robot_control_panel = Globals.robot.get_node("ControlPanel")

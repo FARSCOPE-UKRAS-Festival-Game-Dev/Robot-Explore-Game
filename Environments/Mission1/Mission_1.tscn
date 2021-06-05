@@ -32,7 +32,7 @@ environment = SubResource( 1 )
 [node name="RobotStartLocation" type="Position3D" parent="."]
 transform = Transform( 0.912656, 0, -0.408729, 0, 1, 0, 0.408729, 0, 0.912656, 69.8564, -1.13397, 91.4136 )
 
-[node name="Lights" type="Node" parent="."]
+[node name="Lights" type="Spatial" parent="."]
 
 [node name="OmniLight" type="OmniLight" parent="Lights"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.4108, 0.761785, 2.33966 )
@@ -67,6 +67,20 @@ omni_range = 15.2255
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.0766, 0.300995, 69.801 )
 light_energy = 1.5
 omni_range = 5.63888
+
+[node name="DebugLights" type="Spatial" parent="."]
+
+[node name="OmniLight9" type="OmniLight" parent="DebugLights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 76.3019, 3.18205, 57.9133 )
+light_energy = 2.17
+light_indirect_energy = 4.39
+omni_range = 4096.0
+
+[node name="OmniLight8" type="OmniLight" parent="DebugLights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5553, 0.46209, 37.5725 )
+light_energy = 2.17
+light_indirect_energy = 4.39
+omni_range = 4096.0
 
 [node name="CaveMap" parent="." instance=ExtResource( 1 )]
 
@@ -128,6 +142,7 @@ enabled = true
 
 [node name="EnterDarkCaveDialog" parent="TutorialMission" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9095, -0.110748, -17.3085 )
+enabled = false
 dialog = "tutorial_dark_cave_entrance"
 
 [node name="Trigger" parent="TutorialMission/EnterDarkCaveDialog" instance=ExtResource( 3 )]
@@ -153,17 +168,9 @@ disable_on_complete = true
 on_complete_dialogue = "tutorial_lidar_on_complete"
 next_objective_enable = NodePath("../NavigateDarkCave")
 
-[node name="NavigateDarkCave" parent="TutorialMission" instance=ExtResource( 4 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -43.9765, -2.84955, -45.1968 )
-display_text = "Navigate dark cave"
-disable_on_complete = true
-
-[node name="Trigger" parent="TutorialMission/NavigateDarkCave" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532284, 1.29427, -1.15001 )
-enabled = true
-
 [node name="DeadEndDialog" parent="TutorialMission" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8551, 0.326325, 7.31493 )
+enabled = false
 dialog = "tutorial_dead_end1"
 
 [node name="Trigger" parent="TutorialMission/DeadEndDialog" instance=ExtResource( 3 )]
@@ -172,10 +179,20 @@ enabled = true
 
 [node name="NearEndOfCaveDialog" parent="TutorialMission" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2123, 0.326325, -32.9062 )
+enabled = false
 dialog = "tutorial_near_end_of_cave1"
 
 [node name="Trigger" parent="TutorialMission/NearEndOfCaveDialog" instance=ExtResource( 3 )]
 transform = Transform( 1.99997, -0.00549776, 0, 0.0109955, 0.999985, 0, 0, 0, 2, 0, -0.992286, 2.57973 )
+enabled = true
+
+[node name="NavigateDarkCave" parent="TutorialMission" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -43.9765, -2.84955, -45.1968 )
+display_text = "Navigate dark cave"
+disable_on_complete = true
+
+[node name="Trigger" parent="TutorialMission/NavigateDarkCave" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532284, 1.29427, -1.15001 )
 enabled = true
 
 [node name="InterestingRock" type="RigidBody" parent="TutorialMission"]
