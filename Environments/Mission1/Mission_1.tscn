@@ -71,6 +71,7 @@ light_energy = 1.5
 omni_range = 5.63888
 
 [node name="DebugLights" type="Spatial" parent="."]
+visible = false
 
 [node name="OmniLight9" type="OmniLight" parent="DebugLights"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 76.3019, 3.18205, 57.9133 )
@@ -149,6 +150,18 @@ dialog = "tutorial_dark_cave_entrance"
 transform = Transform( 1.99997, -0.00549776, 0, 0.0109955, 0.999985, 0, 0, 0, 2, 0, -0.992286, 2.57973 )
 enabled = true
 
+[node name="EnterCave" parent="TutorialMission" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -18.1183, -0.212038, -11.4102 )
+display_text = "Enter the dark cave"
+disable_on_complete = true
+on_complete_dialogue = "tutorial_enter_dark_cave_complete"
+next_objective_enable = NodePath("../TurnOnLidar")
+
+[node name="Trigger" parent="TutorialMission/EnterCave" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532284, 0, -1.15001 )
+enabled = true
+oneshot = true
+
 [node name="TurnOnLidar" parent="TutorialMission" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.847084, -2.05742, 6.45017 )
 display_text = "Turn on LIDAR"
@@ -156,17 +169,14 @@ disable_on_complete = true
 on_complete_dialogue = "tutorial_lidar_on_complete"
 next_objective_enable = NodePath("../NavigateDarkCave")
 
-[node name="EnterCave" parent="TutorialMission" instance=ExtResource( 4 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -18.1183, -0.212038, -11.4102 )
-display_text = "Enter the dark cave"
+[node name="NavigateDarkCave" parent="TutorialMission" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -43.9765, -2.84955, -45.1968 )
+display_text = "Navigate dark cave"
 disable_on_complete = true
-on_complete_dialogue = "tutorial_ent2er_dark_cave_complete"
-next_objective_enable = NodePath("../TurnOnLidar")
 
-[node name="Trigger" parent="TutorialMission/EnterCave" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532284, 0, -1.15001 )
+[node name="Trigger" parent="TutorialMission/NavigateDarkCave" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532284, 1.29427, -1.15001 )
 enabled = true
-oneshot = true
 
 [node name="DeadEndDialog" parent="TutorialMission" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8551, 0.326325, 7.31493 )
@@ -184,15 +194,6 @@ dialog = "tutorial_near_end_of_cave1"
 
 [node name="Trigger" parent="TutorialMission/NearEndOfCaveDialog" instance=ExtResource( 3 )]
 transform = Transform( 1.99997, -0.00549776, 0, 0.0109955, 0.999985, 0, 0, 0, 2, 0, -0.992286, 2.57973 )
-enabled = true
-
-[node name="NavigateDarkCave" parent="TutorialMission" instance=ExtResource( 4 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -43.9765, -2.84955, -45.1968 )
-display_text = "Navigate dark cave"
-disable_on_complete = true
-
-[node name="Trigger" parent="TutorialMission/NavigateDarkCave" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532284, 1.29427, -1.15001 )
 enabled = true
 
 [node name="InterestingRock" type="RigidBody" parent="TutorialMission"]
@@ -215,5 +216,5 @@ texture_name = "Interesting Rock"
 [connection signal="on_enable" from="TutorialMission/TurnOnCamera" to="TutorialMission/TutorialScripts" method="_on_TurnOnCamera_on_enable"]
 [connection signal="on_enable" from="TutorialMission/TurnOnWhiskers" to="TutorialMission/TutorialScripts" method="_on_TurnOnWhiskers_on_enable"]
 [connection signal="on_enable" from="TutorialMission/UseWhiskers" to="TutorialMission/TutorialScripts" method="_on_UseWhisker_on_enable"]
-[connection signal="on_enable" from="TutorialMission/TurnOnLidar" to="TutorialMission/TutorialScripts" method="_on_TurnOnLidar_on_enable"]
 [connection signal="on_enable" from="TutorialMission/EnterCave" to="TutorialMission/TutorialScripts" method="_on_EnterCave_on_enable"]
+[connection signal="on_enable" from="TutorialMission/TurnOnLidar" to="TutorialMission/TutorialScripts" method="_on_TurnOnLidar_on_enable"]
