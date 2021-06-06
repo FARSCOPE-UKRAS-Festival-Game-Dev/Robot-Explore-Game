@@ -20,14 +20,17 @@ var dialog_JSON_data
 var robot = null
 
 signal dialog_finished
+signal all_dialog_finished
 signal options_updated 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_dialog_from_file()
 
-func on_dialog_finished():
-	emit_signal("dialog_finished")
+func dialog_finished(dialog_key):
+	emit_signal("dialog_finished",dialog_key)
+func all_dialog_finished():
+	emit_signal("all_dialog_finished")
 	
 func on_options_updated():
 	emit_signal("options_updated")
@@ -53,12 +56,13 @@ func init_control_panel():
 		set_book_visible(false)
 		
 		dialog_popup = control_panel_ui.get_node('DialogPopup')
-		
-		dialog_popup.connect("finished_dialog_queue",self,"on_dialog_finished")
+		dialog_popup.connect("dialog_finished",self,"dialog_finished")
+		dialog_popup.connect("finished_dialog_queue",self,"all_dialog_finished")
 		
 		objective_popup = control_panel_ui.get_node("ObjectivePopup")
 		
 		for mission_node in get_tree().get_nodes_in_group("Missions"):
+			mission_node.connect("mission_completed",self,"show_mission_complete_popup",[mission_node,])
 			for objective in mission_node.objective_list:
 				objective.connect("on_objective_complete",self,"show_objective_complete_popup")
 				objective.connect("on_enable",self,"show_new_objective_complete_popup",[objective,])
@@ -70,10 +74,12 @@ func set_book_visible(value):
 	joystick.enabled = !value
 	 
 func queue_dialog(dialog_key):
-	assert(dialog_JSON_data.has(dialog_key),"ERROR - dialog key: \"%s\" not in JSON file" % dialog_key)
-	
+	if not dialog_JSON_data.has(dialog_key):
+		print("ERROR - dialog key: \"%s\" not in JSON file" % dialog_key)
+		dialog_key = "dialog_not_found"
+
 	var dialog_data = dialog_JSON_data[dialog_key]
-	dialog_popup.queue_text(dialog_data["dialog"])
+	dialog_popup.queue_text(dialog_data["dialog"],dialog_key)
 	
 	
 	book_overlay.add_journal_entry(dialog_data["dialog"])
@@ -81,6 +87,9 @@ func queue_dialog(dialog_key):
 
 	if dialog_data.has("next_dialog"):
 		queue_dialog(dialog_data["next_dialog"])
+
+func show_mission_complete_popup(mission):
+	objective_popup.display_text("Mission Completed - " + mission.mission_name)
 
 func show_objective_complete_popup(objective):
 	objective_popup.display_text("Objective Complete - "+objective.display_text)

@@ -15,7 +15,7 @@ content_margin_top = 0.0
 content_margin_bottom = 0.0
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0, 0, 1 )
 border_width_left = 10
 border_width_top = 2
@@ -25,7 +25,7 @@ border_color = Color( 0.0509804, 0.815686, 0.270588, 1 )
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 3.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AspectRatioContainer/Panel/WhiskerAnalyseWipe:anchor_left")
@@ -70,8 +70,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.5, 2.6, 2.8 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0.5, 2.6, 2.8, 3.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "place_key_point"
@@ -81,6 +81,9 @@ tracks/3/keys = {
 }, {
 "args": [  ],
 "method": "_render_text_to_hud"
+}, {
+"args": [  ],
+"method": "on_analyse_anim_finished"
 } ]
 }
 tracks/4/type = "value"
@@ -120,7 +123,7 @@ tracks/6/keys = {
 "values": [ "Analysing..." ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("AspectRatioContainer/Panel/TextPanel/DisplayText:text")
 tracks/0/interp = 1
@@ -171,6 +174,7 @@ __meta__ = {
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 ratio = 2.11
 __meta__ = {
 "_edit_use_anchors_": false
@@ -181,6 +185,7 @@ margin_left = 3.05176e-05
 margin_top = 8.24123
 margin_right = 640.0
 margin_bottom = 311.559
+mouse_filter = 1
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -256,6 +261,7 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -351,7 +357,7 @@ anchor_left = 0.044
 anchor_top = 0.83
 anchor_right = 0.538
 anchor_bottom = 0.975
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -363,7 +369,7 @@ margin_right = 306.16
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.0666667, 0.811765, 0.278431, 1 )
-text = "Acquiring"
+text = "Analysing..."
 align = 1
 valign = 1
 __meta__ = {
@@ -384,8 +390,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/whisker_analyse = SubResource( 4 )
-anims/whisker_reveal = SubResource( 5 )
+anims/whisker_analyse = SubResource( 3 )
+anims/whisker_reveal = SubResource( 4 )
 next/whisker_analyse = "WhiskerAnalyse"
 
 [connection signal="size_flags_changed" from="AspectRatioContainer/Panel/WhiskerReveal" to="AspectRatioContainer/Panel/WhiskerReveal" method="_on_Animation_Rect2_size_flags_changed"]

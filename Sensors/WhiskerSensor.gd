@@ -37,12 +37,13 @@ func _on_Area_body_exited(body):
 			emit_signal("whisker_sense_none")
 func render_view():
 	if bodies.size() > 0:
+		var tactile_info = bodies[0].find_node("TactileInfo")
+
+		if  tactile_info != null:
+			var texture = tactile_info.value
+			return texture
 		for c in bodies[0].get_children():
-			if c.get_class() == "MeshInstance":
-				if c.has_node("TactileInfo"):
-					var texture = c.get_node("TactileInfo").value
-					return texture
-				else:
+				if c.get_class() == "MeshInstance":
 					var texture = c.get_active_material(0).get_texture(0)
 					if texture != null:
 						return texture
@@ -56,10 +57,9 @@ func render_view():
 
 func render_text():
 	if bodies.size() > 0:
-		for c in bodies[0].get_children():
-			if c.get_class() == "MeshInstance":
-				if c.has_node("TactileInfo"):
-					return c.get_node("TactileInfo").texture_name
+		var tactile_info = bodies[0].find_node("TactileInfo")
+		if  tactile_info != null:
+			return tactile_info.texture_name
 
 	return "Unknown"
 

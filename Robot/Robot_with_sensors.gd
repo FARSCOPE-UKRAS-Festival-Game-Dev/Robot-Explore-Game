@@ -7,6 +7,7 @@ enum robot_action {
 
 signal doing_action
 onready var viewing_camera = $Robot/ForwardCameraSensor/Body/Viewport/Camera
+onready var body =  $Robot/ForwardCameraSensor/Body/
 
 func _ready():
 	#Get the viewport texture to display it to the GUI, we only need to do this once for viewports
@@ -18,8 +19,8 @@ func _ready():
 		'whisker': $Robot/WhiskerSensor
 	})
 	
-	$ControlPanel.SpecialMenu.connect("drill_button_pressed",self,"drill_sample")
-	$ControlPanel.SpecialMenu.connect("take_picture_button_pressed",self,"take_picture")
+	$ControlPanel.special_menu.connect("drill_button_pressed",self,"drill_sample")
+	$ControlPanel.special_menu.connect("take_picture_button_pressed",self,"take_picture")
 
 
 func take_picture():

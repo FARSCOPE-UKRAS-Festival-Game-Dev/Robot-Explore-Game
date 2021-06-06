@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Environments/LoadEnvironment.gd" type="Script" id=1]
 [ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Models/Terrain/Mission_1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scripting/DialogTrigger.tscn" type="PackedScene" id=4]
-
 
 [sub_resource type="Environment" id=1]
 
@@ -34,14 +32,3 @@ light_energy = 1.5
 omni_range = 14.0
 
 [node name="Mission_1" parent="." instance=ExtResource( 3 )]
-
-[node name="DialogTrigger" parent="." instance=ExtResource( 4 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -25.8639, 0, 7.01839 )
-
-[node name="DialogTrigger2" parent="." instance=ExtResource( 4 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -16.6083, 0, 6.12915 )
-dialog_text_key = "dialog2"
-
-[node name="DialogTrigger3" parent="." instance=ExtResource( 4 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -8.95374, 0, 19.8295 )
-dialog_text_key = "dialog3"

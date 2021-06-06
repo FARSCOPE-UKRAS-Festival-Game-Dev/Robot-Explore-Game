@@ -6,12 +6,17 @@ signal on_fade_out_start
 signal on_fade_out_finish
 signal on_display_idle_complete
 
+const MAX_QUEUE_LENGTH = 3
+
 export var playing = false
 
 var text_queue = []
 
 func display_text(text):
 	
+
+	if text_queue.size() >= MAX_QUEUE_LENGTH:
+		text_queue.pop_front()
 	text_queue.push_back(text)
 	
 	if not playing:
