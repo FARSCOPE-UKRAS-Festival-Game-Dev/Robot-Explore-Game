@@ -1,9 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sensors/TemperatureSensor.gd" type="Script" id=1]
-
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.01, 0.05, 0.01 )
 
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 0.01, 0.1, 0.01 )
@@ -24,11 +21,10 @@ height = 0.002
 [sub_resource type="SpatialMaterial" id=7]
 albedo_color = Color( 1, 0, 0, 1 )
 
-[node name="TemperatureSensor" type="RigidBody"]
+[node name="TemperatureSensor" type="Spatial"]
 script = ExtResource( 1 )
 
-[node name="SensorBody" type="CollisionShape" parent="."]
-shape = SubResource( 1 )
+[node name="SensorBody" type="MeshInstance" parent="."]
 
 [node name="MeshInstance3" type="MeshInstance" parent="SensorBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.08837e-05, 0.000139065, -2.28062e-05 )
