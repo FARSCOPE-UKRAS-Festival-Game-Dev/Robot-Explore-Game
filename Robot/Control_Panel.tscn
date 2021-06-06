@@ -184,7 +184,6 @@ __meta__ = {
 }
 
 [node name="DebugTools" parent="." instance=ExtResource( 7 )]
-visible = false
 margin_left = 1.18921
 margin_top = -0.420925
 margin_right = 1025.19
