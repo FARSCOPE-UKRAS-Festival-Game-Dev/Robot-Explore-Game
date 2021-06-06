@@ -22,8 +22,10 @@ anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_horizontal_guides_": [ 401.0, 524.0 ],
 "_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 193.267 ]
 }
 
 [node name="HUD" type="Panel" parent="."]
@@ -97,15 +99,25 @@ anchor_left = 0.025
 anchor_top = 0.171
 anchor_right = 0.316
 anchor_bottom = 0.88
+margin_left = 15.4
+margin_top = -127.6
+margin_right = -0.584015
 __meta__ = {
 "_edit_group_": true,
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/ButtonContainer"]
-margin_right = 146.0
-margin_bottom = 425.0
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HUD/ButtonContainer"]
+margin_right = 139.0
+margin_bottom = 553.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ratio = 0.25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/ButtonContainer/AspectRatioContainer"]
+margin_left = 0.375
+margin_right = 138.625
+margin_bottom = 553.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 11
@@ -114,44 +126,44 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HUD/ButtonContainer/VBoxContainer"]
-margin_right = 146.0
-margin_bottom = 291.0
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HUD/ButtonContainer/AspectRatioContainer/VBoxContainer"]
+margin_right = 138.0
+margin_bottom = 418.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
-ratio = 0.5
+size_flags_stretch_ratio = 4.0
+ratio = 0.33
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/ButtonContainer/VBoxContainer/AspectRatioContainer"]
-margin_left = 0.25
-margin_right = 145.75
-margin_bottom = 291.0
+[node name="MarginContainer" type="MarginContainer" parent="HUD/ButtonContainer/AspectRatioContainer/VBoxContainer/AspectRatioContainer"]
+margin_left = 0.0299988
+margin_right = 137.97
+margin_bottom = 418.0
 custom_constants/margin_right = 5
 custom_constants/margin_top = 1
 custom_constants/margin_left = 5
 custom_constants/margin_bottom = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/ButtonContainer/VBoxContainer"]
-margin_top = 295.0
-margin_right = 146.0
-margin_bottom = 425.0
+[node name="MarginContainer" type="MarginContainer" parent="HUD/ButtonContainer/AspectRatioContainer/VBoxContainer"]
+margin_top = 422.0
+margin_right = 138.0
+margin_bottom = 553.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.33
+size_flags_stretch_ratio = 1.25
 custom_constants/margin_right = 5
 custom_constants/margin_top = 1
 custom_constants/margin_left = 5
 custom_constants/margin_bottom = 1
 
-[node name="OpenBookButton" type="TextureButton" parent="HUD/ButtonContainer/VBoxContainer/MarginContainer"]
+[node name="OpenBookButton" type="TextureButton" parent="HUD/ButtonContainer/AspectRatioContainer/VBoxContainer/MarginContainer"]
 margin_left = 5.0
 margin_top = 1.0
-margin_right = 141.0
-margin_bottom = 129.0
+margin_right = 133.0
+margin_bottom = 130.0
 size_flags_horizontal = 11
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.33
@@ -167,9 +179,9 @@ __meta__ = {
 [node name="SpecialsMenu" parent="HUD/ButtonContainer" instance=ExtResource( 8 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 150.0
-margin_right = 297.0
-margin_bottom = 425.0
+margin_left = 143.0
+margin_right = 282.0
+margin_bottom = 553.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -189,4 +201,4 @@ margin_top = -0.420925
 margin_right = 1025.19
 margin_bottom = 599.579
 
-[connection signal="toggled" from="HUD/ButtonContainer/VBoxContainer/MarginContainer/OpenBookButton" to="." method="_on_OpenBookButton_toggled"]
+[connection signal="toggled" from="HUD/ButtonContainer/AspectRatioContainer/VBoxContainer/MarginContainer/OpenBookButton" to="." method="_on_OpenBookButton_toggled"]

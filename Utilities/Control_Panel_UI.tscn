@@ -32,11 +32,6 @@ __meta__ = {
 [node name="ObjectivePopup" parent="." instance=ExtResource( 3 )]
 visible = false
 
-[node name="BookOverlay" parent="." instance=ExtResource( 2 )]
-visible = false
-anchor_left = 0.13
-mouse_filter = 2
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_left = 0.698
 anchor_top = 0.561
@@ -63,6 +58,11 @@ margin_right = 305.0
 margin_bottom = 256.0
 joystick_mode = 1
 _pressed_color = Color( 0.176471, 0.160784, 0.168627, 1 )
+
+[node name="BookOverlay" parent="." instance=ExtResource( 2 )]
+visible = false
+anchor_left = 0.13
+mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fade_in = SubResource( 1 )
