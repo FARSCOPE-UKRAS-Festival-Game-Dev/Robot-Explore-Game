@@ -10,10 +10,6 @@ func _ready():
 	globals.robot = robotclone
 	var scene_root = get_parent()
 	scene_root.add_child(robotclone)
+
 	robotclone.global_transform = $RobotStartLocation.global_transform
 	emit_signal("finished_loading")
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-

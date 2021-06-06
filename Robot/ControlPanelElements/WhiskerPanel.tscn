@@ -1,12 +1,162 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Assets/Fonts/NormalTextGreen.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Fonts/NormalTextFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Images/reddot.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Images/Whiskers.png" type="Texture" id=3]
 [ext_resource path="res://Robot/ControlPanelElements/WhiskerPanel.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Images/WhiskerPanel.tres" type="Texture" id=5]
+[ext_resource path="res://Robot/ControlPanelElements/WhiskerRevealImport.gd" type="Script" id=20]
+[ext_resource path="res://Assets/Images/WhiskerWipe.png" type="Texture" id=22]
 
 [sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 10
+border_width_top = 2
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.0509804, 0.815686, 0.270588, 1 )
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Animation" id=4]
+length = 3.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AspectRatioContainer/Panel/WhiskerAnalyseWipe:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.022, 0.806 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AspectRatioContainer/Panel/WhiskerAnalyseWipe:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.1, 0.884 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AspectRatioContainer/Panel/WhiskerAnalyseWipe:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5, 2.6, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "place_key_point"
+}, {
+"args": [  ],
+"method": "remove_key_points"
+}, {
+"args": [  ],
+"method": "_render_text_to_hud"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AspectRatioContainer/Panel/TextPanel/DisplayText:visible_characters")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AspectRatioContainer/Panel/TextPanel/DisplayText:percent_visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 0.8, 0.9, 1.4, 1.7, 1.8, 2.3, 2.7, 2.8, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.75, 1.0, 1.0, 0.75, 1.0, 1.0, 0.75, 1.0, 1.0, 0.0, 1.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AspectRatioContainer/Panel/TextPanel/DisplayText:text")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Analysing..." ]
+}
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath("AspectRatioContainer/Panel/TextPanel/DisplayText:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Acquiring" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AspectRatioContainer/Panel/TextPanel/DisplayText:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AspectRatioContainer/Panel/WhiskerReveal:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 2,
+"values": [ true, false ]
+}
 
 [node name="WhiskerPanel" type="Control"]
 anchor_right = 0.625
@@ -38,13 +188,69 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="AspectRatioContainer/Panel"]
+anchor_left = 0.02
+anchor_top = 0.203
+anchor_right = 0.881
+anchor_bottom = 0.804
+margin_top = -3.8147e-06
+margin_bottom = -1.52588e-05
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Display" type="TextureRect" parent="AspectRatioContainer/Panel"]
-anchor_left = 0.022
-anchor_top = 0.2
-anchor_right = 0.883
-anchor_bottom = 0.81
+anchor_left = 0.021
+anchor_top = 0.196
+anchor_right = 0.886
+anchor_bottom = 0.813
 expand = true
 stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WhiskerAnalyse" type="TextureRect" parent="AspectRatioContainer/Panel"]
+visible = false
+anchor_left = 0.022
+anchor_top = 0.196
+anchor_right = 0.884
+anchor_bottom = 0.813
+margin_bottom = -1.52588e-05
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WhiskerAnalyseWipe" type="TextureRect" parent="AspectRatioContainer/Panel"]
+visible = false
+anchor_left = 0.806
+anchor_top = 0.196
+anchor_right = 0.884
+anchor_bottom = 0.813
+margin_left = 2.90511
+margin_top = -0.182938
+margin_right = -0.0840149
+margin_bottom = -0.304749
+texture = ExtResource( 22 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WhiskerReveal" type="TextureRect" parent="AspectRatioContainer/Panel"]
+anchor_left = 0.022
+anchor_top = 0.196
+anchor_right = 0.884
+anchor_bottom = 0.813
+margin_bottom = 3.05176e-05
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+script = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -143,16 +349,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Text" type="Label" parent="AspectRatioContainer/Panel"]
-anchor_left = 0.024
-anchor_top = 0.232
-anchor_right = 0.28
-anchor_bottom = 0.307
-margin_left = 10.0
-rect_scale = Vector2( 0.8, 0.8 )
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0.0666667, 0.811765, 0.278431, 1 )
-text = "Whisker"
+[node name="TextPanel" type="PanelContainer" parent="AspectRatioContainer/Panel"]
+anchor_left = 0.044
+anchor_top = 0.83
+anchor_right = 0.538
+anchor_bottom = 0.975
+custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="DisplayText" type="Label" parent="AspectRatioContainer/Panel/TextPanel"]
+margin_left = 10.0
+margin_top = 2.0
+margin_right = 306.16
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0666667, 0.811765, 0.278431, 1 )
+text = "Acquiring"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SensorLabel" type="Label" parent="AspectRatioContainer/Panel"]
+anchor_left = 0.047
+anchor_top = 0.241
+anchor_right = 0.325
+anchor_bottom = 0.346
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0666667, 0.811765, 0.278431, 1 )
+text = "Whiskers"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/whisker_analyse = SubResource( 4 )
+anims/whisker_reveal = SubResource( 5 )
+next/whisker_analyse = "WhiskerAnalyse"
+
+[connection signal="size_flags_changed" from="AspectRatioContainer/Panel/WhiskerReveal" to="AspectRatioContainer/Panel/WhiskerReveal" method="_on_Animation_Rect2_size_flags_changed"]

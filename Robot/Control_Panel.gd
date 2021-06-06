@@ -4,7 +4,6 @@ onready var hud = $HUD
 onready var book_btn = hud.get_node("ButtonContainer/VBoxContainer/MarginContainer/OpenBookButton")
 onready var special_menu =  hud.get_node("ButtonContainer/SpecialsMenu")
 
-
 onready var book_unread_texture = preload("res://Assets/Images/ControlPanel/Options6_unread.png")
 onready var book_read_texture = preload("res://Assets/Images/ControlPanel/Options6.png")
 
@@ -46,7 +45,9 @@ func set_sensor_classes(mapping):
 		hud.get_node("CameraPanel").set_sensor_class(mapping['camera'])
 	if 'lidar' in mapping:
 		hud.get_node("LidarPanel").set_sensor_class(mapping['lidar'])
-	
+	if 'whisker' in mapping:
+		hud.get_node("WhiskerPanel").set_sensor_class(mapping['whisker'])
+
 func _on_toggle_background_button(button):
 	var bg = $HUD/Background
 	bg.visible = button
