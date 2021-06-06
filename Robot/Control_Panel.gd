@@ -4,7 +4,6 @@ extends Control
 onready var book_btn = $HUD/HBoxContainer/VBoxContainer/MarginContainer/OpenBookButton
 onready var SpecialMenu = $HUD/HBoxContainer/SpecialsMenu
 
-
 onready var book_unread_texture = preload("res://Assets/Images/ControlPanel/Options6_unread.png")
 onready var book_read_texture = preload("res://Assets/Images/ControlPanel/Options6.png")
 
@@ -30,7 +29,9 @@ func set_sensor_classes(mapping):
 		$HUD/CameraPanel.set_sensor_class(mapping['camera'])
 	if 'lidar' in mapping:
 		$HUD/LidarPanel.set_sensor_class(mapping['lidar'])
-	
+	if 'whisker' in mapping:
+		$HUD/WhiskerPanel.set_sensor_class(mapping['whisker'])
+		
 func _on_toggle_background_button(button):
 	var bg = $HUD/Background
 	bg.visible = button
