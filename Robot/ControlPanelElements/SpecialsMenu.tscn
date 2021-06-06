@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Robot/ControlPanelElements/SpecialsMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/ControlPanel/Take_Picture_2.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Assets/Images/ControlPanel/SpecialActions.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Images/ControlPanel/SpecialActions_pressed.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Images/Drilling.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Audio/effects/switch_off.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Audio/effects/switch_on.wav" type="AudioStream" id=9]
 
 [sub_resource type="ButtonGroup" id=1]
 
@@ -139,6 +141,16 @@ stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ButtonToggleOnAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -10.0
+pitch_scale = 1.5
+
+[node name="ButtonToggleOffAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -10.0
+pitch_scale = 1.5
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer/ButtonContainer/DrillSampleButton" to="." method="_on_DrillSampleButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer/ButtonContainer/TakeHighResPictureButton" to="." method="_on_TakeHighResPictureButton_pressed"]
