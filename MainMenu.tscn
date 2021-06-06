@@ -65,7 +65,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Background"]
 position = Vector2( 512, 300 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="DebugNode" type="Control" parent="."]
@@ -150,11 +150,11 @@ margin_bottom = 390.0
 custom_constants/separation = 75
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/MainPage/VBoxContainer"]
+[node name="StartHBoxContainer" type="HBoxContainer" parent="MainMenu/MainPage/VBoxContainer"]
 margin_right = 254.0
 margin_bottom = 80.0
 
-[node name="Selector" type="Label" parent="MainMenu/MainPage/VBoxContainer/HBoxContainer"]
+[node name="Selector" type="Label" parent="MainMenu/MainPage/VBoxContainer/StartHBoxContainer"]
 margin_right = 35.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 11, 0 )
@@ -162,7 +162,7 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = ">"
 
-[node name="Option" type="Label" parent="MainMenu/MainPage/VBoxContainer/HBoxContainer"]
+[node name="Option" type="Label" parent="MainMenu/MainPage/VBoxContainer/StartHBoxContainer"]
 margin_left = 39.0
 margin_right = 194.0
 margin_bottom = 80.0
@@ -174,7 +174,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="MainMenu/MainPage/VBoxContainer/HBoxContainer/Option"]
+[node name="Button" type="Button" parent="MainMenu/MainPage/VBoxContainer/StartHBoxContainer/Option"]
 margin_left = -102.0
 margin_right = 218.0
 margin_bottom = 80.0
@@ -188,12 +188,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MainMenu/MainPage/VBoxContainer"]
+[node name="OptionsHBoxContainer" type="HBoxContainer" parent="MainMenu/MainPage/VBoxContainer"]
 margin_top = 155.0
 margin_right = 254.0
 margin_bottom = 235.0
 
-[node name="Selector" type="Label" parent="MainMenu/MainPage/VBoxContainer/HBoxContainer2"]
+[node name="Selector" type="Label" parent="MainMenu/MainPage/VBoxContainer/OptionsHBoxContainer"]
 margin_right = 35.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 11, 0 )
@@ -201,7 +201,7 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = ">"
 
-[node name="Option" type="Label" parent="MainMenu/MainPage/VBoxContainer/HBoxContainer2"]
+[node name="Option" type="Label" parent="MainMenu/MainPage/VBoxContainer/OptionsHBoxContainer"]
 margin_left = 39.0
 margin_right = 254.0
 margin_bottom = 80.0
@@ -213,7 +213,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button2" type="Button" parent="MainMenu/MainPage/VBoxContainer/HBoxContainer2/Option"]
+[node name="Button2" type="Button" parent="MainMenu/MainPage/VBoxContainer/OptionsHBoxContainer/Option"]
 margin_left = -94.0
 margin_right = 226.0
 margin_bottom = 80.0
@@ -227,12 +227,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MainMenu/MainPage/VBoxContainer"]
+[node name="ExitHBoxContainer" type="HBoxContainer" parent="MainMenu/MainPage/VBoxContainer"]
 margin_top = 310.0
 margin_right = 254.0
 margin_bottom = 390.0
 
-[node name="Selector" type="Label" parent="MainMenu/MainPage/VBoxContainer/HBoxContainer3"]
+[node name="Selector" type="Label" parent="MainMenu/MainPage/VBoxContainer/ExitHBoxContainer"]
 margin_right = 35.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 11, 0 )
@@ -240,7 +240,7 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = ">"
 
-[node name="Option" type="Label" parent="MainMenu/MainPage/VBoxContainer/HBoxContainer3"]
+[node name="Option" type="Label" parent="MainMenu/MainPage/VBoxContainer/ExitHBoxContainer"]
 margin_left = 39.0
 margin_right = 149.0
 margin_bottom = 80.0
@@ -252,7 +252,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button3" type="Button" parent="MainMenu/MainPage/VBoxContainer/HBoxContainer3/Option"]
+[node name="Button3" type="Button" parent="MainMenu/MainPage/VBoxContainer/ExitHBoxContainer/Option"]
 margin_left = -120.0
 margin_right = 196.0
 margin_bottom = 80.0
@@ -355,7 +355,7 @@ stream = ExtResource( 5 )
 volume_db = -20.0
 autoplay = true
 
-[connection signal="pressed" from="MainMenu/MainPage/VBoxContainer/HBoxContainer/Option/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MainMenu/MainPage/VBoxContainer/HBoxContainer2/Option/Button2" to="." method="_on_Button2_pressed"]
-[connection signal="pressed" from="MainMenu/MainPage/VBoxContainer/HBoxContainer3/Option/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="MainMenu/MainPage/VBoxContainer/StartHBoxContainer/Option/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MainMenu/MainPage/VBoxContainer/OptionsHBoxContainer/Option/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="MainMenu/MainPage/VBoxContainer/ExitHBoxContainer/Option/Button3" to="." method="_on_Button3_pressed"]
 [connection signal="pressed" from="MainMenu/OptionPage/BackButtonLabel/BackButton" to="." method="_on_BackButton_pressed"]
