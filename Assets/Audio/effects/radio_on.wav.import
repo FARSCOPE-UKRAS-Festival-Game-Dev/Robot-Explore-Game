@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/radio_on.wav-0d526b791f6f52ea2e9c86dc62e88da4.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/effects/radio_on.wav"
+dest_files=[ "res://.import/radio_on.wav-0d526b791f6f52ea2e9c86dc62e88da4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

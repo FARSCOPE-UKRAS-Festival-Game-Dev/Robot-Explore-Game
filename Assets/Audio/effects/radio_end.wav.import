@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/radio_end.wav-9a426ced20aab0ae562c0425cb5ac942.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/effects/radio_end.wav"
+dest_files=[ "res://.import/radio_end.wav-9a426ced20aab0ae562c0425cb5ac942.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
