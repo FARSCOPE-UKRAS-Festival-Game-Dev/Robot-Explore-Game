@@ -1,7 +1,7 @@
 extends "BaseSensor.gd"
 
 #Size of the viewport in pixels. Not sure how this will work on different devices 
-export var camera_resolution = Vector2(400, 500)
+export var camera_resolution = Vector2(500, 300)
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

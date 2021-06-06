@@ -1,7 +1,7 @@
 extends Control
 
 onready var hud = $HUD
-onready var book_btn = hud.get_node("ButtonContainer/VBoxContainer/MarginContainer/OpenBookButton")
+onready var book_btn = hud.get_node("ButtonContainer/AspectRatioContainer/VBoxContainer/MarginContainer/OpenBookButton")
 onready var special_menu =  hud.get_node("ButtonContainer/SpecialsMenu")
 
 onready var book_unread_texture = preload("res://Assets/Images/ControlPanel/Options6_unread.png")

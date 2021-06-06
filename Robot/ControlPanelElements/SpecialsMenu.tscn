@@ -7,8 +7,13 @@
 [ext_resource path="res://Assets/Images/ControlPanel/SpecialActions.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Images/ControlPanel/SpecialActions_pressed.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Images/Drilling.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Audio/effects/switch_off.wav" type="AudioStream" id=8]
-[ext_resource path="res://Assets/Audio/effects/switch_on.wav" type="AudioStream" id=9]
+
+[ext_resource path="res://Assets/Images/ControlPanel/Sampling_button.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Images/ControlPanel/Sampling_button_pressed.png" type="Texture" id=9]
+
+[ext_resource path="res://Assets/Audio/effects/switch_off.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Audio/effects/switch_on.wav" type="AudioStream" id=10]
+
 
 [sub_resource type="ButtonGroup" id=1]
 
@@ -18,7 +23,9 @@ anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_horizontal_guides_": [ 120.551 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 441.747, 581.438 ]
 }
 
 [node name="BackgroundPanel" type="Panel" parent="."]
@@ -27,16 +34,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ratio = 0.25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer"]
+margin_left = 437.0
+margin_right = 587.0
+margin_bottom = 600.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_right = 1024.0
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer"]
+margin_right = 150.0
 margin_bottom = 600.0
 mouse_filter = 2
 size_flags_vertical = 9
@@ -45,48 +63,59 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer"]
-margin_right = 1024.0
-margin_bottom = 412.0
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer"]
+margin_right = 150.0
+margin_bottom = 454.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
-ratio = 0.5
+size_flags_stretch_ratio = 4.0
+ratio = 0.33
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TopOnlyBackground" type="Panel" parent="MarginContainer/VBoxContainer/AspectRatioContainer"]
-visible = false
-margin_left = 409.0
-margin_right = 615.0
-margin_bottom = 412.0
+[node name="TopOnlyBackground" type="Panel" parent="AspectRatioContainer/MarginContainer/VBoxContainer/AspectRatioContainer"]
+margin_left = 0.0899963
+margin_right = 149.91
+margin_bottom = 454.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/AspectRatioContainer"]
-margin_left = 409.0
-margin_right = 615.0
-margin_bottom = 412.0
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/AspectRatioContainer"]
+margin_left = 0.0899963
+margin_right = 149.91
+margin_bottom = 454.0
 custom_constants/margin_right = 5
-custom_constants/margin_top = 1
+custom_constants/margin_top = 0
 custom_constants/margin_left = 5
-custom_constants/margin_bottom = 1
 
-[node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer"]
-visible = false
+[node name="ButtonContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer"]
 margin_left = 5.0
-margin_top = 1.0
-margin_right = 201.0
-margin_bottom = 411.0
+margin_right = 144.0
+margin_bottom = 454.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DrillSampleButton" type="TextureButton" parent="MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer/ButtonContainer"]
-margin_right = 196.0
-margin_bottom = 203.0
+[node name="TakeSampleButtom" type="TextureButton" parent="AspectRatioContainer/MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer/ButtonContainer"]
+margin_right = 139.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DrillSampleButton" type="TextureButton" parent="AspectRatioContainer/MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer/ButtonContainer"]
+margin_top = 152.0
+margin_right = 139.0
+margin_bottom = 301.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 group = SubResource( 1 )
@@ -98,10 +127,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TakeHighResPictureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer/ButtonContainer"]
-margin_top = 207.0
-margin_right = 196.0
-margin_bottom = 410.0
+[node name="TakeHighResPictureButton" type="TextureButton" parent="AspectRatioContainer/MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer/ButtonContainer"]
+margin_top = 305.0
+margin_right = 139.0
+margin_bottom = 454.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 group = SubResource( 1 )
@@ -113,23 +142,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 416.0
-margin_right = 1024.0
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer"]
+margin_top = 458.0
+margin_right = 150.0
 margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.33
+size_flags_stretch_ratio = 1.25
 custom_constants/margin_right = 5
 custom_constants/margin_top = 1
 custom_constants/margin_left = 5
 custom_constants/margin_bottom = 1
 
-[node name="OpenSpecialsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="OpenSpecialsButton" type="TextureButton" parent="AspectRatioContainer/MarginContainer/VBoxContainer/MarginContainer"]
 margin_left = 5.0
 margin_top = 1.0
-margin_right = 1019.0
-margin_bottom = 183.0
+margin_right = 145.0
+margin_bottom = 141.0
 size_flags_horizontal = 3
 size_flags_vertical = 15
 size_flags_stretch_ratio = 1.33
@@ -142,6 +171,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+
+[connection signal="pressed" from="AspectRatioContainer/MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer/ButtonContainer/TakeSampleButtom" to="." method="_on_TakeSampleButtom_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer/ButtonContainer/DrillSampleButton" to="." method="_on_DrillSampleButton_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer/ButtonContainer/TakeHighResPictureButton" to="." method="_on_TakeHighResPictureButton_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/MarginContainer/VBoxContainer/MarginContainer/OpenSpecialsButton" to="." method="_on_OpenSpecialsButton_pressed"]
+
 [node name="ButtonToggleOnAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = -10.0
@@ -152,6 +187,4 @@ stream = ExtResource( 8 )
 volume_db = -10.0
 pitch_scale = 1.5
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer/ButtonContainer/DrillSampleButton" to="." method="_on_DrillSampleButton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer/ButtonContainer/TakeHighResPictureButton" to="." method="_on_TakeHighResPictureButton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/OpenSpecialsButton" to="." method="_on_OpenSpecialsButton_pressed"]
+

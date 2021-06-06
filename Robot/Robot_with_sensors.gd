@@ -3,6 +3,7 @@ enum robot_action {
 	NONE,
 	TAKING_PICTURE,
 	DRILL_SAMPLE,
+	COLLECT_SAMPLE,
 } 
 
 signal doing_action
@@ -21,6 +22,8 @@ func _ready():
 	
 	$ControlPanel.special_menu.connect("drill_button_pressed",self,"drill_sample")
 	$ControlPanel.special_menu.connect("take_picture_button_pressed",self,"take_picture")
+	$ControlPanel.special_menu.connect("collect_sample_button_pressed",self,"collect_sample")
+
 
 
 func take_picture():
@@ -30,4 +33,8 @@ func take_picture():
 func drill_sample():
 	#play sound
 	emit_signal("doing_action",robot_action.DRILL_SAMPLE)
+
+func collect_sample():
+	#play sound
+	emit_signal("doing_action",robot_action.COLLECT_SAMPLE)
 
