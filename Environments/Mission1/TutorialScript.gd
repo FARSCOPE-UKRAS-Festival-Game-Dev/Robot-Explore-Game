@@ -7,16 +7,17 @@ var robot_control_panel
 var cam_panel
 var lidar_panel
 var whisker_panel
-	
+
+var linked_dialog = ["../EnterDarkCaveDialog","../DeadEndDialog","../NearEndOfCaveDialog"]
 func _ready():
 	get_node("/root/Mission1").connect("finished_loading",self,"start_tutorial")
-	#pass
+
+func enabled_dialogs():
+	for dialog in linked_dialog:
+		dialog.enabled = true
+
 func start_tutorial():
-	print("starting tutorial")
-	get_node("../EnterDarkCaveDialog").enabled = true
-	get_node("../DeadEndDialog").enabled = true	
-	get_node("../NearEndOfCaveDialog").enabled = true	
-	
+
 	Globals.control_panel_ui.get_node("FadeOverlay").show()
 	Globals.joystick.hide()
 	
@@ -24,9 +25,10 @@ func start_tutorial():
 	cam_panel = robot_control_panel.get_node("HUD/CameraPanel")
 	lidar_panel = robot_control_panel.get_node("HUD/LidarPanel")
 	whisker_panel = robot_control_panel.get_node("HUD/WhiskerPanel")
-	for panel in [cam_panel,lidar_panel]:
+	for panel in [cam_panel,lidar_panel,whisker_panel]:
 		panel.enabled = false
 		panel._render_texture_to_hud(off_texture)
+	
 	
 	Globals.queue_dialog("tutorial_start")
 	yield(Globals,"all_dialog_finished")
@@ -60,10 +62,27 @@ func _on_TurnOnWhiskers_on_enable():
 func whiskers_turned_on(event):
 
 	if event.is_pressed():
+		whisker_panel.enabled = true
 		whisker_panel.disconnect("gui_input",self,"whiskers_turned_on")
 		get_node("../TurnOnWhiskers").complete_objective()
 		robot_control_panel.remove_isolate_panel()
-		
+
+func _on_UseWhisker_on_enable():
+	var interesting_rock_info = get_node("../InterestingRock/TactileInfo")
+	interesting_rock_info.connect("sensed_by_whiskers",self,"use_whisker_complete",[],CONNECT_ONESHOT)
+
+func use_whisker_complete():
+	yield(whisker_panel,"reveal_animation_finished")
+	get_node("../UseWhiskers").complete_objective()
+
+func check_drill_distance():
+	var distance =  Globals.robot.body.global_transform.origin.distance_to(get_node("../InterestingRock").global_transform.origin)
+	print(distance)
+	if distance <= 3:
+		return true
+	Globals.queue_dialog("tutorial_drill_too_far")
+	return false
+	
 
 func _on_TurnOnLidar_on_enable():
 	robot_control_panel.isolate_panel("LidarPanel")
@@ -77,3 +96,5 @@ func lidar_turned_on(event):
 
 func _on_EnterCave_on_enable():
 	get_node("../EnterDarkCaveDialog").enabled = true
+
+

@@ -76,16 +76,17 @@ func set_book_visible(value):
 func queue_dialog(dialog_key):
 	if not dialog_JSON_data.has(dialog_key):
 		print("ERROR - dialog key: \"%s\" not in JSON file" % dialog_key)
-	else:
-		var dialog_data = dialog_JSON_data[dialog_key]
-		dialog_popup.queue_text(dialog_data["dialog"],dialog_key)
-		
-		
-		book_overlay.add_journal_entry(dialog_data["dialog"])
-		
+		dialog_key = "dialog_not_found"
 
-		if dialog_data.has("next_dialog"):
-			queue_dialog(dialog_data["next_dialog"])
+	var dialog_data = dialog_JSON_data[dialog_key]
+	dialog_popup.queue_text(dialog_data["dialog"],dialog_key)
+	
+	
+	book_overlay.add_journal_entry(dialog_data["dialog"])
+	
+
+	if dialog_data.has("next_dialog"):
+		queue_dialog(dialog_data["next_dialog"])
 
 func show_mission_complete_popup(mission):
 	objective_popup.display_text("Mission Completed - " + mission.mission_name)

@@ -31,7 +31,7 @@ onready var globals = get_node('/root/Globals')
 func _ready():
 	visible = false
 	if must_custom_enable:
-		custom_criteria_func = funcref(custom_criteria_object,"custom_criteria")
+		custom_criteria_func = funcref(get_node(custom_criteria_object),custom_criteria)
 
 func check_robot_can_see():
 	#NOT IMPLIMENTED

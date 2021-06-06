@@ -21,6 +21,10 @@
 	"secret_dialog": {
 		"dialog": "This is a super secret_dialog"
 	},
+	"dialog_not_found": {
+		"dialog": "ERROR - Dialog key not found!"
+	},
+	
 	"tutorial_start": {
 		"dialog": "You (an esteemed roboticist) have been selected to accompany a team of biologists and anthropologists on an expedition to the foothills of the Himalayas and aid them in their goal to prove the theories - long foretold by Jules Verne – that a mythical lost world lies underneath the Earth’s surface. ",
 		"next_dialog": "tutorial_start2"
@@ -78,6 +82,10 @@
 	"tutorial_use_whiskers_complete": {
 		"dialog": "Our sensor indicates that this is MATERIAL #1  – it would be great to get a sample of this. Use the drill to collect a sample.."
 	},
+	"tutorial_drill_too_far": {
+		"dialog": "Agh you'll have to be closer to use that drill"
+	},
+	
 	"tutorial_use_drill_complete": {
 		"dialog": "Initial explorations found a path of caverns and tunnels leading from here deeper into the cave system. That tunnel over there looks like a good place to start - let's drive over and see if we can see anything."
 	},

@@ -7,6 +7,7 @@ enum robot_action {
 
 signal doing_action
 onready var viewing_camera = $Robot/ForwardCameraSensor/Body/Viewport/Camera
+onready var body =  $Robot/ForwardCameraSensor/Body/
 
 func _ready():
 	#Get the viewport texture to display it to the GUI, we only need to do this once for viewports

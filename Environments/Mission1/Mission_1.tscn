@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Models/Terrain/Mission_1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripting/MissionSystem/MissionContainer.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Environments/Mission1/TutorialScript.gd" type="Script" id=7]
 [ext_resource path="res://Scripting/DialogTrigger.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Models/Textures/Rock015_1K_Color.png" type="Texture" id=9]
+[ext_resource path="res://Sensors/TactileInfo.gd" type="Script" id=10]
 
 [sub_resource type="Environment" id=1]
 
@@ -115,18 +117,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.847084, -2.05742, 6.45017 )
 display_text = "Turn on whisker sensor"
 disable_on_complete = true
 on_complete_dialogue = "tutorial_whiskers_on_complete"
-next_objective_enable = NodePath("../UseWhisker")
+next_objective_enable = NodePath("../UseWhiskers")
 
-[node name="UseWhisker" parent="TutorialMission" instance=ExtResource( 4 )]
+[node name="UseWhiskers" parent="TutorialMission" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.157, -2.05742, -7.44608 )
 display_text = "Use whiskers on the rock"
 disable_on_complete = true
 on_complete_dialogue = "tutorial_use_whiskers_complete"
 next_objective_enable = NodePath("../UseDrill")
-
-[node name="Trigger" parent="TutorialMission/UseWhisker" instance=ExtResource( 3 )]
-transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 6, 0.754367, 0, -1.15001 )
-enabled = true
 
 [node name="UseDrill" parent="TutorialMission" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.22535, -2.05742, -7.67036 )
@@ -136,8 +134,10 @@ on_complete_dialogue = "tutorial_use_drill_complete"
 next_objective_enable = NodePath("../EnterCave")
 
 [node name="Trigger" parent="TutorialMission/UseDrill" instance=ExtResource( 3 )]
-transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 6, 0.754367, 0, -1.15001 )
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 8, 0.754364, 0, 1.0331 )
 must_action = 2
+custom_criteria_object = NodePath("../../TutorialScripts")
+custom_criteria = "check_drill_distance"
 enabled = true
 
 [node name="EnterDarkCaveDialog" parent="TutorialMission" instance=ExtResource( 8 )]
@@ -149,24 +149,24 @@ dialog = "tutorial_dark_cave_entrance"
 transform = Transform( 1.99997, -0.00549776, 0, 0.0109955, 0.999985, 0, 0, 0, 2, 0, -0.992286, 2.57973 )
 enabled = true
 
-[node name="EnterCave" parent="TutorialMission" instance=ExtResource( 4 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -18.1183, -0.212038, -11.4102 )
-display_text = "Enter the dark cave"
-disable_on_complete = true
-on_complete_dialogue = "tutorial_enter_dark_cave_complete"
-next_objective_enable = NodePath("../TurnOnLidar")
-
-[node name="Trigger" parent="TutorialMission/EnterCave" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532284, 0, -1.15001 )
-enabled = true
-oneshot = true
-
 [node name="TurnOnLidar" parent="TutorialMission" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.847084, -2.05742, 6.45017 )
 display_text = "Turn on LIDAR"
 disable_on_complete = true
 on_complete_dialogue = "tutorial_lidar_on_complete"
 next_objective_enable = NodePath("../NavigateDarkCave")
+
+[node name="EnterCave" parent="TutorialMission" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -18.1183, -0.212038, -11.4102 )
+display_text = "Enter the dark cave"
+disable_on_complete = true
+on_complete_dialogue = "tutorial_ent2er_dark_cave_complete"
+next_objective_enable = NodePath("../TurnOnLidar")
+
+[node name="Trigger" parent="TutorialMission/EnterCave" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532284, 0, -1.15001 )
+enabled = true
+oneshot = true
 
 [node name="DeadEndDialog" parent="TutorialMission" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8551, 0.326325, 7.31493 )
@@ -207,7 +207,13 @@ shape = SubResource( 3 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 
+[node name="TactileInfo" type="Node" parent="TutorialMission/InterestingRock"]
+script = ExtResource( 10 )
+value = ExtResource( 9 )
+texture_name = "Interesting Rock"
+
 [connection signal="on_enable" from="TutorialMission/TurnOnCamera" to="TutorialMission/TutorialScripts" method="_on_TurnOnCamera_on_enable"]
 [connection signal="on_enable" from="TutorialMission/TurnOnWhiskers" to="TutorialMission/TutorialScripts" method="_on_TurnOnWhiskers_on_enable"]
-[connection signal="on_enable" from="TutorialMission/EnterCave" to="TutorialMission/TutorialScripts" method="_on_EnterCave_on_enable"]
+[connection signal="on_enable" from="TutorialMission/UseWhiskers" to="TutorialMission/TutorialScripts" method="_on_UseWhisker_on_enable"]
 [connection signal="on_enable" from="TutorialMission/TurnOnLidar" to="TutorialMission/TutorialScripts" method="_on_TurnOnLidar_on_enable"]
+[connection signal="on_enable" from="TutorialMission/EnterCave" to="TutorialMission/TutorialScripts" method="_on_EnterCave_on_enable"]
