@@ -16,7 +16,7 @@ onready var display_text = $AspectRatioContainer/Panel/TextPanel/DisplayText
 
 
 var sensor_class = null
-
+var enabled = true
 onready var redlight = load("res://Assets/Images/reddot.png")
 onready var greenlight = load("res://Assets/Images/greendot.png")
 
@@ -25,6 +25,8 @@ onready var greenlight = load("res://Assets/Images/greendot.png")
 onready var	whisker_analyse = $AspectRatioContainer/Panel/WhiskerAnalyse
 onready var whisker_reveal = $AspectRatioContainer/Panel/WhiskerReveal
 onready var whisker_wipe = $AspectRatioContainer/Panel/WhiskerAnalyseWipe
+
+signal reveal_animation_finished
 
 var key_point_preload = preload("res://Assets/Images/WhiskerKeyPoint.png")
 var overlay_format = Image.new()
@@ -77,13 +79,18 @@ func _render_text_to_hud():
 		display_text.text = sensor_class.render_text()
 
 func on_sense_new():
-	var texture = sensor_class.render_view()
-	_render_texture_to_hud(texture)
-	play_analyse_anim()
+	if enabled:
+		var texture = sensor_class.render_view()
+		_render_texture_to_hud(texture)
+		play_analyse_anim()
 
 func on_sense_none():
+	
 	texture_display.texture = null
 	display_text.text = ""
+	whisker_anim.stop()#stop all animations other wise previously queued animations might play on top of each over
+	whisker_anim.clear_queue()
+	#We could play an alternative animaiton here
 func on_touch_change():
 	var touching = sensor_class.touching
 	_render_lights_to_hud(touching)
@@ -129,4 +136,5 @@ func play_analyse_anim():
 	whisker_anim.play("whisker_reveal")
 	whisker_anim.queue("whisker_analyse")
 
-
+func on_analyse_anim_finished():
+	emit_signal("reveal_animation_finished")

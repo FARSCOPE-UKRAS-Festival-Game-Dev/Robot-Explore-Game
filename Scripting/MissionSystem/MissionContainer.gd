@@ -22,7 +22,7 @@ func _ready():
 			child.id = objective_id
 			objective_list.append(child)
 			child.connect("on_objective_complete",self,"on_objective_complete")
-	
+			objective_id+=1
 func check_complete():
 	for objective in objective_list:
 		if not objective.complete:

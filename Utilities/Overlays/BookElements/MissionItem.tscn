@@ -45,6 +45,7 @@ margin_right = 998.0
 margin_bottom = 68.0
 custom_fonts/font = ExtResource( 2 )
 text = "This is a description"
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

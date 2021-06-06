@@ -23,7 +23,7 @@ func set_sub_objectives(objective_list):
 		objective.queue_free()
 	for objective in objective_list:
 		var new_lbl = sub_objective_lbl.duplicate()
-		new_lbl.text = objective.display_text
+		new_lbl.update_display_text(objective.display_text)
 		subobjective_container.add_child(new_lbl)
 		objective_labels.append(new_lbl)
 
