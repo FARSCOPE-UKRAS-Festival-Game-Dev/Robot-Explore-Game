@@ -30,6 +30,7 @@ func _ready():
 func dialog_finished(dialog_key):
 	emit_signal("dialog_finished",dialog_key)
 func all_dialog_finished():
+	play_audio_radio_off()
 	emit_signal("all_dialog_finished")
 	
 func on_options_updated():
@@ -77,7 +78,10 @@ func queue_dialog(dialog_key):
 	if not dialog_JSON_data.has(dialog_key):
 		print("ERROR - dialog key: \"%s\" not in JSON file" % dialog_key)
 		dialog_key = "dialog_not_found"
-
+	
+	if len(dialog_popup.text_queue) == 0:
+		play_audio_radio_on()
+	
 	var dialog_data = dialog_JSON_data[dialog_key]
 	dialog_popup.queue_text(dialog_data["dialog"],dialog_key)
 	
@@ -98,3 +102,8 @@ func show_new_objective_complete_popup(objective):
 	objective_popup.display_text("New Objective - "+objective.display_text)
 	robot.get_node("ControlPanel").mark_read_book_icon(false)
 
+func play_audio_radio_on():
+	dialog_popup.audio_radio_on.play()
+
+func play_audio_radio_off():
+	dialog_popup.audio_radio_off.play()

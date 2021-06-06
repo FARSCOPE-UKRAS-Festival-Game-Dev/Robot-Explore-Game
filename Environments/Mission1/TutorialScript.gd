@@ -49,6 +49,7 @@ func camera_turned_on(event):
 	if event.is_pressed():#and not get_node("../TurnOnCamera").complete : 
 		cam_panel.disconnect("gui_input",self,"camera_turned_on")
 		get_node("../TurnOnCamera").complete_objective()
+		get_node("/root/Mission1/TutorialMission/Audio/software_on_camera_audio").play()
 		cam_panel.enabled = true
 		robot_control_panel.remove_isolate_panel()
 		yield(Globals,"all_dialog_finished")
@@ -63,6 +64,7 @@ func whiskers_turned_on(event):
 
 	if event.is_pressed():
 		whisker_panel.enabled = true
+		get_node("/root/Mission1/TutorialMission/Audio/software_on_whisker_audio").play()
 		whisker_panel.disconnect("gui_input",self,"whiskers_turned_on")
 		get_node("../TurnOnWhiskers").complete_objective()
 		robot_control_panel.remove_isolate_panel()
@@ -91,6 +93,7 @@ func _on_TurnOnLidar_on_enable():
 func lidar_turned_on(event):
 	if event.is_pressed():
 		lidar_panel.enabled = true
+		get_node("/root/Mission1/TutorialMission/Audio/software_on_lidar_audio").play()
 		robot_control_panel.remove_isolate_panel()
 		get_node("../TurnOnLidar").complete_objective()
 

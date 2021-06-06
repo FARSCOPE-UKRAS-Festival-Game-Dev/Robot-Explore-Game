@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/radio_static_constant.mp3-a621488e688b53c50647c9e846f2ea67.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/music/radio_static_constant.mp3"
+dest_files=[ "res://.import/radio_static_constant.mp3-a621488e688b53c50647c9e846f2ea67.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

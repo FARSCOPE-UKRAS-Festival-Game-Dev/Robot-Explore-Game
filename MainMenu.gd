@@ -32,11 +32,13 @@ func _ready():
 		$DebugNode/MarginContainer/MapChoice.add_item(maps[0])
 
 	
-func _process(_delta):
-	if Input.is_action_just_pressed("ui_down") and current_selection < 2:
+func _process(_delta): 
+	if Input.is_action_just_pressed("ui_down") and current_selection < 2: 
+		play_button_click() 
 		current_selection += 1
-		set_current_selection(current_selection)
+		set_current_selection(current_selection) 
 	elif Input.is_action_just_pressed("ui_up") and current_selection > 0:
+		play_button_click()
 		current_selection -= 1
 		set_current_selection(current_selection)
 	elif Input.is_action_just_pressed("ui_accept"):
@@ -44,7 +46,9 @@ func _process(_delta):
 			handle_selection(current_selection)
 		else:
 			hide_options()# Not implimenting options via keyboard atm
+			
 func handle_selection(_current_selection):
+	play_button_click()
 	if _current_selection == 0:
 		get_tree().change_scene(scene_locations[$DebugNode/MarginContainer/MapChoice.get_selected_id()][1])
 		#get_parent().add_child(scene.instance())
@@ -52,6 +56,8 @@ func handle_selection(_current_selection):
 	elif _current_selection == 1:
 		show_options()
 	elif _current_selection == 2:
+		if $ButtonClickAudio.playing:
+			yield($ButtonClickAudio, "finished")
 		get_tree().quit()
 
 func set_current_selection(_current_selection):
@@ -81,7 +87,6 @@ func _on_Button_pressed():
 	current_selection = 0
 	handle_selection(current_selection)
 
-
 func _on_Button2_pressed():
 	current_selection = 1
 	handle_selection(current_selection)
@@ -91,7 +96,10 @@ func _on_Button3_pressed():
 	current_selection = 2
 	handle_selection(current_selection)
 
-
 func _on_BackButton_pressed():
+	play_button_click()
 	hide_options()
 
+func play_button_click():
+	$ButtonClickAudio.play()
+	yield($ButtonClickAudio, "finished")
