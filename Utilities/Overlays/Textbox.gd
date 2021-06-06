@@ -8,6 +8,10 @@ onready var start_symbol = $MarginContainer/TextboxContainer/MarginContainer/HBo
 onready var end_symbol = $MarginContainer/TextboxContainer/MarginContainer/HBoxContainer/Finish
 onready var label = $MarginContainer/TextboxContainer/MarginContainer/HBoxContainer/Text
 
+onready var audio_radio_on = $Audio/Radio_On
+onready var audio_radio_constant = $Audio/Radio_Constant
+onready var audio_radio_off = $Audio/Radio_Off
+
 enum State {
 	READY,
 	READING,
@@ -65,12 +69,14 @@ func queue_text(next_text,next_text_key):
 	text_queue.push_back([next_text,next_text_key])
 
 func hide_textbox():
+	audio_radio_constant.stop()
 	start_symbol.text = ""
 	end_symbol.text = ""
 	label.text = ""
 	hide()
 
 func show_textbox():
+	audio_radio_constant.play()
 	start_symbol.text = "*"
 	show()
 
@@ -115,4 +121,3 @@ func _on_Textbox_visibility_changed():
 		$MarginContainer.mouse_filter = Control.MOUSE_FILTER_STOP
 	else:
 		$MarginContainer.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
