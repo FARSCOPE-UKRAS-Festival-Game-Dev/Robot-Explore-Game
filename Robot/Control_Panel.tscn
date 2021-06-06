@@ -67,21 +67,18 @@ anchor_right = 0.891
 anchor_bottom = 0.547
 
 [node name="TemperaturePanelLeft" parent="HUD" instance=ExtResource( 5 )]
-anchor_left = 0.01
-anchor_top = 0.1
-anchor_right = 0.09
-anchor_bottom = 0.6
-margin_left = -1.90735e-06
+anchor_left = 0.039
+anchor_top = 0.094
+anchor_right = 0.062
+anchor_bottom = 0.605
+rect_pivot_offset = Vector2( 200.064, 119.6 )
 
 [node name="TemperaturePanelRight" parent="HUD" instance=ExtResource( 5 )]
-anchor_left = 0.91
-anchor_top = 0.1
-anchor_right = 0.99
-anchor_bottom = 0.6
-margin_left = -0.336914
-margin_top = -0.236416
-margin_right = -0.336914
-margin_bottom = -0.23642
+anchor_left = 0.921875
+anchor_top = 0.094
+anchor_right = 0.944875
+anchor_bottom = 0.605
+rect_pivot_offset = Vector2( 200.064, 119.6 )
 
 [node name="WhiskerPanel" parent="HUD" instance=ExtResource( 2 )]
 anchor_left = 0.321
@@ -174,9 +171,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="DebugTools" parent="." instance=ExtResource( 7 )]
-margin_left = 0.280609
+visible = false
+margin_left = 1.18921
 margin_top = -0.420925
-margin_right = 1024.28
+margin_right = 1025.19
 margin_bottom = 599.579
 
 [connection signal="toggled" from="HUD/HBoxContainer/VBoxContainer/MarginContainer/OpenBookButton" to="." method="_on_OpenBookButton_toggled"]
