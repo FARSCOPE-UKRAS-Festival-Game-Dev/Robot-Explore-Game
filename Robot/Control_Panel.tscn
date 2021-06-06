@@ -173,40 +173,8 @@ margin_bottom = 425.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LidarPanel" parent="HUD" instance=ExtResource( 6 )]
-anchor_left = 0.594
-anchor_top = 0.095
-anchor_right = 0.891
-anchor_bottom = 0.547
-margin_right = 0.263977
-
-[node name="TemperaturePanelLeft" parent="HUD" instance=ExtResource( 5 )]
-anchor_left = 0.01
-anchor_top = 0.1
-anchor_right = 0.09
-anchor_bottom = 0.6
-margin_left = -1.90735e-06
-
-[node name="TemperaturePanelRight" parent="HUD" instance=ExtResource( 5 )]
-anchor_left = 0.91
-anchor_top = 0.1
-anchor_right = 0.99
-anchor_bottom = 0.6
-margin_left = -0.336914
-margin_top = -0.236416
-margin_right = -0.336914
-margin_bottom = -0.23642
-
-[node name="WhiskerPanel" parent="HUD" instance=ExtResource( 2 )]
-anchor_left = 0.321
-anchor_top = 0.605
-anchor_right = 0.705
-anchor_bottom = 0.935
-margin_left = -0.228119
-margin_right = -0.444153
-margin_bottom = -6.10352e-05
-
 [node name="IsolatingPanel" type="Panel" parent="HUD"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
@@ -214,14 +182,6 @@ custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="CameraPanel" parent="HUD" instance=ExtResource( 3 )]
-anchor_left = 0.094
-anchor_top = 0.093
-anchor_right = 0.586
-anchor_bottom = 0.6
-margin_right = 0.400024
-margin_bottom = 1.19995
 
 [node name="DebugTools" parent="." instance=ExtResource( 7 )]
 visible = false
