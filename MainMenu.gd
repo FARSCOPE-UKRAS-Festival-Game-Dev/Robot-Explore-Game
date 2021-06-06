@@ -12,9 +12,9 @@ export(Array, Array, String) var scene_locations = [
 const dialog = preload("res://Utilities/Overlays/Textbox.tscn")
 
 onready var globals = get_node('/root/Globals')
-onready var selector_one = $MainMenu/MainPage/VBoxContainer/CenterContainer/HBoxContainer/Selector
-onready var selector_two = $MainMenu/MainPage/VBoxContainer/CenterContainer2/HBoxContainer/Selector
-onready var selector_three = $MainMenu/MainPage/VBoxContainer/CenterContainer3/HBoxContainer/Selector
+onready var selector_one = $MainMenu/MainPage/VBoxContainer/HBoxContainer/Selector
+onready var selector_two = $MainMenu/MainPage/VBoxContainer/HBoxContainer2/Selector
+onready var selector_three = $MainMenu/MainPage/VBoxContainer/HBoxContainer3/Selector
 onready var main_menu = $MainMenu/MainPage
 
 var current_selection = 0
