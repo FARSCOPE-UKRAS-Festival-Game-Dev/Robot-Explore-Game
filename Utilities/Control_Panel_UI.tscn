@@ -34,7 +34,6 @@ visible = false
 
 [node name="BookOverlay" parent="." instance=ExtResource( 2 )]
 visible = false
-anchor_left = 0.13
 mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
