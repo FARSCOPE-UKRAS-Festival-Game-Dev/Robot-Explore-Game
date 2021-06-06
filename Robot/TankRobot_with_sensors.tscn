@@ -18,6 +18,11 @@ script = ExtResource( 6 )
 [node name="ForwardCameraSensor" parent="Robot" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.727983, -0.65265 )
 
+[node name="SpotLight" type="SpotLight" parent="Robot/ForwardCameraSensor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2 )
+spot_angle = 6.4
+spot_angle_attenuation = 0.5
+
 [node name="Lidar" parent="Robot" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19031, -0.948806 )
 
