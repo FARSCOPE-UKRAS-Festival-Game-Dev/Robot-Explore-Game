@@ -9,9 +9,5 @@ func _ready():
 	var robotclone = robotScene.instance()
 	var scene_root = get_parent()
 	scene_root.add_child(robotclone)
-	robotclone.global_transform = $RobotStartLocation.global_transform
-	
+	robotclone.global_transform = $RobotStartLocation.global_transform	
 	globals.robot = robotclone
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

@@ -323,6 +323,7 @@ material/0 = SubResource( 15 )
 
 [node name="TactileInfo" type="Spatial" parent="Obstacles/RedBox/MeshInstance"]
 script = ExtResource( 3 )
+texture_name = "Stone"
 
 [node name="CollisionShape" type="CollisionShape" parent="Obstacles/RedBox"]
 shape = SubResource( 16 )

@@ -6,7 +6,6 @@ enum robot_action {
 } 
 
 signal doing_action
-
 onready var viewing_camera = $Robot/ForwardCameraSensor/Body/Viewport/Camera
 
 func _ready():
@@ -21,6 +20,7 @@ func _ready():
 	
 	$ControlPanel.SpecialMenu.connect("drill_button_pressed",self,"drill_sample")
 	$ControlPanel.SpecialMenu.connect("take_picture_button_pressed",self,"take_picture")
+
 
 func take_picture():
 	#play sound
