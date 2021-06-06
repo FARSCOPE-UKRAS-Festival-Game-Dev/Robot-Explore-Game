@@ -23,25 +23,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
-custom_constants/margin_bottom = 10
+custom_constants/margin_right = 0
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="OverlayTabs"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 1014.0
-margin_bottom = 590.0
+margin_right = 1024.0
+margin_bottom = 600.0
 
 [node name="MarginContainer" type="MarginContainer" parent="OverlayTabs/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 997.0
-margin_bottom = 573.0
+margin_right = 1017.0
+margin_bottom = 593.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 5
@@ -55,8 +53,8 @@ __meta__ = {
 [node name="TabContainer" type="TabContainer" parent="OverlayTabs/PanelContainer/MarginContainer"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 985.0
-margin_bottom = 561.0
+margin_right = 1005.0
+margin_bottom = 581.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 6 )
@@ -82,20 +80,20 @@ __meta__ = {
 }
 
 [node name="MissionVBox" type="VBoxContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Mission/ScrollContainer"]
-margin_right = 972.0
-margin_bottom = 502.0
+margin_right = 992.0
+margin_bottom = 522.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MissionItem" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Mission/ScrollContainer/MissionVBox" instance=ExtResource( 1 )]
 anchor_right = 0.0
-margin_right = 972.0
+margin_right = 992.0
 margin_bottom = 160.0
 
 [node name="MissionItem2" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Mission/ScrollContainer/MissionVBox" instance=ExtResource( 1 )]
 anchor_right = 0.0
 margin_top = 164.0
-margin_right = 972.0
+margin_right = 992.0
 margin_bottom = 324.0
 
 [node name="Journal" type="Panel" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer"]
@@ -120,8 +118,8 @@ __meta__ = {
 }
 
 [node name="JournalVBox" type="VBoxContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Journal/ScrollContainer"]
-margin_right = 972.0
-margin_bottom = 502.0
+margin_right = 992.0
+margin_bottom = 522.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -161,15 +159,15 @@ __meta__ = {
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Sensors/MarginContainer"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 962.0
-margin_bottom = 492.0
+margin_right = 982.0
+margin_bottom = 512.0
 ratio = 1.51
 stretch_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Sensors/MarginContainer/AspectRatioContainer"]
-margin_left = 112.09
-margin_right = 839.91
-margin_bottom = 482.0
+margin_left = 106.99
+margin_right = 865.01
+margin_bottom = 502.0
 size_flags_horizontal = 3
 texture = ExtResource( 5 )
 expand = true
@@ -206,15 +204,15 @@ __meta__ = {
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Controls/MarginContainer"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 962.0
-margin_bottom = 492.0
+margin_right = 982.0
+margin_bottom = 512.0
 ratio = 1.7
 stretch_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Controls/MarginContainer/AspectRatioContainer"]
-margin_left = 66.3
-margin_right = 885.7
-margin_bottom = 482.0
+margin_left = 59.3
+margin_right = 912.7
+margin_bottom = 502.0
 size_flags_horizontal = 3
 texture = ExtResource( 4 )
 expand = true
@@ -236,3 +234,17 @@ __meta__ = {
 }
 
 [node name="OptionsPanel" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Options" instance=ExtResource( 7 )]
+
+[node name="EscapeButton" type="Button" parent="."]
+margin_left = 941.0
+margin_top = 5.0
+margin_right = 1006.0
+margin_bottom = 43.0
+rect_scale = Vector2( 1.2, 1.2 )
+custom_fonts/font = ExtResource( 6 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="EscapeButton" to="." method="_on_EscapeButton_pressed"]

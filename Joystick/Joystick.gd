@@ -56,8 +56,7 @@ var STAY_STILL = true
 var _touch_index :int = -1
 
 func _ready() -> void:
-	if not OS.has_touchscreen_ui_hint() and visibility_mode == VisibilityMode.TOUCHSCREEN_ONLY:
-		hide()
+	set_visible(true)
 
 func _touch_started(event: InputEventScreenTouch) -> bool:
 	return event.pressed and _touch_index == -1
@@ -158,6 +157,11 @@ func _update_joystick(event_position: Vector2):
 		output = Vector2.ZERO
 		_reset_handle()
 
-
 func _on_Joystick_visibility_changed():
 	enabled = visible
+	
+func set_visible(state):
+	if not OS.has_touchscreen_ui_hint() and visibility_mode == VisibilityMode.TOUCHSCREEN_ONLY or state == false:
+		hide()
+	else:
+		show()
