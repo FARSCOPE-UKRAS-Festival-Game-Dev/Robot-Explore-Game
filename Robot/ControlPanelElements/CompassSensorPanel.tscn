@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Images/Compass_Points.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Images/Compass_Marker.png" type="Texture" id=2]
+[ext_resource path="res://Robot/ControlPanelElements/CompassSensorPanel.gd" type="Script" id=3]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform float pos = 0.0;
+
+void fragment(){
+    vec2 newuv = UV;
+    newuv.x += pos;
+    vec4 c = texture(TEXTURE, newuv);
+    COLOR = c;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/pos = 0.0
+
+[node name="CompassPanel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Marker" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -11.5
+margin_right = 11.5
+margin_bottom = 120.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -500.0
+margin_top = 42.0
+margin_right = 500.0
+margin_bottom = 102.0
+rect_clip_content = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coordinates" type="TextureRect" parent="Control"]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -152.0
+margin_right = 4248.0
+grow_horizontal = 2
+rect_pivot_offset = Vector2( 224, 622 )
+rect_clip_content = true
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

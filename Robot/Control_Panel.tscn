@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Robot/Control_Panel.gd" type="Script" id=1]
 [ext_resource path="res://Robot/ControlPanelElements/WhiskerPanel.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Robot/ControlPanelElements/LidarControlPanel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Robot/ControlPanelElements/DebugTools.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Robot/ControlPanelElements/SpecialsMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Robot/ControlPanelElements/CompassSensorPanel.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Images/ControlPanel/Option6_pressed_with_cross.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Images/ControlPanel/Options6.png" type="Texture" id=13]
 
@@ -93,6 +94,12 @@ anchor_bottom = 0.935
 margin_left = -0.228119
 margin_right = -0.444153
 margin_bottom = -6.10352e-05
+
+[node name="CompassPanel" parent="HUD" instance=ExtResource( 9 )]
+margin_left = 234.595
+margin_top = 301.942
+margin_right = 234.594
+margin_bottom = 301.942
 
 [node name="ButtonContainer" type="HBoxContainer" parent="HUD"]
 anchor_left = 0.025

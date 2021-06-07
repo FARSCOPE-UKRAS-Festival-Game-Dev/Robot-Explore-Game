@@ -17,7 +17,8 @@ func _ready():
 		'lidar': $Robot/Lidar,
 		'templeft': $Robot/TempLeft,
 		'tempright': $Robot/TempRight,
-		'whisker': $Robot/WhiskerSensor
+		'whisker': $Robot/WhiskerSensor,
+		'compass': $Robot/CompassSensor
 	})
 	
 	$ControlPanel.special_menu.connect("drill_button_pressed",self,"drill_sample")
