@@ -1,6 +1,6 @@
 extends Spatial
 class_name TriggeredResource 
-export(bool) var enabled = true
+export(bool) var enabled = true setget set_enabled
 
 var trigger 
 

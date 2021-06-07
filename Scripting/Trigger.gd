@@ -29,7 +29,7 @@ var in_area = false
 onready var globals = get_node('/root/Globals')
 
 func _ready():
-	visible = false
+	visible = visible and Globals.show_triggers
 	if must_custom_enable:
 		custom_criteria_func = funcref(get_node(custom_criteria_object),custom_criteria)
 
@@ -55,6 +55,8 @@ func trigger():
 	
 	if meets_criteria and enabled:
 		emit_signal("on_trigger")
+		if must_action_enable:
+			globals.robot.on_action_activated_trigger(must_action,self)
 		if oneshot:
 			set_enable(false)
 func _on_TriggerArea_body_entered(body):

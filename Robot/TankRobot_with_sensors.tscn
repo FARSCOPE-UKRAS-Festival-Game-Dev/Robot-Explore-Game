@@ -41,4 +41,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9577, 0.05316, -0.75269 )
 [node name="WhiskerSensor" parent="Robot" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.292629, -0.685635 )
 
+[node name="SuccessActionTimeout" type="Timer" parent="."]
+one_shot = true
+
 [editable path="Robot/ForwardCameraSensor"]

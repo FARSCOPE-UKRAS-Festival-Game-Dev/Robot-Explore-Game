@@ -1,20 +1,32 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Robot/ControlPanelElements/DebugTools.gd" type="Script" id=1]
 
 [node name="DebugTools" type="Control"]
 margin_right = 1024.0
 margin_bottom = 600.0
 mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel" type="Panel" parent="."]
-margin_left = 664.0
+margin_left = 455.0
 margin_top = 1.0
 margin_right = 1024.0
 margin_bottom = 42.0
 
-[node name="ToggleBackground" type="CheckButton" parent="Panel"]
-margin_top = -1.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToggleBackground" type="CheckButton" parent="Panel/HBoxContainer"]
 margin_right = 199.0
-margin_bottom = 55.0
+margin_bottom = 41.0
 pressed = true
 action_mode = 0
 keep_pressed_outside = true
@@ -25,12 +37,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ToggleHUD" type="CheckButton" parent="Panel"]
-margin_left = 192.0
-margin_right = 360.0
-margin_bottom = 56.0
+[node name="ToggleHUD" type="CheckButton" parent="Panel/HBoxContainer"]
+margin_left = 203.0
+margin_right = 358.0
+margin_bottom = 41.0
 pressed = true
 text = "Toggle HUD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FastMode" type="CheckButton" parent="Panel/HBoxContainer"]
+margin_left = 362.0
+margin_right = 508.0
+margin_bottom = 41.0
+action_mode = 0
+keep_pressed_outside = true
+text = "Fast Mode"
+align = 1
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
