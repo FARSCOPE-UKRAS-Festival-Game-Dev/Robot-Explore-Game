@@ -7,7 +7,7 @@
 [ext_resource path="res://Scripting/MissionSystem/MultiObjective.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripting/Trigger.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripting/DialogTrigger.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Assets/Audio/sound_test.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Scripting/ObjectiveHint.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripting/SoundTrigger.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripting/ScriptedSequences.gd" type="Script" id=10]
 
@@ -357,7 +357,6 @@ enabled = true
 transform = Transform( -0.999127, 0, -0.0417711, 0, 1, 0, 0.0417711, 0, -0.999127, 13.2993, 1.19618, -22.5072 )
 
 [node name="Sound" parent="Spatial" index="0"]
-stream = ExtResource( 8 )
 unit_db = 40.0
 
 [node name="Trigger" parent="Spatial" instance=ExtResource( 6 )]
@@ -388,6 +387,10 @@ shape = SubResource( 14 )
 mesh = SubResource( 15 )
 material/0 = SubResource( 16 )
 
+[node name="ObjectiveHint" parent="Mission1/ObjectiveSingle" instance=ExtResource( 8 )]
+transform = Transform( 15, 0, 0, 0, 5, 0, 0, 0, 8, -4.58092, 0.624738, -1.06392 )
+first_hint_dialog_key = "mission_test_hint1"
+
 [node name="Trigger" parent="Mission1/ObjectiveSingle" instance=ExtResource( 6 )]
 transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 0.754367, 0, -1.15001 )
 must_action = 1
@@ -402,6 +405,10 @@ transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 5.31539, 1.36281, 2.93032 )
 must_action = 2
 enabled = true
 
+[node name="ObjectiveHint" parent="Mission1/ObjectiveSingle2" instance=ExtResource( 8 )]
+transform = Transform( 15, 0, 0, 0, 5, 0, 0, 0, 8, -4.58092, 0.624738, -1.06392 )
+first_hint_dialog_key = "mission_test_hint_pool1"
+
 [node name="RedBox" type="RigidBody" parent="Mission1/ObjectiveSingle2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.82757, 2.78665, 3.17426 )
 physics_material_override = SubResource( 13 )
@@ -415,7 +422,7 @@ mesh = SubResource( 15 )
 material/0 = SubResource( 17 )
 
 [node name="Mission2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3196, 0, 18.3626 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3196, 0, 33.1468 )
 mission_name = "Mission 2"
 mission_desc = "These pink boxes are desirable. Go to 3 of the pink boxes"
 on_complete_dialogue = "pink_box_complete"
@@ -432,7 +439,7 @@ display_text = "Go to pink box"
 on_complete_dialogue = "pink_box1"
 
 [node name="Trigger" parent="Mission2/MultiObjective/ObjectiveSingle" instance=ExtResource( 6 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 1.25043, 0, 0.887554 )
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 1.25043, 1.71852, 0.887554 )
 enabled = true
 
 [node name="PinkBox" type="RigidBody" parent="Mission2/MultiObjective/ObjectiveSingle"]
@@ -465,7 +472,7 @@ mesh = SubResource( 15 )
 material/0 = SubResource( 18 )
 
 [node name="Trigger" parent="Mission2/MultiObjective/ObjectiveSingle2" instance=ExtResource( 6 )]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0 )
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0.167111, 0 )
 enabled = true
 
 [node name="ObjectiveSingle3" parent="Mission2/MultiObjective" instance=ExtResource( 4 )]
@@ -475,7 +482,7 @@ display_text = "Go to pink box"
 on_complete_dialogue = "pink_box3"
 
 [node name="Trigger" parent="Mission2/MultiObjective/ObjectiveSingle3" instance=ExtResource( 6 )]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, -1.07846, 0, -1.15001 )
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, -1.07846, 0.167111, -1.15001 )
 enabled = true
 
 [node name="PinkBox3" type="RigidBody" parent="Mission2/MultiObjective/ObjectiveSingle3"]
@@ -496,7 +503,7 @@ display_text = "Go to pink box"
 on_complete_dialogue = "pink_box1"
 
 [node name="Trigger" parent="Mission2/MultiObjective/ObjectiveSingle4" instance=ExtResource( 6 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 1.25043, 0, 0.887554 )
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 1.25043, 1.71852, 0.887554 )
 enabled = true
 
 [node name="PinkBox" type="RigidBody" parent="Mission2/MultiObjective/ObjectiveSingle4"]
@@ -518,7 +525,7 @@ display_text = "Go to pink box"
 on_complete_dialogue = "pink_box1"
 
 [node name="Trigger" parent="Mission2/MultiObjective/ObjectiveSingle5" instance=ExtResource( 6 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 1.25043, 0, 0.887554 )
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 1.25043, 1.71852, 0.887554 )
 enabled = true
 
 [node name="PinkBox" type="RigidBody" parent="Mission2/MultiObjective/ObjectiveSingle5"]

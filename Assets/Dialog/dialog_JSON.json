@@ -1,4 +1,14 @@
 {
+	"dialog_not_found": {
+		"dialog": "ERROR - Dialog key not found!"
+	},
+	"hint_key_not_found": {
+		"dialog": "ERROR - Hint key not found! Can't reset to first hint key either",
+		"wait_time": 100,
+		"next_hint": [
+			"hint_key_not_found"
+		]
+	},
 	"mission_test": {
 		"dialog": "What a pretty picture. I might frame it",
 		"next_dialog": "mission_test2"
@@ -21,10 +31,48 @@
 	"secret_dialog": {
 		"dialog": "This is a super secret_dialog"
 	},
-	"dialog_not_found": {
-		"dialog": "ERROR - Dialog key not found!"
+	"mission_test_hint1": {
+		"dialog": "Hint 1 - Perhapse we need to take a photo?",
+		"wait_time": 5,
+		"next_hint": [
+			"mission_test_hint2"
+		]
 	},
-	
+	"mission_test_hint2": {
+		"dialog": "Hint 2 - The photo can be taken using the action menu!",
+		"wait_time": 5,
+		"next_hint": [
+			"mission_test_hint3"
+		]
+	},
+	"mission_test_hint3": {
+		"dialog": "Hint 3 - You must be able to see the box to take the photo",
+		"wait_time": 5,
+		"next_hint": [
+			"mission_test_hint1"
+		]
+	},
+	"mission_test_hint_pool1": {
+		"dialog": "Hint 1 - Perhapse we need to take a photo?",
+		"wait_time": 5,
+		"next_hint": [
+			"mission_test_hint_pool1","mission_test_hint_pool2","mission_test_hint_pool3"
+		]
+	},
+	"mission_test_hint_pool2": {
+		"dialog": "Hint 2 - The photo can be taken using the action menu!",
+		"wait_time": 5,
+		"next_hint": [
+			"mission_test_hint_pool1","mission_test_hint_pool2","mission_test_hint_pool3"
+		]
+	},
+	"mission_test_hint_pool3": {
+		"dialog": "Hint 3 - You must be able to see the box to take the photo",
+		"wait_time": 5,
+		"next_hint": [
+			"mission_test_hint_pool1","mission_test_hint_pool2","mission_test_hint_pool3"
+		]
+	},
 	"tutorial_start": {
 		"dialog": "You (an esteemed roboticist) have been selected to accompany a team of biologists and anthropologists on an expedition to the foothills of the Himalayas and aid them in their goal to prove the theories - long foretold by Jules Verne – that a mythical lost world lies underneath the Earth’s surface. ",
 		"next_dialog": "tutorial_start2"
@@ -60,11 +108,11 @@
 		"dialog": "Well... Let's turn the camera on and see what's happening.",
 		"next_dialog": "tutorial_camera_on_start5"
 	},
-	"tutorial_dead_end1" : {
+	"tutorial_dead_end1": {
 		"dialog": "Hmm... the readings from the LIDAR seem to suggest that there’s just a cave wall ahead",
 		"next_dialog": "tutorial_dead_end2"
 	},
-	"tutorial_dead_end2" : {
+	"tutorial_dead_end2": {
 		"dialog": "It must be a dead end. Maybe we should keep looking for another way through"
 	},
 	"tutorial_camera_on_start5": {
@@ -85,7 +133,6 @@
 	"tutorial_drill_too_far": {
 		"dialog": "Agh you'll have to be closer to use that drill"
 	},
-	
 	"tutorial_use_drill_complete": {
 		"dialog": "Initial explorations found a path of caverns and tunnels leading from here deeper into the cave system. That tunnel over there looks like a good place to start - let's drive over and see if we can see anything."
 	},

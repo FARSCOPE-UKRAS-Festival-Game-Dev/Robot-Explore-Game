@@ -3,7 +3,7 @@ extends Node
 
 #### Options
 var debug_mode = true
-
+var show_triggers = true
 ##### Control Interface
 var control_panel_ui_scene_pl = preload('res://Utilities/Control_Panel_UI.tscn')
 var control_panel_loaded = false
@@ -18,7 +18,7 @@ var objective_popup
 var dialog_JSON_data
 
 var robot = null
-
+signal dialog_loaded
 signal dialog_finished
 signal all_dialog_finished
 signal options_updated 
@@ -26,7 +26,7 @@ signal options_updated
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_dialog_from_file()
-
+	emit_signal("dialog_loaded")
 func dialog_finished(dialog_key):
 	emit_signal("dialog_finished",dialog_key)
 func all_dialog_finished():
@@ -38,9 +38,13 @@ func on_options_updated():
 	
 func load_dialog_from_file():
 	var file = File.new()
-	file.open("res://Assets/Dialog/dialog_JSON.json", File.READ)
-	dialog_JSON_data =  parse_json(file.get_as_text())
 	
+	file.open("res://Assets/Dialog/dialog_JSON.json", File.READ)
+	var JSON_result = JSON.parse(file.get_as_text())
+	assert(JSON_result.error == OK, "Error loading JSON check format!")
+	dialog_JSON_data =  JSON_result.result
+
+
 func init_control_panel():
 	if not control_panel_loaded:
 		

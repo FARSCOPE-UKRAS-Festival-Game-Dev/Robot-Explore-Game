@@ -29,7 +29,7 @@ var in_area = false
 onready var globals = get_node('/root/Globals')
 
 func _ready():
-	visible = false
+	visible = visible and Globals.show_triggers
 	if must_custom_enable:
 		custom_criteria_func = funcref(get_node(custom_criteria_object),custom_criteria)
 
@@ -52,7 +52,7 @@ func trigger():
 	
 	if must_custom_enable:
 		meets_criteria = meets_criteria and custom_criteria_func.call_func()
-	
+
 	if meets_criteria and enabled:
 		emit_signal("on_trigger")
 		if oneshot:

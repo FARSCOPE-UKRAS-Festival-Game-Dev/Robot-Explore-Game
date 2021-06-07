@@ -28,7 +28,10 @@ func get_display_text():
 func set_display_text(text):
 	display_text = text
 	emit_signal("on_display_text_set",text)
-
+func set_hint_enable(value):
+	var hint = get_node_or_null("ObjectiveHint")
+	if hint != null:
+		hint.enabled = value
 func set_enable(value):
 	enabled = value
 	emit_signal("enable_changed",value)
@@ -36,14 +39,14 @@ func set_enable(value):
 		emit_signal("on_enable")
 	else:
 		emit_signal("on_disable")
-
+	set_hint_enable(value)
 func display_dialog():
 	globals.queue_dialog(on_complete_dialogue)
 	emit_signal("on_dialog_displayed")
 
 func complete_objective():
 	if not complete:
-		
+		set_hint_enable(false)
 		complete = true
 
 		if on_complete_dialogue!=null:
