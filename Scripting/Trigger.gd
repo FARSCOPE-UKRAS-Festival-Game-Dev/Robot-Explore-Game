@@ -52,9 +52,11 @@ func trigger():
 	
 	if must_custom_enable:
 		meets_criteria = meets_criteria and custom_criteria_func.call_func()
-
+	
 	if meets_criteria and enabled:
 		emit_signal("on_trigger")
+		if must_action_enable:
+			globals.robot.on_action_activated_trigger(must_action,self)
 		if oneshot:
 			set_enable(false)
 func _on_TriggerArea_body_entered(body):

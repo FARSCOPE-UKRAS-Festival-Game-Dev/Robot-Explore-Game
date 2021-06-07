@@ -4,6 +4,8 @@ export(String) var first_hint_dialog_key
 export(bool) var use_next_hint =  false
 
 var enabled = true
+export var oneshot = false
+
 var current_hint_key = ""
 onready var hint_timer = $HintTimer
 
@@ -32,6 +34,12 @@ func get_hint_data(hint_dialog_key):
 		else:
 			return "hint_key_not_found"
 	var data = Globals.dialog_JSON_data[hint_dialog_key]
+	if not data.has("wait_time"):
+		print("WARNING - hint_key %s has no wait_time field" % hint_dialog_key)
+	if data.has("one_shot"):
+		oneshot = data["one_shot"]
+	if not oneshot and not data.has("next_hint"):
+		print("WARNING - hint_key %s has no next_hint field" % hint_dialog_key)
 	return data
 
 func get_hint_wait_period(hint_dialog_key):
@@ -43,8 +51,10 @@ func get_hint_next_keys(hint_dialog_key):
 func choose_next_hint(hint_dialog_key):
 	var keys = get_hint_next_keys(hint_dialog_key)
 	keys.erase(current_hint_key)#stop hints displaying twice
-	current_hint_key = keys[randi() % keys.size()]
-
+	if len(keys) > 0:
+		current_hint_key = keys[randi() % keys.size()]
+	else:
+		print("WARNING - %s has invalid next_hint field" % current_hint_key)
 func set_hint_timer(hint_dialog_key):
 	hint_timer.wait_time = get_hint_wait_period(hint_dialog_key)
 	hint_timer.start()
@@ -60,24 +70,28 @@ func _ready():
 	
 	Globals.connect("dialog_finished",self,"check_dialog_finished")
 	
-func _on_HintTimer_timeout():
+func show_hint():
 	if enabled and robot_in_zone:
+		
 		Globals.queue_dialog(current_hint_key)
 		yield(self,"hint_dialog_finished")
-		choose_next_hint(current_hint_key)
-		set_hint_timer(current_hint_key)
+		if not oneshot:
+			choose_next_hint(current_hint_key)
+			set_hint_timer(current_hint_key)
+		else:
+			enabled = false
 	else:
 		set_hint_timer(current_hint_key)
 
 func _on_Area_body_entered(body):
 	if body.get_name() == ("Robot"):
 		robot_in_zone = true
-		hint_timer.connect("timeout",self,"_on_HintTimer_timeout")
+		hint_timer.connect("timeout",self,"show_hint")
 		hint_timer.start()
 
 func _on_Area_body_exited(body):
 	if body.get_name() == ("Robot"):
 		robot_in_zone = false
-		hint_timer.disconnect("timeout",self,"_on_HintTimer_timeout")
+		hint_timer.disconnect("timeout",self,"show_hint")
 		hint_timer.stop()
 

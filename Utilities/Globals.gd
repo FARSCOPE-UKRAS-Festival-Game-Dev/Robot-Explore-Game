@@ -25,7 +25,8 @@ signal options_updated
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	load_dialog_from_file()
+	var default_dialog = "res://Assets/Dialog/dialog_JSON.json"
+	load_dialog_from_file(default_dialog)
 	emit_signal("dialog_loaded")
 func dialog_finished(dialog_key):
 	emit_signal("dialog_finished",dialog_key)
@@ -36,10 +37,10 @@ func all_dialog_finished():
 func on_options_updated():
 	emit_signal("options_updated")
 	
-func load_dialog_from_file():
+func load_dialog_from_file(file_path):
 	var file = File.new()
 	
-	file.open("res://Assets/Dialog/dialog_JSON.json", File.READ)
+	file.open(file_path, File.READ)
 	var JSON_result = JSON.parse(file.get_as_text())
 	assert(JSON_result.error == OK, "Error loading JSON check format!")
 	dialog_JSON_data =  JSON_result.result
