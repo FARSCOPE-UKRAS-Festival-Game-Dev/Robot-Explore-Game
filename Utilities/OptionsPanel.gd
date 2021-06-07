@@ -21,4 +21,4 @@ func _on_Debug_tools_toggled(button_pressed):
 	
 
 func _on_OptionsPanel_visibility_changed():
-	emit_signal("options_updated")
+	globals.on_options_updated()
