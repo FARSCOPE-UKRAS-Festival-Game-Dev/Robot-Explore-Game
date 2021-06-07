@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Environments/LoadEnvironment.gd" type="Script" id=1]
 [ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scripting/ObjectiveHint.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripting/SoundTrigger.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripting/ScriptedSequences.gd" type="Script" id=10]
+[ext_resource path="res://Environments/Mission_Testing/MissionTesting.gd" type="Script" id=11]
 
 [sub_resource type="Environment" id=1]
 background_energy = 3.66
@@ -81,11 +82,14 @@ albedo_color = Color( 1, 0, 0.866667, 1 )
 script = ExtResource( 1 )
 robotScene = ExtResource( 2 )
 
+[node name="Node" type="Node" parent="."]
+script = ExtResource( 11 )
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
 
 [node name="RobotStartLocation" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.56345, 2.28315, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.56345, 2.28315, 3.62242 )
 
 [node name="Environment" type="Spatial" parent="."]
 
@@ -396,6 +400,14 @@ transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 0.754367, 0, -1.15001 )
 must_action = 1
 enabled = true
 
+[node name="DialogEnroute" parent="Mission1/ObjectiveSingle" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8776, 0.881313, 15.1639 )
+dialog = "mission_test_enroute"
+
+[node name="Trigger" parent="Mission1/ObjectiveSingle/DialogEnroute" instance=ExtResource( 6 )]
+transform = Transform( 7.7971, 0, 0.626141, 0, 1, 0, -6.26141, 0, 0.77971, 0, 0, 0 )
+enabled = true
+
 [node name="ObjectiveSingle2" parent="Mission1" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5909, 0, -23.5953 )
 display_text = "Drill sample of red box"
@@ -540,6 +552,10 @@ shape = SubResource( 14 )
 mesh = SubResource( 15 )
 material/0 = SubResource( 18 )
 
+[node name="ObjectiveHint" parent="Mission2/MultiObjective/ObjectiveSingle5" instance=ExtResource( 8 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 4.69851, 4.92975, -1.064 )
+first_hint_dialog_key = "mission_test_hint1"
+
 [node name="BlueBox" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.458, 1.30938, 6.6536 )
 physics_material_override = SubResource( 13 )
@@ -559,7 +575,7 @@ enabled = true
 [node name="GlobalScripts" type="Spatial" parent="."]
 script = ExtResource( 10 )
 
-[connection signal="on_trigger" from="DialogTrigger/Trigger" to="DialogTrigger" method="on_Trigger"]
+[connection signal="on_trigger" from="DialogTrigger/Trigger" to="DialogTrigger" method="on_triggered"]
 [connection signal="on_trigger" from="Spatial/Trigger" to="DialogTrigger" method="on_Trigger"]
 [connection signal="on_trigger" from="BlueBox/Trigger" to="GlobalScripts" method="shake_camera"]
 
