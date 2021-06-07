@@ -11,12 +11,18 @@ onready var book_read_texture = preload("res://Assets/Images/ControlPanel/Option
 func _ready():
 	Globals.init_control_panel()
 	
+	on_options_updated()
+	$DebugTools/Panel/ToggleBackground.connect("toggled",self,"set_background_visible")
+	$DebugTools/Panel/ToggleHUD.connect("toggled",self,"set_HUD_visible")
+	Globals.connect("options_updated",self,"on_options_updated")
+
+	remove_isolate_panel()
+func on_options_updated():
 	if not Globals.debug_mode:
 		$DebugTools.visible = false
 	else:
-		$DebugTools/Panel/ToggleBackground.connect("toggled",self,"set_background_visible")
-		$DebugTools/Panel/ToggleHUD.connect("toggled",self,"set_HUD_visible")
-	remove_isolate_panel()
+		$DebugTools.visible = true
+
 func set_background_visible(value):
 	hud.get_node("Background").visible = value
 	
