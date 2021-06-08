@@ -61,7 +61,7 @@ func fail_action(action):
 	print("action: %s didn't do anything" % action)
 	emit_signal("action_failed",action)
 func successful_action(action):
-	emit_signal("action_sucess",action)
+	emit_signal("action_success",action)
 	match action:
 		robot_action.TAKING_PICTURE:
 			print("Took picture successfully!")

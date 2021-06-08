@@ -62,6 +62,7 @@ func set_hint_timer(hint_dialog_key):
 		hint_timer.start()
 
 func _ready():
+	visible = visible and Globals.show_triggers
 	if Globals.dialog_JSON_data == null:
 		yield(Globals,"dialog_loaded")
 	if use_next_hint:

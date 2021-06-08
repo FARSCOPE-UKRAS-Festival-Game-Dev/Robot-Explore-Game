@@ -36,21 +36,21 @@
 	},
 	"mission_test_hint1": {
 		"dialog": "Hint 1 - This is hint loop - Perhaps we need to take a photo?",
-		"wait_time": 5,
+		"wait_time": 15,
 		"next_hint": [
 			"mission_test_hint2"
 		]
 	},
 	"mission_test_hint2": {
 		"dialog": "Hint 2 - This is hint loop - The photo can be taken using the action menu!",
-		"wait_time": 5,
+		"wait_time": 15,
 		"next_hint": [
 			"mission_test_hint3"
 		]
 	},
 	"mission_test_hint3": {
 		"dialog": "Hint 3 - This is hint loop - You must be able to see the box to take the photo",
-		"wait_time": 5,
+		"wait_time": 15,
 		"next_hint": [
 			"mission_test_hint1"
 		]
@@ -58,7 +58,7 @@
 	"mission_test_hint_pool1": {
 		"dialog": "Hint pool 1 - welcome to hint pool these are random hints drawn from a pool",
 		"next_dialog": "mission_test_hint_pool1b",
-		"wait_time": 5,
+		"wait_time": 15,
 		"next_hint": [
 			"mission_test_hint_pool1",
 			"mission_test_hint_pool2",
@@ -73,7 +73,7 @@
 	},
 	"mission_test_hint_pool2": {
 		"dialog": "Hint pool 2 - welcome to hint pool these are random hints drawn from a pooll",
-		"wait_time": 5,
+		"wait_time": 15,
 		"next_hint": [
 			"mission_test_hint_pool1",
 			"mission_test_hint_pool2",
@@ -85,7 +85,7 @@
 	},
 	"mission_test_hint_pool3": {
 		"dialog": "Hint pool 3 - welcome to hint pool these are random hints drawn from a pool",
-		"wait_time": 5,
+		"wait_time": 15,
 		"next_hint": [
 			"mission_test_hint_pool1",
 			"mission_test_hint_pool2",
@@ -97,7 +97,7 @@
 	},
 	"mission_test_hint_pool4": {
 		"dialog": "Hint pool 4 - welcome to hint pool these are random hints drawn from a pool",
-		"wait_time": 5,
+		"wait_time": 15,
 		"next_hint": [
 			"mission_test_hint_pool1",
 			"mission_test_hint_pool2",
@@ -109,7 +109,7 @@
 	},
 	"mission_test_hint_pool5": {
 		"dialog": "Hint pool 5 - welcome to hint pool these are random hints drawn from a pool",
-		"wait_time": 5,
+		"wait_time": 15,
 		"next_hint": [
 			"mission_test_hint_pool1",
 			"mission_test_hint_pool2",
@@ -121,7 +121,7 @@
 	},
 	"mission_test_hint_pool6": {
 		"dialog": "Hint pool 6 - welcome to hint pool these are random hints drawn from a pool",
-		"wait_time": 5,
+		"wait_time": 15,
 		"next_hint": [
 			"mission_test_hint_pool1",
 			"mission_test_hint_pool2",
