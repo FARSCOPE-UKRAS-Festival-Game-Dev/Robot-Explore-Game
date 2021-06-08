@@ -3,7 +3,8 @@ extends Node
 
 #### Options
 var debug_mode = true
-var show_triggers = true
+var show_triggers = false
+var camera_trigger_debug = false
 ##### Control Interface
 var control_panel_ui_scene_pl = preload('res://Utilities/Control_Panel_UI.tscn')
 var control_panel_loaded = false

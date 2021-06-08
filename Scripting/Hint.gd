@@ -3,8 +3,9 @@ extends Spatial
 export(String) var first_hint_dialog_key
 export(bool) var use_next_hint =  false
 
-var enabled = true
+export var enabled = true
 export var oneshot = false
+export var disable_timer = false
 
 var current_hint_key = ""
 onready var hint_timer = $HintTimer
@@ -56,16 +57,19 @@ func choose_next_hint(hint_dialog_key):
 	else:
 		print("WARNING - %s has invalid next_hint field" % current_hint_key)
 func set_hint_timer(hint_dialog_key):
-	hint_timer.wait_time = get_hint_wait_period(hint_dialog_key)
-	hint_timer.start()
+	if not disable_timer:
+		hint_timer.wait_time = get_hint_wait_period(hint_dialog_key)
+		hint_timer.start()
 
 func _ready():
+	visible = visible and Globals.show_triggers
 	if Globals.dialog_JSON_data == null:
 		yield(Globals,"dialog_loaded")
 	if use_next_hint:
 		current_hint_key = choose_next_hint(first_hint_dialog_key)
 	else:
 		current_hint_key = first_hint_dialog_key
+	
 	set_hint_timer(current_hint_key)
 	
 	Globals.connect("dialog_finished",self,"check_dialog_finished")
@@ -86,12 +90,14 @@ func show_hint():
 func _on_Area_body_entered(body):
 	if body.get_name() == ("Robot"):
 		robot_in_zone = true
-		hint_timer.connect("timeout",self,"show_hint")
-		hint_timer.start()
+		if not disable_timer:
+			hint_timer.connect("timeout",self,"show_hint")
+			hint_timer.start()
 
 func _on_Area_body_exited(body):
 	if body.get_name() == ("Robot"):
 		robot_in_zone = false
-		hint_timer.disconnect("timeout",self,"show_hint")
-		hint_timer.stop()
+		if not disable_timer:
+			hint_timer.disconnect("timeout",self,"show_hint")
+			hint_timer.stop()
 

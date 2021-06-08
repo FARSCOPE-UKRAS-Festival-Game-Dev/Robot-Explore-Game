@@ -7,6 +7,9 @@ enum robot_action {
 } 
 
 signal doing_action
+signal action_success
+signal action_failed
+
 const ACTION_SUCCESS_TIMEOUT = 0.1
 onready var success_timeout_timer = $SuccessActionTimeout
 var success_flag = false
@@ -56,8 +59,9 @@ func do_action(action):
 		fail_action(action)
 func fail_action(action):
 	print("action: %s didn't do anything" % action)
-	
+	emit_signal("action_failed",action)
 func successful_action(action):
+	emit_signal("action_success",action)
 	match action:
 		robot_action.TAKING_PICTURE:
 			print("Took picture successfully!")

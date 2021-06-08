@@ -3,21 +3,23 @@ class_name Trigger
 
 #Triggers emit the on_trigger signal when robot is in the area and a number of critera are satisfied
 
-#export(NodePath) var must_see = null #NOT IMPLIMENTED
-
+export(NodePath) var must_see = null #NOT IMPLIMENTED
+var must_see_obj
 const robot_action = preload("res://Robot/Robot_with_sensors.gd").robot_action
 
 export(robot_action) var must_action #Action that robot must perform
-
+export(bool) var on_trigger_action_success = true #Tell the robot is successful when this trigger is activated
+#Custom criteria function can be used to augment trigger to only trigger when the specified function returns true
 export(NodePath) var custom_criteria_object = null
 export(String) var custom_criteria = null
-
 var custom_criteria_func
+
+
 export(bool) var enabled = false setget set_enable
-export(bool) var oneshot = false
+export(bool) var oneshot = false #Oneshot triggers activate once
 
 signal on_trigger
-onready var must_see_enable = false#(must_see_enable!=null) #NOT IMPLIMENTED
+onready var must_see_enable = (must_see!=null) #NOT IMPLIMENTED
 onready var must_action_enable = (must_action!=robot_action.NONE)
 onready var must_custom_enable = (custom_criteria_object!=null and custom_criteria!=null)
 
@@ -29,13 +31,14 @@ var in_area = false
 onready var globals = get_node('/root/Globals')
 
 func _ready():
+	if must_see_enable:
+		must_see_obj = get_node(must_see)
 	visible = visible and Globals.show_triggers
 	if must_custom_enable:
 		custom_criteria_func = funcref(get_node(custom_criteria_object),custom_criteria)
 
 func check_robot_can_see():
-	#NOT IMPLIMENTED
-	pass
+	return Globals.robot.get_node("Robot/ForwardCameraSensor").can_see(must_see_obj)
 
 func set_enable(value):
 	enabled = value
@@ -43,7 +46,7 @@ func set_enable(value):
 
 func trigger():
 	var meets_criteria = in_area
-	
+	print(must_see_enable)
 	if must_see_enable:
 		meets_criteria = meets_criteria and check_robot_can_see()
 	
@@ -55,7 +58,7 @@ func trigger():
 	
 	if meets_criteria and enabled:
 		emit_signal("on_trigger")
-		if must_action_enable:
+		if must_action_enable and on_trigger_action_success:
 			globals.robot.on_action_activated_trigger(must_action,self)
 		if oneshot:
 			set_enable(false)
