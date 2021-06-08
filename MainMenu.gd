@@ -3,9 +3,8 @@ extends Control
 export (String) var game_name = "The Best Robot Sensor Exploration Game"
 
 export(Array, Array, String) var scene_locations = [
-
-	["Mission 1 alpha", "res://Environments/Mission_1.tscn"],
-	["Tutorial Section", "res://Environments/TutorialSection/TutorialSection.tscn"],
+	["Tutorial - Final Environment", "res://Environments/finalTutorialCave.tscn"],
+	["Mission 1 - Final Environment", "res://Environments/finalMissionCave.tscn"],
 	["Cave Y Junction", "res://Environments/Cave_Y_Junction.tscn"],
 	["Testing Maze", "res://Environments/Testing_Maze.tscn"],
 	["Mission_testing", "res://Environments/Mission_Testing/Mission_testing.tscn"],
@@ -24,21 +23,21 @@ var in_options = false
 onready var options_menu = $MainMenu/OptionPage/
 func _ready():
 	set_current_selection(0)
-	
+
 #	$CenterContainer/VBoxContainer/VBoxContainer/CenterContainer/Label.text = game_name
 	hide_options()
 	if !globals.debug_mode:
 		$DebugNode.visible = false
-	
+
 	for maps in scene_locations:
 		$DebugNode/MarginContainer/MapChoice.add_item(maps[0])
 
-	
-func _process(_delta): 
-	if Input.is_action_just_pressed("ui_down") and current_selection < 2: 
-		play_button_click() 
+
+func _process(_delta):
+	if Input.is_action_just_pressed("ui_down") and current_selection < 2:
+		play_button_click()
 		current_selection += 1
-		set_current_selection(current_selection) 
+		set_current_selection(current_selection)
 	elif Input.is_action_just_pressed("ui_up") and current_selection > 0:
 		play_button_click()
 		current_selection -= 1
@@ -48,7 +47,7 @@ func _process(_delta):
 			handle_selection(current_selection)
 		else:
 			hide_options()# Not implimenting options via keyboard atm
-			
+
 func handle_selection(_current_selection):
 	play_button_click()
 	if _current_selection == 0:
@@ -79,12 +78,12 @@ func show_options():
 	in_options = true
 	options_menu.show()
 	main_menu.hide()
-	
+
 func hide_options():
 	in_options = false
 	options_menu.hide()
 	main_menu.show()
-	
+
 func _on_Button_pressed():
 	current_selection = 0
 	handle_selection(current_selection)
@@ -92,7 +91,7 @@ func _on_Button_pressed():
 func _on_Button2_pressed():
 	current_selection = 1
 	handle_selection(current_selection)
-	
+
 
 func _on_Button3_pressed():
 	current_selection = 2
