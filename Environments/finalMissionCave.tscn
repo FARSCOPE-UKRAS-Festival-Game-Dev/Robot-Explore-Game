@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Environments/LoadEnvironment.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Models/Terrain/missionCave.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Models/Terrain/Objects/VineWall/VineWall.tscn" type="PackedScene" id=5]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 3 )
@@ -19,4 +20,36 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13587, 1.30965, 0 )
 light_energy = 7.63
 omni_range = 15.1222
 
-[node name="cave1_15" parent="." instance=ExtResource( 4 )]
+[node name="caveBody" parent="." instance=ExtResource( 4 )]
+
+[node name="vineWalls" type="Spatial" parent="."]
+
+[node name="VineWall3" parent="vineWalls" instance=ExtResource( 5 )]
+transform = Transform( 2.82843, 0, -0.707107, 0, 4, 0, 2.82843, 0, 0.707107, -79.7662, 1.97399, -33.6864 )
+
+[node name="VineWall4" parent="vineWalls" instance=ExtResource( 5 )]
+transform = Transform( 2.82843, 0, -0.707107, 0, 4, 0, 2.82843, 0, 0.707107, -77.7542, 1.97399, -34.8556 )
+
+[node name="VineWall5" parent="vineWalls" instance=ExtResource( 5 )]
+transform = Transform( 2.82843, 0, -0.707107, 0, 4, 0, 2.82843, 0, 0.707107, -78.3676, 1.97399, -37.2103 )
+
+[node name="VineWall6" parent="vineWalls" instance=ExtResource( 5 )]
+transform = Transform( 3.93923, 0, -0.173648, 0, 4, 0, 0.694593, 0, 0.984808, -75.4807, 1.60934, -35.28 )
+
+[node name="VineWall7" parent="vineWalls" instance=ExtResource( 5 )]
+transform = Transform( 3.93923, 0, 0.173648, 0, 4, 0, -0.694593, 0, 0.984808, -71.0552, 1.97399, -35.399 )
+
+[node name="VineWall10" parent="vineWalls" instance=ExtResource( 5 )]
+transform = Transform( 3.06418, 0, -0.642788, 0, 4, 0, 2.57115, 0, 0.766044, -75.7091, 2.16235, -36.6803 )
+
+[node name="VineWall11" parent="vineWalls" instance=ExtResource( 5 )]
+transform = Transform( 3.06418, 0, -0.642788, 0, 4, 0, 2.57115, 0, 0.766044, -78.6343, 2.16235, -38.9753 )
+
+[node name="VineWall12" parent="vineWalls" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, -0.866025, 0, 4, 0, 3.4641, 0, 0.5, -79.2474, 2.16235, -40.7925 )
+
+[node name="VineWall8" parent="vineWalls" instance=ExtResource( 5 )]
+transform = Transform( -0.694593, 0, 0.984808, 0, 4, 0, -3.93923, 0, -0.173648, -80.3611, 1.97399, -40.9869 )
+
+[node name="VineWall9" parent="vineWalls" instance=ExtResource( 5 )]
+transform = Transform( -1.03528, 0, 0.965926, 0, 4, 0, -3.8637, 0, -0.258819, -81.5047, 2.13202, -46.2496 )
