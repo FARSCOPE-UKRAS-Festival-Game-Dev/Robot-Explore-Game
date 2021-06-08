@@ -29,21 +29,35 @@ func set_display_text(text):
 	display_text = text
 	emit_signal("on_display_text_set",text)
 
+func set_hint_enable(value):
+	for child in get_children():
+		if child.name.match("Hint*"):
+			child.enabled = value
+
+func set_associated_dialog(value):
+
+	for child in get_children():
+		if child.name.match("Dialog*"):
+			child.enabled = value
+
 func set_enable(value):
 	enabled = value
 	emit_signal("enable_changed",value)
 	if enabled:
 		emit_signal("on_enable")
+		
 	else:
 		emit_signal("on_disable")
-
+	set_hint_enable(value)
+	set_associated_dialog(value)
 func display_dialog():
 	globals.queue_dialog(on_complete_dialogue)
 	emit_signal("on_dialog_displayed")
 
 func complete_objective():
 	if not complete:
-		
+		set_hint_enable(false)
+		set_associated_dialog(false)
 		complete = true
 
 		if on_complete_dialogue!=null:

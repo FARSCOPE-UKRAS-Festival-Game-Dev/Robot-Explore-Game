@@ -1,30 +1,14 @@
 {
-	"mission_test": {
-		"dialog": "What a pretty picture. I might frame it",
-		"next_dialog": "mission_test2"
-	},
-	"mission_test2": {
-		"dialog": "Now drill a sample of the red box"
-	},
-	"pink_box1": {
-		"dialog": "Ah nice you found a pink box"
-	},
-	"pink_box2": {
-		"dialog": "What a cool box, lets look for some more"
-	},
-	"pink_box3": {
-		"dialog": "Who would just leave these around? Such a nice box!"
-	},
-	"pink_box_complete": {
-		"dialog": "Well done you found all the pink boxes"
-	},
-	"secret_dialog": {
-		"dialog": "This is a super secret_dialog"
-	},
 	"dialog_not_found": {
 		"dialog": "ERROR - Dialog key not found!"
 	},
-	
+	"hint_key_not_found": {
+		"dialog": "ERROR - Hint key not found! Can't reset to first hint key either",
+		"wait_time": 100,
+		"next_hint": [
+			"hint_key_not_found"
+		]
+	},
 	"tutorial_start": {
 		"dialog": "You (an esteemed roboticist) have been selected to accompany a team of biologists and anthropologists on an expedition to the foothills of the Himalayas and aid them in their goal to prove the theories - long foretold by Jules Verne – that a mythical lost world lies underneath the Earth’s surface. ",
 		"next_dialog": "tutorial_start2"
@@ -60,11 +44,11 @@
 		"dialog": "Well... Let's turn the camera on and see what's happening.",
 		"next_dialog": "tutorial_camera_on_start5"
 	},
-	"tutorial_dead_end1" : {
+	"tutorial_dead_end1": {
 		"dialog": "Hmm... the readings from the LIDAR seem to suggest that there’s just a cave wall ahead",
 		"next_dialog": "tutorial_dead_end2"
 	},
-	"tutorial_dead_end2" : {
+	"tutorial_dead_end2": {
 		"dialog": "It must be a dead end. Maybe we should keep looking for another way through"
 	},
 	"tutorial_camera_on_start5": {
@@ -85,7 +69,6 @@
 	"tutorial_drill_too_far": {
 		"dialog": "Agh you'll have to be closer to use that drill"
 	},
-	
 	"tutorial_use_drill_complete": {
 		"dialog": "Initial explorations found a path of caverns and tunnels leading from here deeper into the cave system. That tunnel over there looks like a good place to start - let's drive over and see if we can see anything."
 	},
@@ -106,6 +89,7 @@
 		"dialog": "That must be the end of the cave! Let's keep going"
 	},
 	"tutorial_navigate_dark_cave_complete": {
-		"dialog": "The LIDAR is managing to detect the walls though, so maybe if we drive carefully, and use the information on the LIDAR screen we can get to the other side"
+		"dialog": ""
 	}
+	
 }

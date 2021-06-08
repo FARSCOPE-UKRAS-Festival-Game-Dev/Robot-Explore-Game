@@ -3,7 +3,8 @@ extends Node
 
 #### Options
 var debug_mode = true
-
+var show_triggers = false
+var camera_trigger_debug = false
 ##### Control Interface
 var control_panel_ui_scene_pl = preload('res://Utilities/Control_Panel_UI.tscn')
 var control_panel_loaded = false
@@ -18,28 +19,34 @@ var objective_popup
 var dialog_JSON_data
 
 var robot = null
-
+signal dialog_loaded
 signal dialog_finished
 signal all_dialog_finished
 signal options_updated 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	load_dialog_from_file()
-
+	var default_dialog = "res://Assets/Dialog/dialog_JSON.json"
+	load_dialog_from_file(default_dialog)
+	emit_signal("dialog_loaded")
 func dialog_finished(dialog_key):
 	emit_signal("dialog_finished",dialog_key)
 func all_dialog_finished():
+	play_audio_radio_off()
 	emit_signal("all_dialog_finished")
 	
 func on_options_updated():
 	emit_signal("options_updated")
 	
-func load_dialog_from_file():
+func load_dialog_from_file(file_path):
 	var file = File.new()
-	file.open("res://Assets/Dialog/dialog_JSON.json", File.READ)
-	dialog_JSON_data =  parse_json(file.get_as_text())
 	
+	file.open(file_path, File.READ)
+	var JSON_result = JSON.parse(file.get_as_text())
+	assert(JSON_result.error == OK, "Error loading JSON check format!")
+	dialog_JSON_data =  JSON_result.result
+
+
 func init_control_panel():
 	if not control_panel_loaded:
 		
@@ -77,7 +84,10 @@ func queue_dialog(dialog_key):
 	if not dialog_JSON_data.has(dialog_key):
 		print("ERROR - dialog key: \"%s\" not in JSON file" % dialog_key)
 		dialog_key = "dialog_not_found"
-
+	
+	if len(dialog_popup.text_queue) == 0:
+		play_audio_radio_on()
+	
 	var dialog_data = dialog_JSON_data[dialog_key]
 	dialog_popup.queue_text(dialog_data["dialog"],dialog_key)
 	
@@ -98,3 +108,8 @@ func show_new_objective_complete_popup(objective):
 	objective_popup.display_text("New Objective - "+objective.display_text)
 	robot.get_node("ControlPanel").mark_read_book_icon(false)
 
+func play_audio_radio_on():
+	dialog_popup.audio_radio_on.play()
+
+func play_audio_radio_off():
+	dialog_popup.audio_radio_off.play()

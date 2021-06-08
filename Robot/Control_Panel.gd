@@ -1,7 +1,7 @@
 extends Control
 
 onready var hud = $HUD
-onready var book_btn = hud.get_node("ButtonContainer/VBoxContainer/MarginContainer/OpenBookButton")
+onready var book_btn = hud.get_node("ButtonContainer/AspectRatioContainer/VBoxContainer/MarginContainer/OpenBookButton")
 onready var special_menu =  hud.get_node("ButtonContainer/SpecialsMenu")
 
 onready var book_unread_texture = preload("res://Assets/Images/ControlPanel/Options6_unread.png")
@@ -10,13 +10,17 @@ onready var book_read_texture = preload("res://Assets/Images/ControlPanel/Option
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Globals.init_control_panel()
+	remove_isolate_panel()
 	
+	on_options_updated()
+
+	Globals.connect("options_updated",self,"on_options_updated")
+
+func on_options_updated():
 	if not Globals.debug_mode:
 		$DebugTools.visible = false
 	else:
-		$DebugTools/Panel/ToggleBackground.connect("toggled",self,"set_background_visible")
-		$DebugTools/Panel/ToggleHUD.connect("toggled",self,"set_HUD_visible")
-	remove_isolate_panel()
+		$DebugTools.visible = true
 
 func set_background_visible(value):
 	hud.get_node("Background").visible = value
@@ -47,7 +51,11 @@ func set_sensor_classes(mapping):
 	if 'lidar' in mapping:
 		hud.get_node("LidarPanel").set_sensor_class(mapping['lidar'])
 	if 'whisker' in mapping:
-		hud.get_node("WhiskerPanel").set_sensor_class(mapping['whisker'])
+		$HUD/WhiskerPanel.set_sensor_class(mapping['whisker'])
+	if 'templeft' in mapping:
+		$HUD/TemperaturePanelLeft.set_sensor_class(mapping['templeft'])
+	if 'tempright' in mapping:
+		$HUD/TemperaturePanelRight.set_sensor_class(mapping['tempright'])
 
 func _on_toggle_background_button(button):
 	var bg = $HUD/Background

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Environments/LoadEnvironment.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Models/Terrain/missionCave.tscn" type="PackedScene" id=4]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 3 )
+robotScene = ExtResource( 2 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 1 )
+
+[node name="RobotStartLocation" type="Position3D" parent="."]
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13587, 1.30965, 0 )
+visible = false
+light_energy = 7.63
+omni_range = 15.1222
+
+[node name="cave1_15" parent="." instance=ExtResource( 4 )]

@@ -51,16 +51,16 @@ func get_input(delta):
 		velocity += -global_transform.basis.z * speed
 	if Input.is_action_pressed("reverse") or joystick.output.y > 0:
 		velocity += global_transform.basis.z * speed
-	if is_joystick_enabled:
-		var joystick_y_output = joystick.output.y
-		velocity *= abs(joystick_y_output)
-		var joystick_x_output = joystick.output.x * -1
-		rotate_y(rot_speed * joystick_x_output * delta)
-	else:
-		if Input.is_action_pressed("ui_right"):
-			rotate_y(-rot_speed * delta)
-		if Input.is_action_pressed("ui_left"):
-			rotate_y(rot_speed * delta)
+#	if is_joystick_enabled:
+	if joystick.output.y > 0:
+		velocity *= abs(joystick.output.y)
+	var joystick_x_output = joystick.output.x * -1
+	rotate_y(rot_speed * joystick_x_output * delta)
+#	else:
+	if Input.is_action_pressed("ui_right"):
+		rotate_y(-rot_speed * delta)
+	if Input.is_action_pressed("ui_left"):
+		rotate_y(rot_speed * delta)
 	velocity.y = vy
 
 
