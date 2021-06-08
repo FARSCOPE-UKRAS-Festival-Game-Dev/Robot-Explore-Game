@@ -17,6 +17,7 @@ environment = ExtResource( 1 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13587, 1.30965, 0 )
+visible = false
 light_energy = 7.63
 omni_range = 15.1222
 
