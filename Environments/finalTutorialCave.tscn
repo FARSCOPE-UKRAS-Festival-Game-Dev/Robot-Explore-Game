@@ -3,7 +3,7 @@
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Environments/LoadEnvironment.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Models/Terrain/test_20.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Models/Terrain/tutorialCave.tscn" type="PackedScene" id=4]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 3 )
