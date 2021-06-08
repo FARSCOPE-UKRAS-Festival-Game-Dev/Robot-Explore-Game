@@ -89,6 +89,7 @@
 		"dialog": "That must be the end of the cave! Let's keep going"
 	},
 	"tutorial_navigate_dark_cave_complete": {
-		"dialog": "The LIDAR is managing to detect the walls though, so maybe if we drive carefully, and use the information on the LIDAR screen we can get to the other side"
+		"dialog": ""
 	}
+	
 }

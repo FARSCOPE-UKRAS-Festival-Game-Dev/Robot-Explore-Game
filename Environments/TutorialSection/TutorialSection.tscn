@@ -14,7 +14,7 @@
 [ext_resource path="res://Assets/Audio/effects/software_on_2.wav" type="AudioStream" id=12]
 [ext_resource path="res://Assets/Audio/effects/software_on_3.wav" type="AudioStream" id=13]
 
-[sub_resource type="Environment" id=1]
+[sub_resource type="Environment" id=6]
 
 [sub_resource type="PhysicsMaterial" id=2]
 
@@ -32,7 +32,7 @@ script = ExtResource( 5 )
 robotScene = ExtResource( 6 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
+environment = SubResource( 6 )
 
 [node name="RobotStartLocation" type="Position3D" parent="."]
 transform = Transform( 0.912656, 0, -0.408729, 0, 1, 0, 0.408729, 0, 0.912656, 69.8564, -1.13397, 91.4136 )

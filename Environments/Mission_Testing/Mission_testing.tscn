@@ -7,7 +7,7 @@
 [ext_resource path="res://Scripting/MissionSystem/MultiObjective.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripting/Trigger.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripting/DialogTrigger.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scripting/ObjectiveHint.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripting/Hint.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripting/SoundTrigger.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripting/ScriptedSequences.gd" type="Script" id=10]
 [ext_resource path="res://Environments/Mission_Testing/MissionTesting.gd" type="Script" id=11]
@@ -82,7 +82,7 @@ albedo_color = Color( 1, 0, 0.866667, 1 )
 script = ExtResource( 1 )
 robotScene = ExtResource( 2 )
 
-[node name="Node" type="Node" parent="."]
+[node name="CustomScripts" type="Node" parent="."]
 script = ExtResource( 11 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -391,10 +391,6 @@ shape = SubResource( 14 )
 mesh = SubResource( 15 )
 material/0 = SubResource( 16 )
 
-[node name="ObjectiveHint" parent="Mission1/ObjectiveSingle" instance=ExtResource( 8 )]
-transform = Transform( 15, 0, 0, 0, 5, 0, 0, 0, 8, -4.58092, 0.624738, -1.06392 )
-first_hint_dialog_key = "mission_test_hint1"
-
 [node name="Trigger" parent="Mission1/ObjectiveSingle" instance=ExtResource( 6 )]
 transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 0.754367, 0, -1.15001 )
 must_action = 1
@@ -408,18 +404,25 @@ dialog = "mission_test_enroute"
 transform = Transform( 7.7971, 0, 0.626141, 0, 1, 0, -6.26141, 0, 0.77971, 0, 0, 0 )
 enabled = true
 
+[node name="Hint" parent="Mission1/ObjectiveSingle" instance=ExtResource( 8 )]
+transform = Transform( 15, 0, 0, 0, 5, 0, 0, 0, 8, -3.63621, 1.93412, -1.75707 )
+visible = false
+first_hint_dialog_key = "mission_test_hint1"
+
 [node name="ObjectiveSingle2" parent="Mission1" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5909, 0, -23.5953 )
+enabled = true
 display_text = "Drill sample of red box"
 
 [node name="Trigger" parent="Mission1/ObjectiveSingle2" instance=ExtResource( 6 )]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 5.31539, 1.36281, 2.93032 )
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 6.22675, 1.36281, 2.93032 )
 must_action = 2
 enabled = true
 
-[node name="ObjectiveHint" parent="Mission1/ObjectiveSingle2" instance=ExtResource( 8 )]
+[node name="Hint" parent="Mission1/ObjectiveSingle2" instance=ExtResource( 8 )]
 transform = Transform( 15, 0, 0, 0, 5, 0, 0, 0, 8, -4.58092, 0.624738, -1.06392 )
 first_hint_dialog_key = "mission_test_hint_pool1"
+enabled = false
 
 [node name="RedBox" type="RigidBody" parent="Mission1/ObjectiveSingle2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.82757, 2.78665, 3.17426 )
@@ -432,6 +435,10 @@ shape = SubResource( 14 )
 [node name="MeshInstance" type="MeshInstance" parent="Mission1/ObjectiveSingle2/RedBox/CollisionShape"]
 mesh = SubResource( 15 )
 material/0 = SubResource( 17 )
+
+[node name="Hint2" parent="Mission1/ObjectiveSingle2" instance=ExtResource( 8 )]
+transform = Transform( 15, 0, 0, 0, 5, 0, 0, 0, 8, 3.37303, 2.10201, 2.89878 )
+disable_timer = true
 
 [node name="Mission2" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3196, 0, 33.1468 )
@@ -577,6 +584,8 @@ script = ExtResource( 10 )
 
 [connection signal="on_trigger" from="DialogTrigger/Trigger" to="DialogTrigger" method="on_triggered"]
 [connection signal="on_trigger" from="Spatial/Trigger" to="DialogTrigger" method="on_Trigger"]
+[connection signal="on_objective_complete" from="Mission1/ObjectiveSingle" to="CustomScripts" method="_on_ObjectiveSingle_on_objective_complete"]
+[connection signal="on_objective_complete" from="Mission1/ObjectiveSingle2" to="CustomScripts" method="_on_ObjectiveSingle2_on_objective_complete"]
 [connection signal="on_trigger" from="BlueBox/Trigger" to="GlobalScripts" method="shake_camera"]
 
 [editable path="Spatial"]
