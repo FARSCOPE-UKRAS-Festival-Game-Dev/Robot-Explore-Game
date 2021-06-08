@@ -3,11 +3,12 @@ extends Control
 export (String) var game_name = "The Best Robot Sensor Exploration Game"
 
 export(Array, Array, String) var scene_locations = [
-	["Mission_testing", "res://Environments/Mission_Testing/Mission_testing.tscn"],
+
 	["Mission 1 alpha", "res://Environments/Mission_1.tscn"],
+	["Tutorial Section", "res://Environments/TutorialSection/TutorialSection.tscn"],
 	["Cave Y Junction", "res://Environments/Cave_Y_Junction.tscn"],
 	["Testing Maze", "res://Environments/Testing_Maze.tscn"],
-
+	["Mission_testing", "res://Environments/Mission_Testing/Mission_testing.tscn"],
 ]
 
 const dialog = preload("res://Utilities/Overlays/Textbox.tscn")
