@@ -100,6 +100,7 @@ script = ExtResource( 7 )
 
 [node name="TurnOnCamera" parent="TutorialMission" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.847084, -2.05742, 6.45017 )
+visible = false
 display_text = "Turn on camera"
 disable_on_complete = true
 on_complete_dialogue = "tutorial_camera_on_complete"
@@ -107,6 +108,7 @@ next_objective_enable = NodePath("../GoToRock")
 
 [node name="GoToRock" parent="TutorialMission" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15592, -2.05742, -7.44608 )
+visible = false
 display_text = "Go to the interesting rock"
 disable_on_complete = true
 on_complete_dialogue = "tutorial_visit_rock_on_complete"
@@ -118,6 +120,7 @@ enabled = true
 
 [node name="TurnOnWhiskers" parent="TutorialMission" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.847084, -2.05742, 6.45017 )
+visible = false
 display_text = "Turn on whisker sensor"
 disable_on_complete = true
 on_complete_dialogue = "tutorial_whiskers_on_complete"
@@ -125,6 +128,7 @@ next_objective_enable = NodePath("../UseWhiskers")
 
 [node name="UseWhiskers" parent="TutorialMission" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.157, -2.05742, -7.44608 )
+visible = false
 display_text = "Use whiskers on the rock"
 disable_on_complete = true
 on_complete_dialogue = "tutorial_use_whiskers_complete"
@@ -135,26 +139,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.22535, -2.05742, -7.67036 )
 display_text = "Take a sample of the rock using a drill"
 disable_on_complete = true
 on_complete_dialogue = "tutorial_use_drill_complete"
-next_objective_enable = NodePath("../EnterCave")
 
 [node name="Trigger" parent="TutorialMission/UseDrill" instance=ExtResource( 3 )]
-transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 8, 0.754364, 0, 1.0331 )
+transform = Transform( 2.5, 0, 0, 0, 1, 0, 0, 0, 2.5, 0.874222, 0, -0.499924 )
 must_action = 2
-custom_criteria_object = NodePath("../../TutorialScripts")
-custom_criteria = "check_drill_distance"
-enabled = true
-
-[node name="EnterDarkCaveDialog" parent="TutorialMission" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9095, -0.110748, -17.3085 )
-enabled = false
-dialog = "tutorial_dark_cave_entrance"
-
-[node name="Trigger" parent="TutorialMission/EnterDarkCaveDialog" instance=ExtResource( 3 )]
-transform = Transform( 1.99997, -0.00549776, 0, 0.0109955, 0.999985, 0, 0, 0, 2, 0, -0.992286, 2.57973 )
 enabled = true
 
 [node name="EnterCave" parent="TutorialMission" instance=ExtResource( 4 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -18.1183, -0.212038, -11.4102 )
+visible = false
 display_text = "Enter the dark cave"
 disable_on_complete = true
 on_complete_dialogue = "tutorial_enter_dark_cave_complete"
@@ -165,8 +158,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532284, 0, -1.15001 )
 enabled = true
 oneshot = true
 
+[node name="DialogEnterDarkCave" parent="TutorialMission/EnterCave" instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.6044, 0.050645, -2.94915 )
+enabled = false
+dialog = "tutorial_dark_cave_entrance"
+
+[node name="Trigger" parent="TutorialMission/EnterCave/DialogEnterDarkCave" instance=ExtResource( 3 )]
+transform = Transform( 1.99997, -0.00549776, 0, 0.0109955, 0.999985, 0, 0, 0, 2, 0, -0.992286, 2.57973 )
+enabled = true
+
 [node name="TurnOnLidar" parent="TutorialMission" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.847084, -2.05742, 6.45017 )
+visible = false
 display_text = "Turn on LIDAR"
 disable_on_complete = true
 on_complete_dialogue = "tutorial_lidar_on_complete"
@@ -174,33 +177,35 @@ next_objective_enable = NodePath("../NavigateDarkCave")
 
 [node name="NavigateDarkCave" parent="TutorialMission" instance=ExtResource( 4 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -43.9765, -2.84955, -45.1968 )
+visible = false
 display_text = "Navigate dark cave"
 disable_on_complete = true
+
+[node name="DeadEndDialog" parent="TutorialMission/NavigateDarkCave" instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 13.0607, 1.58794, 26.2559 )
+enabled = false
+dialog = "tutorial_dead_end1"
+
+[node name="Trigger" parent="TutorialMission/NavigateDarkCave/DeadEndDialog" instance=ExtResource( 3 )]
+transform = Transform( 3.99994, -0.00549775, 0, 0.021991, 0.999985, 0, 0, 0, 4, -1.58501, -0.992286, 0.137535 )
+enabled = true
 
 [node name="Trigger" parent="TutorialMission/NavigateDarkCave" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532284, 1.29427, -1.15001 )
 enabled = true
 
-[node name="DeadEndDialog" parent="TutorialMission" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8551, 0.326325, 7.31493 )
-enabled = false
-dialog = "tutorial_dead_end1"
-
-[node name="Trigger" parent="TutorialMission/DeadEndDialog" instance=ExtResource( 3 )]
-transform = Transform( 3.99994, -0.00549775, 0, 0.021991, 0.999985, 0, 0, 0, 4, -1.58501, -0.992286, 0.137535 )
-enabled = true
-
-[node name="NearEndOfCaveDialog" parent="TutorialMission" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2123, 0.326325, -32.9062 )
+[node name="DialogNearEndOfCave" parent="TutorialMission/NavigateDarkCave" instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.3821, 1.58794, 6.1453 )
 enabled = false
 dialog = "tutorial_near_end_of_cave1"
 
-[node name="Trigger" parent="TutorialMission/NearEndOfCaveDialog" instance=ExtResource( 3 )]
+[node name="Trigger" parent="TutorialMission/NavigateDarkCave/DialogNearEndOfCave" instance=ExtResource( 3 )]
 transform = Transform( 1.99997, -0.00549776, 0, 0.0109955, 0.999985, 0, 0, 0, 2, 0, -0.992286, 2.57973 )
 enabled = true
 
 [node name="InterestingRock" type="RigidBody" parent="TutorialMission"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.10172, -0.748043, -8.13923 )
+mode = 1
 physics_material_override = SubResource( 2 )
 gravity_scale = 3.0
 
@@ -233,5 +238,6 @@ volume_db = -10.0
 [connection signal="on_enable" from="TutorialMission/TurnOnCamera" to="TutorialMission/TutorialScripts" method="_on_TurnOnCamera_on_enable"]
 [connection signal="on_enable" from="TutorialMission/TurnOnWhiskers" to="TutorialMission/TutorialScripts" method="_on_TurnOnWhiskers_on_enable"]
 [connection signal="on_enable" from="TutorialMission/UseWhiskers" to="TutorialMission/TutorialScripts" method="_on_UseWhisker_on_enable"]
-[connection signal="on_enable" from="TutorialMission/EnterCave" to="TutorialMission/TutorialScripts" method="_on_EnterCave_on_enable"]
+[connection signal="on_disable" from="TutorialMission/UseDrill" to="TutorialMission/TutorialScripts" method="_on_UseDrill_on_disable"]
+[connection signal="on_enable" from="TutorialMission/UseDrill" to="TutorialMission/TutorialScripts" method="_on_UseDrill_on_enable"]
 [connection signal="on_enable" from="TutorialMission/TurnOnLidar" to="TutorialMission/TutorialScripts" method="_on_TurnOnLidar_on_enable"]
