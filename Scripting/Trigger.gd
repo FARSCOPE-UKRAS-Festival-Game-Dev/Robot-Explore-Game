@@ -8,13 +8,15 @@ class_name Trigger
 const robot_action = preload("res://Robot/Robot_with_sensors.gd").robot_action
 
 export(robot_action) var must_action #Action that robot must perform
-
+export(bool) var on_trigger_action_success = true #Tell the robot is successful when this trigger is activated
+#Custom criteria function can be used to augment trigger to only trigger when the specified function returns true
 export(NodePath) var custom_criteria_object = null
 export(String) var custom_criteria = null
-
 var custom_criteria_func
+
+
 export(bool) var enabled = false setget set_enable
-export(bool) var oneshot = false
+export(bool) var oneshot = false #Oneshot triggers activate once
 
 signal on_trigger
 onready var must_see_enable = false#(must_see_enable!=null) #NOT IMPLIMENTED
@@ -55,7 +57,7 @@ func trigger():
 	
 	if meets_criteria and enabled:
 		emit_signal("on_trigger")
-		if must_action_enable:
+		if must_action_enable and on_trigger_action_success:
 			globals.robot.on_action_activated_trigger(must_action,self)
 		if oneshot:
 			set_enable(false)

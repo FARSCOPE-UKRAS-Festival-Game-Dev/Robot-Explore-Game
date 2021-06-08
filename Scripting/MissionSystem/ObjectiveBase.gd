@@ -28,10 +28,11 @@ func get_display_text():
 func set_display_text(text):
 	display_text = text
 	emit_signal("on_display_text_set",text)
+
 func set_hint_enable(value):
-	var hint = get_node_or_null("ObjectiveHint")
-	if hint != null:
-		hint.enabled = value
+	for child in get_children():
+		if child.name.match("Hint*"):
+			child.enabled = value
 
 func set_associated_dialog(value):
 
