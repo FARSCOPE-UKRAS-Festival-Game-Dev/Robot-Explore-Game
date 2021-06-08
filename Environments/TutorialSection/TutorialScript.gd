@@ -1,6 +1,6 @@
 extends Node
 
-var off_texture = preload("res://Assets/Images/Static.png")
+var off_texture = preload("res://Assets/Images/animated_static.tres")
 
 
 var robot_control_panel
@@ -8,13 +8,12 @@ var cam_panel
 var lidar_panel
 var whisker_panel
 
-var linked_dialog = ["../EnterDarkCaveDialog","../DeadEndDialog","../NearEndOfCaveDialog"]
+var drill_attempts = 0
+const robot_action = preload("res://Robot/Robot_with_sensors.gd").robot_action
+
 func _ready():
 	get_node("/root/Mission1").connect("finished_loading",self,"start_tutorial")
 
-func enabled_dialogs():
-	for dialog in linked_dialog:
-		dialog.enabled = true
 
 func start_tutorial():
 
@@ -77,14 +76,18 @@ func use_whisker_complete():
 	yield(whisker_panel,"reveal_animation_finished")
 	get_node("../UseWhiskers").complete_objective()
 
-func check_drill_distance():
-	var distance =  Globals.robot.body.global_transform.origin.distance_to(get_node("../InterestingRock").global_transform.origin)
-	print(distance)
-	if distance <= 3:
-		return true
-	Globals.queue_dialog("tutorial_drill_too_far")
-	return false
+func _on_UseDrill_on_enable():
+	Globals.robot.connect("action_failed",self,"check_drill_distance")
 	
+func _on_UseDrill_on_disable():
+	Globals.robot.disconnect("action_failed",self,"check_drill_distance")
+
+func check_drill_distance(action):
+	if action == robot_action.DRILL_SAMPLE:
+		drill_attempts+=1
+		if drill_attempts > 5:
+			Globals.queue_dialog("tutorial_drill_too_far")
+
 
 func _on_TurnOnLidar_on_enable():
 	robot_control_panel.isolate_panel("LidarPanel")
@@ -97,7 +100,9 @@ func lidar_turned_on(event):
 		robot_control_panel.remove_isolate_panel()
 		get_node("../TurnOnLidar").complete_objective()
 
-func _on_EnterCave_on_enable():
-	get_node("../EnterDarkCaveDialog").enabled = true
+
+
+
+
 
 
