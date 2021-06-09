@@ -1,6 +1,9 @@
 name: "godot-ci export"
-on: push
-
+on: 
+  push:
+    branches:
+      - release
+      
 env:
   GODOT_VERSION: 3.2.3
   EXPORT_NAME: test-project
