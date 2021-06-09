@@ -50,5 +50,5 @@ jobs:
           passphrase: ${{ secrets.PRIVATE_KEY_MICKEY_SERVER_PASSPHRASE }}
           # Remote directory to copy the file
           target: "/home/user-data/website/repo/public/game-html/"
-          strip-components: 2
+          strip_components: 2
 
