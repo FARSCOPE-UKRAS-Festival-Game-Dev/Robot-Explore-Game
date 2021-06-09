@@ -35,7 +35,7 @@ jobs:
         uses: appleboy/scp-action@master
         with:
           # Source local file path
-          source: "build/web/index.*"
+          source: "build/web/*"
           # Remote host
           host: box.mickeyhl.li
           # Remote host SSH port
