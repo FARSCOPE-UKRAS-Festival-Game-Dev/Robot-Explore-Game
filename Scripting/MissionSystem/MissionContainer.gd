@@ -23,6 +23,7 @@ func _ready():
 			objective_list.append(child)
 			child.connect("on_objective_complete",self,"on_objective_complete")
 			objective_id+=1
+
 func check_complete():
 	for objective in objective_list:
 		if not objective.complete:
@@ -39,7 +40,3 @@ func on_objective_complete(objective):
 		if on_complete_dialogue!=null:
 			#Queue dialog after final objectives dialog
 			objective.connect("on_dialog_displayed",globals,"queue_dialog",[on_complete_dialogue,])
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
