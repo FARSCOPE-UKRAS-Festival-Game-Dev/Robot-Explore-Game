@@ -33,7 +33,6 @@ func set_hint_enable(value):
 	for child in get_children():
 		if child.name.match("Hint*"):
 			child.enabled = value
-
 func set_associated_dialog(value):
 
 	for child in get_children():
@@ -73,4 +72,7 @@ func complete_objective():
 			get_node(next_objective_enable).set_enable(true)
 		if disable_on_complete:
 			set_enable(false)
-			
+
+func _ready():
+	set_hint_enable(enabled)
+	set_associated_dialog(enabled)

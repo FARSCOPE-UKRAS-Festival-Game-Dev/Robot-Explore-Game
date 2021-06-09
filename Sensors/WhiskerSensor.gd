@@ -10,7 +10,11 @@ signal whisker_sense_none
 signal touching_changed
 
 onready var sense_area = $SensorWhiskers/SenseArea
-
+func get_current_sense_obj():
+	if bodies.empty():
+		return null
+	else:
+		return bodies[0]
 func _ready():
 	type = "whiskers"
 	touching = [0, 0, 0, 0, 0, 0]
