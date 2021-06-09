@@ -40,7 +40,7 @@ jobs:
           # Source local file path
           source: "build/web/*"
           # Remote host
-          host: box.mickeyhl.li
+          host: ${{ secrets.MICKEY_REPOSITORY_URL }}
           # Remote host SSH port
           port: 22 # optional, default is 22
           # Remote host username
@@ -49,6 +49,6 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY_MICKEY_SERVER }}
           passphrase: ${{ secrets.PRIVATE_KEY_MICKEY_SERVER_PASSPHRASE }}
           # Remote directory to copy the file
-          target: "/home/user-data/website/repo/public/game-html/"
+          target: ${{ secrets.MICKEY_SERVER_WEBISTE_DIRECTORY }}
           strip_components: 2
 
