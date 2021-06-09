@@ -94,6 +94,12 @@ transform = Transform( -0.498466, 0.0755384, 0.0720032, 0.0639636, 0.876641, -0.
 [node name="smolrok10" parent="caveBody/rocksInGeneral" instance=ExtResource( 14 )]
 transform = Transform( 0.971604, -0.0893969, 0.219075, 0.134937, 0.969907, -0.202663, -0.194365, 0.226469, 0.954428, -26.9493, -6.19615, 30.1198 )
 
+[node name="smolrok11" parent="caveBody/rocksInGeneral" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3009, -4.35166, -5.81992 )
+
+[node name="smolrok12" parent="caveBody/rocksInGeneral" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.525, -4.79541, -0.369173 )
+
 [node name="floraInGeneral" type="Spatial" parent="caveBody"]
 
 [node name="mushyClump1" type="Spatial" parent="caveBody/floraInGeneral"]
