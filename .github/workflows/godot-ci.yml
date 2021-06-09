@@ -29,14 +29,22 @@ jobs:
         with:
           name: web
           path: build/web
-      # Installing rsync is needed in order to deploy to GitHub Pages. Without it, the build will fail.
-      - name: Install rsync 📚
-        run: |
-          apt-get update && apt-get install -y rsync
-      - name: Deploy to GitHub Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+      - name: SCP Upload to Mickey's Server 🚀
+        # You may pin to the exact commit or the version.
+        # uses: betanzos/scp-upload@4afbc824f4b0940d2b1ae862590033424385e3ab
+        uses: appleboy/scp-action@master
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: build/web # The folder the action should deploy.
+          # Source local file path
+          source: "index.*"
+          # Remote host
+          host: box.mickeyhl.li
+          # Remote host SSH port
+          port: 22 # optional, default is 22
+          # Remote host username
+          username: ubuntu
+          # SSH private key
+          key: ${{ secrets.PRIVATE_KEY_MICKEY_SERVER }}
+          passphrase: ${{ secrets.PRIVATE_KEY_MICKEY_SERVER_PASSPHRASE }}
+          # Remote directory to copy the file
+          target: /home/user-data/website/repo/public/game-html/
 
