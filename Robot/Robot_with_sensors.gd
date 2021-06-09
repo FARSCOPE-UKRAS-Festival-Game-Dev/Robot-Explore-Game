@@ -58,7 +58,7 @@ func do_action(action):
 	else:
 		fail_action(action)
 func fail_action(action):
-	print("action: %s didn't do anything" % action)
+	#print("action: %s didn't do anything" % action)
 	emit_signal("action_failed",action)
 func successful_action(action):
 	emit_signal("action_success",action)

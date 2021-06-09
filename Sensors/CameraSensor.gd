@@ -152,7 +152,3 @@ func can_see(object):
 			print("Raycast result %s" % inside)
 	return inside
 			
-
-
-func _on_Camera_visibility_changed():
-	draw_fullstrum()
