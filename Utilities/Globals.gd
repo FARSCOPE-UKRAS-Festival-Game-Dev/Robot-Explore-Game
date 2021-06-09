@@ -4,7 +4,7 @@ extends Node
 #### Options
 var debug_mode = true
 var show_triggers = false
-var fast_hint = true
+var fast_hint = false
 var camera_trigger_debug = false
 ##### Control Interface
 var control_panel_ui_scene_pl = preload('res://Utilities/Control_Panel_UI.tscn')
