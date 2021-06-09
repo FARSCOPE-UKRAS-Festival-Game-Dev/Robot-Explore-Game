@@ -61,7 +61,6 @@ _pressed_color = Color( 0.176471, 0.160784, 0.168627, 1 )
 
 [node name="BookOverlay" parent="." instance=ExtResource( 2 )]
 visible = false
-anchor_left = 0.13
 mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
