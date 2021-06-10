@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://git_api.gdns"
-}, {
 "base": "Control",
 "class": "Joystick",
 "language": "GDScript",
@@ -35,7 +30,6 @@ _global_script_classes=[ {
 "path": "res://Scripting/TriggeredResource.gd"
 } ]
 _global_script_class_icons={
-"GitAPI": "",
 "Joystick": "",
 "ObjectiveBase": "",
 "Trigger": "",
