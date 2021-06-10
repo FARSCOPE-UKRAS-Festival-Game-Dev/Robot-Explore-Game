@@ -47,6 +47,7 @@ _global_script_class_icons={
 config/name="Robot Explore Test 1"
 run/main_scene="res://MainMenu.tscn"
 config/icon="res://icon.png"
+config/version_tag="V0.0.1"
 
 [autoload]
 

@@ -32,7 +32,7 @@ func _ready():
 
 	for maps in scene_locations:
 		$DebugNode/MarginContainer/MapChoice.add_item(maps[0])
-
+	$VersionLabel.text = str(ProjectSettings.get("application/config/version_tag"))
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_down") and current_selection < 2:
