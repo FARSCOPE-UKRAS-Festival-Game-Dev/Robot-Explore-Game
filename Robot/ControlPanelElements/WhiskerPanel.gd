@@ -16,7 +16,7 @@ onready var display_text = $AspectRatioContainer/Panel/TextPanel/DisplayText
 
 
 var sensor_class = null
-var enabled = true
+var enabled = true setget set_enabled
 onready var redlight = load("res://Assets/Images/reddot.png")
 onready var greenlight = load("res://Assets/Images/greendot.png")
 
@@ -38,6 +38,10 @@ const MIN_KEY_POINTS = 5 #Number of keypoints is random between these limits
 const MAX_KEY_POINTS = 12
 const KEY_POINT_APPEAR_PERIOD = 1.0 # period over which keyframes MUST be displayed
 const KEYFRAME_MARGIN  = 10 # how far keyframes can get to the edge
+
+func set_enabled(value):
+	enabled = value
+	on_sense_none()
 
 func _ready():
 
@@ -85,21 +89,24 @@ func on_sense_new():
 		play_analyse_anim()
 
 func on_sense_none():
-	
-	texture_display.texture = null
-	display_text.text = ""
-	whisker_anim.stop()#stop all animations other wise previously queued animations might play on top of each over
-	whisker_anim.clear_queue()
+	if enabled:
+		texture_display.texture = null
+		display_text.text = ""
+		whisker_anim.stop()#stop all animations other wise previously queued animations might play on top of each over
+		whisker_anim.clear_queue()
+		reset_analyse_anim()
+		
 	#We could play an alternative animaiton here
 func on_touch_change():
-	var touching = sensor_class.touching
-	_render_lights_to_hud(touching)
+	if enabled:
+		var touching = sensor_class.touching
+		_render_lights_to_hud(touching)
 	
 func remove_key_points():
 	overlay_format.fill(Color(0,0,0,0))
 	texture_output.set_data(overlay_format)
 	whisker_analyse.visible = false
-
+	
 func place_key_point():
 	randomize()
 

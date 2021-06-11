@@ -1,0 +1,13 @@
+{
+	"dialog_not_found": {
+		"dialog": "ERROR - Dialog key not found!"
+	},
+	"hint_key_not_found": {
+		"dialog": "ERROR - Hint key not found! Can't reset to first hint key either",
+		"wait_time": 100,
+		"next_hint": [
+			"hint_key_not_found"
+		]
+	},
+
+}
