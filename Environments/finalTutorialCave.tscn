@@ -31,6 +31,10 @@ light_indirect_energy = 3.24
 omni_range = 15.553
 
 [node name="caveBody" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07971, -0.634594, 0.261911 )
+
+[node name="IcePlane" parent="caveBody" instance=ExtResource( 7 )]
+transform = Transform( 0.710955, 0.0515321, -0.701347, -0.0334873, 0.998661, 0.0394314, 0.70244, -0.00454773, 0.711729, -26.9419, -1.63218, 33.0986 )
 
 [node name="waterfall" parent="caveBody" instance=ExtResource( 5 )]
 transform = Transform( 0.17101, 0, 0.939693, 0, 0.5, 0, -0.469846, 0, 0.34202, -88.5187, -0.9759, 48.4053 )
@@ -44,7 +48,7 @@ transform = Transform( 0.999579, 0.0290208, 0, -0.0290208, 0.999579, 0, 0, 0, 1,
 [node name="rocksInGeneral" type="Spatial" parent="caveBody"]
 
 [node name="rock1" parent="caveBody/rocksInGeneral" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 0.993886, 0.110411, 0, -0.110411, 0.993886, 0.85813, -4.48635, 4.97057 )
+transform = Transform( 2, 0, 0, 0, 1.98777, 0.220822, 0, -0.220822, 1.98777, 0.85813, -4.48635, 4.97057 )
 
 [node name="rock2" parent="caveBody/rocksInGeneral" instance=ExtResource( 10 )]
 transform = Transform( 0.496878, 0.28459, 0.81983, -0.164187, 0.958466, -0.233206, -0.852147, -0.0187304, 0.522967, -9.31107, -4.07062, -13.6861 )
@@ -62,7 +66,13 @@ transform = Transform( 1.39658, 0.0955582, 0.0209591, -0.0978297, 1.36415, 0.299
 transform = Transform( 1.24933, -0.362296, -0.106008, 0.3422, 1.3227, 0.387021, 0, -0.375744, 1.46461, -17.3262, -4.9772, 31.5642 )
 
 [node name="rock5" parent="caveBody/rocksInGeneral" instance=ExtResource( 8 )]
-transform = Transform( 0.338823, 0.342938, 0.876123, -0.123697, 0.939358, -0.319853, -0.932683, 0, 0.360697, -50.5343, -5.5425, 12.9173 )
+transform = Transform( 0.338823, 0.342938, 0.876123, -0.123697, 0.939358, -0.319853, -0.932683, 0, 0.360697, -50.5153, -6.41402, 13.0555 )
+
+[node name="rock6" parent="caveBody/rocksInGeneral" instance=ExtResource( 10 )]
+transform = Transform( 1.92321, -0.548892, 0, 0.548892, 1.92321, 0, 0, 0, 2, -85.5538, -3.18347, 24.8323 )
+
+[node name="rock7" parent="caveBody/rocksInGeneral" instance=ExtResource( 10 )]
+transform = Transform( 0.272367, -0.0777347, -0.282443, 0.0355909, 0.391584, -0.0734517, 0.290774, 0.0248835, 0.273553, -93.411, -4.84157, 24.8323 )
 
 [node name="smolrok1" parent="caveBody/rocksInGeneral" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.5397, -5.11719, 19.0719 )
@@ -100,6 +110,63 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3009, -4.35166, -5.81992 )
 [node name="smolrok12" parent="caveBody/rocksInGeneral" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.525, -4.79541, -0.369173 )
 
+[node name="smolrok13" parent="caveBody/rocksInGeneral" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -81.151, -4.97578, 2.51895 )
+
+[node name="smolrok14" parent="caveBody/rocksInGeneral" instance=ExtResource( 13 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -112.266, -4.80107, 26.443 )
+
+[node name="smolrok15" parent="caveBody/rocksInGeneral" instance=ExtResource( 14 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -79.6961, -5.47128, 6.70578 )
+
+[node name="smolrok16" parent="caveBody/rocksInGeneral" instance=ExtResource( 14 )]
+transform = Transform( 2.97485, 0.355725, 0.15396, -0.242481, 2.63754, -1.40876, -0.302402, 1.3845, 2.64418, -99.4164, -4.84463, 15.1939 )
+
+[node name="smolrok17" parent="caveBody/rocksInGeneral" instance=ExtResource( 14 )]
+transform = Transform( -0.99798, -1.40372, -2.45634, 0.736395, 2.38602, -1.66272, 2.73162, -1.15607, -0.449166, -85.5151, -4.84463, 15.1939 )
+
+[node name="smolrok18" parent="caveBody/rocksInGeneral" instance=ExtResource( 13 )]
+transform = Transform( 1.71649, -0.20528, -1.00575, 0, 1.9596, -0.399967, 1.02648, 0.343269, 1.68181, -88.7852, -5.00382, 5.4514 )
+
+[node name="rock8" parent="caveBody/rocksInGeneral" instance=ExtResource( 10 )]
+transform = Transform( 0.127634, 0.211659, 0.434638, -0.448379, 0.219891, 0.0245876, -0.180737, -0.396041, 0.245938, -65.3275, -4.51942, 7.68972 )
+
+[node name="rock9" parent="caveBody/rocksInGeneral" instance=ExtResource( 8 )]
+transform = Transform( 0.488515, 0.105228, 0.0167286, -0.106549, 0.482457, 0.0766985, 0, -0.0785017, 0.493799, -60.7205, -5.56159, 7.48119 )
+
+[node name="rock10" parent="caveBody/rocksInGeneral" instance=ExtResource( 10 )]
+transform = Transform( -0.454359, 0, 1.11066, -0.580812, 1.02284, -0.237605, -0.946686, -0.627534, -0.38728, -93.9325, -6.74774, 30.2194 )
+
+[node name="rock15" parent="caveBody/rocksInGeneral" instance=ExtResource( 10 )]
+transform = Transform( -0.214632, -0.187134, -0.280917, -0.193604, 0.340947, -0.0792016, 0.276497, 0.0934687, -0.273519, -98.777, -5.5175, 41.5758 )
+
+[node name="rock13" parent="caveBody/rocksInGeneral" instance=ExtResource( 10 )]
+transform = Transform( -1.42161, -1.15112, -0.808666, -0.41316, 1.44061, -1.32436, 1.34474, -0.77431, -1.26179, -118.824, -6.74775, 40.4289 )
+
+[node name="rock11" parent="caveBody/rocksInGeneral" instance=ExtResource( 10 )]
+transform = Transform( 0.695052, 0.578007, 0.789184, -0.235631, 1.03853, -0.553108, -0.949411, 0.165402, 0.715025, -101.294, -6.74774, 36.4154 )
+
+[node name="rock12" parent="caveBody/rocksInGeneral" instance=ExtResource( 8 )]
+transform = Transform( 0.0133388, 0.930009, -0.367295, -0.999519, 0.00211916, -0.030933, -0.0279896, 0.367531, 0.92959, -43.3994, -9.06111, -1.73875 )
+
+[node name="smolrok20" parent="caveBody/rocksInGeneral" instance=ExtResource( 12 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -94.2155, -5.29565, 38.3181 )
+
+[node name="rock14" parent="caveBody/rocksInGeneral" instance=ExtResource( 8 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -85.3528, -5.43261, 51.21 )
+
+[node name="smolrok21" parent="caveBody/rocksInGeneral" instance=ExtResource( 14 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -107.392, -5.68373, 50.1052 )
+
+[node name="smolrok22" parent="caveBody/rocksInGeneral" instance=ExtResource( 14 )]
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -96.4436, -5.23962, 29.6874 )
+
+[node name="smolrok23" parent="caveBody/rocksInGeneral" instance=ExtResource( 12 )]
+transform = Transform( 5, 0, 0, 0, 4.04087, 2.94471, 0, -2.94471, 4.04087, -101.771, -5.61485, 29.7134 )
+
+[node name="smolrok19" parent="caveBody/rocksInGeneral" instance=ExtResource( 14 )]
+transform = Transform( 2.82149, -0.927311, 0.423441, 1.01942, 2.56657, -1.17198, 0, 1.24613, 2.72895, -58.5335, -4.50487, 2.42365 )
+
 [node name="floraInGeneral" type="Spatial" parent="caveBody"]
 
 [node name="mushyClump1" type="Spatial" parent="caveBody/floraInGeneral"]
@@ -116,6 +183,51 @@ transform = Transform( 0.111618, 0.0603936, 0.78987, -0.278714, 0.749664, -0.017
 [node name="mushroom_2" parent="caveBody/floraInGeneral/mushyClump1" instance=ExtResource( 11 )]
 transform = Transform( 0.365927, -0.197667, -0.909409, 0.0890048, 0.980137, -0.177227, 0.926378, -0.0160898, 0.376252, -32.0191, -5.52189, -3.56941 )
 
+[node name="mushyClump3" type="Spatial" parent="caveBody/floraInGeneral"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70.0036, 0, 31.2314 )
+
+[node name="mushroom_1" parent="caveBody/floraInGeneral/mushyClump3" instance=ExtResource( 11 )]
+transform = Transform( 1.39658, 0.0955582, 0.0209591, -0.0978297, 1.36415, 0.299204, 0, -0.299937, 1.36749, -31.7708, -5.52189, -3.56941 )
+
+[node name="mushroom_3" parent="caveBody/floraInGeneral/mushyClump3" instance=ExtResource( 11 )]
+transform = Transform( 0.798044, 0.0546047, 0.0119766, -0.0559027, 0.779514, 0.170974, -7.45058e-10, -0.171393, 0.781425, -31.9509, -5.52189, -4.01193 )
+
+[node name="mushroom_4" parent="caveBody/floraInGeneral/mushyClump3" instance=ExtResource( 11 )]
+transform = Transform( 0.111618, 0.0603936, 0.78987, -0.278714, 0.749664, -0.0179339, -0.741526, -0.272682, 0.125635, -31.5943, -5.52189, -3.89302 )
+
+[node name="mushroom_2" parent="caveBody/floraInGeneral/mushyClump3" instance=ExtResource( 11 )]
+transform = Transform( 0.365927, -0.197667, -0.909409, 0.0890048, 0.980137, -0.177227, 0.926378, -0.0160898, 0.376252, -32.0694, -5.64049, -3.58959 )
+
+[node name="mushyClump4" type="Spatial" parent="caveBody/floraInGeneral"]
+transform = Transform( -1.49981, 0, 0.0241369, 0, 1.5, 0, -0.0241369, 0, -1.49981, -151.498, 2.7164, 34.7121 )
+
+[node name="mushroom_1" parent="caveBody/floraInGeneral/mushyClump4" instance=ExtResource( 11 )]
+transform = Transform( 1.39658, 0.0955582, 0.0209591, -0.0978297, 1.36415, 0.299204, 0, -0.299937, 1.36749, -31.7708, -5.52189, -3.56941 )
+
+[node name="mushroom_3" parent="caveBody/floraInGeneral/mushyClump4" instance=ExtResource( 11 )]
+transform = Transform( 0.798044, 0.0546047, 0.0119766, -0.0559027, 0.779514, 0.170974, -7.45058e-10, -0.171393, 0.781425, -31.9509, -5.52189, -4.01193 )
+
+[node name="mushroom_4" parent="caveBody/floraInGeneral/mushyClump4" instance=ExtResource( 11 )]
+transform = Transform( 0.111618, 0.0603936, 0.78987, -0.278714, 0.749664, -0.0179339, -0.741526, -0.272682, 0.125635, -31.5943, -5.52189, -3.89302 )
+
+[node name="mushroom_2" parent="caveBody/floraInGeneral/mushyClump4" instance=ExtResource( 11 )]
+transform = Transform( 0.365927, -0.197667, -0.909409, 0.0890048, 0.980137, -0.177227, 0.926378, -0.0160898, 0.376252, -32.0694, -5.64049, -3.58959 )
+
+[node name="mushyClump5" type="Spatial" parent="caveBody/floraInGeneral"]
+transform = Transform( -1.49981, 0, 0.0241369, 0, 1.5, 0, -0.0241369, 0, -1.49981, -155.035, 2.7164, 44.3018 )
+
+[node name="mushroom_1" parent="caveBody/floraInGeneral/mushyClump5" instance=ExtResource( 11 )]
+transform = Transform( 1.39658, 0.0955582, 0.0209591, -0.0978297, 1.36415, 0.299204, 0, -0.299937, 1.36749, -31.7708, -5.52189, -3.56941 )
+
+[node name="mushroom_3" parent="caveBody/floraInGeneral/mushyClump5" instance=ExtResource( 11 )]
+transform = Transform( 0.798044, 0.0546047, 0.0119766, -0.0559027, 0.779514, 0.170974, -7.45058e-10, -0.171393, 0.781425, -31.9509, -5.52189, -4.01193 )
+
+[node name="mushroom_4" parent="caveBody/floraInGeneral/mushyClump5" instance=ExtResource( 11 )]
+transform = Transform( 0.111618, 0.0603936, 0.78987, -0.278714, 0.749664, -0.0179339, -0.741526, -0.272682, 0.125635, -31.5943, -5.52189, -3.89302 )
+
+[node name="mushroom_2" parent="caveBody/floraInGeneral/mushyClump5" instance=ExtResource( 11 )]
+transform = Transform( 0.365927, -0.197667, -0.909409, 0.0890048, 0.980137, -0.177227, 0.926378, -0.0160898, 0.376252, -32.0694, -5.64049, -3.58959 )
+
 [node name="mushyClump2" type="Spatial" parent="caveBody/floraInGeneral"]
 transform = Transform( 0.988478, 0.151364, 0, -0.124184, 0.810978, -0.571745, -0.0865418, 0.565157, 0.820431, -39.359, -6.42244, 3.36503 )
 
@@ -130,3 +242,15 @@ transform = Transform( 0.111618, 0.0603936, 0.78987, -0.278714, 0.749664, -0.017
 
 [node name="mushroom_2" parent="caveBody/floraInGeneral/mushyClump2" instance=ExtResource( 11 )]
 transform = Transform( 0.365927, -0.197667, -0.909409, 0.0890048, 0.980137, -0.177227, 0.926378, -0.0160898, 0.376252, -32.0191, -5.52189, -3.56941 )
+
+[node name="mushroom_5" parent="caveBody/floraInGeneral" instance=ExtResource( 11 )]
+transform = Transform( 1.39658, 0.0955582, 0.0209591, -0.0978297, 1.36415, 0.299204, 0, -0.299937, 1.36749, -92.7746, -5.52189, 23.3764 )
+
+[node name="mushroom_6" parent="caveBody/floraInGeneral" instance=ExtResource( 11 )]
+transform = Transform( 1.39658, 0.0955582, 0.0209591, -0.0978297, 1.36415, 0.299204, 0, -0.299937, 1.36749, -92.7746, -5.52189, 35.2609 )
+
+[node name="mushroom_7" parent="caveBody/floraInGeneral" instance=ExtResource( 11 )]
+transform = Transform( -2.0946, -0.150558, 0.00157238, -0.146745, 2.04623, 0.448806, -0.0337091, 0.447541, -2.05148, -115.718, -5.56644, 34.6206 )
+
+[node name="mushroom_8" parent="caveBody/floraInGeneral" instance=ExtResource( 11 )]
+transform = Transform( -2.0946, -0.150558, 0.00157238, -0.142199, 1.9853, 0.669615, -0.0494943, 0.667785, -1.99038, -99.4404, -5.56644, 14.7539 )
