@@ -27,7 +27,7 @@ onready var must_see_enable = (must_see!=null) #NOT IMPLIMENTED
 onready var must_action_enable = (must_action!=robot_action.NONE)
 onready var must_whisker_enable = (must_whisker!= null)
 onready var must_custom_enable = (custom_criteria_object!=null and custom_criteria!=null)
-
+onready var must_see_timer = $MustSeeCheckTimer
 
 var can_see = false
 var doing_action = false
@@ -57,23 +57,28 @@ func check_robot_can_see():
 
 func set_enable(value):
 	enabled = value
-	trigger()
+	if enabled:
+		trigger()
 
 func trigger():
 	var meets_criteria = in_area
 	
+	var debug_str = ""
 	if must_see_enable:
 		meets_criteria = meets_criteria and check_robot_can_see()
-	
+		debug_str += "Must See = %s " % meets_criteria
 	if must_action_enable:
 		meets_criteria = meets_criteria and doing_action
-	
+		debug_str += "Action = %s " % meets_criteria
 	if must_custom_enable:
 		meets_criteria = meets_criteria and custom_criteria_func.call_func()
-	
+		debug_str += "Custom Func = %s " % meets_criteria
 	if must_whisker_enable:
 		meets_criteria = meets_criteria and obj_whiskered
-	
+		debug_str += "Whisker = %s " % meets_criteria
+		
+	if Globals.trigger_debug and is_inside_tree():
+		print("%s Triggered! - %s" % [get_parent().name + "/" +name,debug_str])
 	if meets_criteria and enabled:
 		emit_signal("on_trigger")
 		if must_action_enable and on_trigger_action_is_success:
@@ -89,14 +94,17 @@ func _on_TriggerArea_body_entered(body):
 			var whisker_obj_info = whisker_obj.get_node_or_null("TactileInfo")
 			whisker_obj_info.connect("sensed_by_whiskers",self,"on_whisker_object_sensed")
 		trigger()
-	
+		if must_see_enable:
+			must_see_timer.start()
 
 func _on_robot_action(action):
 	if must_action_enable:
 		doing_action = action==must_action
 		trigger()
 		doing_action = false
-	
+	if must_see_enable:
+		must_see_timer.stop()
+
 func _on_TriggerArea_body_exited(body):
 	if body.get_name() == ("Robot"):
 		in_area = false

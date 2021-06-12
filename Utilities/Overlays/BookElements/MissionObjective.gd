@@ -16,8 +16,10 @@ func update_visibility(value):
 	#print("%s - visible set to: %s" % [text,str(value)])
 func set_complete(value):
 	#print("%s - set complete! to %s" %[text,str(value)])
+
 	var objective_text = get_node_or_null("HBoxContainer/ObjectiveText")
 	var objective_tick =  get_node_or_null("HBoxContainer/AspectRatioContainer/CompleteTick")
+
 	if objective_text != null and objective_tick!=null:
 		objective_text.get_node("CrossoutLine").visible = value
 		objective_tick.visible = value

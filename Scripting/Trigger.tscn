@@ -26,5 +26,8 @@ shape = SubResource( 1 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
+[node name="MustSeeCheckTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_TriggerArea_body_entered"]
 [connection signal="body_exited" from="TriggerArea" to="." method="_on_TriggerArea_body_exited"]
+[connection signal="timeout" from="MustSeeCheckTimer" to="." method="trigger"]

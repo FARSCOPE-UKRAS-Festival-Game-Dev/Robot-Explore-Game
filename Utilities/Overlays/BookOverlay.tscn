@@ -139,6 +139,7 @@ margin_right = 992.0
 margin_bottom = 312.0
 
 [node name="Sensors" type="Panel" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0

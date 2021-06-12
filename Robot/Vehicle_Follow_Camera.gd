@@ -8,6 +8,8 @@ var collision_exception = []
 export var height = 1.5
 
 func _ready():
+	if not Globals.follow_camera:
+		queue_free()
 	# Find collision exceptions for ray.
 	var node = self
 	while(node):

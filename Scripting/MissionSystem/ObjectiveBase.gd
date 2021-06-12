@@ -37,7 +37,7 @@ func set_associated_dialog(value):
 
 	for child in get_children():
 		if child.name.match("Dialog*"):
-			child.enabled = value
+			child.enabled = value 
 
 func set_enable(value):
 	enabled = value
@@ -47,8 +47,10 @@ func set_enable(value):
 		
 	else:
 		emit_signal("on_disable")
+	
 	set_hint_enable(value)
 	set_associated_dialog(value)
+	
 func display_dialog():
 	globals.queue_dialog(on_complete_dialogue)
 	emit_signal("on_dialog_displayed")

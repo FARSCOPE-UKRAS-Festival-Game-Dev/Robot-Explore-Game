@@ -1,6 +1,8 @@
 extends Spatial
 
-export(String) var first_hint_dialog_key
+const PAUSE_AFTER_DIALOG = 30
+
+export(String) var first_hint_dialog_key setget set_first_hint_dialog_key
 export(bool) var use_next_hint =  false
 
 export var enabled = true setget set_enabled
@@ -8,7 +10,6 @@ export var oneshot = false
 export var disable_timer = false
 
 var current_hint_key = ""
-var first_hint = true
 onready var hint_timer = $HintTimer
 
 var robot_in_zone = false
@@ -22,15 +23,20 @@ signal hint_dialog_finished
 #							allows hints to get processively more helpful
 #							OR alternatively allows loops of hints to be formed
 #							OR allows a large pool of possible hints to be selected from
+func set_first_hint_dialog_key(key):
+	first_hint_dialog_key = key
+	
 func set_enabled(value):
 	enabled = value
 	if enabled:
 		init_first_key()
 		set_hint_timer(current_hint_key)
-
+	elif enabled == false and hint_timer!=null:
+		hint_timer.stop()
+		
 func init_first_key():
 	if use_next_hint:
-		current_hint_key = choose_next_hint(first_hint_dialog_key)
+		choose_next_hint(first_hint_dialog_key)
 	else:
 		current_hint_key = first_hint_dialog_key
 	set_hint_timer(current_hint_key)
@@ -75,16 +81,20 @@ func choose_next_hint(hint_dialog_key):
 		print("WARNING - %s has invalid next_hint field" % current_hint_key)
 func set_hint_timer(hint_dialog_key):
 	if not disable_timer:
+		hint_timer.stop()
 		hint_timer.wait_time = get_hint_wait_period(hint_dialog_key)
 		hint_timer.start()
 
 func _ready():
 	visible = visible and Globals.show_triggers
-
 func show_hint():
+
+	if Globals.displaying_dialog:
+		set_hint_timer(current_hint_key)
+		return
+		
 	if enabled and robot_in_zone:
 		Globals.connect("dialog_finished",self,"check_dialog_finished")
-	
 		Globals.queue_dialog(current_hint_key)
 		yield(self,"hint_dialog_finished")
 		Globals.disconnect("dialog_finished",self,"check_dialog_finished")
@@ -101,6 +111,7 @@ func _on_Area_body_entered(body):
 		robot_in_zone = true
 		if not disable_timer:
 			hint_timer.connect("timeout",self,"show_hint")
+			hint_timer.paused = false
 			hint_timer.start()
 
 func _on_Area_body_exited(body):
@@ -108,5 +119,5 @@ func _on_Area_body_exited(body):
 		robot_in_zone = false
 		if not disable_timer:
 			hint_timer.disconnect("timeout",self,"show_hint")
-			hint_timer.stop()
+			hint_timer.paused = true
 

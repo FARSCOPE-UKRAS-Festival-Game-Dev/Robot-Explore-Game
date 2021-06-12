@@ -30,13 +30,15 @@ func populate_missions():
 		mission_display.set_name(mission_node.mission_name)
 		mission_display.set_description(mission_node.mission_desc)
 		mission_display.set_sub_objectives(mission_node.objective_list)
+		mission_display.update_visibility(mission_node.enabled)
 		for objective in mission_node.objective_list:
 			var objective_label = mission_display.objective_labels[objective.id]
 			objective_label.update_visibility(objective.enabled)
 			objective.connect("on_display_text_set",objective_label,"update_display_text")
 			objective.connect("on_objective_complete",objective_label,"mark_complete")
 			objective.connect("enable_changed",objective_label,"update_visibility")
-			
+		
+		mission_node.connect("enabled_changed",mission_display,"update_visibility")
 		mission_node.connect("mission_completed",mission_display,"on_mission_complete")
 		mission_node.connect("mission_completed",self,"move_completed_mission",[mission_display,])
 

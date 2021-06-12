@@ -9,12 +9,15 @@ func set_enable(value):
 	if trigger != null:
 		trigger.enabled = value
 
-func _ready():	
+func _ready():
+
 	trigger = get_node_or_null("Trigger")
+
 	if trigger != null:
 		trigger.enabled = enabled
 		trigger.connect("on_trigger",self,"_on_ObjectiveTrigger_on_trigger")
 func _on_ObjectiveTrigger_on_trigger():
 	if enabled:
+
 		complete_objective()
 

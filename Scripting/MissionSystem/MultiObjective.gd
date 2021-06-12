@@ -1,5 +1,6 @@
 extends ObjectiveBase
 
+class_name MultiObjective 
 #Objective consisting of many sub-objectives
 var objective_components
 
