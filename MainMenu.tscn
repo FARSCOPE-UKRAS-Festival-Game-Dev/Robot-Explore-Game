@@ -175,8 +175,8 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="MainMenu/MainPage/VBoxContainer/StartHBoxContainer/Option"]
-margin_left = -102.0
-margin_right = 218.0
+margin_left = -101.0
+margin_right = 219.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 76, 0 )
 custom_styles/hover = SubResource( 3 )
