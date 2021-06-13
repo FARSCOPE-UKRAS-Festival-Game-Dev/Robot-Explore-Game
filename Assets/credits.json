@@ -1,0 +1,56 @@
+{
+    "order": [
+        "RoC-Ex Robot Cave Explorer",
+        "Producers",
+        "Game Development",
+        "Game Design",
+        "Story",
+        "Modellers",
+        "Administration",
+        "With thanks to"
+    ],
+    "RoC-Ex Robot Cave Explorer": [],
+    "Producers": [
+        "Mickey Li",
+        "Julian Hird",
+        "Gabriella Miles"
+    ],
+    "Game Development": [
+        "Julian Hird",
+        "Mickey Li",
+        "Wong Weijie",
+        "Arturs Elksnis",
+        "Kirsty Aquilina",
+        "Peter Wharton",
+        "Hendrik Eichhorn",
+        "Mihai Anca"
+    ],
+    "Game Design": [
+        "Gabriella Miles",
+        "Valentina Lo Gatto",
+        "Alex Smith"
+    ],
+    "Story": [
+        "Valentina Lo Gatto"
+    ],
+    "Modellers": [
+        "Gabriella Miles",
+        "Alex Smith",
+        "Wong Weijie"
+    ],
+    "Administration": [
+        "Paul Harper",
+        "Michael Secker",
+        "Aneta Taylor",
+        "Jonathan Rossitor",
+        "Claire Asher"
+    ],
+    "With thanks to": [
+        "EPSRC",
+        "FARSCOPE",
+        "University of Bristol",
+        "University of West England",
+        "Bristol Robotics Laboratory"
+    ]
+
+}

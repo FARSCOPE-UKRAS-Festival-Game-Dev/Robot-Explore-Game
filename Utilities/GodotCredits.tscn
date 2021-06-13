@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Utilities/GodotCredits.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/Born2bSportyV2.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Images/AnimatedBackground/cave_concept.jpg" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/logo/BRL.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Images/logo/UOB.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Images/logo/UWE.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 2 )
+
+[node name="GodotCredits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0313726, 0.117647, 0.00392157, 0.670588 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logos" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureRect" parent="Logos"]
+anchor_left = 0.798067
+anchor_top = 0.729597
+anchor_right = 0.995067
+anchor_bottom = 0.846597
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureButton2" type="TextureRect" parent="Logos"]
+anchor_left = 0.797852
+anchor_top = 0.866667
+anchor_right = 0.995117
+anchor_bottom = 0.991667
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureButton3" type="TextureRect" parent="Logos"]
+anchor_left = 0.797852
+anchor_top = 0.591974
+anchor_right = 0.995117
+anchor_bottom = 0.716974
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CreditsContainer" type="Control" parent="."]
+anchor_left = 0.2
+anchor_right = 0.8
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line" type="Label" parent="CreditsContainer"]
+anchor_right = 1.0
+margin_top = 1080.0
+margin_bottom = 1094.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "Credits line"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
