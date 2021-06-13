@@ -269,8 +269,8 @@ __meta__ = {
 
 [node name="OptionPage" type="VBoxContainer" parent="MainMenu"]
 visible = false
-margin_right = 493.0
-margin_bottom = 404.0
+margin_right = 519.0
+margin_bottom = 452.0
 custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
