@@ -40,7 +40,7 @@ transform = Transform( 0.710955, 0.0515321, -0.701347, -0.0334873, 0.998661, 0.0
 transform = Transform( 0.17101, 0, 0.939693, 0, 0.5, 0, -0.469846, 0, 0.34202, -88.5187, -0.9759, 48.4053 )
 
 [node name="startCaveSnowdrift" parent="caveBody" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.168408, 0 )
+transform = Transform( 1, 0, 0, 0, 0.9, 0, 0, 0, 1, 0, -0.140368, 0 )
 
 [node name="startCaveIcePlane" parent="caveBody/startCaveSnowdrift" instance=ExtResource( 7 )]
 transform = Transform( 0.999579, 0.0290208, 0, -0.0290208, 0.999579, 0, 0, 0, 1, -1.47146, -0.598331, 0 )
