@@ -56,6 +56,8 @@ func set_sensor_classes(mapping):
 		$HUD/TemperaturePanelLeft.set_sensor_class(mapping['templeft'])
 	if 'tempright' in mapping:
 		$HUD/TemperaturePanelRight.set_sensor_class(mapping['tempright'])
+	if 'compass' in mapping:
+		$HUD/CompassPanel.set_sensor_class(mapping['compass'])
 
 func _on_toggle_background_button(button):
 	var bg = $HUD/Background
