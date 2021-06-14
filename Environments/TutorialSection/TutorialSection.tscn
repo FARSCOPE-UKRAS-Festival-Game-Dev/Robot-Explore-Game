@@ -128,7 +128,7 @@ enabled = true
 transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, 12.4071, -3.99262, -10.4526 )
 display_text = "Take a sample of the rock using a drill"
 disable_on_complete = true
-on_complete_dialogue = "tutorial_use_drill_complete"
+on_complete_dialogue = "tutorial_use_drill_complete_a"
 next_objective_enable = NodePath("../EnterCave")
 
 [node name="Trigger" parent="TutorialMission/UseDrill" instance=ExtResource( 3 )]
