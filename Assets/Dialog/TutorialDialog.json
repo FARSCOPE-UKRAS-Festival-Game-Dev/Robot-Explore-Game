@@ -10,8 +10,8 @@
 		]
 	},
 	"tutorial_start": {
-	"dialog": "It was long months, no... years of preparation that all led to this...",
-	"next_dialog": "tutorial_start2"
+		"dialog": "It was long months, no... years of preparation that all led to this...",
+		"next_dialog": "tutorial_start2"
 	},
 	"tutorial_start2": {
 		"dialog": "The research expedition: sending a robot to explore uncharted caves deep within the Himalayas! It was going to be the trip of a lifetime: the chance at new scientific discoveries... ",
