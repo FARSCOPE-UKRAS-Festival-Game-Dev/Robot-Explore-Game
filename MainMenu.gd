@@ -37,7 +37,7 @@ func _ready():
 	$VersionLabel.text = str(ProjectSettings.get("application/config/version_tag"))
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_down") and current_selection < 2:
+	if Input.is_action_just_pressed("ui_down") and current_selection < 3:
 		play_button_click()
 		current_selection += 1
 		set_current_selection(current_selection)
