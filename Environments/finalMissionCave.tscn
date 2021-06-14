@@ -1,0 +1,427 @@
+
+[gd_scene load_steps=16 format=2]
+
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Environments/LoadEnvironment.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Models/Terrain/missionCave.tscn" type="PackedScene" id=4]
+
+[ext_resource path="res://Assets/Models/Terrain/Objects/mushroom_1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Models/Terrain/Objects/rock1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Models/Terrain/Objects/rock2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Models/Terrain/Objects/rock2_large.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Models/Terrain/Objects/grass1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Models/Terrain/Objects/leafy_plant_50.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Models/Terrain/Objects/dirt_floor.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Models/Terrain/Objects/vineWall.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Models/Terrain/Objects/HotSpring/hawtsprang.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Models/Terrain/Objects/rockFlora.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/Models/Terrain/Objects/polkaShorts.tscn" type="PackedScene" id=15]
+
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 3 )
+robotScene = ExtResource( 2 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 1 )
+
+[node name="RobotStartLocation" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7003, 0, 40.4878 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13587, 1.30965, 0 )
+visible = false
+light_energy = 7.63
+omni_range = 15.1222
+
+
+[node name="hawtsprang" parent="." instance=ExtResource( 13 )]
+transform = Transform( -2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -29.3213, -1.04336, -4.06936 )
+
+[node name="cave1_15" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.5827, -1.68829, 47.7296 )
+
+[node name="mushroom_1" parent="cave1_15" instance=ExtResource( 5 )]
+transform = Transform( 0.912834, 0.40833, 0, -0.40833, 0.912834, 0, 0, 0, 1, -19.6535, -3.40112, -41.8509 )
+
+[node name="mushroom_2" parent="cave1_15" instance=ExtResource( 5 )]
+transform = Transform( 0.877315, 0.42409, 0.224648, -0.404995, 0.905378, -0.127549, -0.257484, 0.0209193, 0.966056, -19.8361, -3.12553, -41.151 )
+
+[node name="mushroom_3" parent="cave1_15" instance=ExtResource( 5 )]
+transform = Transform( 0.753501, 0.25148, -0.607449, -0.404995, 0.905378, -0.127549, 0.517895, 0.342123, 0.784051, -19.3476, -3.37544, -41.151 )
+
+[node name="mushroom_4" parent="cave1_15" instance=ExtResource( 5 )]
+transform = Transform( 0.699472, 0.437373, -0.565193, -0.590868, 0.798801, -0.113097, 0.402011, 0.413063, 0.817169, -41.1245, 0.171473, -45.6014 )
+
+[node name="rock1" parent="cave1_15" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, -22 )
+
+[node name="rock4" parent="cave1_15" instance=ExtResource( 6 )]
+transform = Transform( 0.0118144, 0.460699, -0.887478, -0.999671, 0.0256361, 0, 0.0227515, 0.887186, 0.46085, -43.4239, -5.63907, -79.5376 )
+
+[node name="rock2" parent="cave1_15" instance=ExtResource( 6 )]
+transform = Transform( 0.298108, 0, 0.954532, 0.0788439, 0.996583, -0.0246236, -0.95127, 0.0825995, 0.297089, -1.08678, -2.39478, -28.2396 )
+
+[node name="rock5" parent="cave1_15" instance=ExtResource( 6 )]
+transform = Transform( -0.332901, 0.0496036, 0.941656, -0.0667418, 0.994871, -0.0760019, -0.940597, -0.0881489, -0.327883, -49.939, -0.664747, -48.7179 )
+
+[node name="rock6" parent="cave1_15" instance=ExtResource( 6 )]
+transform = Transform( -0.877617, -0.106432, 0.467398, -0.0196464, 0.982207, 0.186771, -0.47896, 0.15473, -0.864093, -54.1463, -0.464578, -48.7818 )
+
+[node name="rock7" parent="cave1_15" instance=ExtResource( 6 )]
+transform = Transform( -0.877617, -0.106432, 0.467398, -0.0196464, 0.982207, 0.186771, -0.47896, 0.15473, -0.864093, -66.4847, -0.464578, -45.3831 )
+
+[node name="rock9" parent="cave1_15" instance=ExtResource( 6 )]
+transform = Transform( -0.599907, 0.137861, -0.788103, -0.0196464, 0.982207, 0.186771, 0.799829, 0.127528, -0.586524, -75.4302, -0.464578, -32.1627 )
+
+[node name="rock3" parent="cave1_15" instance=ExtResource( 7 )]
+transform = Transform( -0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -8.99608, -2.15142, -8.9906 )
+
+[node name="rock2_large" parent="cave1_15" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12, -2, -44 )
+
+[node name="rock2_large2" parent="cave1_15" instance=ExtResource( 8 )]
+transform = Transform( 0.534721, 0, -0.845029, 0, 1, 0, 0.845029, 0, 0.534721, -22.8209, -2.04201, -51.9619 )
+
+[node name="rock2_large3" parent="cave1_15" instance=ExtResource( 8 )]
+transform = Transform( 0.534721, 0, -0.845029, 0, 1, 0, 0.845029, 0, 0.534721, -40.7772, -2, -44.58 )
+
+[node name="rock2_large4" parent="cave1_15" instance=ExtResource( 8 )]
+transform = Transform( 0.534721, 0, -0.845029, 0, 1, 0, 0.845029, 0, 0.534721, -53.7558, -0.317539, -42.432 )
+
+[node name="rock2_large7" parent="cave1_15" instance=ExtResource( 8 )]
+transform = Transform( 0.534721, 0, -0.845029, 0, 1, 0, 0.845029, 0, 0.534721, -70.4379, -0.317539, -50.616 )
+
+[node name="rock2_large5" parent="cave1_15" instance=ExtResource( 8 )]
+transform = Transform( -0.382284, 0, -0.618713, 0, 0.529991, 0, 0.923493, 0, -0.281481, -53.0666, -0.317539, -40.0884 )
+
+[node name="rock2_large6" parent="cave1_15" instance=ExtResource( 8 )]
+transform = Transform( -0.382284, 0, -0.618713, 0, 0.529991, 0, 0.923493, 0, -0.281481, -63.9398, -0.317539, -45.4107 )
+
+[node name="grass1" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -57.7759, 0.0908146, -49.4522 )
+
+[node name="grass2" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( 0.907059, 0, 0.421004, 0, 1, 0, -0.421004, 0, 0.907059, -57.7759, 0.113416, -49.9218 )
+
+[node name="grass3" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( 0.907059, 0, 0.421004, 0, 1, 0, -0.421004, 0, 0.907059, -56.9883, 0.113416, -49.0242 )
+
+[node name="grass4" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( 0.864485, 0, 0.502658, 0, 1, 0, -0.502658, 0, 0.864485, -60.3563, 0.37286, -49.2252 )
+
+[node name="grass5" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( 0.572518, 0, 0.819892, 0, 1, 0, -0.819892, 0, 0.572518, -59.4603, 0.395462, -49.2512 )
+
+[node name="grass6" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( 0.787645, 0, 0.616129, 0, 1, 0, -0.616129, 0, 0.787645, -58.098, 0.267661, -47.0242 )
+
+[node name="grass7" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( 0.455048, 0, 0.890467, 0, 1, 0, -0.890467, 0, 0.455048, -57.214, 0.290262, -47.1724 )
+
+[node name="grass8" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( 0.371206, 0, 0.928551, 0, 1, 0, -0.928551, 0, 0.371206, -59.9907, 0.549707, -45.2556 )
+
+[node name="grass9" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( -0.0542182, 0, 0.998529, 0, 1, 0, -0.998529, 0, -0.0542182, -59.301, 0.572308, -45.8281 )
+
+[node name="grass10" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( 0.820551, 0, 0.571573, 0, 1, 0, -0.571573, 0, 0.820551, -65.1772, 0.291351, -53.5819 )
+
+[node name="grass11" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( 0.503653, 0, 0.863906, 0, 1, 0, -0.863906, 0, 0.503653, -65.4456, 0.313953, -53.9673 )
+
+[node name="grass12" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( 0.503653, 0, 0.863906, 0, 1, 0, -0.863906, 0, 0.503653, -64.2863, 0.313953, -53.681 )
+
+[node name="grass13" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( 0.422049, 0, 0.906573, 0, 1, 0, -0.906573, 0, 0.422049, -67.1648, 0.573397, -51.9208 )
+
+[node name="grass14" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( 0.0011519, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.0011519, -66.4445, 0.595999, -52.4542 )
+
+[node name="grass15" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( 0.29414, 0, 0.955762, 0, 1, 0, -0.955762, 0, 0.29414, -64.0538, 0.468198, -51.4055 )
+
+[node name="grass16" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( -0.135577, 0, 0.990767, 0, 1, 0, -0.990767, 0, -0.135577, -63.4131, 0.490799, -52.0324 )
+
+[node name="grass17" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( -0.226141, 0, 0.974095, 0, 1, 0, -0.974095, 0, -0.226141, -64.5959, 0.750244, -48.8725 )
+
+[node name="grass18" parent="cave1_15" instance=ExtResource( 9 )]
+transform = Transform( -0.615221, 0, 0.788355, 0, 1, 0, -0.788355, 0, -0.615221, -64.3572, 0.772845, -49.7364 )
+
+[node name="leafy_plant2" parent="cave1_15" instance=ExtResource( 10 )]
+transform = Transform( 0.2, 0, 0, 0, 0.197866, 0.0291372, 0, -0.0291372, 0.197866, -66.8699, 0.516895, -55.5387 )
+
+[node name="leafy_plant3" parent="cave1_15" instance=ExtResource( 10 )]
+transform = Transform( -0.0344752, 0.028701, -0.194904, 0, 0.197866, 0.0291372, 0.197006, 0.00502256, -0.0341074, -66.8699, 0.64729, -62.3779 )
+
+[node name="leafy_plant4" parent="cave1_15" instance=ExtResource( 10 )]
+transform = Transform( 0.198561, 0.020451, -0.0124581, -0.0199875, 0.198844, 0.00785164, 0.013189, -0.00655012, 0.199457, -78.2527, 1.35278, -62.3779 )
+
+[node name="leafy_plant5" parent="cave1_15" instance=ExtResource( 10 )]
+transform = Transform( 0.0870698, 0.0311361, 0.177339, -0.0330616, 0.196402, -0.0182504, -0.176991, -0.0213703, 0.0906506, -78.7395, 1.18687, -64.9254 )
+
+[node name="leafy_plant6" parent="cave1_15" instance=ExtResource( 10 )]
+transform = Transform( 0.00735173, 0.015466, 0.199266, -0.0428453, 0.194886, -0.0135455, -0.195218, -0.0421901, 0.010477, -76.7299, 1.08867, -64.9254 )
+
+[node name="dirt_floor" parent="cave1_15" instance=ExtResource( 11 )]
+
+[node name="rock8" parent="cave1_15" instance=ExtResource( 7 )]
+transform = Transform( 0.692609, 0, -0.721313, 0, 1, 0, 0.721313, 0, 0.692609, -85.9868, 0.833809, 13.5486 )
+
+[node name="rock10" parent="cave1_15" instance=ExtResource( 7 )]
+transform = Transform( -0.381414, 0, -0.296654, 0, 0.330241, 0, 0.190564, 0, -0.298698, -86.1302, 0.833809, 11.7351 )
+
+[node name="mushroom_5" parent="cave1_15" instance=ExtResource( 5 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -85.6976, 0.440556, 10.6912 )
+
+[node name="mushroom_6" parent="cave1_15" instance=ExtResource( 5 )]
+transform = Transform( -0.690491, 0, -0.404008, 0, 0.8, 0, 0.404008, 0, -0.690491, -86.1794, 0.440556, 10.6912 )
+
+[node name="rock11" parent="cave1_15" instance=ExtResource( 7 )]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -92.4905, 1.40537, 21.547 )
+
+[node name="rock12" parent="cave1_15" instance=ExtResource( 6 )]
+transform = Transform( 0.247328, -0.0364517, -4.83875e-09, -0.00807023, -0.0547573, 0.243796, -0.0355471, -0.241191, -0.0553488, -83.5798, 2.59175, 40.7752 )
+
+[node name="mushroom_7" parent="cave1_15" instance=ExtResource( 5 )]
+transform = Transform( -0.690491, 0, -0.404008, 0, 0.8, 0, 0.404008, 0, -0.690491, -85.7919, 0.285624, 10.4645 )
+
+[node name="rock13" parent="cave1_15" instance=ExtResource( 6 )]
+transform = Transform( -0.160588, -0.00448096, -0.19155, 0.191337, 0.00941586, -0.160629, 0.0100935, -0.249782, -0.0026188, -76.7073, 2.49766, 39.1041 )
+
+[node name="rock14" parent="cave1_15" instance=ExtResource( 7 )]
+transform = Transform( 0.899697, -0.238113, 0.365852, 0.255851, 0.966716, -7.62495e-09, -0.353675, 0.0936034, 0.930673, -58.9314, 0.850299, 35.3843 )
+
+[node name="dirt_floor2" parent="cave1_15" instance=ExtResource( 11 )]
+transform = Transform( 0.2, 0, 0, 0, 0.198268, 0.0262679, 0, -0.0262679, 0.198268, -65.3032, 2.11521, 28.9862 )
+
+[node name="vineWall" parent="cave1_15" instance=ExtResource( 12 )]
+transform = Transform( 3, 0, 0, 0, 3.96535, 0.131339, 0, -0.525358, 0.991337, -80.3504, 2.31334, 19.7486 )
+
+[node name="leafy_plant" parent="cave1_15" instance=ExtResource( 10 )]
+transform = Transform( 0.06, 0, 0, 0, 0.0599067, 0.00557518, 0, -0.00334511, 0.0998445, -80.5431, 0.703027, 15.9333 )
+
+[node name="polkaShorts" parent="cave1_15" instance=ExtResource( 15 )]
+transform = Transform( -0.767403, 0.264513, -0.58406, 0.111531, 0.952119, 0.28466, 0.63139, 0.153308, -0.76016, -81.1394, 1.19294, -50.7041 )
+
+[node name="fukkinVinesm8" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.525, -2, 48 )
+
+[node name="vineWall" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.99959, 0, -0.0143461, 0, 4, 0, 0.0573845, 0, 0.999897, -50.8375, 1.87653, -40.504 )
+
+[node name="vineWall2" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.99539, 0, 0.0479781, 0, 4, 0, -0.191913, 0, 0.998848, -56.5312, 1.87653, -40.3675 )
+
+[node name="vineWall3" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.80785, -0.0183447, -0.306183, 0.0389147, 3.99934, 0.0152715, 1.22425, -0.0700666, 0.95185, -55.0289, 1.87653, -41.1314 )
+
+[node name="vineWall4" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 2.82686, 0.0157186, -0.707487, 0.0389147, 3.99934, 0.0152715, 2.82972, -0.070702, 0.706561, -56.4017, 1.87653, -42.4025 )
+
+[node name="vineWall5" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 2.48442, 0.0237073, -0.783705, 0.0389147, 3.99934, 0.0152715, 3.13467, -0.0684384, 0.620945, -58.9116, 2.01385, -45.2329 )
+
+[node name="vineWall6" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 2.48442, 0.0237073, -0.783705, 0.0389147, 3.99934, 0.0152715, 3.13467, -0.0684384, 0.620945, -58.3463, 4.93949, -44.5956 )
+
+[node name="vineWall7" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.03271, 0.0103281, -0.652042, 0.0389147, 3.99934, 0.0152715, 2.6079, -0.0716881, 0.758029, -62.4322, 2.01385, -48.4499 )
+
+[node name="vineWall8" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.03271, 0.0103281, -0.652042, 0.0389147, 3.99934, 0.0152715, 2.6079, -0.0716881, 0.758029, -62.4881, 4.93949, -48.5085 )
+
+[node name="vineWall9" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.13588, 0.00741519, -0.620795, 0.0389147, 3.99934, 0.0152715, 2.48289, -0.0720477, 0.783824, -60.8864, 2.01385, -42.151 )
+
+[node name="vineWall11" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.54907, -0.00635255, -0.461254, 0.0389147, 3.99934, 0.0152715, 1.84462, -0.0721491, 0.887137, -65.0498, 2.01385, -44.477 )
+
+[node name="vineWall12" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.54907, -0.00635255, -0.461254, 0.0389147, 3.99934, 0.0152715, 1.84462, -0.0721491, 0.887137, -65.1177, 4.93949, -44.5212 )
+
+[node name="vineWall13" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.92208, -0.0261692, -0.196309, 0.0389147, 3.99934, 0.0152715, 0.784707, -0.0675354, 0.980423, -70.1509, 2.01385, -45.9164 )
+
+[node name="vineWall14" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.92208, -0.0261692, -0.196309, 0.0389147, 3.99934, 0.0152715, 0.784707, -0.0675354, 0.980423, -69.3076, 4.93949, -45.7957 )
+
+[node name="vineWall15" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.99971, -0.0384763, -0.0072338, 0.0389147, 3.99934, 0.0152715, 0.0283436, -0.0613631, 0.999857, -74.9167, 2.01385, -46.0939 )
+
+[node name="vineWall17" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.52738, -1.88538, -0.0134812, 1.88594, 3.52726, 0.0101884, 0.0283436, -0.0613631, 0.999857, -79.3489, 2.02593, -46.0939 )
+
+[node name="vineWall16" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.99971, -0.0384763, -0.0072338, 0.0389147, 3.99934, 0.0152715, 0.0283436, -0.0613631, 0.999857, -74.9972, 4.93949, -46.1025 )
+
+[node name="vineWall38" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 2.48846, 0.0236188, -0.782903, 0.0389147, 3.99934, 0.0152715, 3.13146, -0.068469, 0.621957, -65.7893, 2.01385, -39.2234 )
+
+[node name="vineWall40" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.03608, 0.0102355, -0.651063, 0.0389147, 3.99934, 0.0152715, 2.60398, -0.0717014, 0.75887, -69.314, 2.01385, -42.4359 )
+
+[node name="vineWall41" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.03608, 0.0102355, -0.651063, 0.0389147, 3.99934, 0.0152715, 2.60398, -0.0717014, 0.75887, -69.37, 4.93949, -42.4944 )
+
+[node name="vineWall26" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 1.60401, 0.0403579, -0.916022, 0.0389147, 3.99934, 0.0152715, 3.6641, -0.0601423, 0.400838, -72.6924, 2.01385, -35.1951 )
+
+[node name="vineWall27" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 1.60401, 0.0403579, -0.916022, 0.0389147, 3.99934, 0.0152715, 3.6641, -0.0601423, 0.400838, -72.7175, 4.93949, -35.2722 )
+
+[node name="vineWall28" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 2.55983, 0.0220377, -0.76839, 0.0389147, 3.99934, 0.0152715, 3.07339, -0.0689941, 0.6398, -75.7589, 2.01385, -39.5184 )
+
+[node name="vineWall29" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 2.55983, 0.0220377, -0.76839, 0.0389147, 3.99934, 0.0152715, 3.07339, -0.0689941, 0.6398, -75.1782, 4.93949, -38.895 )
+
+[node name="vineWall30" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.09517, 0.0085836, -0.633435, 0.0389147, 3.99934, 0.0152715, 2.53346, -0.0719178, 0.773645, -79.3565, 2.01385, -42.6489 )
+
+[node name="vineWall31" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.09517, 0.0085836, -0.633435, 0.0389147, 3.99934, 0.0152715, 2.53346, -0.0719178, 0.773645, -79.4139, 4.93949, -42.7062 )
+
+[node name="vineWall32" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.99887, -0.0375747, -0.0218563, 0.0389147, 3.99934, 0.0152715, 0.0868376, -0.0619193, 0.999644, -68.6948, 2.01385, -44.7312 )
+
+[node name="vineWall33" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.99887, -0.0375747, -0.0218563, 0.0389147, 3.99934, 0.0152715, 0.0868376, -0.0619193, 0.999644, -68.7753, 4.93949, -44.741 )
+
+[node name="vineWall34" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.86523, -0.053314, 0.257044, 0.0389147, 3.99934, 0.0152715, -1.02882, -0.0490251, 0.966279, -73.9071, 2.01385, -43.7688 )
+
+[node name="vineWall35" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.86523, -0.053314, 0.257044, 0.0389147, 3.99934, 0.0152715, -1.02882, -0.0490251, 0.966279, -73.0972, 4.93949, -44.0332 )
+
+[node name="vineWall36" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.60071, -0.0616279, 0.435251, 0.0389147, 3.99934, 0.0152715, -1.74166, -0.0380506, 0.90018, -78.2609, 2.01385, -41.8226 )
+
+[node name="vineWall37" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.60071, -0.0616279, 0.435251, 0.0389147, 3.99934, 0.0152715, -1.74166, -0.0380506, 0.90018, -78.3369, 4.93949, -41.7947 )
+
+[node name="vineWall18" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.54907, -0.00635255, -0.461254, 0.0389147, 3.99934, 0.0152715, 1.84462, -0.0721491, 0.887137, -65.0498, 2.01385, -50.2295 )
+
+[node name="vineWall19" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.54907, -0.00635255, -0.461254, 0.0389147, 3.99934, 0.0152715, 1.84462, -0.0721491, 0.887137, -65.1177, 4.93949, -50.2738 )
+
+[node name="vineWall20" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.92208, -0.0261692, -0.196309, 0.0389147, 3.99934, 0.0152715, 0.784707, -0.0675354, 0.980423, -70.1509, 2.01385, -51.6689 )
+
+[node name="vineWall21" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.92131, -0.0261032, -0.197267, 0.0389147, 3.99934, 0.0152715, 0.78854, -0.0675609, 0.980231, -69.3076, 4.93949, -51.5483 )
+
+[node name="vineWall39" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 1.27571, 0.0454884, -0.947711, 0.0389147, 3.99934, 0.0152715, 3.79092, -0.0563619, 0.318765, -69.8873, 2.01385, -54.05 )
+
+[node name="vineWall42" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 1.272, 0.0455435, -0.948022, 0.0389147, 3.99934, 0.0152715, 3.79216, -0.0563174, 0.317838, -69.5713, 4.93949, -53.2588 )
+
+[node name="vineWall43" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 1.27571, 0.0454884, -0.947711, 0.0389147, 3.99934, 0.0152715, 3.79092, -0.0563619, 0.318765, -70.9395, 2.01385, -57.1338 )
+
+[node name="vineWall44" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 1.272, 0.0455435, -0.948022, 0.0389147, 3.99934, 0.0152715, 3.79216, -0.0563174, 0.317838, -70.6235, 4.93949, -56.3427 )
+
+[node name="vineWall45" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 0.994103, 0.0495014, -0.968546, 0.0389147, 3.99934, 0.0152715, 3.87431, -0.0528721, 0.248365, -71.3761, 2.01385, -59.5042 )
+
+[node name="vineWall46" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 0.990316, 0.0495531, -0.968789, 0.0389147, 3.99934, 0.0152715, 3.87527, -0.0528237, 0.247418, -71.119, 4.93949, -58.692 )
+
+[node name="vineWall47" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 0.994103, 0.0495014, -0.968546, 0.0389147, 3.99934, 0.0152715, 3.87431, -0.0528721, 0.248365, -72.8682, 2.01385, -65.2178 )
+
+[node name="vineWall49" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 0.0717323, -0.00880834, -0.999837, 2.15654, 3.36873, 0.00781509, 3.36812, -2.15674, 0.0162902, -73.4988, 2.86758, -68.0596 )
+
+[node name="vineWall48" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 0.990316, 0.0495531, -0.968789, 0.0389147, 3.99934, 0.0152715, 3.87527, -0.0528237, 0.247418, -72.6111, 4.93949, -64.4057 )
+
+[node name="vineWall22" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.99971, -0.0384763, -0.0072338, 0.0389147, 3.99934, 0.0152715, 0.0283436, -0.0613631, 0.999857, -74.9167, 2.01385, -51.8464 )
+
+[node name="vineWall23" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.99971, -0.0384763, -0.0072338, 0.0389147, 3.99934, 0.0152715, 0.0283436, -0.0613631, 0.999857, -74.9972, 4.93949, -51.855 )
+
+[node name="vineWall24" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.99958, -0.0395657, 0.0106186, 0.0389147, 3.99934, 0.0152715, -0.0430709, -0.0606664, 0.999827, -79.7673, 2.01385, -51.8472 )
+
+[node name="vineWall25" parent="fukkinVinesm8" instance=ExtResource( 12 )]
+transform = Transform( 3.99958, -0.0395657, 0.0106186, 0.0389147, 3.99934, 0.0152715, -0.0430709, -0.0606664, 0.999827, -79.848, 4.93949, -51.8543 )
+
+[node name="rockFlori" type="Spatial" parent="."]
+
+[node name="rockFlora" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( 0.114311, 0.27353, 0.0459829, -0.2284, 0.121046, -0.152255, -0.157374, 0.0230061, 0.25437, 22.5036, -3.20024, -6.58768 )
+
+[node name="rockFlora2" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( 0.255298, 0.00537745, 0.157462, 0.00751573, 0.299068, -0.0223989, -0.157374, 0.0230061, 0.25437, 4.66565, 0.299473, -31.6565 )
+
+[node name="rockFlora3" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( 0.255298, 0.00537745, 0.157462, 0.00751573, 0.299068, -0.0223989, -0.157374, 0.0230061, 0.25437, 10.497, 0.446242, -9.38372 )
+
+[node name="rockFlora4" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( 0.808072, 0.181196, 0.560524, 0, 0.951519, -0.307589, -0.589084, 0.248554, 0.768896, 6.56914, -1.835, 1.6421 )
+
+[node name="rockFlora5" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( 0.317459, 0, 0, 0, 0.41785, 0, 0, 0, 0.456289, -0.460834, -1.15749, 3.36172 )
+
+[node name="rockFlora6" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( 0.317459, 0, 0, 0, 0.41785, 0, 0, 0, 0.456289, -4.8691, -1.54998, 4.30624 )
+
+[node name="rockFlora7" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( -0.848473, 0, -0.529238, 0, 1, 0, 0.529238, 0, -0.848473, -12.7926, 2.42324, -13.7794 )
+
+[node name="rockFlora8" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( -0.369912, 0.239882, -0.304449, 0, 0.891379, 0.292515, 0.230734, 0.384579, -0.488092, -12.1644, 2.35603, -12.7722 )
+
+[node name="rockFlora9" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -13.0997, -1.32318, 3.98207 )
+
+[node name="rockFlora10" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( 0.578982, 0, 0.81534, 0, 1, 0, -0.81534, 0, 0.578982, -25.0543, -1.21439, 9.17746 )
+
+[node name="rockFlora11" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( -0.323306, 0, 0.946294, 0, 1, 0, -0.946294, 0, -0.323306, -28.7816, 2.3292, 14.7284 )
+
+[node name="rockFlora13" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( -0.323306, 0, 0.946294, 0, 1, 0, -0.946294, 0, -0.323306, -38.2727, 2.3292, 17.9711 )
+
+[node name="rockFlora14" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( -0.0646613, 0, 0.189259, 0, 0.2, 0, -0.189259, 0, -0.0646613, -37.3831, 1.83606, 17.2207 )
+
+[node name="rockFlora12" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( -0.323306, 0, 0.946294, 0, 1, 0, -0.946294, 0, -0.323306, -27.4505, 1.62122, 14.3786 )
+
+[node name="rockFlora15" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -35.9972, 1.51701, 36.9582 )
+
+[node name="rockFlora16" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -38.4943, -0.388211, 59.1861 )
+
+[node name="rockFlora17" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -45.9681, -0.0728387, 69.0905 )
+
+[node name="rockFlora18" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -37.4077, 1.38858, 88.4635 )
+
+[node name="rockFlora19" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( -0.134044, 0, -0.148433, 0, 0.2, 0, 0.148433, 0, -0.134044, -28.1394, -0.0457519, 86.7211 )
+
+[node name="rockFlora20" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.5, -14.3815, -1.14629, 83.7413 )
+
+[node name="rockFlora21" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( 0.3, 0, 0, 0, 0.25001, -0.276361, 0, 0.165817, 0.416683, -13.5367, -1.04098, 84.798 )
+
+[node name="rockFlora22" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( 0.3, 0, 0, 0, 0.25001, -0.276361, 0, 0.165817, 0.416683, -13.5367, 2.45246, 87.5464 )
+

@@ -1,8 +1,13 @@
 extends Node
 
+#### Constants
+const MAIN_MENU_PATH = "res://MainMenu.tscn"
 
 #### Options
 var debug_mode = true
+var show_triggers = false
+var fast_hint = false
+var camera_trigger_debug = false
 
 ##### Control Interface
 var control_panel_ui_scene_pl = preload('res://Utilities/Control_Panel_UI.tscn')
@@ -18,14 +23,15 @@ var objective_popup
 var dialog_JSON_data
 
 var robot = null
-
+signal dialog_loaded
 signal dialog_finished
 signal all_dialog_finished
 signal options_updated 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	load_dialog_from_file()
+	var default_dialog = "res://Assets/Dialog/DefaultDialog.json"
+	load_dialog_from_file(default_dialog)
 
 func dialog_finished(dialog_key):
 	emit_signal("dialog_finished",dialog_key)
@@ -36,11 +42,33 @@ func all_dialog_finished():
 func on_options_updated():
 	emit_signal("options_updated")
 	
-func load_dialog_from_file():
+func load_dialog_from_file(file_path):
 	var file = File.new()
-	file.open("res://Assets/Dialog/dialog_JSON.json", File.READ)
-	dialog_JSON_data =  parse_json(file.get_as_text())
 	
+	file.open(file_path, File.READ)
+	var JSON_result = JSON.parse(file.get_as_text())
+	assert(JSON_result.error == OK, "Error loading JSON check format!")
+	dialog_JSON_data =  JSON_result.result
+	emit_signal("dialog_loaded")
+	
+func load_new_scene(new_scene_path):
+	get_tree().change_scene(new_scene_path)
+
+func quit_to_main_menu():
+	# Remove all missions
+	for mission_node in get_tree().get_nodes_in_group("Missions"):
+		mission_node.queue_free()
+	
+	# Remove control panel ui
+	control_panel_ui.queue_free()
+	
+	# Remove the robot
+	robot.queue_free()
+		
+	control_panel_loaded = false
+	
+	load_new_scene(MAIN_MENU_PATH)
+
 func init_control_panel():
 	if not control_panel_loaded:
 		

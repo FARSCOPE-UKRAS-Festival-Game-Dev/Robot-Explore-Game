@@ -18,6 +18,7 @@ __meta__ = {
 [node name="ControlPanel" parent="." instance=ExtResource( 2 )]
 
 [node name="Robot" parent="." instance=ExtResource( 1 )]
+collision_layer = 5
 
 [node name="ForwardCameraSensor" parent="Robot" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.727983, -0.65265 )
@@ -44,5 +45,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.292629, -0.685635 )
 
 [node name="CompassSensor" parent="Robot" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44274, 0 )
+
+[node name="SuccessActionTimeout" type="Timer" parent="."]
+one_shot = true
 
 [editable path="Robot/ForwardCameraSensor"]
