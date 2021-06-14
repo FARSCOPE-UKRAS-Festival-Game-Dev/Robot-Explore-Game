@@ -26,6 +26,7 @@ surfaces/0 = {
 }
 
 [node name="bulbPlant" type="Spatial"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
 
 [node name="_bulbPlant" type="Spatial" parent="."]
 

@@ -16,7 +16,7 @@
 [ext_resource path="res://Assets/Models/Terrain/Objects/smallRocks/smolrok1.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Assets/Models/Terrain/Objects/mushroom_1.tscn" type="PackedScene" id=19]
 
-[node name="Spatial" type="Spatial"]
+[node name="Spatial2" type="Spatial"]
 script = ExtResource( 2 )
 robotScene = ExtResource( 11 )
 

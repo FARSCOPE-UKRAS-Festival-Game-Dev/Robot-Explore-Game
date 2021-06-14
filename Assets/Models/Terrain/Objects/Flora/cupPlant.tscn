@@ -41,6 +41,7 @@ surfaces/0 = {
 }
 
 [node name="cupPlant" type="Spatial"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
 
 [node name="_cupPlant" type="Spatial" parent="."]
 

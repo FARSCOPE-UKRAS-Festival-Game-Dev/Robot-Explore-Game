@@ -33,6 +33,7 @@ surfaces/0 = {
 }
 
 [node name="spikyPlant" type="Spatial"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
 
 [node name="_spikyPlant" type="Spatial" parent="."]
 

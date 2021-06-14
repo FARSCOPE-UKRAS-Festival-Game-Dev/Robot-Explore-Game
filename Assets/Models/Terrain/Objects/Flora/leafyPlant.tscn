@@ -125,6 +125,7 @@ surfaces/0 = {
 [node name="leafyPlant" type="Spatial"]
 
 [node name="_leafyPlant" type="Spatial" parent="."]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
 
 [node name="Bigleaf" type="MeshInstance" parent="_leafyPlant"]
 transform = Transform( -0.872437, 0, -0.488727, 0, 1, 0, 0.488727, 0, -0.872437, 4.4706, 1.19142, -1.57817 )
