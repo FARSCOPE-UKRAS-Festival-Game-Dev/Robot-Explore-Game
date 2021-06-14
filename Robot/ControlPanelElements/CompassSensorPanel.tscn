@@ -21,30 +21,27 @@ shader_param/pos = 0.0
 
 [node name="CompassPanel" type="Control"]
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.061
 script = ExtResource( 3 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Marker" type="TextureRect" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -11.5
-margin_right = 11.5
-margin_bottom = 120.0
+anchor_left = 0.498
+anchor_right = 0.511
+anchor_bottom = 1.0
+margin_left = 0.0479736
+margin_right = -0.264038
 texture = ExtResource( 2 )
+expand = true
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Control" type="Control" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -500.0
-margin_top = 42.0
-margin_right = 500.0
-margin_bottom = 102.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_clip_content = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,15 +49,15 @@ __meta__ = {
 
 [node name="Coordinates" type="TextureRect" parent="Control"]
 material = SubResource( 2 )
-anchor_right = 1.0
+anchor_left = -0.162
+anchor_right = 5.24823
 anchor_bottom = 1.0
-margin_left = -152.0
-margin_right = 4248.0
+margin_left = -0.473251
 grow_horizontal = 2
 rect_pivot_offset = Vector2( 224, 622 )
 rect_clip_content = true
 texture = ExtResource( 1 )
 stretch_mode = 2
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }

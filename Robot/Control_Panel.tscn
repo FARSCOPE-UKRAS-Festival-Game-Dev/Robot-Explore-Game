@@ -96,10 +96,10 @@ margin_right = -0.444153
 margin_bottom = -6.10352e-05
 
 [node name="CompassPanel" parent="HUD" instance=ExtResource( 9 )]
-margin_left = 234.595
-margin_top = 301.942
-margin_right = 234.594
-margin_bottom = 301.942
+anchor_left = 0.0947266
+anchor_top = 0.543333
+anchor_right = 0.583984
+anchor_bottom = 0.601667
 
 [node name="ButtonContainer" type="HBoxContainer" parent="HUD"]
 anchor_left = 0.025
@@ -203,9 +203,9 @@ __meta__ = {
 }
 
 [node name="DebugTools" parent="." instance=ExtResource( 7 )]
-margin_left = 1.18921
+margin_left = 0.0667125
 margin_top = -0.420925
-margin_right = 1025.19
+margin_right = 1024.07
 margin_bottom = 599.579
 
 [connection signal="toggled" from="HUD/ButtonContainer/AspectRatioContainer/VBoxContainer/MarginContainer/OpenBookButton" to="." method="_on_OpenBookButton_toggled"]
