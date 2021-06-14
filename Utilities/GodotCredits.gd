@@ -56,7 +56,6 @@ func _process(delta):
 #				section = credits.pop_front()
 				section_header = credits_order[section_id]
 				section = [section_header.to_upper()] + credits_json[section_header]
-				print(section)
 				section_id += 1
 				curr_line = 0
 				add_line()
@@ -118,3 +117,9 @@ func _unhandled_input(event):
 		speed_up = true
 	if event.is_action_released("ui_down") and !event.is_echo():
 		speed_up = false
+
+func _on_TextureRect_button_down():
+	speed_up = true
+
+func _on_TextureRect_button_up():
+	speed_up = false
