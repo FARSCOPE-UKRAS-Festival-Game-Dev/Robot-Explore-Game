@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://Environments/LoadEnvironment.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Models/Terrain/Objects/rock1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Models/Terrain/Objects/Robot/broken_robot_parts.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Models/Terrain/Objects/Waterfall/Waterfall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Models/Terrain/Objects/rock2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Models/Terrain/Objects/Snowdrift/startCaveIcePlane.tscn" type="PackedScene" id=7]
@@ -251,3 +252,6 @@ transform = Transform( -2.0946, -0.150558, 0.00157238, -0.146745, 2.04623, 0.448
 
 [node name="mushroom_8" parent="caveBody/floraInGeneral" instance=ExtResource( 19 )]
 transform = Transform( -2.0946, -0.150558, 0.00157238, -0.142199, 1.9853, 0.669615, -0.0494943, 0.667785, -1.99038, -99.4404, -5.56644, 14.7539 )
+
+[node name="brokenRobotPart" parent="caveBody" instance=ExtResource( 4 )]
+transform = Transform( 0.144615, -0.989488, 0, -0.513246, -0.0750117, 0.854957, -0.84597, -0.12364, -0.518699, -89.5283, -6.44882, 50.1215 )

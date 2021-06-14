@@ -2,8 +2,9 @@
 
 [ext_resource path="res://Assets/Models/Terrain/Mission_1.escn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Models/Textures/Rock015_1K_Color.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Models/Textures/rockShader.material" type="Material" id=3]
+[ext_resource path="res://Assets/Models/Textures/rock15WallShader.material" type="Material" id=3]
 [ext_resource path="res://Sensors/TactileInfo.gd" type="Script" id=4]
+
 
 [node name="Mission_1" instance=ExtResource( 1 )]
 

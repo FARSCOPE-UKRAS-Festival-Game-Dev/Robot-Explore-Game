@@ -255,11 +255,13 @@ on_complete_dialogue = "tutorial_find_robot_complete"
 next_objective_enable = NodePath("../UseWhiskersRobot")
 
 [node name="Trigger" parent="TutorialMission/LocateRobot" instance=ExtResource( 3 )]
-transform = Transform( -0.261278, -0.000172732, 2.48631, 3.41084e-05, 0.5, 0.000871998, -2.48631, 2.5011e-05, -0.261278, -7.31745, -1.01015, -29.4349 )
+transform = Transform( -0.261278, -0.000172732, 2.48631, 3.41084e-05, 0.5, 0.000871998, -2.48631, 2.5011e-05, -0.261278, -1.29658, -1.01015, -24.1523 )
+visible = false
 enabled = true
 
 [node name="Hint" parent="TutorialMission/LocateRobot" instance=ExtResource( 14 )]
 transform = Transform( 15.3874, 0, 12.7535, 0, 10, 0, -7.22697, 0, 27.1542, 7.32339, 2.26176, -20.4333 )
+visible = false
 first_hint_dialog_key = "tutorial_find_robot_hint"
 
 [node name="UseWhiskersRobot" parent="TutorialMission" instance=ExtResource( 4 )]
@@ -275,7 +277,7 @@ transform = Transform( 2.65763, 0, 29.6311, 0, 10, 0, -16.791, 0, 4.68993, 9.298
 first_hint_dialog_key = "tutorial_whisker_robot_hint"
 
 [node name="Trigger" parent="TutorialMission/UseWhiskersRobot" instance=ExtResource( 3 )]
-transform = Transform( -0.479854, 0, 3.97111, 0, 1, 0, -3.97111, 0, -0.479854, -6.01525, -2.7402, 1.45891 )
+transform = Transform( -0.479854, 0, 3.97111, 0, 1, 0, -3.97111, 0, -0.479854, 4.29897, -2.7402, 14.8867 )
 must_whisker = NodePath("../../RobotPart")
 enabled = true
 
@@ -293,7 +295,7 @@ visible = false
 first_hint_dialog_key = "tutorial_photo_robot_hint"
 
 [node name="Trigger" parent="TutorialMission/PhotoRobot" instance=ExtResource( 3 )]
-transform = Transform( 2.24084, 0, 9.7457, 0, 1, 0, -9.7457, 0, 2.24084, -0.826981, -2.7402, 1.44756 )
+transform = Transform( 2.24084, 0, 9.7457, 0, 1, 0, -9.7457, 0, 2.24084, 11.879, -2.7402, 9.82986 )
 visible = false
 must_see = NodePath("../../RobotPart")
 must_action = 1
@@ -301,11 +303,13 @@ enabled = true
 
 [node name="DialogFar" parent="TutorialMission/PhotoRobot" instance=ExtResource( 8 )]
 transform = Transform( -0.98289, 0, 0.184191, 0, 1, 0, -0.184191, 0, -0.98289, 2.20919, -1.42302, 8.72472 )
+visible = false
 enabled = false
 dialog = "tutorial_photo_too_far"
 
 [node name="Trigger" parent="TutorialMission/PhotoRobot/DialogFar" instance=ExtResource( 3 )]
 transform = Transform( 19.974, 0, 0.765431, 0, 2, 0, -1.02057, 0, 14.9805, -16.3607, 0.57735, 8.14604 )
+visible = false
 must_action = 1
 on_trigger_action_is_success = false
 enabled = true
@@ -366,16 +370,19 @@ value = ExtResource( 9 )
 texture_name = "Interesting Rock"
 
 [node name="RobotPart" type="RigidBody" parent="TutorialMission"]
-transform = Transform( 1, 0, -7.4607e-14, 0, 1, 0, 7.4607e-14, 0, 1, -60.9292, -4.89439, -106.353 )
+transform = Transform( 1, 0, -7.4607e-14, 0, 1, 0, 7.4607e-14, 0, 1, -49.3574, -4.89439, -92.6129 )
+visible = false
 mode = 1
 physics_material_override = SubResource( 1 )
 gravity_scale = 3.0
 
 [node name="CollisionShape" type="CollisionShape" parent="TutorialMission/RobotPart"]
+visible = false
 shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="TutorialMission/RobotPart/CollisionShape"]
 transform = Transform( 1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0, 0, 0 )
+visible = false
 mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
 
