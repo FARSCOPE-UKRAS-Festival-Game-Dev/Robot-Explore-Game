@@ -199,3 +199,5 @@ margin_right = 1024.07
 margin_bottom = 599.579
 
 [connection signal="toggled" from="HUD/ButtonContainer/AspectRatioContainer/VBoxContainer/MarginContainer/OpenBookButton" to="." method="_on_OpenBookButton_toggled"]
+[connection signal="collect_sample_button_pressed" from="HUD/ButtonContainer/SpecialsMenu" to="." method="_on_SpecialsMenu_collect_sample_button_pressed"]
+[connection signal="drill_button_pressed" from="HUD/ButtonContainer/SpecialsMenu" to="." method="_on_SpecialsMenu_drill_button_pressed"]

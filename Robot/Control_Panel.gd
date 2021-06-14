@@ -75,4 +75,12 @@ func _on_OpenBookButton_toggled(button_pressed):
 func mark_read_book_icon(read):
 	book_btn.texture_normal =  book_read_texture if read else book_unread_texture
 
+func _on_SpecialsMenu_collect_sample_button_pressed():
+	Globals.play_sound("robot_arm", -15.0)
+	Globals.robot.viewing_camera.get_node("CameraShaker").start(2.0, 100, 0.05, 0)
+	special_menu.show_spinner_duration(2.0)
 
+func _on_SpecialsMenu_drill_button_pressed():
+	Globals.play_sound("drill_success", -15.0)
+	Globals.robot.viewing_camera.get_node("CameraShaker").start(10.0, 15, 0.2, 0)
+	special_menu.show_spinner_duration(10.0)

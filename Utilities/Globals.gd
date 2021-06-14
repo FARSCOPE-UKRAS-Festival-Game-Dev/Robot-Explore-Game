@@ -33,6 +33,7 @@ var audio_clips = {
 	"camera_snap": preload("res://Assets/Audio/effects/camera_snap.wav"),
 	"drill_success": preload("res://Assets/Audio/effects/drill_success.wav"),
 	"drill_fail": preload("res://Assets/Audio/effects/drill_fail.wav"),
+	"robot_arm": preload("res://Assets/Audio/effects/sample_arm_motion.wav"),
 	"radio_on": preload("res://Assets/Audio/effects/radio_on.wav"),
 	"radio_off": preload("res://Assets/Audio/effects/radio_end.wav"),
 	"switch_on": preload("res://Assets/Audio/effects/switch_on.wav"),
@@ -156,7 +157,7 @@ func show_new_objective_complete_popup(objective):
 	objective_popup.display_text("New Objective - "+objective.display_text)
 	robot.get_node("ControlPanel").mark_read_book_icon(false)
 
-func play_sound(sound_name, loop_sound=false, sound_position=null):
+func play_sound(sound_name, volume_db=0.0, loop_sound=false, sound_position=null):
 	# If we have a audio clip with with the name sound_name
 	if audio_clips.has(sound_name):
 		# Make a new simple audio player and set it's looping variable to the loop_sound
@@ -168,6 +169,7 @@ func play_sound(sound_name, loop_sound=false, sound_position=null):
 		created_audio.append(new_audio)
 		
 		# Send the newly created simple audio player the audio stream and sound position
+		new_audio.set_volume_db(volume_db)
 		new_audio.play_sound(audio_clips[sound_name], sound_position)
 	
 	# If we do not have an audio clip with the name sound_name, print a error message

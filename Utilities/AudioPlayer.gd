@@ -11,6 +11,8 @@ func _ready():
 
 	globals = get_node("/root/Globals")
 
+func set_volume_db(volume):
+	audio_node.set_volume_db(volume)
 
 func play_sound(audio_stream, position=null):
 	if audio_stream == null:
