@@ -7,6 +7,8 @@ onready var special_menu =  hud.get_node("ButtonContainer/SpecialsMenu")
 onready var book_unread_texture = preload("res://Assets/Images/ControlPanel/Options6_unread.png")
 onready var book_read_texture = preload("res://Assets/Images/ControlPanel/Options6.png")
 
+const CAMERA_HIGH_RES_SCENE = preload("res://Utilities/Misc/ShowHighResPhoto.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Globals.init_control_panel()
@@ -84,3 +86,9 @@ func _on_SpecialsMenu_drill_button_pressed():
 	Globals.play_sound("drill_success", -15.0)
 	Globals.robot.viewing_camera.get_node("CameraShaker").start(10.0, 15, 0.2, 0)
 	special_menu.show_spinner_duration(10.0)
+
+func _on_SpecialsMenu_take_picture_button_pressed():
+	var high_res_cam_node = CAMERA_HIGH_RES_SCENE.instance()
+	add_child(high_res_cam_node)
+	var robot_transform = Globals.robot.get_camera_transform()
+	high_res_cam_node.take_picture(robot_transform, 5.0)
