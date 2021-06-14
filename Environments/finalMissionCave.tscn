@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://Assets/Models/Terrain/Objects/Flora/cupPlant.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Assets/Models/Terrain/Objects/Flora/spikyPlant.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Assets/Models/Terrain/Objects/Flora/spiralPlant.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Assets/Models/Terrain/Objects/Flora/_bulbTactileInfo.gd" type="Script" id=21]
+[ext_resource path="res://Assets/Models/Terrain/Objects/firePit.tscn" type="PackedScene" id=22]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 3 )
@@ -59,10 +61,10 @@ transform = Transform( 0.699472, 0.437373, -0.565193, -0.590868, 0.798801, -0.11
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, -22 )
 
 [node name="rock4" parent="cave1_15" instance=ExtResource( 6 )]
-transform = Transform( 0.0118144, 0.460699, -0.887478, -0.999671, 0.0256361, 0, 0.0227515, 0.887186, 0.46085, -43.4239, -5.63907, -79.5376 )
+transform = Transform( 0.0118144, 0.460699, -0.887478, -0.999671, 0.0256361, 0, 0.0227515, 0.887186, 0.46085, -43.4239, 0.639713, -79.5376 )
 
 [node name="rock2" parent="cave1_15" instance=ExtResource( 6 )]
-transform = Transform( 0.298108, 0, 0.954532, 0.0788439, 0.996583, -0.0246236, -0.95127, 0.0825995, 0.297089, -1.08678, -2.39478, -28.2396 )
+transform = Transform( 0.298108, 0, 0.954532, 0.0788439, 0.996583, -0.0246236, -0.95127, 0.0825995, 0.297089, -1.08678, -3.02055, -28.2396 )
 
 [node name="rock5" parent="cave1_15" instance=ExtResource( 6 )]
 transform = Transform( -0.332901, 0.0496036, 0.941656, -0.0667418, 0.994871, -0.0760019, -0.940597, -0.0881489, -0.327883, -49.939, -0.664747, -48.7179 )
@@ -188,6 +190,21 @@ transform = Transform( 0.2, 0, 0, 0, 0.198268, 0.0262679, 0, -0.0262679, 0.19826
 
 [node name="polkaShorts" parent="cave1_15" instance=ExtResource( 15 )]
 transform = Transform( -0.767403, 0.264513, -0.58406, 0.111531, 0.952119, 0.28466, 0.63139, 0.153308, -0.76016, -81.1394, 1.19294, -50.7041 )
+
+[node name="rock15" parent="cave1_15" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.1099, 0.0163559, 40.0623 )
+
+[node name="rock1" parent="cave1_15/rock15" instance=ExtResource( 6 )]
+transform = Transform( 0.77609, 0, 0.630622, 0, 1, 0, -0.630622, 0, 0.77609, -5.9258, 0.178172, 16.2363 )
+
+[node name="rock16" parent="cave1_15" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.876, 0.200374, 45.5012 )
+
+[node name="rock17" parent="cave1_15" instance=ExtResource( 7 )]
+transform = Transform( 0.808093, 0, -0.589055, 0, 1, 0, 0.589055, 0, 0.808093, -46.4812, 0.200374, 36.5046 )
+
+[node name="rock18" parent="cave1_15" instance=ExtResource( 7 )]
+transform = Transform( -0.389549, 0, 0.313451, 0, 0.5, 0, -0.313451, 0, -0.389549, -50.997, 0.200374, 35.5006 )
 
 [node name="fukkinVinesm8" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.525, -2, 48 )
@@ -431,10 +448,13 @@ transform = Transform( 0.197448, 0.0318487, 0, -0.0318487, 0.197448, 0, 0, 0, 0.
 transform = Transform( 0.0240373, 0.00387726, 0.0969906, -0.0159244, 0.0987239, 2.2986e-10, -0.0957529, -0.0154451, 0.024348, -24.9989, -0.845195, -6.65573 )
 
 [node name="bulbPlant" parent="Flora of Interest" instance=ExtResource( 17 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -32.8622, -0.675425, -11.858 )
+transform = Transform( 1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -32.8622, -0.675425, -11.858 )
+
+[node name="TactileInfo2" type="Node" parent="Flora of Interest/bulbPlant"]
+script = ExtResource( 21 )
 
 [node name="bulbPlant2" parent="Flora of Interest" instance=ExtResource( 17 )]
-transform = Transform( 0.138951, -0.0425481, -0.137413, 0.0302531, 0.195422, -0.0299181, 0.140632, 0, 0.142207, -11.178, -0.977669, -9.97336 )
+transform = Transform( 1.38951, -0.425481, -1.37413, 0.302531, 1.95422, -0.299181, 1.40632, -7.00355e-07, 1.42206, -11.178, -0.977669, -9.97336 )
 
 [node name="bulbPlant4" parent="Flora of Interest" instance=ExtResource( 17 )]
 transform = Transform( 0.0414515, 0.0313747, -0.193125, -0.0265225, 0.196491, 0.0262288, 0.193851, 0.0201747, 0.0448849, -33.9846, -0.977669, -0.226826 )
@@ -443,7 +463,7 @@ transform = Transform( 0.0414515, 0.0313747, -0.193125, -0.0265225, 0.196491, 0.
 transform = Transform( 0.0621773, 0.0470621, -0.289688, -0.0397838, 0.294736, 0.0393432, 0.290777, 0.0302621, 0.0673273, -22.1235, -1.52532, 6.86241 )
 
 [node name="bulbPlant3" parent="Flora of Interest" instance=ExtResource( 17 )]
-transform = Transform( 0.10891, -0.0333492, -0.107704, 0.0123849, 0.123159, -0.025611, 0.0834165, 0.0100519, 0.0812382, -21.6295, -1.22699, -6.97891 )
+transform = Transform( 0.790676, -0.204211, -0.577173, 0.0899132, 0.971242, -0.220464, 0.605596, 0.12242, 0.786299, -21.6295, -1.22699, -6.97891 )
 
 [node name="spikyPlant" parent="Flora of Interest" instance=ExtResource( 19 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -13.6436, -0.766532, -8.77796 )
@@ -483,3 +503,6 @@ transform = Transform( 1.27474, 0, -0.790589, 0, 1, 0, 0.790589, 0, 1.27474, -21
 
 [node name="river" parent="." instance=ExtResource( 10 )]
 transform = Transform( 0.319538, 0, -0.947573, 0, 0.4, 0, 0.947573, 0, 0.319538, 30.1555, -4.66576, 3.33943 )
+
+[node name="firePit" parent="." instance=ExtResource( 22 )]
+transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.606326, -1.24882, 97.6869 )
