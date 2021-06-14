@@ -1,11 +1,14 @@
 extends Node
 
+#### Constants
+const MAIN_MENU_PATH = "res://MainMenu.tscn"
 
 #### Options
 var debug_mode = true
 var show_triggers = false
 var fast_hint = false
 var camera_trigger_debug = false
+
 ##### Control Interface
 var control_panel_ui_scene_pl = preload('res://Utilities/Control_Panel_UI.tscn')
 var control_panel_loaded = false
@@ -47,6 +50,24 @@ func load_dialog_from_file(file_path):
 	assert(JSON_result.error == OK, "Error loading JSON check format!")
 	dialog_JSON_data =  JSON_result.result
 	emit_signal("dialog_loaded")
+	
+func load_new_scene(new_scene_path):
+	get_tree().change_scene(new_scene_path)
+
+func quit_to_main_menu():
+	# Remove all missions
+	for mission_node in get_tree().get_nodes_in_group("Missions"):
+		mission_node.queue_free()
+	
+	# Remove control panel ui
+	control_panel_ui.queue_free()
+	
+	# Remove the robot
+	robot.queue_free()
+		
+	control_panel_loaded = false
+	
+	load_new_scene(MAIN_MENU_PATH)
 
 func init_control_panel():
 	if not control_panel_loaded:

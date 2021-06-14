@@ -66,9 +66,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Background"]
 position = Vector2( 512, 300 )
 frames = SubResource( 1 )
-
-frame = 1
-
 playing = true
 
 [node name="DebugNode" type="Control" parent="."]
@@ -131,10 +128,12 @@ __meta__ = {
 }
 
 [node name="MainMenu" type="MarginContainer" parent="."]
-anchor_left = 0.05
-anchor_top = 0.2
-anchor_right = 0.05
-anchor_bottom = 0.2
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 33.0
+margin_top = -272.5
+margin_right = 287.0
+margin_bottom = 272.5
 mouse_filter = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
@@ -144,12 +143,12 @@ __meta__ = {
 
 [node name="MainPage" type="VBoxContainer" parent="MainMenu"]
 margin_right = 254.0
-margin_bottom = 390.0
+margin_bottom = 545.0
 custom_constants/separation = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MainPage"]
 margin_right = 254.0
-margin_bottom = 390.0
+margin_bottom = 545.0
 custom_constants/separation = 75
 alignment = 1
 
@@ -178,8 +177,8 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="MainMenu/MainPage/VBoxContainer/StartHBoxContainer/Option"]
-margin_left = -102.0
-margin_right = 218.0
+margin_left = -101.0
+margin_right = 219.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 76, 0 )
 custom_styles/hover = SubResource( 3 )
@@ -230,10 +229,50 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExitHBoxContainer" type="HBoxContainer" parent="MainMenu/MainPage/VBoxContainer"]
+[node name="CreditsHBoX" type="HBoxContainer" parent="MainMenu/MainPage/VBoxContainer"]
 margin_top = 310.0
 margin_right = 254.0
 margin_bottom = 390.0
+
+[node name="Selector" type="Label" parent="MainMenu/MainPage/VBoxContainer/CreditsHBoX"]
+margin_right = 35.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 11, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = ">"
+
+[node name="Option" type="Label" parent="MainMenu/MainPage/VBoxContainer/CreditsHBoX"]
+margin_left = 39.0
+margin_right = 254.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 76, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="MainMenu/MainPage/VBoxContainer/CreditsHBoX/Option"]
+margin_left = -94.0
+margin_right = 226.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 76, 0 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = ExtResource( 3 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitHBoxContainer" type="HBoxContainer" parent="MainMenu/MainPage/VBoxContainer"]
+margin_top = 465.0
+margin_right = 254.0
+margin_bottom = 545.0
 
 [node name="Selector" type="Label" parent="MainMenu/MainPage/VBoxContainer/ExitHBoxContainer"]
 margin_right = 35.0
@@ -271,8 +310,8 @@ __meta__ = {
 
 [node name="OptionPage" type="VBoxContainer" parent="MainMenu"]
 visible = false
-margin_right = 493.0
-margin_bottom = 404.0
+margin_right = 519.0
+margin_bottom = 545.0
 custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
@@ -381,5 +420,6 @@ __meta__ = {
 
 [connection signal="pressed" from="MainMenu/MainPage/VBoxContainer/StartHBoxContainer/Option/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MainMenu/MainPage/VBoxContainer/OptionsHBoxContainer/Option/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="MainMenu/MainPage/VBoxContainer/CreditsHBoX/Option/Button4" to="." method="_on_Button4_pressed"]
 [connection signal="pressed" from="MainMenu/MainPage/VBoxContainer/ExitHBoxContainer/Option/Button3" to="." method="_on_Button3_pressed"]
 [connection signal="pressed" from="MainMenu/OptionPage/BackButtonLabel/BackButton" to="." method="_on_BackButton_pressed"]

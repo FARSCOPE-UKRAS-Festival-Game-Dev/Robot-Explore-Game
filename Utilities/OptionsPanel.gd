@@ -2,7 +2,6 @@ extends MarginContainer
 
 signal options_updated
 
-onready var globals = get_node('/root/Globals')
 onready var font = load("res://Assets/Fonts/NormalTextFont.tres")
 func _on_FontSlider_value_changed(value):
 	
@@ -14,11 +13,19 @@ func _on_VolumeSlider_value_changed(value):
 func _ready():
 	$GridContainer/VolumeSlider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	$GridContainer/FontSlider.value = font.size
-	$GridContainer/Debug_tools.pressed = globals.debug_mode
-
+	$GridContainer/Debug_tools.pressed = Globals.debug_mode
+	
+	if get_tree().get_current_scene().get_name() == "MainMenu":
+		$GridContainer/QuitButton.visible = false
+		
 func _on_Debug_tools_toggled(button_pressed):
-	globals.debug_mode = button_pressed
+	Globals.debug_mode = button_pressed
 	
 
 func _on_OptionsPanel_visibility_changed():
-	globals.on_options_updated()
+	Globals.on_options_updated()
+
+
+func _on_QuitButton_pressed():
+	Globals.quit_to_main_menu()
+	pass # Replace with function body.
