@@ -115,6 +115,7 @@ func load_dialog_from_file(file_path):
 	emit_signal("dialog_loaded")
 	
 func goto_scene(path):
+	#	Refer to https://docs.godotengine.org/en/stable/tutorials/io/background_loading.html
 	var loading_scene = LOADING_ANIMATION.instance()
 	loading_scene.name = 'animation'
 	add_child(loading_scene)
