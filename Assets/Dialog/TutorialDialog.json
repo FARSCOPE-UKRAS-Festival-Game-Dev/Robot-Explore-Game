@@ -10,23 +10,19 @@
 		]
 	},
 	"tutorial_start": {
-		"dialog": "You (an esteemed roboticist) have been selected to accompany a team of biologists and anthropologists on an expedition to the foothills of the Himalayas and aid them in their goal to prove the theories - long foretold by Jules Verne – that a mythical lost world lies underneath the Earth’s surface. ",
+		"dialog": "It was long months, no... years of preparation that all led to this...",
 		"next_dialog": "tutorial_start2"
 	},
 	"tutorial_start2": {
-		"dialog": "Initial studies have led to the discovery of a possible entrance opening onto a cave system, but the environment looks dangerous and very treacherous. ",
+		"dialog": "The research expedition: sending a robot to explore uncharted caves deep within the Himalayas! It was going to be the trip of a lifetime: the chance at new scientific discoveries... ",
 		"next_dialog": "tutorial_start3"
 	},
 	"tutorial_start3": {
-		"dialog": "And that is precisely why you have been recruited! You will lend your expertise and assemble a robot that will have the perilous task to scout the environment, performing a first collection of data and samples, before the scientists could follow safely. ",
+		"dialog": "But two days ago... disaster struck. Connection with the robot was lost, and with it all the data collected on the expedition. That's where you come in: you've managed to assemble a secondary robot from spare parts and scrap metal. Now, the team is counting on you to salvage the mission. ",
 		"next_dialog": "tutorial_start4"
 	},
 	"tutorial_start4": {
-		"dialog": "To do so, you have brought along a series of sensors that will be equipped onto your robot and that will help it navigate and explore the caverns, and hopefully collect mineral and biological specimen never seen before, relics of eons past. ",
-		"next_dialog": "tutorial_start5"
-	},
-	"tutorial_start5": {
-		"dialog": "In the last week you reached base camp and two days ago you made a first attempt at exploring the caves. Unfortunately, after a while, you lost connection with the robot and it is now missing. Luckily, you brought a twin robot and spare sensors, so hope is not lost! You are now set up in your own robotics lab-tent finishing assembling the second scout that will start its mission on the morrow… "
+		"dialog": "How to do that? Journey through the cave system in search of the robot, and retrieve its memory core.  Oh, and along the way... document information about any unusual specimens you might come across, just in case the memory core is corrupted. ",
 	},
 	"tutorial_camera_on_start1": {
 		"dialog": "Testing testing, can you hear me?",
