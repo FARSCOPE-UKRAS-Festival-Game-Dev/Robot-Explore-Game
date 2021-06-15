@@ -28,6 +28,27 @@ signal dialog_finished
 signal all_dialog_finished
 signal options_updated 
 
+#### Sound
+var audio_clips = {
+	"camera_snap": preload("res://Assets/Audio/effects/camera_snap.wav"),
+	"drill_success": preload("res://Assets/Audio/effects/drill_success.wav"),
+	"drill_fail": preload("res://Assets/Audio/effects/drill_fail.wav"),
+	"robot_arm": preload("res://Assets/Audio/effects/sample_arm_motion.wav"),
+	"radio_on": preload("res://Assets/Audio/effects/radio_on.wav"),
+	"radio_off": preload("res://Assets/Audio/effects/radio_end.wav"),
+	"switch_on": preload("res://Assets/Audio/effects/switch_on.wav"),
+	"switch_off": preload("res://Assets/Audio/effects/switch_off.wav"),
+	"warning_sound": preload("res://Assets/Audio/effects/warning_sound.wav")
+}
+
+# The simple audio player scene
+const SIMPLE_AUDIO_PLAYER_SCENE = preload("res://Utilities/AudioPlayer.tscn")
+
+# A list to hold all of the created audio nodes
+var created_audio = []
+
+# ------------------------
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var default_dialog = "res://Assets/Dialog/DefaultDialog.json"
@@ -52,6 +73,12 @@ func load_dialog_from_file(file_path):
 	emit_signal("dialog_loaded")
 	
 func load_new_scene(new_scene_path):
+	# Delete all of the sounds
+	for sound in created_audio:
+		if (sound != null):
+			sound.queue_free()
+	created_audio.clear()
+	
 	get_tree().change_scene(new_scene_path)
 
 func quit_to_main_menu():
@@ -129,6 +156,25 @@ func show_objective_complete_popup(objective):
 func show_new_objective_complete_popup(objective):
 	objective_popup.display_text("New Objective - "+objective.display_text)
 	robot.get_node("ControlPanel").mark_read_book_icon(false)
+
+func play_sound(sound_name, volume_db=0.0, loop_sound=false, sound_position=null):
+	# If we have a audio clip with with the name sound_name
+	if audio_clips.has(sound_name):
+		# Make a new simple audio player and set it's looping variable to the loop_sound
+		var new_audio = SIMPLE_AUDIO_PLAYER_SCENE.instance()
+		new_audio.should_loop = loop_sound
+		
+		# Add it as a child and add it to created_audio
+		add_child(new_audio)
+		created_audio.append(new_audio)
+		
+		# Send the newly created simple audio player the audio stream and sound position
+		new_audio.set_volume_db(volume_db)
+		new_audio.play_sound(audio_clips[sound_name], sound_position)
+	
+	# If we do not have an audio clip with the name sound_name, print a error message
+	else:
+		print ("ERROR: cannot play sound that does not exist in audio_clips!")
 
 func play_audio_radio_on():
 	dialog_popup.audio_radio_on.play()

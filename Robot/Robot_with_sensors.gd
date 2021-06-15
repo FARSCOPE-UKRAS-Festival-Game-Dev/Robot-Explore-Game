@@ -73,3 +73,6 @@ func successful_action(action):
 			
 func on_action_activated_trigger(action,trigger):
 	success_flag = true
+
+func get_camera_transform():
+	return $Robot/ForwardCameraSensor/Body/CameraPosition.global_transform

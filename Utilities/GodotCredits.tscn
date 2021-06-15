@@ -81,7 +81,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="TextureRect" type="TextureButton" parent="Logos"]
+[node name="DownArrow" type="TextureButton" parent="."]
 anchor_left = 0.800781
 anchor_top = 0.656667
 anchor_right = 0.992188
@@ -115,5 +115,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="button_down" from="Logos/TextureRect" to="." method="_on_TextureRect_button_down"]
-[connection signal="button_up" from="Logos/TextureRect" to="." method="_on_TextureRect_button_up"]
+[connection signal="button_down" from="DownArrow" to="." method="_on_TextureRect_button_down"]
+[connection signal="button_up" from="DownArrow" to="." method="_on_TextureRect_button_up"]

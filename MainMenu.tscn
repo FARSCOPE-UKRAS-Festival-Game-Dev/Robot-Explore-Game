@@ -1,16 +1,14 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Fonts/Born2bSportyV2.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Fonts/Born2bSportyV2.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Assets/Images/cave_concept.jpg" type="Texture" id=4]
-[ext_resource path="res://Assets/Audio/music/main_menu_background.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Images/AnimatedBackground/1.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Images/AnimatedBackground/3.png" type="Texture" id=7]
 [ext_resource path="res://Utilities/OptionsPanel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Images/AnimatedBackground/2.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Fonts/NormalTextFont.tres" type="DynamicFont" id=10]
-[ext_resource path="res://Assets/Audio/effects/switch_on.wav" type="AudioStream" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -66,6 +64,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Background"]
 position = Vector2( 512, 300 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="DebugNode" type="Control" parent="."]
@@ -391,14 +390,6 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-volume_db = -20.0
-autoplay = true
-
-[node name="ButtonClickAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
 
 [node name="VersionLabel" type="Label" parent="."]
 anchor_left = 1.0

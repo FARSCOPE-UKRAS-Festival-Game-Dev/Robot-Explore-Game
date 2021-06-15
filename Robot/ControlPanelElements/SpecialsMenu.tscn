@@ -167,6 +167,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Spinner" type="MarginContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/MarginContainer/OpenSpecialsButton"]
+anchor_left = 0.742857
+anchor_top = 0.0357143
+anchor_right = 0.971429
+anchor_bottom = 0.235714
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="ButtonToggleOnAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -10.0
