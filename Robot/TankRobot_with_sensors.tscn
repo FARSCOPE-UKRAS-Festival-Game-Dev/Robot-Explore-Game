@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Robot/TankDriveRobot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Robot/Control_Panel.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sensors/LidarSensor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Robot/Robot_with_sensors.gd" type="Script" id=6]
 [ext_resource path="res://Sensors/TemperatureSensor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sensors/CompassSensor.tscn" type="PackedScene" id=8]
 
 [node name="TankRobot_with_sensors" type="Spatial"]
 script = ExtResource( 6 )
@@ -41,6 +42,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -0.5 )
 
 [node name="WhiskerSensor" parent="Robot" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.292629, -0.685635 )
+
+[node name="CompassSensor" parent="Robot" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44274, 0 )
 
 [node name="SuccessActionTimeout" type="Timer" parent="."]
 one_shot = true

@@ -30,7 +30,8 @@ func _ready():
 		'lidar': $Robot/Lidar,
 		'templeft': $Robot/TempLeft,
 		'tempright': $Robot/TempRight,
-		'whisker': $Robot/WhiskerSensor
+		'whisker': $Robot/WhiskerSensor,
+		'compass': $Robot/CompassSensor
 	})
 	
 	$ControlPanel.special_menu.connect("drill_button_pressed",self,"drill_sample")
@@ -78,3 +79,6 @@ func successful_action(action):
 			
 func on_action_activated_trigger(action,trigger):
 	success_flag = true
+
+func get_camera_transform():
+	return $Robot/ForwardCameraSensor/Body/CameraPosition.global_transform

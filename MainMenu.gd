@@ -13,11 +13,13 @@ export(Array, Array, String) var scene_locations = [
 ]
 
 const dialog = preload("res://Utilities/Overlays/Textbox.tscn")
+const CREDITS_SCENE = "res://Utilities/GodotCredits.tscn"
 
 onready var globals = get_node('/root/Globals')
 onready var selector_one = $MainMenu/MainPage/VBoxContainer/StartHBoxContainer/Selector
 onready var selector_two = $MainMenu/MainPage/VBoxContainer/OptionsHBoxContainer/Selector
-onready var selector_three = $MainMenu/MainPage/VBoxContainer/ExitHBoxContainer/Selector
+onready var selector_three = $MainMenu/MainPage/VBoxContainer/CreditsHBoX/Selector
+onready var selector_four = $MainMenu/MainPage/VBoxContainer/ExitHBoxContainer/Selector
 onready var main_menu = $MainMenu/MainPage
 
 var current_selection = 0
@@ -36,31 +38,30 @@ func _ready():
 	$VersionLabel.text = str(ProjectSettings.get("application/config/version_tag"))
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_down") and current_selection < 2:
-		play_button_click()
+	if Input.is_action_just_pressed("ui_down") and current_selection < 3:
+		Globals.play_sound('switch_on')
 		current_selection += 1
 		set_current_selection(current_selection)
 	elif Input.is_action_just_pressed("ui_up") and current_selection > 0:
-		play_button_click()
+		Globals.play_sound('switch_on')
 		current_selection -= 1
 		set_current_selection(current_selection)
 	elif Input.is_action_just_pressed("ui_accept"):
+		Globals.play_sound('switch_off')
 		if not in_options:
 			handle_selection(current_selection)
 		else:
 			hide_options()# Not implimenting options via keyboard atm
 
 func handle_selection(_current_selection):
-	play_button_click()
+	Globals.play_sound('switch_on')
 	if _current_selection == 0:
-		get_tree().change_scene(scene_locations[$DebugNode/MarginContainer/MapChoice.get_selected_id()][1])
-		#get_parent().add_child(scene.instance())
-		#queue_free()
+		Globals.load_new_scene(scene_locations[$DebugNode/MarginContainer/MapChoice.get_selected_id()][1])
 	elif _current_selection == 1:
 		show_options()
 	elif _current_selection == 2:
-		if $ButtonClickAudio.playing:
-			yield($ButtonClickAudio, "finished")
+		get_tree().change_scene(CREDITS_SCENE)
+	elif _current_selection == 3:
 		get_tree().quit()
 
 func set_current_selection(_current_selection):
@@ -68,6 +69,7 @@ func set_current_selection(_current_selection):
 		selector_one.text = ""
 		selector_two.text = ""
 		selector_three.text = ""
+		selector_four.text = ""
 
 		if _current_selection == 0:
 			selector_one.text = ">"
@@ -75,6 +77,8 @@ func set_current_selection(_current_selection):
 			selector_two.text = ">"
 		elif _current_selection == 2:
 			selector_three.text = ">"
+		elif _current_selection == 3:
+			selector_four.text = ">"
 
 func show_options():
 	in_options = true
@@ -94,15 +98,15 @@ func _on_Button2_pressed():
 	current_selection = 1
 	handle_selection(current_selection)
 
+func _on_Button3_pressed(): # Actually the exit button
+	current_selection = 3 
+	handle_selection(current_selection)
 
-func _on_Button3_pressed():
+func _on_Button4_pressed(): # Actually the credits button
 	current_selection = 2
 	handle_selection(current_selection)
 
 func _on_BackButton_pressed():
-	play_button_click()
+	Globals.play_sound('switch_off')
 	hide_options()
 
-func play_button_click():
-	$ButtonClickAudio.play()
-	yield($ButtonClickAudio, "finished")
