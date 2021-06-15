@@ -22,10 +22,10 @@
 		"next_dialog": "tutorial_start4"
 	},
 	"tutorial_start4": {
-		"dialog": "How to do that? Journey through the cave system in search of the robot, and retrieve its memory core.  Oh, and along the way... document information about any unusual specimens you might come across, just in case the memory core is corrupted. ",
+		"dialog": "How to do that? Remotely operating your robot, journey through the cave system in search of the missing robot, and retrieve its memory core.  Oh, and along the way... document information about any unusual specimens you might come across, just in case the memory core is corrupted. ",
 	},
 	"tutorial_camera_on_start1": {
-		"dialog": "Testing testing, can you hear me?",
+		"dialog": "Testing... testing... can you hear me?",
 		"next_dialog": "tutorial_camera_on_start2"
 	},
 	"tutorial_camera_on_start2": {
@@ -37,7 +37,7 @@
 		"next_dialog": "tutorial_camera_on_start4"
 	},
 	"tutorial_camera_on_start4": {
-		"dialog": "Well... Let's turn the camera on and see what's happening.",
+		"dialog": "Well... let's turn the camera on and see what's happening.",
 		"next_dialog": "tutorial_camera_on_start5"
 	},
 
@@ -45,11 +45,11 @@
 		"dialog": "Click/Tap the camera control panel to turn it on!"
 	},
 	"tutorial_camera_on_complete": {
-		"dialog": "Excellent, all systems are operational. Let’s test out the controls and double-check that the steering system is working okay as well. Head towards the closest rock"
+		"dialog": "Excellent, we have a clear picture. Let’s double-check the steering system is operational as well. Use the joystick to head towards the closest rock."
 	},
-	
+
 	"tutorial_visit_rock_on_complete": {
-		"dialog": "Let’s double check the whiskers are working correctly, by analysing this material."
+		"dialog": "While we're here we should check the whiskers weren't damaged getting the robot into the cave. See if you can turn them on. "
 	},
 	"tutorial_visit_rock_hint": {
 		"dialog": "Let's test our sensors on that interesting rock",
@@ -59,34 +59,34 @@
 		]
 	},
 	"tutorial_whiskers_on_complete": {
-		"dialog": "Great, the sensor is online, let’s get closer to the rock"
+		"dialog": "Great, the whiskers are online. Let's check they're operational by analysing this rock surface. Make sure you drive close enough to touch it, the whiskers aren't very long. "
 	},
 	"tutorial_use_whiskers_hint1": {
-		"dialog": "We should check what material this rock is using the whisker sensor.",
+		"dialog": "We should check what material this rock is using the whiskers.",
 		"wait_time": 60,
 		"next_hint": [
 			"tutorial_use_whiskers_hint2"
 		]
 	},
 	"tutorial_use_whiskers_hint2": {
-		"dialog": "The whiskers sense material infront of the robot. Drive really close to the rock to sense it",
+		"dialog": "The whiskers sense material directly in front of the robot. See if you can get closer to the rock.",
 		"wait_time": 60,
 		"next_hint": [
 			"tutorial_use_whiskers_hint1"
 		]
 	},
 	"tutorial_use_whiskers_complete": {
-		"dialog": "Our sensor indicates that this is MATERIAL #1  – it would be great to get a sample of this. Use the drill to collect a sample.."
+		"dialog": "Am I reading that correctly!? That rock is made of MATERIAL #1!? We can't leave without it! Can you grab us a sample using the drill?"
 	},
 	"tutorial_drill_fail": {
-		"dialog": "I think you're too far from the rock to collect the sample",
+		"dialog": "I think you're too far from the rock to collect the sample.",
 		"next_dialog": "tutorial_drill_failb"
 	},
 	"tutorial_drill_failb": {
-		"dialog": "You'll need to be really close for the drill to work"
+		"dialog": "You'll need to be really close to the rock for the drill to work."
 	},
 	"tutorial_drill_hint1": {
-		"dialog": "Drilling can be used to take samples of rocks, such as that interesting one we spotted earlier",
+		"dialog": "Drilling can be used to take samples of rocks. Try collecting a sample from the rock we saw earlier.",
 		"wait_time": 60,
 		"next_hint": [
 			"tutorial_drill_hint1",
@@ -95,7 +95,7 @@
 		]
 	},
 	"tutorial_drill_hint2": {
-		"dialog": "To collect the sample we'll need to be really close and use the robot's drill",
+		"dialog": "To collect the sample we'll need to be really close and use the robot's drill.",
 		"wait_time": 60,
 		"next_hint": [
 			"tutorial_drill_hint1",
@@ -104,7 +104,7 @@
 		]
 	},
 	"tutorial_drill_hint3": {
-		"dialog": "The drill can be activated from the special actions menu",
+		"dialog": "The drill can be activated from the special actions menu. This is located to the left of the whiskers.",
 		"next_dialog": "tutorial_drill_hint3b",
 		"wait_time": 60,
 		"next_hint": [
@@ -114,58 +114,58 @@
 		]
 	},
 	"tutorial_drill_hint3b": {
-		"dialog": "You'll need to be close to the object you're trying to drill"
+		"dialog": "You'll need to be close to the object you're trying to drill."
 	},
-	"tutorial_use_drill_complete": {
-		"dialog": "Initial explorations found a path of caverns and tunnels leading from here deeper into the cave system. That tunnel over there looks like a good place to start - let's drive over and see if we can see anything."
+	"tutorial_use_drill_complete_a": {
+		"dialog": "Great, can't wait to get this back to the lab! Speaking of which, I guess we should take a look for that robot? Our initial explorations found a network of caverns and tunnels leading deeper into the cave system. If you're ready to take a look you, can head towards the tunnel over there."
 	},
 	"tutorial_gate_leave_attempt": {
-		"dialog": "We need to get our systems online before we go exploring the rest of the cave"
+		"dialog": "We need to get our systems online before we go exploring the rest of the cave."
 	},
 	"tutorial_gate_doing_rock": {
-		"dialog": "Let's check out this interesting rock first"
+		"dialog": "Let's check out this interesting rock first."
 	},
 	"tutorial_gate_doing_whiskers": {
-		"dialog": "The rock looked interesting, let's see what our tactile whiskers say its made of"
+		"dialog": "The rock looked interesting, let's see what our tactile whiskers say its made of."
 	},
 	"tutorial_gate_doing_drill": {
-		"dialog": "We should collect a sample of that rock before we go"
+		"dialog": "We should collect a sample of that rock before we go."
 	},
 	"tutorial_dark_cave_entrance": {
-		"dialog": "The cave continues this way. Let’s take a look inside"
+		"dialog": "This was definitely the tunnel the first robot was supposed to investigate. "
 	},
 	"tutorial_enter_dark_cave_complete": {
-		"dialog": "The tunnel keeps getting darker! The camera alone might not be sufficient! Luckily we have more sensors onboard – the LIDAR is designed to help with low-light conditions and dead ends. Let’s switch it on now."
+		"dialog": "It's getting darker and darker: let's switch on the LIDAR. It should help you to navigate in low-light conditions and identify dead ends. "
 	},
 	"tutorial_lidar_on_complete": {
-		"dialog": "The LIDAR is managing to detect the walls though, so maybe if we drive carefully, and use the information on the LIDAR screen we can get to the other side"
+		"dialog": "The LIDAR can detect walls and other obstacles, which are displayed in green on the LIDAR screen. Let's drive carefully, and use this information to see if we can get to the other side."
 	},
 	"tutorial_dead_end1": {
-		"dialog": "Hmm... the readings from the LIDAR seem to suggest that there’s just a cave wall ahead",
+		"dialog": "Hmm... the readings from the LIDAR seem to suggest that there’s just a cave wall ahead.",
 		"next_dialog": "tutorial_dead_end2"
 	},
 	"tutorial_dead_end2": {
-		"dialog": "It must be a dead end. Maybe we should keep looking for another way through"
+		"dialog": "It must be a dead end. Maybe we should keep looking for another way through."
 	},
 	"tutorial_in_cave_obstacle": {
-		"dialog": "The LIDAR seems to be detecting an obstruction in the tunnel ahead. See if you can drive around it"
+		"dialog": "There seems to be a large number of obstructions in the cavern ahead. Looks like you'll have to drive carefully through here."
 	},
 	"tutorial_in_cave_new_cave": {
-		"dialog": "Hmmm looks like the cave continues this way"
+		"dialog": "It looks like the tunnel continues this way."
 	},
 	"tutorial_near_end_of_cave1": {
-		"dialog": "Oh looks like there's some light ahead",
+		"dialog": "Is that light ahead?",
 		"next_dialog": "tutorial_near_end_of_cave2"
 	},
 	"tutorial_near_end_of_cave2": {
-		"dialog": "That must be the end of this section! Let's keep going"
+		"dialog": "The tunnel's opening up into another cavern."
 	},
 	"tutorial_navigate_dark_cave_complete1": {
 		"dialog": "It looks like there’s no way out of this cavern, the previous robot must be somewhere in this cave.",
 		"next_dialog": "tutorial_navigate_dark_cave_complete2"
 	},
 	"tutorial_navigate_dark_cave_complete2": {
-		"dialog": "Let's try to find it",
+		"dialog": "Let's try to find it...",
 		"next_dialog": "tutorial_navigate_dark_cave_complete3"
 	},
 	"tutorial_navigate_dark_cave_complete3": {
@@ -176,7 +176,7 @@
 		"dialog": "Or whats left of it..."
 	},
 	"tutorial_find_robot_complete": {
-		"dialog": "This looks like a piece of the previous robot! Double-check the material using the touch sensor"
+		"dialog": "Oh no! This looks like a piece of the previous robot! Let's confirm this by verifying the material using the whiskers."
 	},
 	"tutorial_find_robot_hint": {
 		"dialog": "There must be some trace of the robot left in this cave. Let's try to find it",
@@ -186,7 +186,7 @@
 		]
 	},
 	"tutorial_whisker_robot_complete": {
-		"dialog": "The material matches perfectly to what we build the robots out of! Use the high-resolution camera to take a picture so that the part can be identified, and the damage analysed."
+		"dialog": "It's a perfect match! Can you get a picture using the high-resolution camera? We can identify the parts then, and assess what might have caused the damage."
 	},
 	"tutorial_whisker_robot_complete2": {
 		"dialog": "We'll need to the whole robot part in shot to complete the analysis"
@@ -198,14 +198,14 @@
 		"dialog": "We need a close photo of the robot"
 	},
 	"tutorial_whisker_robot_hint": {
-		"dialog": "We should check if that object is part of the lost robot using the whisker sensor",
+		"dialog": "We should check if that object is part of the lost robot using the whiskers.",
 		"wait_time": 100,
 		"next_hint": [
 			"tutorial_whisker_robot_hint"
 		]
 	},
 	"tutorial_photo_robot_complete": {
-		"dialog": "Well done, let’s keep exploring the cave - there must be another exit, we’re picking up anomalous temperature readings, and the last known location of the robot was further into the cave."
+		"dialog": "Great, we've received the image. It's definitely... missing a few pieces. The memory core isn't here either, it must be somewhere else in the cave system... but that would mean there's got to be another way out of this cavern. I wonder if it's got something to do with these anomalous temperature readings we're picking up?"
 	},
 	"tutorial_photo_robot_hint": {
 		"dialog": "Try to get a good photo of the robot using the special actions menu",
@@ -215,13 +215,13 @@
 		]
 	},
 	"tutorial_leave_level_wrong_way": {
-		"dialog": "This is the way we came, I think the robot must of left this cavern elsewhere"
+		"dialog": "This is the way we came. The robot must have left by a different route."
 	},
 	"tutorial_leave_level_close": {
 		"dialog": "It looks like there’s some kind of tunnel behind here!"
 	},
 	"tutorial_leave_level_hint1": {
-		"dialog": "The rest of the robot must still be in the cave let's go deeper in the cave",
+		"dialog": "The rest of the robot must be somewhere else inside the cave. Let's try and find another way deeper into the cave system.",
 		"wait_time": 100,
 		"next_hint": [
 			"tutorial_leave_level_hint1",
@@ -229,7 +229,7 @@
 		]
 	},
 	"tutorial_leave_level_hint2": {
-		"dialog": "There are weird LIDAR readings from the waterfall, maybe we should check it out ",
+		"dialog": "The LIDAR readings from the waterfall are strange, should we try getting closer? ",
 		"wait_time": 100,
 		"next_hint": [
 			"tutorial_leave_level_hint1",

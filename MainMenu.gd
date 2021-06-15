@@ -4,7 +4,7 @@ export (String) var game_name = "The Best Robot Sensor Exploration Game"
 
 export(Array, Array, String) var scene_locations = [
 	["Tutorial - Scripted", "res://Environments/TutorialSection/TutorialSection.tscn"],
-	["Tutorial - Final Environment", "res://Environments/finalTutorialCave.tscn"],
+	["Tutorial - Final Environment", "res://Environments/TutorialSection/finalTutorialCave.tscn"],
 	["Mission 1 - Final Environment", "res://Environments/finalMissionCave.tscn"],
 	["Cave Y Junction", "res://Environments/Cave_Y_Junction.tscn"],
 	["Testing Maze", "res://Environments/Testing_Maze.tscn"],
@@ -32,7 +32,7 @@ func _ready():
 
 	for maps in scene_locations:
 		$DebugNode/MarginContainer/MapChoice.add_item(maps[0])
-
+	$VersionLabel.text = str(ProjectSettings.get("application/config/version_tag"))
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_down") and current_selection < 2:
