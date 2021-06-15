@@ -2,6 +2,7 @@ extends Node
 
 #### Constants
 const MAIN_MENU_PATH = "res://MainMenu.tscn"
+const LOADING_ANIMATION = preload("res://Utilities/Misc/LoadingAnimation.tscn")
 
 #### Options
 var debug_mode = true
@@ -23,6 +24,14 @@ var objective_popup
 var dialog_JSON_data
 
 var robot = null
+
+#### Loading
+var loader
+var wait_frames
+var time_max = 100
+var current_scene
+
+
 signal dialog_loaded
 signal dialog_finished
 signal all_dialog_finished
@@ -53,6 +62,39 @@ var created_audio = []
 func _ready():
 	var default_dialog = "res://Assets/Dialog/DefaultDialog.json"
 	load_dialog_from_file(default_dialog)
+	current_scene = get_tree().get_current_scene()
+
+func _process(time):
+	if loader == null:
+		# no need to process anymore
+		set_process(false)
+		return
+
+	# Wait for frames to let the "loading" animation show up.
+	if wait_frames > 0:
+		wait_frames -= 1
+		return
+
+	var t = OS.get_ticks_msec()
+	# Use "time_max" to control for how long we block this thread.
+	while OS.get_ticks_msec() < t + time_max:
+		# Poll your loader.
+		var err = loader.poll()
+
+		if err == ERR_FILE_EOF: # Finished loading.
+			var resource = loader.get_resource()
+			loader = null
+			set_new_scene(resource)
+			break
+		elif err == OK:
+			update_progress()
+		else: # Error during loading.
+			show_error()
+			loader = null
+			break
+
+func show_error():
+	print('ERROR OCCURED ON LOADING')
 
 func dialog_finished(dialog_key):
 	emit_signal("dialog_finished",dialog_key)
@@ -72,6 +114,39 @@ func load_dialog_from_file(file_path):
 	dialog_JSON_data =  JSON_result.result
 	emit_signal("dialog_loaded")
 	
+func goto_scene(path):
+	#	Refer to https://docs.godotengine.org/en/stable/tutorials/io/background_loading.html
+	var loading_scene = LOADING_ANIMATION.instance()
+	loading_scene.name = 'animation'
+	add_child(loading_scene)
+	
+	loader = ResourceLoader.load_interactive(path)
+	if loader == null:
+		show_error()
+		return
+	set_process(true)
+	
+	current_scene.queue_free()
+	get_node("animation").play("loading")
+	
+	wait_frames = 1
+	
+func update_progress():
+	var progress = float(loader.get_stage()) / loader.get_stage_count()
+	# Update your progress bar?
+#	get_node("progress").set_progress(progress)
+
+	# ...or update a progress animation?
+	var length = get_node("animation").get_current_animation_length()
+
+	# Call this on a paused animation. Use "true" as the second argument to
+	# force the animation to update.
+	get_node("animation").seek(progress * length, true)
+
+func set_new_scene(scene_resource):
+	current_scene = scene_resource.instance()
+	get_node("/root").add_child(current_scene)
+	
 func load_new_scene(new_scene_path):
 	# Delete all of the sounds
 	for sound in created_audio:
@@ -79,7 +154,8 @@ func load_new_scene(new_scene_path):
 			sound.queue_free()
 	created_audio.clear()
 	
-	get_tree().change_scene(new_scene_path)
+	goto_scene(new_scene_path)
+#	get_tree().change_scene(new_scene_path)
 
 func quit_to_main_menu():
 	# Remove all missions
