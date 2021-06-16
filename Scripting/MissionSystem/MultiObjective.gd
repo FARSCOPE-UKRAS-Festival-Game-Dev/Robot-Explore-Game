@@ -1,5 +1,6 @@
 extends ObjectiveBase
 
+class_name MultiObjective 
 #Objective consisting of many sub-objectives
 var objective_components
 
@@ -15,7 +16,6 @@ signal on_component_complete
 
 func set_enable(value):
 	.set_enable(value)
-	
 	for component in get_components():
 		component.set_enable(value)
 		

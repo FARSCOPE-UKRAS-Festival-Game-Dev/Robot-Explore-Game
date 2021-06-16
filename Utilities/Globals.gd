@@ -4,11 +4,15 @@ extends Node
 const MAIN_MENU_PATH = "res://MainMenu.tscn"
 const LOADING_ANIMATION = preload("res://Utilities/Misc/LoadingAnimation.tscn")
 
-#### Options
+#### Debug tools
 var debug_mode = true
 var show_triggers = false
-var fast_hint = false
+var fast_hint = true
 var camera_trigger_debug = false
+
+var temp_debug = false
+var trigger_debug = false
+var follow_camera = false
 
 ##### Control Interface
 var control_panel_ui_scene_pl = preload('res://Utilities/Control_Panel_UI.tscn')
@@ -25,11 +29,14 @@ var dialog_JSON_data
 
 var robot = null
 
+var displaying_dialog = false
+
 #### Loading
 var loader
 var wait_frames
 var time_max = 100
 var current_scene
+
 
 
 signal dialog_loaded
@@ -97,9 +104,11 @@ func show_error():
 	print('ERROR OCCURED ON LOADING')
 
 func dialog_finished(dialog_key):
+	
 	emit_signal("dialog_finished",dialog_key)
 func all_dialog_finished():
 	play_audio_radio_off()
+	displaying_dialog = false
 	emit_signal("all_dialog_finished")
 	
 func on_options_updated():
@@ -206,6 +215,7 @@ func set_book_visible(value):
 	joystick.enabled = !value
 	 
 func queue_dialog(dialog_key):
+	displaying_dialog = true
 	if not dialog_JSON_data.has(dialog_key):
 		print("ERROR - dialog key: \"%s\" not in JSON file" % dialog_key)
 		dialog_key = "dialog_not_found"

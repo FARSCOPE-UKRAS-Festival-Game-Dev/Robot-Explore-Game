@@ -4,7 +4,7 @@ extends Control
 onready var overlay_tabs = $OverlayTabs
 
 
-onready var mission_vbox = overlay_tabs.get_node("PanelContainer/MarginContainer/TabContainer/Mission/ScrollContainer/MissionVBox")
+onready var mission_vbox = overlay_tabs.get_node("PanelContainer/MarginContainer/TabContainer/Missions/ScrollContainer/MissionVBox")
 onready var journal_vbox = overlay_tabs.get_node("PanelContainer/MarginContainer/TabContainer/Journal/ScrollContainer/JournalVBox")
 onready var options_panel = $OverlayTabs/PanelContainer/MarginContainer/TabContainer/Options/OptionsPanel
 onready var book_button = Globals.robot.get_node("ControlPanel/HUD/ButtonContainer/AspectRatioContainer/VBoxContainer/MarginContainer/OpenBookButton")
@@ -30,13 +30,15 @@ func populate_missions():
 		mission_display.set_name(mission_node.mission_name)
 		mission_display.set_description(mission_node.mission_desc)
 		mission_display.set_sub_objectives(mission_node.objective_list)
+		mission_display.update_visibility(mission_node.enabled)
 		for objective in mission_node.objective_list:
 			var objective_label = mission_display.objective_labels[objective.id]
 			objective_label.update_visibility(objective.enabled)
 			objective.connect("on_display_text_set",objective_label,"update_display_text")
 			objective.connect("on_objective_complete",objective_label,"mark_complete")
 			objective.connect("enable_changed",objective_label,"update_visibility")
-			
+		
+		mission_node.connect("enabled_changed",mission_display,"update_visibility")
 		mission_node.connect("mission_completed",mission_display,"on_mission_complete")
 		mission_node.connect("mission_completed",self,"move_completed_mission",[mission_display,])
 
