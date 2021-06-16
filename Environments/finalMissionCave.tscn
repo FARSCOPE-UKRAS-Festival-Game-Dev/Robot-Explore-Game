@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=2]
@@ -20,7 +20,6 @@
 [ext_resource path="res://Assets/Models/Terrain/Objects/Flora/cupPlant.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Assets/Models/Terrain/Objects/Flora/spikyPlant.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Assets/Models/Terrain/Objects/Flora/spiralPlant.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Assets/Models/Terrain/Objects/Flora/_bulbTactileInfo.gd" type="Script" id=21]
 [ext_resource path="res://Assets/Models/Terrain/Objects/firePit.tscn" type="PackedScene" id=22]
 
 [node name="Spatial" type="Spatial"]
@@ -451,7 +450,6 @@ transform = Transform( 0.0240373, 0.00387726, 0.0969906, -0.0159244, 0.0987239, 
 transform = Transform( 1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -32.8622, -0.675425, -11.858 )
 
 [node name="TactileInfo2" type="Node" parent="Flora of Interest/bulbPlant"]
-script = ExtResource( 21 )
 
 [node name="bulbPlant2" parent="Flora of Interest" instance=ExtResource( 17 )]
 transform = Transform( 1.38951, -0.425481, -1.37413, 0.302531, 1.95422, -0.299181, 1.40632, -7.00355e-07, 1.42206, -11.178, -0.977669, -9.97336 )

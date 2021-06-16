@@ -18,6 +18,7 @@ onready var globals = get_node('/root/Globals')
 var objective_enabled_state = []
 
 func set_enable(value):
+
 	enabled = value
 	emit_signal("enabled_changed",value)
 	if enabled:
@@ -26,6 +27,7 @@ func set_enable(value):
 		for child in get_children():
 			if child.is_in_group("Objectives"):
 				child.enabled = false
+
 func revert_objective_enabled_state():
 	var objective_id = 0
 	for objective in objective_list:
@@ -42,7 +44,7 @@ func _ready():
 			objective_list.append(child)
 			child.connect("on_objective_complete",self,"on_objective_complete")
 			objective_id+=1
-
+	set_enable(enabled)
 func check_complete():
 	for objective in objective_list:
 		if not objective.complete:
@@ -51,11 +53,14 @@ func check_complete():
 	complete = true
 	return complete
 	
+func complete_mission():
+	emit_signal("mission_completed")
+
 func on_objective_complete(objective):
 	
 	emit_signal("subobjective_completed")
 	if check_complete() == true:
-		emit_signal("mission_completed")
+		complete_mission()
 		if on_complete_dialogue!=null:
 			#Queue dialog after final objectives dialog
 			objective.connect("on_dialog_displayed",globals,"queue_dialog",[on_complete_dialogue,])

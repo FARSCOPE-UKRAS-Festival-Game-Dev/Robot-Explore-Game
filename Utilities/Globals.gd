@@ -6,11 +6,11 @@ const MAIN_MENU_PATH = "res://MainMenu.tscn"
 #### Debug tools
 var debug_mode = true
 var show_triggers = false
-var fast_hint = false
+var fast_hint = true
 var camera_trigger_debug = false
 
 var temp_debug = false
-var trigger_debug = true
+var trigger_debug = false
 var follow_camera = false
 
 ##### Control Interface

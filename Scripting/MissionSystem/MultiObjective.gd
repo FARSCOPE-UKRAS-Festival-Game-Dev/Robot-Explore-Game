@@ -16,7 +16,6 @@ signal on_component_complete
 
 func set_enable(value):
 	.set_enable(value)
-	
 	for component in get_components():
 		component.set_enable(value)
 		

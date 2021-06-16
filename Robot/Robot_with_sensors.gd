@@ -39,6 +39,9 @@ func _ready():
 	$ControlPanel.special_menu.connect("collect_sample_button_pressed",self,"collect_sample")
 	
 
+func _process(delta):
+	viewing_camera.make_current()  
+
 
 func take_picture():
 	#play sound

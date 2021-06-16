@@ -4,7 +4,7 @@ extends Control
 onready var overlay_tabs = $OverlayTabs
 
 
-onready var mission_vbox = overlay_tabs.get_node("PanelContainer/MarginContainer/TabContainer/Mission/ScrollContainer/MissionVBox")
+onready var mission_vbox = overlay_tabs.get_node("PanelContainer/MarginContainer/TabContainer/Missions/ScrollContainer/MissionVBox")
 onready var journal_vbox = overlay_tabs.get_node("PanelContainer/MarginContainer/TabContainer/Journal/ScrollContainer/JournalVBox")
 onready var options_panel = $OverlayTabs/PanelContainer/MarginContainer/TabContainer/Options/OptionsPanel
 onready var book_button = Globals.robot.get_node("ControlPanel/HUD/ButtonContainer/AspectRatioContainer/VBoxContainer/MarginContainer/OpenBookButton")

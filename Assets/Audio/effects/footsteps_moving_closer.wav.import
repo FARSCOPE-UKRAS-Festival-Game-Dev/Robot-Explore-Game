@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/footsteps_moving_closer.wav-5e6827fc718c8ce358ee69b19831de74.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/effects/footsteps_moving_closer.wav"
+dest_files=[ "res://.import/footsteps_moving_closer.wav-5e6827fc718c8ce358ee69b19831de74.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0

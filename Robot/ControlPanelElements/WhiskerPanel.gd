@@ -91,10 +91,10 @@ func on_sense_new():
 func on_sense_none():
 	if enabled:
 		texture_display.texture = null
-		display_text.text = ""
-		whisker_anim.stop()#stop all animations other wise previously queued animations might play on top of each over
-		whisker_anim.clear_queue()
-		reset_analyse_anim()
+	display_text.text = ""
+	whisker_anim.stop()#stop all animations other wise previously queued animations might play on top of each over
+	whisker_anim.clear_queue()
+	reset_analyse_anim()
 		
 	#We could play an alternative animaiton here
 func on_touch_change():

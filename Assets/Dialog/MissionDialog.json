@@ -53,14 +53,14 @@
 		"dialog": "We should investigate. Let’s start by collecting a sample"
 	},
 	"mission_geo_spring_collect_first_sample1": {
-		"dialog": "Hmm these readings match the last data we received from the previous robot, perhaps the robot will to where they come from",
+		"dialog": "Hmm these readings match the last data we received from the previous robot, perhaps the robot will be near the source of these temperature readings",
 		"next_dialog": "mission_geo_spring_collect_first_sample2"
 	},
 	"mission_geo_spring_collect_first_sample2": {
 		"dialog": " We should be able to use the thermometers to follow this hot stream it its source"
 	},
 	"mission_geo_spring_hint": {
-		"dialog": "If we're going to find this spring the thermometers on each side of the robot should tell us whether its hotter to the left or to the right!",
+		"dialog": "If we're going to find the source of these heat readings the thermometers on each side of the robot should tell us whether its hotter to the left or to the right!",
 		"wait_time": 100,
 		"next_hint": [
 			"mission_geo_spring_hint"
@@ -109,38 +109,6 @@
 	},
 	"mission_fauna_got_whiskers3": {
 		"dialog": "Hmmm didn't expect to find that species here"
-	},
-	"mission_fauna_need_whiskers_photo1": {
-		"dialog": "We just need to identify the plant using the whiskers and take a photo now",
-		"wait_time": 30,
-		"next_hint": [
-			"mission_fauna_need_whiskers_photo1",
-			"mission_fauna_need_whiskers_photo2"
-		]
-	},
-	"mission_fauna_need_whiskers_photo2": {
-		"dialog": "Our scientists also need a photo of the plant and whisker identification",
-		"wait_time": 30,
-		"next_hint": [
-			"mission_fauna_need_whiskers_photo1",
-			"mission_fauna_need_whiskers_photo2"
-		]
-	},
-	"mission_fauna_need_whiskers_sample1": {
-		"dialog": "Our scientists also need a sample of the plant and whisker identification",
-		"wait_time": 30,
-		"next_hint": [
-			"mission_fauna_need_whiskers_sample1",
-			"mission_fauna_need_whiskers_sample2"
-		]
-	},
-	"mission_fauna_need_whiskers_sample2": {
-		"dialog": "We should grab a sample of the plant and identify it using the whiskers as well!",
-		"wait_time": 30,
-		"next_hint": [
-			"mission_fauna_need_whiskers_sample1",
-			"mission_fauna_need_whiskers_sample2"
-		]
 	},
 	"mission_fauna_need_photo_sample1": {
 		"dialog": "Let's take a photo and sample of the plant",
@@ -225,6 +193,18 @@
 			"mission_fauna_plant_already_done2"
 		]
 	},
+	"mission_fauna_whiskered_plant_already_done1": {
+		"dialog": "According to the whiskers we've already collected information about this type of plant",
+		"next_dialog": "mission_fauna_plant_already_done2b"
+	},
+	"mission_fauna_whiskered_plant_already_done2": {
+		"dialog": "The whiskers are indicating we've got all the information we need about this type of plant",
+		"next_dialog": "mission_fauna_plant_already_done2b"
+	},
+	"mission_fauna_whiskered_plant_already_done3": {
+		"dialog": "Looks like we've already documented this type of plant",
+		"next_dialog": "mission_fauna_plant_already_done2b"
+	},
 	"mission_fauna_plant_already_done2b": {
 		"dialog": "There should be more types of plant in this system"
 	},
@@ -251,5 +231,21 @@
 	},
 	"yeti_paintings_discover": {
 		"dialog": "Is this... a painting?"
+	},
+	"debug_hint1": {
+		"dialog": "debug hint 1",
+
+		"wait_time": 30,
+		"next_hint": [
+			"debug_hint1"
+		]
+	},
+	"debug_hint2": {
+		"dialog": "debug hint 2",
+
+		"wait_time": 30,
+		"next_hint": [
+			"debug_hint1"
+		]
 	}
 }

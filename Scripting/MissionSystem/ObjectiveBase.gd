@@ -52,7 +52,8 @@ func set_enable(value):
 	set_associated_dialog(value)
 	
 func display_dialog():
-	globals.queue_dialog(on_complete_dialogue)
+	if on_complete_dialogue!=null:
+		globals.queue_dialog(on_complete_dialogue)
 	emit_signal("on_dialog_displayed")
 
 func complete_objective():
@@ -61,9 +62,9 @@ func complete_objective():
 		set_associated_dialog(false)
 		complete = true
 
-		if on_complete_dialogue!=null:
-			#Adding short delay to completion dialogue looks nice
-			get_tree().create_timer(dialog_delay).connect("timeout",self,"display_dialog")
+		
+		#Adding short delay to completion dialogue looks nice
+		get_tree().create_timer(dialog_delay).connect("timeout",self,"display_dialog")
 			
 		
 		emit_signal("on_objective_complete",self)
