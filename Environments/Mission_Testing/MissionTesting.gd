@@ -9,7 +9,6 @@ func _ready():
 
 
 func failed_drill(action):
-	print("hello")
 	if action == 2:
 		drill_fail_counter+=1
 		print("drill fail count %d" % drill_fail_counter)

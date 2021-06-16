@@ -97,7 +97,7 @@ func render_view():
 	return texture_output
 	
 func calibrate_from_body(body):
-		
+
 		assert(body.get_child(0).name == "Sensor_extent","ERROR body is not a calibration body") 
 		var c_body = body.get_child(0)
 
@@ -110,8 +110,8 @@ func calibrate_from_body(body):
 		HEATMAP_RESOLUTION.x = temperature_heatmap.get_width()
 		HEATMAP_RESOLUTION.y = temperature_heatmap.get_height()
 
-		
-		var c_transform = c_body.transform.affine_inverse()
+		#NOTE this only takes the transform relative to parent. So we don't use the c_body node and do all scaling on the parent
+		var c_transform = body.transform.affine_inverse()
 		#Convert between calibration body space and texture space, we ignore the z coordinate in texture space
 		CALLIBRATION_MATRIX =  c_transform.rotated(Vector3(1,0,0),-PI/2).scaled(Vector3(HEATMAP_RESOLUTION.x/2,HEATMAP_RESOLUTION.y/2,1))
 		CALLIBRATION_MATRIX.origin +=   transform.basis.x * HEATMAP_RESOLUTION.x/2

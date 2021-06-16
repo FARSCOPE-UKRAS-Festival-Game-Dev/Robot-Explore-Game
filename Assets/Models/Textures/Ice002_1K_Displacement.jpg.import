@@ -2,15 +2,33 @@
 
 importer="texture"
 type="StreamTexture"
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Models/Textures/Ice002_1K_Displacement.jpg.import
 path="res://.import/Ice002_1K_Displacement.jpg-9f1c9da96f2fb2e41a74060d364b2b00.stex"
+=======
+path="res://.import/Robot.png-7d93ec0c12727cba723e3f842cc11ba0.stex"
+>>>>>>> master:Assets/Images/ControlPanel/Robot.png.import
+=======
+path="res://.import/Ice002_1K_Displacement.jpg-9f1c9da96f2fb2e41a74060d364b2b00.stex"
+>>>>>>> master
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Models/Textures/Ice002_1K_Displacement.jpg.import
 source_file="res://Assets/Models/Textures/Ice002_1K_Displacement.jpg"
 dest_files=[ "res://.import/Ice002_1K_Displacement.jpg-9f1c9da96f2fb2e41a74060d364b2b00.stex" ]
+=======
+source_file="res://Assets/Images/ControlPanel/Robot.png"
+dest_files=[ "res://.import/Robot.png-7d93ec0c12727cba723e3f842cc11ba0.stex" ]
+>>>>>>> master:Assets/Images/ControlPanel/Robot.png.import
+=======
+source_file="res://Assets/Models/Textures/Ice002_1K_Displacement.jpg"
+dest_files=[ "res://.import/Ice002_1K_Displacement.jpg-9f1c9da96f2fb2e41a74060d364b2b00.stex" ]
+>>>>>>> master
 
 [params]
 

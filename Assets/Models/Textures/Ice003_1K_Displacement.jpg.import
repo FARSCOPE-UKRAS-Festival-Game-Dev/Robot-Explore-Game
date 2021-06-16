@@ -2,15 +2,33 @@
 
 importer="texture"
 type="StreamTexture"
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Models/Textures/Ice003_1K_Displacement.jpg.import
 path="res://.import/Ice003_1K_Displacement.jpg-99e3ec6f4c5ad745d5e1e52e41617b92.stex"
+=======
+path="res://.import/UOB.png-c0b529477c9e39b29cd010cf423bb05a.stex"
+>>>>>>> master:Assets/Images/logo/UOB.png.import
+=======
+path="res://.import/Ice003_1K_Displacement.jpg-99e3ec6f4c5ad745d5e1e52e41617b92.stex"
+>>>>>>> master
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Models/Textures/Ice003_1K_Displacement.jpg.import
 source_file="res://Assets/Models/Textures/Ice003_1K_Displacement.jpg"
 dest_files=[ "res://.import/Ice003_1K_Displacement.jpg-99e3ec6f4c5ad745d5e1e52e41617b92.stex" ]
+=======
+source_file="res://Assets/Images/logo/UOB.png"
+dest_files=[ "res://.import/UOB.png-c0b529477c9e39b29cd010cf423bb05a.stex" ]
+>>>>>>> master:Assets/Images/logo/UOB.png.import
+=======
+source_file="res://Assets/Models/Textures/Ice003_1K_Displacement.jpg"
+dest_files=[ "res://.import/Ice003_1K_Displacement.jpg-99e3ec6f4c5ad745d5e1e52e41617b92.stex" ]
+>>>>>>> master
 
 [params]
 

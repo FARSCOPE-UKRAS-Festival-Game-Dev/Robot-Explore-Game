@@ -27,7 +27,9 @@ func set_sub_objectives(objective_list):
 		subobjective_container.add_child(new_lbl)
 		objective_labels.append(new_lbl)
 
-
+func update_visibility(value):
+	visible = value
+	
 func on_mission_complete():
 	set_name("[COMPLETED] - " + mission_name)
 	complete = true

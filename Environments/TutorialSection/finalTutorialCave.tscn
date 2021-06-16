@@ -1,13 +1,22 @@
+<<<<<<< HEAD
 [gd_scene load_steps=15 format=2]
+=======
+[gd_scene load_steps=31 format=2]
+>>>>>>> master
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://Environments/LoadEnvironment.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Models/Terrain/Objects/rock1.tscn" type="PackedScene" id=3]
+<<<<<<< HEAD
+=======
+[ext_resource path="res://Assets/Models/Terrain/Objects/Robot/broken_robot_parts.tscn" type="PackedScene" id=4]
+>>>>>>> master
 [ext_resource path="res://Assets/Models/Terrain/Objects/Waterfall/Waterfall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Models/Terrain/Objects/rock2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Models/Terrain/Objects/Snowdrift/startCaveIcePlane.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Models/Terrain/Objects/smallRocks/smolrok3.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Models/Terrain/tutorialCave.tscn" type="PackedScene" id=9]
+<<<<<<< HEAD
 [ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Models/Terrain/Objects/Snowdrift/startCaveSnowdrift.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Models/Terrain/Objects/smallRocks/smolrok2.tscn" type="PackedScene" id=13]
@@ -16,6 +25,37 @@
 [ext_resource path="res://Assets/Models/Terrain/Objects/mushroom_1.tscn" type="PackedScene" id=19]
 
 [node name="Spatial" type="Spatial"]
+=======
+[ext_resource path="res://Environments/TutorialSection/TutorialScript.gd" type="Script" id=10]
+[ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Models/Terrain/Objects/Snowdrift/startCaveSnowdrift.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Models/Terrain/Objects/smallRocks/smolrok2.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scripting/MissionSystem/MissionContainer.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scripting/MissionSystem/ObjectiveSingle.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/Models/Terrain/Objects/rock2_large.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Models/Terrain/Objects/smallRocks/smolrok1.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scripting/Trigger.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Assets/Models/Terrain/Objects/mushroom_1.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scripting/Hint.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scripting/DialogTrigger.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Assets/Models/Textures/Rock015_1K_Color.png" type="Texture" id=22]
+[ext_resource path="res://Sensors/TactileInfo.gd" type="Script" id=23]
+[ext_resource path="res://Assets/Audio/effects/software_on_1.wav" type="AudioStream" id=24]
+[ext_resource path="res://Assets/Audio/effects/software_on_2.wav" type="AudioStream" id=25]
+[ext_resource path="res://Assets/Audio/effects/software_on_3.wav" type="AudioStream" id=26]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1.67168, 1.34663, 1.68254 )
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0, 0.00784314, 1, 1 )
+
+[node name="Mission1" type="Spatial"]
+>>>>>>> master
 script = ExtResource( 2 )
 robotScene = ExtResource( 11 )
 
@@ -251,3 +291,359 @@ transform = Transform( -2.0946, -0.150558, 0.00157238, -0.146745, 2.04623, 0.448
 
 [node name="mushroom_8" parent="caveBody/floraInGeneral" instance=ExtResource( 19 )]
 transform = Transform( -2.0946, -0.150558, 0.00157238, -0.142199, 1.9853, 0.669615, -0.0494943, 0.667785, -1.99038, -99.4404, -5.56644, 14.7539 )
+<<<<<<< HEAD
+=======
+
+[node name="brokenRobotPart" parent="caveBody" instance=ExtResource( 4 )]
+transform = Transform( 0.144615, -0.989488, 0, -0.513246, -0.0750117, 0.854957, -0.84597, -0.12364, -0.518699, -89.5283, -6.44882, 50.1215 )
+
+[node name="TutorialMission" parent="." instance=ExtResource( 14 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+mission_name = "Mission 1 - Enter the cave system"
+mission_desc = "The robot has been lowered into the cave system. First we must perform some system checks then we must navigate the robot into the cave system"
+
+[node name="TutorialScripts" type="Node" parent="TutorialMission"]
+script = ExtResource( 10 )
+
+[node name="TurnOnCamera" parent="TutorialMission" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.847084, -2.05742, 6.45017 )
+visible = false
+display_text = "Turn on camera"
+disable_on_complete = true
+on_complete_dialogue = "tutorial_camera_on_complete"
+next_objective_enable = NodePath("../GoToRock")
+
+[node name="GoToRock" parent="TutorialMission" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, -7.81597e-14, 0, 1, 0, 7.81597e-14, 0, 1, 14.0534, -4.45441, -14.8323 )
+visible = false
+display_text = "Go to the interesting rock"
+disable_on_complete = true
+on_complete_dialogue = "tutorial_visit_rock_on_complete"
+next_objective_enable = NodePath("../TurnOnWhiskers")
+
+[node name="Trigger" parent="TutorialMission/GoToRock" instance=ExtResource( 18 )]
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 8, 1.0889, 0, 4.49237 )
+enabled = true
+
+[node name="Hint" parent="TutorialMission/GoToRock" instance=ExtResource( 20 )]
+transform = Transform( 17, 0, 2.27374e-13, 0, 10, 0, -3.41061e-13, 0, 30, -10.3821, 3.74428, 15.4108 )
+first_hint_dialog_key = "tutorial_visit_rock_hint"
+
+[node name="TurnOnWhiskers" parent="TutorialMission" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 17.4129, -2.05742, -9.52435 )
+visible = false
+display_text = "Turn on whisker sensor"
+disable_on_complete = true
+on_complete_dialogue = "tutorial_whiskers_on_complete"
+next_objective_enable = NodePath("../UseWhiskers")
+
+[node name="UseWhiskers" parent="TutorialMission" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 15.6763, -2.05742, -12.5496 )
+visible = false
+display_text = "Use whiskers on the rock"
+disable_on_complete = true
+on_complete_dialogue = "tutorial_use_whiskers_complete"
+next_objective_enable = NodePath("../UseDrill")
+
+[node name="Hint" parent="TutorialMission/UseWhiskers" instance=ExtResource( 20 )]
+transform = Transform( 17, 0, 2.27374e-13, 0, 10, 0, -3.41061e-13, 0, 30, -10.3821, 3.74428, 1.01815 )
+first_hint_dialog_key = "tutorial_use_whiskers_hint1"
+
+[node name="Trigger" parent="TutorialMission/UseWhiskers" instance=ExtResource( 18 )]
+transform = Transform( 4, 0, -9.9476e-14, 0, 1, 0, 9.9476e-14, 0, 4, -3.18254, -2.22655, 1.24307 )
+must_whisker = NodePath("../../InterestingRock")
+enabled = true
+
+[node name="UseDrill" parent="TutorialMission" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, 12.4071, -3.99262, -10.4526 )
+display_text = "Take a sample of the rock using a drill"
+disable_on_complete = true
+on_complete_dialogue = "tutorial_use_drill_complete"
+next_objective_enable = NodePath("../EnterCave")
+
+[node name="Trigger" parent="TutorialMission/UseDrill" instance=ExtResource( 18 )]
+transform = Transform( 4.499, 0, -4.44575e-09, 0, 1, 0, -4.44575e-09, 0, 4.60071, 0, 0, 0 )
+must_action = 2
+enabled = true
+
+[node name="Hint" parent="TutorialMission/UseDrill" instance=ExtResource( 20 )]
+transform = Transform( 17, 0, 0, 0, 10, 0, 0, 0, 25, -9.34228, 3.74428, 14.9517 )
+first_hint_dialog_key = "tutorial_drill_hint1"
+
+[node name="CaveGateTrigger" parent="TutorialMission" instance=ExtResource( 18 )]
+transform = Transform( -0.983293, 0, -1.27421, 0, 6, 0, 0.18203, 0, -6.88305, -5.03897, -1.99597, -39.8285 )
+visible = false
+enabled = true
+
+[node name="CaveGate" type="RigidBody" parent="TutorialMission"]
+transform = Transform( -0.490034, 0, -1.39067, 0, 6, 0, 0.0993333, 0, -6.86047, -6.53278, -1.99597, -39.4323 )
+visible = false
+collision_layer = 4
+collision_mask = 4
+mode = 1
+physics_material_override = SubResource( 1 )
+gravity_scale = 3.0
+contact_monitor = true
+
+[node name="CollisionShape" type="CollisionShape" parent="TutorialMission/CaveGate"]
+transform = Transform( 1, 0, -4.76837e-07, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+visible = false
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="TutorialMission/CaveGate/CollisionShape"]
+visible = false
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="EnterCave" parent="TutorialMission" instance=ExtResource( 15 )]
+transform = Transform( 0.667755, 0, 0.744381, 0, 1, 0, -0.744381, 0, 0.667755, -2.48394, -0.212038, -34.3785 )
+visible = false
+display_text = "Enter the dark cave"
+disable_on_complete = true
+on_complete_dialogue = "tutorial_enter_dark_cave_complete"
+next_objective_enable = NodePath("../TurnOnLidar")
+
+[node name="Trigger" parent="TutorialMission/EnterCave" instance=ExtResource( 18 )]
+transform = Transform( 2.51714, 0, 0.432019, 0, 5, 0, -4.32019, 0, 0.251714, -0.0372219, -0.196568, -6.36043 )
+enabled = true
+oneshot = true
+
+[node name="DialogEnterDarkCave" parent="TutorialMission/EnterCave" instance=ExtResource( 21 )]
+transform = Transform( 0.81245, 0, 0.583031, 0, 1, 0, -0.583031, 0, 0.81245, 1.78251, 0.050645, 0.105377 )
+enabled = false
+dialog = "tutorial_dark_cave_entrance"
+
+[node name="Trigger" parent="TutorialMission/EnterCave/DialogEnterDarkCave" instance=ExtResource( 18 )]
+transform = Transform( 4.25877, 0, -0.261971, 0, 5, 0, 2.61971, 0, 0.425877, 2.97769, -0.992287, 2.86854 )
+enabled = true
+
+[node name="TurnOnLidar" parent="TutorialMission" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.847084, -2.05742, 6.45017 )
+visible = false
+display_text = "Turn on LIDAR"
+disable_on_complete = true
+on_complete_dialogue = "tutorial_lidar_on_complete"
+next_objective_enable = NodePath("../NavigateDarkCave")
+
+[node name="NavigateDarkCave" parent="TutorialMission" instance=ExtResource( 15 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -43.9765, -2.84955, -45.1968 )
+visible = false
+display_text = "Navigate dark cave"
+disable_on_complete = true
+on_complete_dialogue = "tutorial_navigate_dark_cave_complete1"
+next_objective_enable = NodePath("../LocateRobot")
+
+[node name="DialogDeadEnd" parent="TutorialMission/NavigateDarkCave" instance=ExtResource( 21 )]
+transform = Transform( 0.5, 0, -7.10543e-15, 0, 0.5, 0, 7.10543e-15, 0, 0.5, 0.797611, 1.58794, 10.0485 )
+enabled = false
+dialog = "tutorial_dead_end1"
+
+[node name="Trigger" parent="TutorialMission/NavigateDarkCave/DialogDeadEnd" instance=ExtResource( 18 )]
+transform = Transform( 2.8025, -0.0154077, 6.62519, 0.0274888, 4.99992, 0, -4.14068, 0.0227648, 4.48407, 13.0966, -1.90773, 3.46478 )
+enabled = true
+
+[node name="DialogNearEndOfCave" parent="TutorialMission/NavigateDarkCave" instance=ExtResource( 21 )]
+transform = Transform( 0.346349, 0, 0.360614, 0, 0.5, 0, -0.360614, 0, 0.346349, 17.9781, 1.58794, -21.7586 )
+enabled = false
+dialog = "tutorial_near_end_of_cave1"
+
+[node name="Trigger" parent="TutorialMission/NavigateDarkCave/DialogNearEndOfCave" instance=ExtResource( 18 )]
+transform = Transform( 5.99991, -0.0329865, -7.10543e-15, 0.0329865, 5.99991, 0, 0, 0, 0.5, -2.62428, -0.992286, 2.57973 )
+enabled = true
+oneshot = true
+
+[node name="DialogNearEnterNewCave" parent="TutorialMission/NavigateDarkCave" instance=ExtResource( 21 )]
+transform = Transform( 0.442709, 0, -0.232398, 0, 0.5, 0, 0.232398, 0, 0.442709, 13.6893, 1.58794, -0.53746 )
+enabled = false
+dialog = "tutorial_in_cave_new_cave"
+
+[node name="Trigger" parent="TutorialMission/NavigateDarkCave/DialogNearEnterNewCave" instance=ExtResource( 18 )]
+transform = Transform( 5.99991, -0.0329865, -7.10543e-15, 0.0329865, 5.99991, 0, 0, 0, 0.5, -2.62428, -0.992286, 2.57973 )
+enabled = true
+oneshot = true
+
+[node name="DialogObsticles" parent="TutorialMission/NavigateDarkCave" instance=ExtResource( 21 )]
+transform = Transform( 0.306419, 0, 0.395104, 0, 0.5, 0, -0.395104, 0, 0.306419, 15.7689, 1.58794, -23.9334 )
+enabled = false
+dialog = "tutorial_in_cave_obstacle"
+
+[node name="Trigger" parent="TutorialMission/NavigateDarkCave/DialogObsticles" instance=ExtResource( 18 )]
+transform = Transform( 5.99991, -0.0329865, -7.10543e-15, 0.0329865, 5.99991, 0, 0, 0, 0.5, -2.62428, -0.992286, 2.57973 )
+enabled = true
+oneshot = true
+
+[node name="Trigger" parent="TutorialMission/NavigateDarkCave" instance=ExtResource( 18 )]
+transform = Transform( 2.85987, 0, 0.456367, 0, 3, 0, -6.38914, 0, 0.204277, 5.18938, 1.29427, -28.3597 )
+enabled = true
+
+[node name="LocateRobot" parent="TutorialMission" instance=ExtResource( 15 )]
+transform = Transform( 2, 0, -2.13163e-14, 0, 2, 0, 2.13163e-14, 0, 2, -43.9765, -2.84955, -47.4844 )
+visible = false
+display_text = "Locate The robot"
+disable_on_complete = true
+on_complete_dialogue = "tutorial_find_robot_complete"
+next_objective_enable = NodePath("../UseWhiskersRobot")
+
+[node name="Trigger" parent="TutorialMission/LocateRobot" instance=ExtResource( 18 )]
+transform = Transform( -0.261278, -0.000172732, 2.48631, 3.41084e-05, 0.5, 0.000871998, -2.48631, 2.5011e-05, -0.261278, -1.29658, -1.01015, -24.1523 )
+visible = false
+enabled = true
+
+[node name="Hint" parent="TutorialMission/LocateRobot" instance=ExtResource( 20 )]
+transform = Transform( 15.3874, 0, 12.7535, 0, 10, 0, -7.22697, 0, 27.1542, 7.32339, 2.26176, -20.4333 )
+visible = false
+first_hint_dialog_key = "tutorial_find_robot_hint"
+
+[node name="UseWhiskersRobot" parent="TutorialMission" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, -2.4869e-14, 0, 1, 0, 2.4869e-14, 0, 1, -52.4639, -2.05742, -108.098 )
+visible = false
+display_text = "Use whiskers on the robot"
+disable_on_complete = true
+on_complete_dialogue = "tutorial_whisker_robot_complete"
+next_objective_enable = NodePath("../PhotoRobot")
+
+[node name="Hint" parent="TutorialMission/UseWhiskersRobot" instance=ExtResource( 20 )]
+transform = Transform( 2.65763, 0, 29.6311, 0, 10, 0, -16.791, 0, 4.68993, 9.29805, 3.74428, 3.60765 )
+first_hint_dialog_key = "tutorial_whisker_robot_hint"
+
+[node name="Trigger" parent="TutorialMission/UseWhiskersRobot" instance=ExtResource( 18 )]
+transform = Transform( -0.479854, 0, 3.97111, 0, 1, 0, -3.97111, 0, -0.479854, 4.29897, -2.7402, 14.8867 )
+must_whisker = NodePath("../../RobotPart")
+enabled = true
+
+[node name="PhotoRobot" parent="TutorialMission" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, -2.84217e-14, 0, 1, 0, 2.84217e-14, 0, 1, -52.4639, -2.05742, -108.098 )
+visible = false
+display_text = "Take a photo of the robot part of analysis"
+disable_on_complete = true
+on_complete_dialogue = "tutorial_photo_robot_complete"
+next_objective_enable = NodePath("../LeaveLevel")
+
+[node name="Hint" parent="TutorialMission/PhotoRobot" instance=ExtResource( 20 )]
+transform = Transform( 2.65763, 0, 29.6311, 0, 10, 0, -16.791, 0, 4.68993, 9.29805, 3.74428, 3.60765 )
+visible = false
+first_hint_dialog_key = "tutorial_photo_robot_hint"
+
+[node name="Trigger" parent="TutorialMission/PhotoRobot" instance=ExtResource( 18 )]
+transform = Transform( 2.24084, 0, 9.7457, 0, 1, 0, -9.7457, 0, 2.24084, 11.879, -2.7402, 9.82986 )
+visible = false
+must_see = NodePath("../../RobotPart")
+must_action = 1
+enabled = true
+
+[node name="DialogFar" parent="TutorialMission/PhotoRobot" instance=ExtResource( 21 )]
+transform = Transform( -0.98289, 0, 0.184191, 0, 1, 0, -0.184191, 0, -0.98289, 2.20919, -1.42302, 8.72472 )
+visible = false
+enabled = false
+dialog = "tutorial_photo_too_far"
+
+[node name="Trigger" parent="TutorialMission/PhotoRobot/DialogFar" instance=ExtResource( 18 )]
+transform = Transform( 19.974, 0, 0.765431, 0, 2, 0, -1.02057, 0, 14.9805, -16.3607, 0.57735, 8.14604 )
+visible = false
+must_action = 1
+on_trigger_action_is_success = false
+enabled = true
+
+[node name="LeaveLevel" parent="TutorialMission" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, -3.19744e-14, 0, 1, 0, 3.19744e-14, 0, 1, -52.4639, -2.05742, -108.098 )
+visible = false
+display_text = "Continue looking for other robot parts"
+disable_on_complete = true
+
+[node name="Hint" parent="TutorialMission/LeaveLevel" instance=ExtResource( 20 )]
+transform = Transform( 2.65763, 0, 29.6311, 0, 10, 0, -16.791, 0, 4.68993, 9.34282, 3.69531, 3.54854 )
+visible = false
+first_hint_dialog_key = "tutorial_leave_level_hint1"
+
+[node name="Trigger" parent="TutorialMission/LeaveLevel" instance=ExtResource( 18 )]
+transform = Transform( 1.59768, 0, 3.66707, 0, 1, 0, -3.66707, 0, 1.59768, 2.41285, -2.81395, 21.8186 )
+enabled = true
+
+[node name="DialogDeadEnd" parent="TutorialMission/LeaveLevel" instance=ExtResource( 21 )]
+transform = Transform( 5.83179, 0, 0.460664, 0, 5, 0, -13.8199, 0, 0.194393, 29.9516, 0, 11.4246 )
+enabled = false
+dialog = "tutorial_leave_level_wrong_way"
+
+[node name="Trigger" parent="TutorialMission/LeaveLevel/DialogDeadEnd" instance=ExtResource( 18 )]
+enabled = true
+
+[node name="DialogClose" parent="TutorialMission/LeaveLevel" instance=ExtResource( 21 )]
+transform = Transform( 0.388786, 0, 0.921328, 0, 1, 0, -0.921328, 0, 0.388786, 3.92066, -1.52588e-05, 18.1967 )
+enabled = false
+dialog = "tutorial_leave_level_close"
+
+[node name="Trigger" parent="TutorialMission/LeaveLevel/DialogClose" instance=ExtResource( 18 )]
+transform = Transform( 2, 0, -3.57628e-07, 0, 2, 0, 5.96046e-08, 0, 5, 1.68713, 0, 0.903702 )
+enabled = true
+
+[node name="InterestingRock" type="RigidBody" parent="TutorialMission"]
+transform = Transform( 1, 0, -3.90799e-14, 0, 1, 0, 3.90799e-14, 0, 1, 14.0534, -3.89194, -15.0412 )
+mode = 1
+physics_material_override = SubResource( 1 )
+gravity_scale = 3.0
+
+[node name="rock2" parent="TutorialMission/InterestingRock" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.142045, 0.0560181, 5.09465 )
+
+[node name="CollisionShape" type="CollisionShape" parent="TutorialMission/InterestingRock"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38446, 0, 4.59507 )
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="TutorialMission/InterestingRock/CollisionShape"]
+visible = false
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="TactileInfo" type="Node" parent="TutorialMission/InterestingRock"]
+script = ExtResource( 23 )
+value = ExtResource( 22 )
+texture_name = "Interesting Rock"
+
+[node name="RobotPart" type="RigidBody" parent="TutorialMission"]
+transform = Transform( 1, 0, -7.4607e-14, 0, 1, 0, 7.4607e-14, 0, 1, -49.3574, -4.89439, -92.6129 )
+visible = false
+mode = 1
+physics_material_override = SubResource( 1 )
+gravity_scale = 3.0
+
+[node name="CollisionShape" type="CollisionShape" parent="TutorialMission/RobotPart"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="TutorialMission/RobotPart/CollisionShape"]
+transform = Transform( 1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0, 0, 0 )
+visible = false
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="TactileInfo" type="Node" parent="TutorialMission/RobotPart"]
+script = ExtResource( 23 )
+value = ExtResource( 22 )
+texture_name = "Robot Part"
+
+[node name="Audio" type="Node" parent="TutorialMission"]
+
+[node name="software_on_camera_audio" type="AudioStreamPlayer" parent="TutorialMission/Audio"]
+stream = ExtResource( 24 )
+volume_db = -10.0
+
+[node name="software_on_lidar_audio" type="AudioStreamPlayer" parent="TutorialMission/Audio"]
+stream = ExtResource( 25 )
+volume_db = -10.0
+
+[node name="software_on_whisker_audio" type="AudioStreamPlayer" parent="TutorialMission/Audio"]
+stream = ExtResource( 26 )
+volume_db = -10.0
+
+[connection signal="on_enable" from="TutorialMission/TurnOnCamera" to="TutorialMission/TutorialScripts" method="_on_TurnOnCamera_on_enable"]
+[connection signal="on_enable" from="TutorialMission/TurnOnWhiskers" to="TutorialMission/TutorialScripts" method="_on_TurnOnWhiskers_on_enable"]
+[connection signal="on_disable" from="TutorialMission/UseDrill" to="TutorialMission/TutorialScripts" method="_on_UseDrill_on_disable"]
+[connection signal="on_enable" from="TutorialMission/UseDrill" to="TutorialMission/TutorialScripts" method="_on_UseDrill_on_enable"]
+[connection signal="on_objective_complete" from="TutorialMission/UseDrill" to="TutorialMission/TutorialScripts" method="_on_UseDrill_on_objective_complete"]
+[connection signal="on_trigger" from="TutorialMission/CaveGateTrigger" to="TutorialMission/TutorialScripts" method="_on_CaveGateTrigger_on_trigger"]
+[connection signal="on_enable" from="TutorialMission/TurnOnLidar" to="TutorialMission/TutorialScripts" method="_on_TurnOnLidar_on_enable"]
+[connection signal="on_disable" from="TutorialMission/PhotoRobot" to="TutorialMission/TutorialScripts" method="_on_PhotoRobot_on_disable"]
+[connection signal="on_enable" from="TutorialMission/PhotoRobot" to="TutorialMission/TutorialScripts" method="_on_PhotoRobot_on_enable"]
+[connection signal="on_enable" from="TutorialMission/LeaveLevel" to="TutorialMission/TutorialScripts" method="_on_UseWhiskersRobot_on_enable"]
+[connection signal="on_objective_complete" from="TutorialMission/LeaveLevel" to="TutorialMission/TutorialScripts" method="_on_UseWhiskersRobot_on_objective_complete"]
+>>>>>>> master

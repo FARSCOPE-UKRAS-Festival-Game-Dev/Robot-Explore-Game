@@ -1,0 +1,251 @@
+{
+	"dialog_not_found": {
+		"dialog": "ERROR - Dialog key not found!"
+	},
+	"hint_key_not_found": {
+		"dialog": "ERROR - Hint key not found! Can't reset to first hint key either",
+		"wait_time": 100,
+		"next_hint": [
+			"hint_key_not_found"
+		]
+	},
+	"mission_start_1": {
+		"dialog": "Phew... I thought we'd lost you. There must of glitch on our end because it appeared that the robot drove through that waterfall! Ha Ha",
+		"next_dialog": "mission_start_2"
+	},
+	"mission_start_2": {
+		"dialog": "... You did drive through the waterfall?",
+		"next_dialog": "mission_start_3"
+	},
+	"mission_start_3": {
+		"dialog": "...",
+		"next_dialog": "mission_start_4"
+	},
+	"mission_start_4": {
+		"dialog": "Well that's certainly one way to test the robot's water resistance",
+		"next_dialog": "mission_start_5"
+	},
+	"mission_start_5": {
+		"dialog": "Hmmm... If this robot was able to survive that, then maybe the other one did too!",
+		"next_dialog": "mission_start_6"
+	},
+	"mission_start_6": {
+		"dialog": "Let's keep looking for it's memory unit. If we recover it we can find out what happend down here"
+	},
+	"mission_find_robot_item2": {
+		"dialog": "Aha first robot definitely travelled through here",
+		"next_dialog": "mission_geo_spring_collect_sample_start"
+	},
+	"mission_find_robot_discover_yeti_cave": {
+		"dialog": "There looks to be some kind of structure further in. Is that… a fire?"
+	},
+	"mission_find_robot_discover_robot": {
+		"dialog": "Oh no! Sweet robot friend – it looks like it’s been attacked by some kind of animal!"
+	},
+	"mission_find_robot_discover_robot2": {
+		"dialog": "... What was that?"
+	},
+	"mission_geo_spring_collect_sample_start": {
+		"dialog": "This stream has an unusually high temperature reading, that’s unusual...",
+		"next_dialog": "mission_geo_spring_collect_sample_start2"
+	},
+	"mission_geo_spring_collect_sample_start2": {
+		"dialog": "We should investigate. Let’s start by collecting a sample"
+	},
+	"mission_geo_spring_collect_first_sample1": {
+		"dialog": "Hmm these readings match the last data we received from the previous robot, perhaps the robot will be near the source of these temperature readings",
+		"next_dialog": "mission_geo_spring_collect_first_sample2"
+	},
+	"mission_geo_spring_collect_first_sample2": {
+		"dialog": " We should be able to use the thermometers to follow this hot stream it its source"
+	},
+	"mission_geo_spring_hint": {
+		"dialog": "If we're going to find the source of these heat readings the thermometers on each side of the robot should tell us whether its hotter to the left or to the right!",
+		"wait_time": 100,
+		"next_hint": [
+			"mission_geo_spring_hint"
+		]
+	},
+	"mission_geo_spring_find_spring1": {
+		"dialog": "This looks like a GEOTHERMAL SPRING!",
+		"next_dialog": "mission_geo_spring_find_spring2"
+	},
+	"mission_geo_spring_find_spring2": {
+		"dialog": "it must be the source of the stream we crossed earlier! Let’s grab another sample to compare"
+	},
+	"mission_geo_spring_complete": {
+		"dialog": "They are the same! The robot must be nearby..."
+	},
+	"mission_fauna_got_start": {
+		"dialog": "Are those...plants? It seems an ecosystem has developed in here.",
+		"next_dialog": "mission_fauna_got_start2"
+	},
+	"mission_fauna_got_start2": {
+		"dialog": "Make sure to collect images and samples for the scientific team while still looking for our robot."
+	},
+	"mission_fauna_got_sample1": {
+		"dialog": "We'll get this back to the lab for analysis!"
+	},
+	"mission_fauna_got_sample2": {
+		"dialog": "An excellent sample, the scientists at the lab are gonna love this"
+	},
+	"mission_fauna_got_sample3": {
+		"dialog": "Good sample collecting"
+	},
+	"mission_fauna_got_photo1": {
+		"dialog": "Nice photo!"
+	},
+	"mission_fauna_got_photo2": {
+		"dialog": "I might print that one out!"
+	},
+	"mission_fauna_got_photo3": {
+		"dialog": "Good job!"
+	},
+	"mission_fauna_got_whiskers1": {
+		"dialog": "I don't speak latin... Must be a rare plant"
+	},
+	"mission_fauna_got_whiskers2": {
+		"dialog": "I don't think we've got that one on the books!"
+	},
+	"mission_fauna_got_whiskers3": {
+		"dialog": "Hmmm didn't expect to find that species here"
+	},
+	"mission_fauna_need_photo_sample1": {
+		"dialog": "Let's take a photo and sample of the plant",
+		"wait_time": 30,
+		"next_hint": [
+			"mission_fauna_need_photo_sample1",
+			"mission_fauna_need_photo_sample2"
+		]
+	},
+	"mission_fauna_need_photo_sample2": {
+		"dialog": "This plant is of interest to our scientists. Snap a picture of the plant and collect a sample",
+		"wait_time": 30,
+		"next_hint": [
+			"mission_fauna_need_photo_sample1",
+			"mission_fauna_need_photo_sample2"
+		]
+	},
+	"mission_fauna_just_need_photo1": {
+		"dialog": "We just need a photo now",
+		"wait_time": 30,
+		"next_hint": [
+			"mission_fauna_just_need_photo1",
+			"mission_fauna_just_need_photo2"
+		]
+	},
+	"mission_fauna_just_need_photo2": {
+		"dialog": "Just grab a photo and then we're all done!",
+		"wait_time": 30,
+		"next_hint": [
+			"mission_fauna_just_need_photo1",
+			"mission_fauna_just_need_photo2"
+		]
+	},
+	"mission_fauna_just_need_sample1": {
+		"dialog": "Just need to grab a sample and we'll be finished with this plant",
+		"wait_time": 30,
+		"next_hint": [
+			"mission_fauna_just_need_sample1",
+			"mission_fauna_just_need_sample2"
+		]
+	},
+	"mission_fauna_just_need_sample2": {
+		"dialog": "The scientists are begging for samples of these plants, lets make their day and collect one",
+		"wait_time": 30,
+		"next_hint": [
+			"mission_fauna_just_need_sample1",
+			"mission_fauna_just_need_sample2"
+		]
+	},
+	"mission_fauna_plant_already_photoed": {
+		"dialog": "We've already got a photo of this plant",
+		"wait_time": 0,
+		"next_hint": [
+			"mission_fauna_plant_already_photoed"
+		]
+	},
+	"mission_fauna_plant_already_sampled": {
+		"dialog": "We've already got a sample of this plant",
+		"wait_time": 0,
+		"next_hint": [
+			"mission_fauna_plant_already_sampled"
+		]
+	},
+	"mission_fauna_plant_already_done1": {
+		"dialog": "We've got enougth data about this type of plant.",
+		"next_dialog": "mission_fauna_plant_already_done1b",
+		"wait_time": 30,
+		"next_hint": [
+			"mission_fauna_plant_already_done1",
+			"mission_fauna_plant_already_done2"
+		]
+	},
+	"mission_fauna_plant_already_done1b": {
+		"dialog": "Let's keep looking for a different type of plant"
+	},
+	"mission_fauna_plant_already_done2": {
+		"dialog": "No need to collect any more information about this type of plant",
+		"next_dialog": "mission_fauna_plant_already_done2b",
+		"wait_time": 30,
+		"next_hint": [
+			"mission_fauna_plant_already_done1",
+			"mission_fauna_plant_already_done2"
+		]
+	},
+	"mission_fauna_whiskered_plant_already_done1": {
+		"dialog": "According to the whiskers we've already collected information about this type of plant",
+		"next_dialog": "mission_fauna_plant_already_done2b"
+	},
+	"mission_fauna_whiskered_plant_already_done2": {
+		"dialog": "The whiskers are indicating we've got all the information we need about this type of plant",
+		"next_dialog": "mission_fauna_plant_already_done2b"
+	},
+	"mission_fauna_whiskered_plant_already_done3": {
+		"dialog": "Looks like we've already documented this type of plant",
+		"next_dialog": "mission_fauna_plant_already_done2b"
+	},
+	"mission_fauna_plant_already_done2b": {
+		"dialog": "There should be more types of plant in this system"
+	},
+	"mission_fauna_completed_plantA": {
+		"dialog": "Documenting complete. The scientists will be very happy"
+	},
+	"mission_fauna_completed_plantB": {
+		"dialog": "Would you beleaf it. Another wonderous plant documented"
+	},
+	"mission_fauna_completed_plantC": {
+		"dialog": "I was rooting for you. You have fully documented this plant"
+	},
+	"mission_fauna_completed_plantD": {
+		"dialog": "Tremendous work! Another plant documented"
+	},
+	"mission_fauna_completed_plantE": {
+		"dialog": "All done, another plant documented. For science!"
+	},
+	"mission_fauna_completed_all": {
+		"dialog": "Well done you have documented all the unique plants in the cave"
+	},
+	"yeti_shorts_on_discover": {
+		"dialog": "Is this... clothing?"
+	},
+	"yeti_paintings_discover": {
+		"dialog": "Is this... a painting?"
+	},
+	"debug_hint1": {
+		"dialog": "debug hint 1",
+
+		"wait_time": 30,
+		"next_hint": [
+			"debug_hint1"
+		]
+	},
+	"debug_hint2": {
+		"dialog": "debug hint 2",
+
+		"wait_time": 30,
+		"next_hint": [
+			"debug_hint1"
+		]
+	}
+}

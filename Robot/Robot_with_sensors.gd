@@ -17,6 +17,12 @@ var success_flag = false
 onready var viewing_camera = $Robot/ForwardCameraSensor/Body/Viewport/Camera
 onready var body =  $Robot/ForwardCameraSensor/Body/
 
+onready var sensor_cam = $Robot/ForwardCameraSensor
+onready var sensor_lidar = $Robot/Lidar
+onready var sensor_temp_left = $Robot/TempLeft
+onready var sensor_temp_right = $Robot/TempRight
+onready var sensor_whisker = $Robot/WhiskerSensor
+
 func _ready():
 	#Get the viewport texture to display it to the GUI, we only need to do this once for viewports
 	$ControlPanel.set_sensor_classes({
@@ -24,13 +30,17 @@ func _ready():
 		'lidar': $Robot/Lidar,
 		'templeft': $Robot/TempLeft,
 		'tempright': $Robot/TempRight,
-		'whisker': $Robot/WhiskerSensor
+		'whisker': $Robot/WhiskerSensor,
+		'compass': $Robot/CompassSensor
 	})
 	
 	$ControlPanel.special_menu.connect("drill_button_pressed",self,"drill_sample")
 	$ControlPanel.special_menu.connect("take_picture_button_pressed",self,"take_picture")
 	$ControlPanel.special_menu.connect("collect_sample_button_pressed",self,"collect_sample")
 	
+
+func _process(delta):
+	viewing_camera.make_current()  
 
 
 func take_picture():
@@ -72,3 +82,6 @@ func successful_action(action):
 			
 func on_action_activated_trigger(action,trigger):
 	success_flag = true
+
+func get_camera_transform():
+	return $Robot/ForwardCameraSensor/Body/CameraPosition.global_transform

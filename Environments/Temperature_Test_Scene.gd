@@ -9,7 +9,7 @@ onready var overlay = $PanelContainer/Overlay
 func _ready():
 	$Robot_with_sensors/Robot/TempLeft.calibrate_from_body($Temp_calibration_heatmap)
 	$Robot_with_sensors/Robot/TempRight.calibrate_from_body($Temp_calibration_heatmap)
-	tex_render.load("res://Assets/heatmap.png")
+	tex_render.load("res://Assets/Heatmap.png")
 	tex_render.convert(Image.FORMAT_RGB8)
 	texture.create_from_image(tex_render)
 

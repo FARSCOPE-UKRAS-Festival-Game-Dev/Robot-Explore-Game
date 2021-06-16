@@ -1,0 +1,43 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+<<<<<<< HEAD:Assets/Images/ControlPanel/Camera_Button.png.import
+path="res://.import/Camera_Button.png-a964dc5fc4f50f556db0adcdf303b412.stex"
+=======
+path="res://.import/leaf.006.png-d9705b09de6f88998d81d8778d563032.stex"
+>>>>>>> master:Assets/Models/Terrain/Objects/leaf.006.png.import
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+<<<<<<< HEAD:Assets/Images/ControlPanel/Camera_Button.png.import
+source_file="res://Assets/Images/ControlPanel/Camera_Button.png"
+dest_files=[ "res://.import/Camera_Button.png-a964dc5fc4f50f556db0adcdf303b412.stex" ]
+=======
+source_file="res://Assets/Models/Terrain/Objects/leaf.006.png"
+dest_files=[ "res://.import/leaf.006.png-d9705b09de6f88998d81d8778d563032.stex" ]
+>>>>>>> master:Assets/Models/Terrain/Objects/leaf.006.png.import
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
