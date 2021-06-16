@@ -8,7 +8,6 @@
 [sub_resource type="CubeMesh" id=2]
 
 [sub_resource type="SpatialMaterial" id=3]
-flags_transparent = true
 flags_unshaded = true
 albedo_texture = ExtResource( 2 )
 

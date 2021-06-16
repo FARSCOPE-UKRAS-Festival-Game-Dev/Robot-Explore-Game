@@ -26,7 +26,6 @@ func _ready():
 			
 	if not trigger_list.empty():
 		for trigger in trigger_list:
-			print("connecing %s to %s on_triggered" % [get_path_to(trigger),get_path()])
 			trigger.connect("on_trigger",self,"on_triggered")#
 	else:
 		print("No valid triggers for : %s " % get_path())

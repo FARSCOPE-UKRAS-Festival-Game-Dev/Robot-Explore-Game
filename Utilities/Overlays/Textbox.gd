@@ -76,6 +76,7 @@ func hide_textbox():
 	hide()
 
 func show_textbox():
+	grab_focus()
 	audio_radio_constant.play()
 	start_symbol.text = "*"
 	show()

@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/TutorialHeatmap.jpg-f3ce43e0f5c54405c80c0de9ce66ecea.image"
+
+[deps]
+
+source_file="res://Assets/Images/TutorialHeatmap.jpg"
+dest_files=[ "res://.import/TutorialHeatmap.jpg-f3ce43e0f5c54405c80c0de9ce66ecea.image" ]
+
+[params]
+

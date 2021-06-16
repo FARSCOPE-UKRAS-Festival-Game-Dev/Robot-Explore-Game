@@ -10,12 +10,17 @@ var whisker_panel
 
 var drill_attempts = 0
 const robot_action = preload("res://Robot/Robot_with_sensors.gd").robot_action
+onready var calibration_body = get_node("../../TemperatureCalibrationBody")
 
 func _ready():
 	get_node("/root/TutorialMission").connect("finished_loading",self,"start_tutorial")
 
+func init_heatmap():
+	Globals.robot.get_node("Robot/TempLeft").calibrate_from_body(calibration_body)
+	Globals.robot.get_node("Robot/TempRight").calibrate_from_body(calibration_body)
 
 func start_tutorial():
+	init_heatmap()
 	robot_control_panel = Globals.robot.get_node("ControlPanel")
 	cam_panel = robot_control_panel.get_node("HUD/CameraPanel")
 	lidar_panel = robot_control_panel.get_node("HUD/LidarPanel")
@@ -43,7 +48,7 @@ func start_tutorial():
 		get_node("../TurnOnCamera").enabled = true
 	else:
 		Globals.robot.global_transform = get_node("/root/TutorialMission/RobotStartLocationDebug").global_transform 
-		get_node("../PhotoRobot").enabled = true
+		get_node("../LeaveLevel").enabled = true
 	print("intro complete")
 
 func _on_TurnOnCamera_on_enable():

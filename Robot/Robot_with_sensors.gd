@@ -13,7 +13,7 @@ signal action_failed
 const ACTION_SUCCESS_TIMEOUT = 0.1
 onready var success_timeout_timer = $SuccessActionTimeout
 var success_flag = false
-	
+var immobilise = false setget set_immobilise
 onready var viewing_camera = $Robot/ForwardCameraSensor/Body/Viewport/Camera
 onready var body =  $Robot/ForwardCameraSensor/Body/
 
@@ -22,6 +22,10 @@ onready var sensor_lidar = $Robot/Lidar
 onready var sensor_temp_left = $Robot/TempLeft
 onready var sensor_temp_right = $Robot/TempRight
 onready var sensor_whisker = $Robot/WhiskerSensor
+
+func set_immobilise(value):
+	immobilise = value
+	$Robot.transform_overide = immobilise
 
 func _ready():
 	#Get the viewport texture to display it to the GUI, we only need to do this once for viewports

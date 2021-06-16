@@ -11,8 +11,8 @@ var fast_hint = false
 var camera_trigger_debug = false
 
 var temp_debug = false
-var trigger_debug = true
-var follow_camera = false
+var trigger_debug = false
+var follow_camera =  false
 
 ##### Control Interface
 var control_panel_ui_scene_pl = preload('res://Utilities/Control_Panel_UI.tscn')
@@ -112,7 +112,9 @@ func all_dialog_finished():
 	play_audio_radio_off()
 	displaying_dialog = false
 	emit_signal("all_dialog_finished")
-	
+	if robot != null:
+		if robot.get_node("ControlPanel").isolating_panel == false:
+			robot.immobilise = false
 func on_options_updated():
 	emit_signal("options_updated")
 	
@@ -219,6 +221,7 @@ func set_book_visible(value):
 	 
 func queue_dialog(dialog_key):
 	displaying_dialog = true
+	robot.immobilise = true
 	if not dialog_JSON_data.has(dialog_key):
 		print("ERROR - dialog key: \"%s\" not in JSON file" % dialog_key)
 		dialog_key = "dialog_not_found"

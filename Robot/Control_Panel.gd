@@ -3,6 +3,7 @@ extends Control
 
 const robot_action = preload("res://Robot/Robot_with_sensors.gd").robot_action
 
+var isolating_panel
 
 onready var hud = $HUD
 onready var book_btn = hud.get_node("ButtonContainer/AspectRatioContainer/VBoxContainer/MarginContainer/OpenBookButton")
@@ -36,6 +37,8 @@ func set_HUD_visible(value):
 	hud.visible = value
 	
 func isolate_panel(panel_name):
+	isolating_panel = true
+	Globals.robot.immobilise = true
 	var panel = hud.get_node(panel_name)
 	var iso_panel = hud.get_node("IsolatingPanel")
 	iso_panel.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -46,11 +49,14 @@ func isolate_panel(panel_name):
 	hud.get_node("IsolatingPanel").show()
 
 func remove_isolate_panel():
+	isolating_panel= false
 	var iso_panel = hud.get_node("IsolatingPanel")
 	hud.move_child($HUD/ButtonContainer,hud.get_child_count())
 	iso_panel.mouse_filter = Control.MOUSE_FILTER_PASS
 	iso_panel.hide()
 	Globals.joystick.set_visible(true)
+	if Globals.displaying_dialog == false:
+		Globals.robot.immobilise = false
 	
 func set_sensor_classes(mapping):
 	if 'camera' in mapping:
@@ -83,23 +89,30 @@ func mark_read_book_icon(read):
 	book_btn.texture_normal =  book_read_texture if read else book_unread_texture
 
 func _on_SpecialsMenu_collect_sample_button_pressed():
+	Globals.robot.immobilise = true
 	Globals.play_sound("robot_arm", -15.0)
 	Globals.robot.viewing_camera.get_node("CameraShaker").start(2.0, 100, 0.05, 0)
 	special_menu.show_spinner_duration(2.0)
 	yield(get_tree().create_timer(2.0), "timeout")
 	emit_signal("finished_action_anim",robot_action.COLLECT_SAMPLE)
+	if Globals.displaying_dialog == false:
+		Globals.robot.immobilise = false
 func _on_SpecialsMenu_drill_button_pressed():
+	Globals.robot.immobilise = true
 	Globals.play_sound("drill_success", -15.0)
 	Globals.robot.viewing_camera.get_node("CameraShaker").start(10.0, 15, 0.2, 0)
 	special_menu.show_spinner_duration(10.0)
 	yield(get_tree().create_timer(10.0), "timeout")
 	emit_signal("finished_action_anim",robot_action.DRILL_SAMPLE)
-	print("emited signals")
+	if Globals.displaying_dialog == false:
+		Globals.robot.immobilise = false
 func _on_SpecialsMenu_take_picture_button_pressed():
+	Globals.robot.immobilise = true
 	var high_res_cam_node = CAMERA_HIGH_RES_SCENE.instance()
 	add_child(high_res_cam_node)
 	var robot_transform = Globals.robot.get_camera_transform()
 	high_res_cam_node.take_picture(robot_transform, 3.0)
 	yield(get_tree().create_timer(3.0), "timeout")
 	emit_signal("finished_action_anim",robot_action.TAKING_PICTURE)
-	
+	if Globals.displaying_dialog == false:
+		Globals.robot.immobilise = false

@@ -15,6 +15,11 @@ func get_current_sense_obj():
 		return null
 	else:
 		return bodies[0]
+		
+func get_tactile_info(body):
+	return body.find_node("TactileInfo")
+func has_tactile_info(body):
+	return (get_tactile_info(body) != null)
 func _ready():
 	type = "whiskers"
 	touching = [0, 0, 0, 0, 0, 0]
@@ -25,13 +30,15 @@ func _ready():
 	bodies.clear()
 	enabled = old_enabled
 func _on_Area_body_entered(body):
-	bodies.append(body)
+	
 	
 	if not register:
+		bodies.append(body)
 		register = true
 		bodies.clear()
 		
-	if register and enabled:
+	if register and enabled and has_tactile_info(body):
+		bodies.append(body)
 		emit_signal("whisker_sense_new")
 
 func _on_Area_body_exited(body):
@@ -41,16 +48,15 @@ func _on_Area_body_exited(body):
 			emit_signal("whisker_sense_none")
 func render_view():
 	if bodies.size() > 0:
-		var tactile_info = bodies[0].find_node("TactileInfo")
-
+		var tactile_info = get_tactile_info(bodies[0])
 		if  tactile_info != null:
 			var texture = tactile_info.value
 			return texture
-		for c in bodies[0].get_children():
-				if c.get_class() == "MeshInstance":
-					var texture = c.get_active_material(0).get_texture(0)
-					if texture != null:
-						return texture
+#		for c in bodies[0].get_children():
+#				if c.get_class() == "MeshInstance":
+#					var texture = c.get_active_material(0).get_texture(0)
+#					if texture != null:
+#						return texture
 
 	var image = Image.new()
 	image.create(360,360,false,Image.FORMAT_RGB8)
@@ -61,7 +67,7 @@ func render_view():
 
 func render_text():
 	if bodies.size() > 0:
-		var tactile_info = bodies[0].find_node("TactileInfo")
+		var tactile_info = get_tactile_info(bodies[0])
 		if  tactile_info != null:
 			return tactile_info.texture_name
 

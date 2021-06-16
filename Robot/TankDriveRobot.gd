@@ -20,7 +20,7 @@ func _ready():
 	is_joystick_enabled = Globals.is_joystick_enabled
 
 func _physics_process(delta):
-	if not transform_overide and not Globals.displaying_dialog:
+	if not transform_overide:
 		velocity += gravity
 		get_input(delta)
 		
@@ -43,7 +43,7 @@ func _physics_process(delta):
 	else:
 		global_transform = global_transform
 func get_input(delta):
-	if not transform_overide and not Globals.displaying_dialog:
+	if not transform_overide:
 		var vy = velocity.y
 		velocity = Vector3.ZERO
 		if Input.is_action_pressed("accelerate") or joystick.output.y < 0:

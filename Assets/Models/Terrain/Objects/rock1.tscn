@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Models/Textures/rock08FeatureShader.material" type="Material" id=1]
+[ext_resource path="res://Sensors/TactileInfo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Models/Textures/Rock015_1K_Color.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
 resource_name = "bigRock1PhysicsMaterial"
@@ -249,3 +251,8 @@ shape = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 mesh = SubResource( 5 )
 material/0 = ExtResource( 1 )
+
+[node name="TactileInfo" parent="bigRock1Physics" instance=ExtResource( 2 )]
+type = 6
+value = ExtResource( 3 )
+texture_name = "Granite"
