@@ -150,6 +150,9 @@
 	"tutorial_in_cave_obstacle": {
 		"dialog": "The LIDAR seems to be detecting an obstruction in the tunnel ahead. See if you can drive around it"
 	},
+	"tutorial_in_cave_reenter_old_cave": {
+		"dialog": "Ah we must of done a U turn we've already been here! Let's re-enter the cave and try again"
+	},
 	"tutorial_in_cave_new_cave": {
 		"dialog": "Hmmm looks like the cave continues this way"
 	},

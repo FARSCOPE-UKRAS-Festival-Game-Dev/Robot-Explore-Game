@@ -34,30 +34,18 @@ func _ready():
 		'compass': $Robot/CompassSensor
 	})
 	
-	$ControlPanel.special_menu.connect("drill_button_pressed",self,"drill_sample")
-	$ControlPanel.special_menu.connect("take_picture_button_pressed",self,"take_picture")
-	$ControlPanel.special_menu.connect("collect_sample_button_pressed",self,"collect_sample")
-	
-
+	$ControlPanel.connect("finished_action_anim",self,"do_action")
 func _process(delta):
 	viewing_camera.make_current()  
 
 
-func take_picture():
-	#play sound
-	do_action(robot_action.TAKING_PICTURE)
-func drill_sample():
-	#play sound
-	do_action(robot_action.DRILL_SAMPLE)
 
-func collect_sample():
-	#play sound
-	do_action(robot_action.COLLECT_SAMPLE)
 
 func do_action(action):
 	
 	#Emit signal for action, wait timout seconds to see if we trigger anything if not we fail.
 	#timeout could be replaced by animation length or use the animation finished signal
+	print("doing action: %d" %action )
 	success_timeout_timer.wait_time = ACTION_SUCCESS_TIMEOUT
 	success_flag = false
 	emit_signal("doing_action",action)

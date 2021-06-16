@@ -12,20 +12,21 @@ var drill_attempts = 0
 const robot_action = preload("res://Robot/Robot_with_sensors.gd").robot_action
 
 func _ready():
-	get_node("/root/Mission1").connect("finished_loading",self,"start_tutorial")
+	get_node("/root/TutorialMission").connect("finished_loading",self,"start_tutorial")
 
 
 func start_tutorial():
+	robot_control_panel = Globals.robot.get_node("ControlPanel")
+	cam_panel = robot_control_panel.get_node("HUD/CameraPanel")
+	lidar_panel = robot_control_panel.get_node("HUD/LidarPanel")
+	whisker_panel = robot_control_panel.get_node("HUD/WhiskerPanel")
 	var skip = false
 	
 	if not skip:
-		Globals.control_panel_ui.get_node("FadeOverlay").show()
+		Globals.control_panel_ui.set_enable_fade_overlay(true)
 		Globals.joystick.hide()
 		
-		robot_control_panel = Globals.robot.get_node("ControlPanel")
-		cam_panel = robot_control_panel.get_node("HUD/CameraPanel")
-		lidar_panel = robot_control_panel.get_node("HUD/LidarPanel")
-		whisker_panel = robot_control_panel.get_node("HUD/WhiskerPanel")
+
 		for panel in [cam_panel,lidar_panel,whisker_panel]:
 			panel.enabled = false
 			panel._render_texture_to_hud(off_texture)
@@ -40,7 +41,8 @@ func start_tutorial():
 		Globals.queue_dialog("tutorial_camera_on_start1")
 		yield(Globals,"all_dialog_finished")
 		get_node("../TurnOnCamera").enabled = true
-	else:	
+	else:
+		Globals.robot.global_transform = get_node("/root/TutorialMission/RobotStartLocationDebug").global_transform 
 		get_node("../PhotoRobot").enabled = true
 	print("intro complete")
 
@@ -52,7 +54,7 @@ func camera_turned_on(event):
 	if event.is_pressed():#and not get_node("../TurnOnCamera").complete : 
 		cam_panel.disconnect("gui_input",self,"camera_turned_on")
 		get_node("../TurnOnCamera").complete_objective()
-		get_node("/root/Mission1/TutorialMission/Audio/software_on_camera_audio").play()
+		get_node("../Audio/software_on_camera_audio").play()
 		cam_panel.enabled = true
 		robot_control_panel.remove_isolate_panel()
 		yield(Globals,"all_dialog_finished")
@@ -68,17 +70,19 @@ func whiskers_turned_on(event):
 	if event.is_pressed():
 		get_node("../TurnOnWhiskers").complete_objective()
 		whisker_panel.enabled = true
-		get_node("/root/Mission1/TutorialMission/Audio/software_on_whisker_audio").play()
+		get_node("../Audio/software_on_whisker_audio").play()
 		whisker_panel.disconnect("gui_input",self,"whiskers_turned_on")
 		
 		robot_control_panel.remove_isolate_panel()
 
 func _on_UseDrill_on_enable():
-	Globals.robot.connect("action_failed",self,"trigger_drill_hint")
-	drill_attempts = 0
+	if Globals.robot != null:
+		Globals.robot.connect("action_failed",self,"trigger_drill_hint")
+		drill_attempts = 0
 	
 func _on_UseDrill_on_disable():
-	Globals.robot.disconnect("action_failed",self,"trigger_drill_hint")
+	if Globals.robot != null:
+		Globals.robot.disconnect("action_failed",self,"trigger_drill_hint")
 
 func trigger_drill_hint(action):
 	if action == robot_action.DRILL_SAMPLE:
@@ -94,7 +98,7 @@ func _on_TurnOnLidar_on_enable():
 func lidar_turned_on(event):
 	if event.is_pressed():
 		lidar_panel.enabled = true
-		get_node("/root/Mission1/TutorialMission/Audio/software_on_lidar_audio").play()
+		get_node("../Audio/software_on_lidar_audio").play()
 		robot_control_panel.remove_isolate_panel()
 		get_node("../TurnOnLidar").complete_objective()
 
@@ -132,7 +136,8 @@ func _on_PhotoRobot_on_enable():
 	photo_attempts = 0
 	
 func _on_PhotoRobot_on_disable():
-	Globals.robot.disconnect("action_failed",self,"photo_fail_hint")
+	if Globals.robot != null:
+		Globals.robot.disconnect("action_failed",self,"photo_fail_hint")
 
 func photo_fail_hint(action):
 	if action == robot_action.TAKING_PICTURE:
@@ -142,3 +147,10 @@ func photo_fail_hint(action):
 			photo_attempts = 0
 
 
+
+
+func _on_LeaveLevel_on_objective_complete(ObjectiveBase):
+	Globals.control_panel_ui.fade_out()
+	yield(get_tree().create_timer(3.0), "timeout")
+	Globals.load_new_scene("res://Environments/finalMissionCave.tscn")
+	

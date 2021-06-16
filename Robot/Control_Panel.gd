@@ -1,5 +1,9 @@
 extends Control
 
+
+const robot_action = preload("res://Robot/Robot_with_sensors.gd").robot_action
+
+
 onready var hud = $HUD
 onready var book_btn = hud.get_node("ButtonContainer/AspectRatioContainer/VBoxContainer/MarginContainer/OpenBookButton")
 onready var special_menu =  hud.get_node("ButtonContainer/SpecialsMenu")
@@ -9,6 +13,7 @@ onready var book_read_texture = preload("res://Assets/Images/ControlPanel/Option
 
 const CAMERA_HIGH_RES_SCENE = preload("res://Utilities/Misc/ShowHighResPhoto.tscn")
 
+signal finished_action_anim(action_string)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Globals.init_control_panel()
@@ -81,14 +86,20 @@ func _on_SpecialsMenu_collect_sample_button_pressed():
 	Globals.play_sound("robot_arm", -15.0)
 	Globals.robot.viewing_camera.get_node("CameraShaker").start(2.0, 100, 0.05, 0)
 	special_menu.show_spinner_duration(2.0)
-
+	yield(get_tree().create_timer(2.0), "timeout")
+	emit_signal("finished_action_anim",robot_action.COLLECT_SAMPLE)
 func _on_SpecialsMenu_drill_button_pressed():
 	Globals.play_sound("drill_success", -15.0)
 	Globals.robot.viewing_camera.get_node("CameraShaker").start(10.0, 15, 0.2, 0)
 	special_menu.show_spinner_duration(10.0)
-
+	yield(get_tree().create_timer(10.0), "timeout")
+	emit_signal("finished_action_anim",robot_action.DRILL_SAMPLE)
+	print("emited signals")
 func _on_SpecialsMenu_take_picture_button_pressed():
 	var high_res_cam_node = CAMERA_HIGH_RES_SCENE.instance()
 	add_child(high_res_cam_node)
 	var robot_transform = Globals.robot.get_camera_transform()
-	high_res_cam_node.take_picture(robot_transform, 5.0)
+	high_res_cam_node.take_picture(robot_transform, 3.0)
+	yield(get_tree().create_timer(3.0), "timeout")
+	emit_signal("finished_action_anim",robot_action.TAKING_PICTURE)
+	

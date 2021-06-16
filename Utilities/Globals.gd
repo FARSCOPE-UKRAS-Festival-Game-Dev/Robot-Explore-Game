@@ -11,7 +11,7 @@ var fast_hint = false
 var camera_trigger_debug = false
 
 var temp_debug = false
-var trigger_debug = false
+var trigger_debug = true
 var follow_camera = false
 
 ##### Control Interface
@@ -36,13 +36,14 @@ var loader
 var wait_frames
 var time_max = 100
 var current_scene
-
+var loading_scene
 
 
 signal dialog_loaded
 signal dialog_finished
 signal all_dialog_finished
 signal options_updated 
+
 
 #### Sound
 var audio_clips = {
@@ -92,6 +93,7 @@ func _process(time):
 			var resource = loader.get_resource()
 			loader = null
 			set_new_scene(resource)
+			loading_scene.queue_free()
 			break
 		elif err == OK:
 			update_progress()
@@ -125,7 +127,7 @@ func load_dialog_from_file(file_path):
 	
 func goto_scene(path):
 	#	Refer to https://docs.godotengine.org/en/stable/tutorials/io/background_loading.html
-	var loading_scene = LOADING_ANIMATION.instance()
+	loading_scene = LOADING_ANIMATION.instance()
 	loading_scene.name = 'animation'
 	add_child(loading_scene)
 	
@@ -176,6 +178,7 @@ func quit_to_main_menu():
 	
 	# Remove the robot
 	robot.queue_free()
+	robot = null
 		
 	control_panel_loaded = false
 	
