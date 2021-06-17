@@ -3,7 +3,6 @@ extends Control
 export (String) var game_name = "The Best Robot Sensor Exploration Game"
 
 export(Array, Array, String) var scene_locations = [
-	["Tutorial - Scripted", "res://Environments/TutorialSection/TutorialSection.tscn"],
 	["Tutorial - Final Environment", "res://Environments/TutorialSection/finalTutorialCave.tscn"],
 	["Mission 1 - Final Environment", "res://Environments/finalMissionCave.tscn"],
 	["Cave Y Junction", "res://Environments/Cave_Y_Junction.tscn"],
@@ -38,32 +37,29 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_down") and current_selection < 3:
-		play_button_click()
+		Globals.play_sound('switch_on')
 		current_selection += 1
 		set_current_selection(current_selection)
 	elif Input.is_action_just_pressed("ui_up") and current_selection > 0:
-		play_button_click()
+		Globals.play_sound('switch_on')
 		current_selection -= 1
 		set_current_selection(current_selection)
 	elif Input.is_action_just_pressed("ui_accept"):
+		Globals.play_sound('switch_off')
 		if not in_options:
 			handle_selection(current_selection)
 		else:
 			hide_options()# Not implimenting options via keyboard atm
 
 func handle_selection(_current_selection):
-	play_button_click()
+	Globals.play_sound('switch_on')
 	if _current_selection == 0:
 		Globals.load_new_scene(scene_locations[$DebugNode/MarginContainer/MapChoice.get_selected_id()][1])
-		#get_parent().add_child(scene.instance())
-		#queue_free()
 	elif _current_selection == 1:
 		show_options()
 	elif _current_selection == 2:
 		get_tree().change_scene(CREDITS_SCENE)
 	elif _current_selection == 3:
-		if $ButtonClickAudio.playing:
-			yield($ButtonClickAudio, "finished")
 		get_tree().quit()
 
 func set_current_selection(_current_selection):
@@ -109,10 +105,6 @@ func _on_Button4_pressed(): # Actually the credits button
 	handle_selection(current_selection)
 
 func _on_BackButton_pressed():
-	play_button_click()
+	Globals.play_sound('switch_off')
 	hide_options()
-
-func play_button_click():
-	$ButtonClickAudio.play()
-	yield($ButtonClickAudio, "finished")
 

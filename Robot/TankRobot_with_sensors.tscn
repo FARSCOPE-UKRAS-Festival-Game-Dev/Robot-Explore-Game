@@ -35,10 +35,10 @@ spot_angle_attenuation = 0.840894
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19031, -0.948806 )
 
 [node name="TempLeft" parent="Robot" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.08006, 0.05316, -0.75269 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -0.5 )
 
 [node name="TempRight" parent="Robot" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9577, 0.05316, -0.75269 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -0.5 )
 
 [node name="WhiskerSensor" parent="Robot" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.292629, -0.685635 )

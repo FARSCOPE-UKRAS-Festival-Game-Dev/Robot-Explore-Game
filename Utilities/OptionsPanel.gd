@@ -2,6 +2,8 @@ extends MarginContainer
 
 signal options_updated
 
+export var show_quit_to_main_menu = true
+
 onready var font = load("res://Assets/Fonts/NormalTextFont.tres")
 func _on_FontSlider_value_changed(value):
 	
@@ -15,8 +17,7 @@ func _ready():
 	$GridContainer/FontSlider.value = font.size
 	$GridContainer/Debug_tools.pressed = Globals.debug_mode
 	
-	if get_tree().get_current_scene().get_name() == "MainMenu":
-		$GridContainer/QuitButton.visible = false
+	$GridContainer/QuitButton.visible = show_quit_to_main_menu
 		
 func _on_Debug_tools_toggled(button_pressed):
 	Globals.debug_mode = button_pressed

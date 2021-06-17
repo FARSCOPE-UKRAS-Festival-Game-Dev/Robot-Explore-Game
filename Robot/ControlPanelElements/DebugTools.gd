@@ -2,9 +2,10 @@ extends Control
 
 
 func _ready():
-	$Panel/HBoxContainer/ToggleBackground.connect("toggled",Globals.robot.get_node("ControlPanel"),"set_background_visible")
-	$Panel/HBoxContainer/ToggleHUD.connect("toggled",Globals.robot.get_node("ControlPanel"),"set_HUD_visible")
-	$Panel/HBoxContainer/FastMode.connect("toggled",self,"set_fast_mode")
+	if Globals.robot != null:
+		$Panel/HBoxContainer/ToggleBackground.connect("toggled",Globals.robot.get_node("ControlPanel"),"set_background_visible")
+		$Panel/HBoxContainer/ToggleHUD.connect("toggled",Globals.robot.get_node("ControlPanel"),"set_HUD_visible")
+		$Panel/HBoxContainer/FastMode.connect("toggled",self,"set_fast_mode")
 	
 func set_fast_mode(value):
 	if value: 

@@ -2,6 +2,8 @@ extends Control
 
 const CREDITS_FILE="res://Assets/credits.json"
 #const FONT_FILE = preload("res://Fonts/")
+const BUTTON_NORMAL  = preload("res://Assets/Images/Misc/down_arrow.png")
+const BUTTON_PRESSED = preload("res://Assets/Images/Misc/down_arrow_pressed.png")
 
 const section_time := 2.0
 const line_time := 0.8
@@ -111,12 +113,16 @@ func add_line():
 
 
 func _unhandled_input(event):
+	var action_list = ["ui_down", "ui_select", "ui_accept"]
 	if event.is_action_pressed("ui_cancel"):
 		finish()
-	if event.is_action_pressed("ui_down") and !event.is_echo():
-		speed_up = true
-	if event.is_action_released("ui_down") and !event.is_echo():
-		speed_up = false
+	for a in action_list:
+		if event.is_action_pressed(a) and !event.is_echo():
+			$DownArrow.set_normal_texture(BUTTON_PRESSED)
+			speed_up = true
+		if event.is_action_released(a) and !event.is_echo():
+			$DownArrow.set_normal_texture(BUTTON_NORMAL)
+			speed_up = false
 
 func _on_TextureRect_button_down():
 	speed_up = true

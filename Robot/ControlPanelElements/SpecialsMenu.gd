@@ -1,5 +1,6 @@
 extends Control
 
+const SPINNER_SCENE = preload("res://Utilities/Misc/WaitingSpinner.tscn")
 
 onready var background_full = $BackgroundPanel
 onready var background = $AspectRatioContainer/MarginContainer/VBoxContainer/AspectRatioContainer/TopOnlyBackground
@@ -43,3 +44,7 @@ func play_button(on):
 	else:
 		$ButtonToggleOffAudio.play()
 
+func show_spinner_duration(duration):
+	var spin_inst = SPINNER_SCENE.instance()
+	spin_inst.duration_seconds = duration
+	open_button.get_node("Spinner").add_child(spin_inst)

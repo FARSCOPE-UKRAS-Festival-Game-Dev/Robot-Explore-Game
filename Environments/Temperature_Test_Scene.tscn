@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sensors/TempatureCalibrationBody.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sensors/TemperatureCalibrationBody.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Environments/Temperature_Test_Scene.gd" type="Script" id=3]
 
 [sub_resource type="ViewportTexture" id=1]
@@ -27,10 +27,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77893, 0 )
 size = Vector2( 256, 256 )
 
 [node name="Camera" type="Camera" parent="Viewport"]
-transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 91.017, 0 )
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 159.738, 0 )
+far = 200.0
 
 [node name="Temp_calibration_heatmap" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 100, 37.6176, 26.7141, 21.5934 )
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchor_top = 0.214
@@ -62,19 +63,21 @@ margin_top = 7.0
 margin_right = 256.0
 margin_bottom = 231.0
 rect_min_size = Vector2( 100, 100 )
-stretch_mode = 1
+expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 600.464
-margin_top = 102.6
-margin_right = 818.464
-margin_bottom = 320.6
+margin_left = 600.0
+margin_top = 5.0
+margin_right = 907.0
+margin_bottom = 321.0
 rect_min_size = Vector2( 100, 100 )
 texture = SubResource( 1 )
 expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
