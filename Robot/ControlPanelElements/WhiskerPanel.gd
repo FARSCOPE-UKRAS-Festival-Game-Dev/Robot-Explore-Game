@@ -144,4 +144,5 @@ func play_analyse_anim():
 	whisker_anim.queue("whisker_analyse")
 
 func on_analyse_anim_finished():
+	yield(get_tree().create_timer(0.5),"timeout")
 	emit_signal("reveal_animation_finished")

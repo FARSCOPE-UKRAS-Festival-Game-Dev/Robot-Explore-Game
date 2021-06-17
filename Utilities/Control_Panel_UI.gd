@@ -4,6 +4,7 @@ onready var anim = $AnimationPlayer
 onready var fade_overlay = $FadeOverlay
 func _ready():
 	fade_overlay.hide()
+	fade_overlay.color.a = 1.0
 	
 func fade_in():
 	set_enable_fade_overlay(true)

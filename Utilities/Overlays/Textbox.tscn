@@ -18,6 +18,7 @@ border_color = Color( 1, 1, 1, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 10.0
+focus_mode = 2
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -135,3 +136,4 @@ volume_db = -15.0
 [connection signal="visibility_changed" from="." to="." method="_on_Textbox_visibility_changed"]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 [connection signal="timeout" from="TimeoutTimer" to="." method="_on_TimeoutTimer_timeout"]
+[connection signal="gui_input" from="MarginContainer/TextboxContainer" to="." method="_on_TextboxContainer_gui_input"]

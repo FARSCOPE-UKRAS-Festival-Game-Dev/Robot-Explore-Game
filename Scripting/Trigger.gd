@@ -40,7 +40,7 @@ var doing_action = false
 var obj_whiskered = false
 var in_area = false
 var debounce = false
-onready var globals = get_node('/root/Globals')
+
 
 func set_debounce(value):
 	debounce = value
@@ -108,7 +108,7 @@ func trigger():
 
 		emit_signal("on_trigger")
 		if must_action_enable and on_trigger_action_is_success:
-			globals.robot.on_action_activated_trigger(must_action,self)
+			Globals.robot.on_action_activated_trigger(must_action,self)
 		if oneshot:
 			set_enable(false)
 		elif enable_debounce_timer:
@@ -120,7 +120,8 @@ func trigger():
 func _on_TriggerArea_body_entered(body):
 	if body.get_name() == ("Robot"):
 		in_area = true
-		globals.robot.connect("doing_action",self,"_on_robot_action")
+		print("Print connecting... %s" % get_parent().name + "/" +name)
+		Globals.robot.connect("doing_action",self,"_on_robot_action")
 		if must_whisker_enable:
 			whisker_obj = get_node(must_whisker)
 			var whisker_obj_info = whisker_obj.get_node_or_null("TactileInfo")
@@ -139,7 +140,7 @@ func _on_robot_action(action):
 func _on_TriggerArea_body_exited(body):
 	if body.get_name() == ("Robot"):
 		in_area = false
-		globals.robot.disconnect("doing_action",self,"_on_robot_action")
+		Globals.robot.disconnect("doing_action",self,"_on_robot_action")
 		if must_whisker_enable:
 			whisker_obj = get_node(must_whisker)
 			var whisker_obj_info = whisker_obj.get_node_or_null("TactileInfo")

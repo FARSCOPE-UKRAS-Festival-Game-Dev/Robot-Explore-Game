@@ -1,0 +1,52 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Images/ControlPanel/Robot.png.import
+path="res://.import/Robot.png-7d93ec0c12727cba723e3f842cc11ba0.stex"
+=======
+path="res://.import/BRL.png-f84cffa7d16321da5339e8978f791f16.stex"
+>>>>>>> 2c2e00771ea8d98edc4f72d90b9ca819f836b508:Assets/Images/logo/BRL.png.import
+=======
+path="res://.import/Robot.png-7d93ec0c12727cba723e3f842cc11ba0.stex"
+>>>>>>> 2c2e00771ea8d98edc4f72d90b9ca819f836b508
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Images/ControlPanel/Robot.png.import
+source_file="res://Assets/Images/ControlPanel/Robot.png"
+dest_files=[ "res://.import/Robot.png-7d93ec0c12727cba723e3f842cc11ba0.stex" ]
+=======
+source_file="res://Assets/Images/logo/BRL.png"
+dest_files=[ "res://.import/BRL.png-f84cffa7d16321da5339e8978f791f16.stex" ]
+>>>>>>> 2c2e00771ea8d98edc4f72d90b9ca819f836b508:Assets/Images/logo/BRL.png.import
+=======
+source_file="res://Assets/Images/ControlPanel/Robot.png"
+dest_files=[ "res://.import/Robot.png-7d93ec0c12727cba723e3f842cc11ba0.stex" ]
+>>>>>>> 2c2e00771ea8d98edc4f72d90b9ca819f836b508
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

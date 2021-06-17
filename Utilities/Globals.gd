@@ -12,7 +12,7 @@ var camera_trigger_debug = false
 
 var temp_debug = false
 var trigger_debug = false
-var follow_camera = false
+var follow_camera =  false
 
 ##### Control Interface
 var control_panel_ui_scene_pl = preload('res://Utilities/Control_Panel_UI.tscn')
@@ -37,13 +37,14 @@ var loader
 var wait_frames
 var time_max = 100
 var current_scene
-
+var loading_scene
 
 
 signal dialog_loaded
 signal dialog_finished
 signal all_dialog_finished
 signal options_updated 
+
 
 #### Sound
 var audio_clips = {
@@ -93,6 +94,7 @@ func _process(time):
 			var resource = loader.get_resource()
 			loader = null
 			set_new_scene(resource)
+			loading_scene.queue_free()
 			break
 		elif err == OK:
 			update_progress()
@@ -111,7 +113,9 @@ func all_dialog_finished():
 	play_audio_radio_off()
 	displaying_dialog = false
 	emit_signal("all_dialog_finished")
-	
+	if robot != null:
+		if robot.get_node("ControlPanel").isolating_panel == false:
+			robot.immobilise = false
 func on_options_updated():
 	emit_signal("options_updated")
 	
@@ -126,7 +130,7 @@ func load_dialog_from_file(file_path):
 	
 func goto_scene(path):
 	#	Refer to https://docs.godotengine.org/en/stable/tutorials/io/background_loading.html
-	var loading_scene = LOADING_ANIMATION.instance()
+	loading_scene = LOADING_ANIMATION.instance()
 	loading_scene.name = 'animation'
 	add_child(loading_scene)
 	
@@ -177,6 +181,7 @@ func quit_to_main_menu():
 	
 	# Remove the robot
 	robot.queue_free()
+	robot = null
 		
 	control_panel_loaded = false
 	
@@ -218,6 +223,7 @@ func set_book_visible(value):
 	 
 func queue_dialog(dialog_key):
 	displaying_dialog = true
+	robot.immobilise = true
 	if not dialog_JSON_data.has(dialog_key):
 		print("ERROR - dialog key: \"%s\" not in JSON file" % dialog_key)
 		dialog_key = "dialog_not_found"
@@ -228,8 +234,8 @@ func queue_dialog(dialog_key):
 	var dialog_data = dialog_JSON_data[dialog_key]
 	dialog_popup.queue_text(dialog_data["dialog"],dialog_key)
 	
-	
-	book_overlay.add_journal_entry(dialog_data["dialog"])
+	if book_overlay:
+		book_overlay.add_journal_entry(dialog_data["dialog"])
 	
 
 	if dialog_data.has("next_dialog"):
