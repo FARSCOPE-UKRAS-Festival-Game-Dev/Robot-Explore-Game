@@ -1,5 +1,6 @@
 extends Control
 onready var mission_name_label = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MissionName
+signal mission_popup_complete
 
 func popup(mission_name):
 	
@@ -16,3 +17,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "fade_out":
 		hide()
 	$AnimationPlayer.stop()
+	emit_signal("mission_popup_complete")
