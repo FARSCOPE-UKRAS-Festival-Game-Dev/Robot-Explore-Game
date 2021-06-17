@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Models/Terrain/Objects/Flora/plantsPalette001.material" type="Material" id=1]
-[ext_resource path="res://Assets/Models/Terrain/Objects/Flora/_bulbTactileInfo.gd" type="Script" id=2]
 
 [sub_resource type="PhysicsMaterial" id=1]
 resource_local_to_scene = true
@@ -30,9 +29,6 @@ surfaces/0 = {
 
 [node name="bulbPlant" type="Spatial"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0 )
-
-[node name="TactileInfo" type="Node" parent="."]
-script = ExtResource( 2 )
 
 [node name="_bulbPlant" type="Spatial" parent="."]
 

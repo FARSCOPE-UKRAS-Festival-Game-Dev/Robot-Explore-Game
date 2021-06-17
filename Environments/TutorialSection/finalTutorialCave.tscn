@@ -3,7 +3,7 @@
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://Environments/LoadEnvironment.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Models/Terrain/Objects/rock1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Models/Terrain/Objects/Robot/broken_robot_parts.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Models/Terrain/Objects/Robot/brokeArm2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Models/Terrain/Objects/Waterfall/Waterfall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Models/Terrain/Objects/rock2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Models/Terrain/Objects/Snowdrift/startCaveIcePlane.tscn" type="PackedScene" id=7]
@@ -275,7 +275,7 @@ transform = Transform( -2.0946, -0.150558, 0.00157238, -0.146745, 2.04623, 0.448
 transform = Transform( -2.0946, -0.150558, 0.00157238, -0.142199, 1.9853, 0.669615, -0.0494943, 0.667785, -1.99038, -99.4404, -5.56644, 14.7539 )
 
 [node name="brokenRobotPart" parent="caveBody" instance=ExtResource( 4 )]
-transform = Transform( 0.144615, -0.989488, 0, -0.513246, -0.0750117, 0.854957, -0.84597, -0.12364, -0.518699, -89.5283, -6.44882, 50.1215 )
+transform = Transform( 0.216923, -1.48423, 1.17482e-07, -0.769869, -0.112517, 1.28244, -1.26895, -0.18546, -0.778048, -105.035, -6.98196, 60.7716 )
 
 [node name="TutorialMission" parent="." instance=ExtResource( 14 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
@@ -580,7 +580,7 @@ value = ExtResource( 22 )
 texture_name = "Interesting Rock"
 
 [node name="RobotPart" type="RigidBody" parent="TutorialMission"]
-transform = Transform( 1, 0, -7.4607e-14, 0, 1, 0, 7.4607e-14, 0, 1, -49.3574, -4.89439, -92.6129 )
+transform = Transform( 1, 0, -7.4607e-14, 0, 1, 0, 7.4607e-14, 0, 1, -59.244, -4.89439, -107.727 )
 visible = false
 mode = 1
 physics_material_override = SubResource( 1 )
