@@ -226,8 +226,8 @@ func queue_dialog(dialog_key):
 	var dialog_data = dialog_JSON_data[dialog_key]
 	dialog_popup.queue_text(dialog_data["dialog"],dialog_key)
 	
-	
-	book_overlay.add_journal_entry(dialog_data["dialog"])
+	if book_overlay:
+		book_overlay.add_journal_entry(dialog_data["dialog"])
 	
 
 	if dialog_data.has("next_dialog"):

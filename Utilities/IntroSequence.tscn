@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Images/IntroSequence/intro3.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Images/IntroSequence/intro1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Images/IntroSequence/intro2.png" type="Texture" id=3]
 [ext_resource path="res://Utilities/IntroSequence.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Fonts/NormalTextFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Utilities/Overlays/Textbox.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "scene1"
@@ -113,14 +114,11 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 15 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "fade_in"
-}, {
-"args": [  ],
-"method": "fade_out"
 } ]
 }
 
@@ -219,14 +217,11 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 15 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "fade_in"
-}, {
-"args": [  ],
-"method": "fade_out"
 } ]
 }
 
@@ -426,15 +421,20 @@ __meta__ = {
 }
 
 [node name="Scene3" type="Control" parent="."]
+anchor_top = -0.08
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.92
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Image3" type="TextureRect" parent="Scene3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 143.06
+margin_top = 83.8356
+margin_right = -143.06
+margin_bottom = -83.8356
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 1
@@ -450,9 +450,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="DialogPopup" parent="." instance=ExtResource( 6 )]
+margin_top = 128.0
+
 [node name="Extras" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_rotation = 0.0439192
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -463,7 +467,10 @@ one_shot = true
 autostart = true
 
 [node name="Timer2" type="Timer" parent="Extras"]
-wait_time = 10.0
+wait_time = 8.0
+one_shot = true
+
+[node name="SceneDelay" type="Timer" parent="Extras"]
 one_shot = true
 
 [node name="Button" type="Button" parent="Extras"]
@@ -490,4 +497,5 @@ anims/scene3 = SubResource( 3 )
 
 [connection signal="timeout" from="Extras/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Extras/Timer2" to="." method="_on_Timer2_timeout"]
+[connection signal="timeout" from="Extras/SceneDelay" to="." method="delay_start"]
 [connection signal="pressed" from="Extras/Button" to="." method="skip_button"]
