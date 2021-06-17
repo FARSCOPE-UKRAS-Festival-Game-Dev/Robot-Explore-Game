@@ -24,6 +24,7 @@ var joystick
 var book_overlay
 var dialog_popup
 var objective_popup
+var mission_popup
 #####
 var dialog_JSON_data
 
@@ -206,6 +207,7 @@ func init_control_panel():
 		dialog_popup.connect("finished_dialog_queue",self,"all_dialog_finished")
 		
 		objective_popup = control_panel_ui.get_node("ObjectivePopup")
+		mission_popup = control_panel_ui.get_node("MissionPopup")
 		
 		for mission_node in get_tree().get_nodes_in_group("Missions"):
 			mission_node.connect("mission_completed",self,"show_mission_complete_popup",[mission_node,])
@@ -240,9 +242,14 @@ func queue_dialog(dialog_key):
 		queue_dialog(dialog_data["next_dialog"])
 
 func show_mission_complete_popup(mission):
-	objective_popup.display_text("Mission Completed - " + mission.mission_name)
+	yield(get_tree().create_timer(1.0), "timeout")
+	if displaying_dialog:
+		yield(self,"all_dialog_finished")
+		yield(get_tree().create_timer(1.0), "timeout")
+	mission_popup.popup(mission.mission_name)
 
 func show_objective_complete_popup(objective):
+	
 	objective_popup.display_text("Objective Complete - "+objective.display_text)
 
 func show_new_objective_complete_popup(objective):
