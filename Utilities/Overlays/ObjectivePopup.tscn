@@ -26,23 +26,13 @@ tracks/1/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 2.5 )
 }
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("MarginContainer/PanelContainer/ColorRect:color:a")
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 2.5 )
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -73,29 +63,43 @@ tracks/1/keys = {
 "points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 1 )
 }
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("MarginContainer/PanelContainer/ColorRect:color:a")
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "on_fade_in_finish"
 } ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MarginContainer/PanelContainer:custom_styles/panel:border_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MarginContainer/PanelContainer:custom_styles/panel:bg_color:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -119,23 +123,13 @@ tracks/1/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 1 )
 }
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("MarginContainer/PanelContainer/ColorRect:color:a")
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -160,10 +154,21 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="StyleBoxEmpty" id=5]
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 1, 0.0392157, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
 
 [node name="ObjectivePopup" type="Control"]
-margin_right = 402.0
+margin_right = 427.0
 margin_bottom = 52.0
 script = ExtResource( 2 )
 __meta__ = {
@@ -179,8 +184,8 @@ next/fade_in_with_text_scroll = "display_idle"
 next/text_scroll_only = "display_idle"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 254.0
+margin_bottom = 67.0
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
 __meta__ = {
@@ -190,8 +195,8 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 412.0
-margin_bottom = 62.0
+margin_right = 380.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 5 )
@@ -199,14 +204,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/PanelContainer"]
-margin_right = 402.0
-margin_bottom = 52.0
-color = Color( 0.219608, 0.254902, 0.219608, 1 )
-
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
-margin_right = 402.0
-margin_bottom = 52.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 368.0
+margin_bottom = 55.0
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -218,10 +220,10 @@ __meta__ = {
 [node name="TextLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 392.0
-margin_bottom = 42.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+margin_right = 356.0
+margin_bottom = 43.0
+size_flags_horizontal = 11
+size_flags_vertical = 11
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 1, 0.0392157, 1 )
-text = "Objective complete! - Objective 1"
+text = "Objective complete - example"

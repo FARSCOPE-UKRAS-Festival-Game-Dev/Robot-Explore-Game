@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Utilities/Overlays/BookOverlay.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Utilities/Overlays/ObjectivePopup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Utilities/Overlays/Textbox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Utilities/Control_Panel_UI.gd" type="Script" id=5]
+[ext_resource path="res://Utilities/Overlays/MissionPopup.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade_in"
@@ -78,3 +79,5 @@ __meta__ = {
 
 [node name="DialogPopup" parent="." instance=ExtResource( 4 )]
 visible = false
+
+[node name="MissionPopup" parent="." instance=ExtResource( 6 )]
