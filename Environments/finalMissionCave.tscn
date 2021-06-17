@@ -27,7 +27,7 @@
 [ext_resource path="res://Assets/Models/Terrain/Objects/Robot/brokeArm2.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Assets/Models/Terrain/Objects/Robot/brokeRobotTrack.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Assets/Models/Terrain/Objects/CavePaintings/CP_TEST.tscn" type="PackedScene" id=27]
-[ext_resource path="res://Assets/Models/Terrain/Objects/CavePaintings/cavePaintingMichael.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Assets/Models/Terrain/Objects/CavePaintings/CavePaintingMichael.tscn" type="PackedScene" id=28]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 3 )
@@ -49,7 +49,7 @@ omni_range = 15.1222
 transform = Transform( -2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -29.3213, -1.04336, -4.06936 )
 
 [node name="cave1_15" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.5279, -1.68829, 47.6083 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.5556, -1.76123, 47.6107 )
 
 [node name="mushroom_1" parent="cave1_15" instance=ExtResource( 5 )]
 transform = Transform( 0.912834, 0.40833, 0, -0.40833, 0.912834, 0, 0, 0, 1, -19.6535, -3.40112, -41.8509 )
@@ -136,7 +136,7 @@ transform = Transform( 0.371206, 0, 0.928551, 0, 1, 0, -0.928551, 0, 0.371206, -
 transform = Transform( -0.0542182, 0, 0.998529, 0, 1, 0, -0.998529, 0, -0.0542182, -59.301, 0.572308, -45.8281 )
 
 [node name="grass10" parent="cave1_15" instance=ExtResource( 9 )]
-transform = Transform( 0.820551, 0, 0.571573, 0, 1, 0, -0.571573, 0, 0.820551, -65.1772, 0.291351, -53.5819 )
+transform = Transform( 0.820551, 0, 0.571573, 0, 1, 0, -0.571573, 0, 0.820551, -63.9882, 0.515187, -54.4101 )
 
 [node name="grass11" parent="cave1_15" instance=ExtResource( 9 )]
 transform = Transform( 0.503653, 0, 0.863906, 0, 1, 0, -0.863906, 0, 0.503653, -65.4456, 0.313953, -53.9673 )
@@ -157,12 +157,13 @@ transform = Transform( 0.29414, 0, 0.955762, 0, 1, 0, -0.955762, 0, 0.29414, -64
 transform = Transform( -0.135577, 0, 0.990767, 0, 1, 0, -0.990767, 0, -0.135577, -63.4131, 0.490799, -52.0324 )
 
 [node name="grass17" parent="cave1_15" instance=ExtResource( 9 )]
-transform = Transform( -0.226141, 0, 0.974095, 0, 1, 0, -0.974095, 0, -0.226141, -64.5959, 0.750244, -48.8725 )
+transform = Transform( -0.226141, 0, 0.974095, 0, 1, 0, -0.974095, 0, -0.226141, -64.5959, 0.532051, -48.8725 )
 
 [node name="grass18" parent="cave1_15" instance=ExtResource( 9 )]
 transform = Transform( -0.615221, 0, 0.788355, 0, 1, 0, -0.788355, 0, -0.615221, -64.3572, 0.772845, -49.7364 )
 
 [node name="dirt_floor" parent="cave1_15" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0 )
 
 [node name="rock8" parent="cave1_15" instance=ExtResource( 7 )]
 transform = Transform( 0.692609, 0, -0.721313, 0, 1, 0, 0.721313, 0, 0.692609, -85.9868, 0.833809, 13.5486 )
@@ -471,7 +472,7 @@ transform = Transform( 0.0621773, 0.0470621, -0.289688, -0.0397838, 0.294736, 0.
 transform = Transform( 0.790676, -0.204211, -0.577173, 0.0899132, 0.971242, -0.220464, 0.605596, 0.12242, 0.786299, -21.6295, -1.22699, -6.97891 )
 
 [node name="spikyPlant" parent="Flora of Interest" instance=ExtResource( 19 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -13.6436, -0.766532, -8.77796 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -13.6436, -0.766532, -10.9991 )
 
 [node name="spikyPlant6" parent="Flora of Interest" instance=ExtResource( 19 )]
 transform = Transform( 0.25, 0, 0, 0, 0.248518, 0.027182, 0, -0.027182, 0.248518, -18.6236, -1.2882, -2.69219 )
@@ -501,7 +502,7 @@ transform = Transform( 0.996391, 0.0848778, 0, -0.0843609, 0.990322, -0.110203, 
 transform = Transform( 0.996391, 0.0848778, 0, -0.0843609, 0.990322, -0.110203, -0.00935377, 0.109805, 0.993909, -32.117, -0.669042, -5.64467 )
 
 [node name="spiralPlant3" parent="Flora of Interest" instance=ExtResource( 20 )]
-transform = Transform( 0.996391, 0.0848778, 0, -0.0843609, 0.990322, -0.110203, -0.00935377, 0.109805, 0.993909, -31.9822, -0.669042, 4.40713 )
+transform = Transform( 0.996391, 0.0848778, 0, -0.0843609, 0.990322, -0.110203, -0.00935377, 0.109805, 0.993909, -32.0176, -1.08176, 4.36137 )
 
 [node name="leafyPlant4" parent="Flora of Interest" instance=ExtResource( 16 )]
 transform = Transform( 1.27474, 0, -0.790589, 0, 1, 0, 0.790589, 0, 1.27474, -21.7808, -1.67215, 6.90281 )
@@ -516,7 +517,7 @@ transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.606326, -1.24882, 97.6
 transform = Transform( 0.574751, 1.38552, 0, -1.38552, 0.574751, 0, 0, 0, 1.5, 28.1156, -4.64835, 7.02668 )
 
 [node name="brokeRobot" parent="brokeRobotTrail" instance=ExtResource( 23 )]
-transform = Transform( 0.247367, -0.546635, 0, 0.546635, 0.247367, 0, 0, 0, 0.6, -16.5107, -32.6771, 62.6615 )
+transform = Transform( 0.247367, -0.539373, 0.0887996, 0.546634, 0.244081, -0.0401842, -4.47034e-09, 0.0974685, 0.59203, -16.4302, -32.7135, 63.2746 )
 
 [node name="brokePlate" parent="brokeRobotTrail" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7242, -29.3965, -17.6983 )
@@ -527,8 +528,11 @@ transform = Transform( -0.733068, -0.459952, -0.247093, 0.478968, -0.76196, -0.0
 [node name="brokeRobotTrack" parent="brokeRobotTrail" instance=ExtResource( 26 )]
 transform = Transform( 0.0735534, 0.130728, 0, -0.130728, 0.0735534, 0, 0, 0, 0.15, -9.80051, -17.647, 60.7027 )
 
-[node name="CP_TEST" parent="." instance=ExtResource( 27 )]
-transform = Transform( -0.998707, 0.0498905, -0.0097646, -1.67919e-08, -0.192077, -0.98138, -0.0508371, -0.980111, 0.191828, -10.035, 0.0887857, 105.883 )
+[node name="brokeRobotTrack2" parent="brokeRobotTrail" instance=ExtResource( 26 )]
+transform = Transform( -0.0632669, 0.134793, 0.0181109, -0.134072, -0.0651675, 0.0166635, 0.0228424, -0.00915948, 0.147967, -16.2085, -31.9382, 62.4527 )
 
-[node name="cavePaintingMichael" parent="." instance=ExtResource( 28 )]
-transform = Transform( 0.0998716, 0, -0.00506626, 0, 0.1, 0, 0.00506626, 0, 0.0998716, 10.3153, -0.568169, 98.9189 )
+[node name="cavePaintings" parent="." instance=ExtResource( 27 )]
+transform = Transform( -0.998707, 0.0498905, -0.0097646, -1.67919e-08, -0.192077, -0.98138, -0.0508371, -0.980111, 0.191828, -10.036, -0.016358, 105.904 )
+
+[node name="CP_TEST" parent="cavePaintings" instance=ExtResource( 28 )]
+transform = Transform( 0.987657, -0.156645, -0.000677811, 0.156537, 0.986797, 0.0415733, -0.00584338, -0.0411662, 0.999135, 6.79419, 17.4993, -3.87069 )
