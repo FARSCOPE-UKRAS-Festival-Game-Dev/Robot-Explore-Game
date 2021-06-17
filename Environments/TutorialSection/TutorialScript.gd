@@ -152,10 +152,8 @@ func photo_fail_hint(action):
 			photo_attempts = 0
 
 
-
-
-func _on_LeaveLevel_on_objective_complete(ObjectiveBase):
+func _on_LeaveLevelTrigger_on_trigger():
 	Globals.control_panel_ui.fade_out()
-	yield(get_tree().create_timer(3.0), "timeout")
+	yield(get_tree().create_timer(1.0), "timeout")
 	Globals.load_new_scene("res://Environments/finalMissionCave.tscn")
 	

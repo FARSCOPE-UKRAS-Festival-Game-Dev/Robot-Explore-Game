@@ -394,5 +394,3 @@ __meta__ = {
 anims/whisker_analyse = SubResource( 3 )
 anims/whisker_reveal = SubResource( 4 )
 next/whisker_analyse = "WhiskerAnalyse"
-
-[connection signal="size_flags_changed" from="AspectRatioContainer/Panel/WhiskerReveal" to="AspectRatioContainer/Panel/WhiskerReveal" method="_on_Animation_Rect2_size_flags_changed"]
