@@ -3,7 +3,7 @@
 [ext_resource path="res://Environments/TutorialSection/TutorialEnviroment.tres" type="Environment" id=1]
 [ext_resource path="res://Environments/LoadEnvironment.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Models/Terrain/Objects/rock1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Models/Terrain/Objects/Robot/broken_robot_parts.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Models/Terrain/Objects/Robot/brokeArm2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Models/Terrain/Objects/Waterfall/Waterfall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Models/Terrain/Objects/rock2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Models/Terrain/Objects/Snowdrift/startCaveIcePlane.tscn" type="PackedScene" id=7]
@@ -349,6 +349,7 @@ omni_attenuation = 0.420448
 [node name="mushroom_8" parent="caveBody/floraInGeneral" instance=ExtResource( 19 )]
 transform = Transform( -2.0946, -0.150558, 0.00157238, -0.142199, 1.9853, 0.669615, -0.0494943, 0.667785, -1.99038, -99.4404, -5.56644, 14.7539 )
 
+
 [node name="mushyClump6" type="Spatial" parent="caveBody/floraInGeneral"]
 transform = Transform( 0.903844, 0, -0.427863, 0, 1, 0, 0.427863, 0, 0.903844, -49.2794, 0.308949, 2.57814 )
 
@@ -373,6 +374,10 @@ omni_attenuation = 2.21914
 
 [node name="mushroom_9" parent="caveBody/floraInGeneral" instance=ExtResource( 19 )]
 transform = Transform( -2.0946, -0.150558, 0.00157238, -0.146745, 2.04623, 0.448806, -0.0337091, 0.447541, -2.05148, -93.898, -5.56644, 50.6462 )
+
+[node name="brokenRobotPart" parent="caveBody" instance=ExtResource( 4 )]
+transform = Transform( 0.216923, -1.48423, 1.17482e-07, -0.769869, -0.112517, 1.28244, -1.26895, -0.18546, -0.778048, -105.035, -6.98196, 60.7716 )
+
 
 [node name="TutorialMission" parent="." instance=ExtResource( 14 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
@@ -692,7 +697,10 @@ debounce_time = 5.0
 transform = Transform( 0.766852, 0, 0.641824, 0, 1, 0, -0.641824, 0, 0.766852, 11.1718, -3.48231, -16.1671 )
 
 [node name="RobotPart" type="RigidBody" parent="TutorialMission"]
-transform = Transform( 0.979088, 0, 0.203436, 0, 1, 0, -0.203436, 0, 0.979088, -49.1289, -4.3814, -95.3869 )
+
+transform = Transform( 1, 0, -7.4607e-14, 0, 1, 0, 7.4607e-14, 0, 1, -59.244, -4.89439, -107.727 )
+visible = false
+
 mode = 1
 physics_material_override = SubResource( 1 )
 gravity_scale = 3.0
