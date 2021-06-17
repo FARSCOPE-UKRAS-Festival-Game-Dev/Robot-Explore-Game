@@ -16,10 +16,10 @@ const ANIMATION_TO_DIALOG = {
 }
 
 var current_scene_id = 0
-
+signal intro_finished
 # Called when the node enters the scene tree for the first time.
 func _ready():	
-	Globals.load_dialog_from_file(DIALOG_FILE)
+	#Globals.load_dialog_from_file(DIALOG_FILE)
 	Globals.connect("all_dialog_finished", self, "play_next_scene")
 	Globals.dialog_popup = get_node('DialogPopup')
 	Globals.dialog_popup.connect("dialog_finished",Globals,"dialog_finished")
@@ -69,6 +69,6 @@ func _on_Timer2_timeout():
 	$Extras/Button.visible = false
 
 func exit_intro():
+	emit_signal("intro_finished")
+	Globals.dialog_popup = Globals.control_panel_ui.get_node('DialogPopup')
 	queue_free()
-#	Globals.goto_scene(NEXT_SCENE)
-

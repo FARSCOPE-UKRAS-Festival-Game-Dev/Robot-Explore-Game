@@ -37,11 +37,18 @@ func _ready():
 #	queue_text("Because we are free assets from opengameart!")
 #	queue_text("Thanks for watching!")
 
-func skip_input_pressed():
+var skip_flag
+
+func _on_TextboxContainer_gui_input(event):
+
+	if event.is_pressed():
+		skip_flag = true
+
+func is_skip_input_pressed():
 	return Input.is_action_just_pressed("ui_accept") 
 
 func _process(_delta):
-	var skip_button = skip_input_pressed()
+	skip_flag = skip_flag or is_skip_input_pressed()
 	match current_state:
 		State.READY:
 			if !text_queue.empty():
@@ -50,7 +57,8 @@ func _process(_delta):
 				$TimeoutTimer.stop()
 				$TimeoutTimer.wait_time = WAIT_TIME_COMPLETE
 		State.READING:
-			if skip_button:
+			if skip_flag:
+				skip_flag = false
 				$TimeoutTimer.wait_time =  WAIT_TIME_COMPLETE + (len(current_text) * CHAR_READ_RATE)*(1.0-label.percent_visible)
 				#print($TimeoutTimer.wait_time)
 				label.percent_visible = 1.0
@@ -58,7 +66,8 @@ func _process(_delta):
 				end_symbol.text = "v"
 				change_state(State.FINISHED)
 		State.FINISHED:
-			if timeout or skip_button:
+			if timeout or skip_flag:
+				skip_flag = false
 				#print("dialog ending : timout = %d skip button = %d wait time = %d" % [int(timeout),int(skip_button),$TimeoutTimer.wait_time])
 				emit_signal("dialog_finished",current_text_key)
 				change_state(State.READY)
@@ -69,6 +78,7 @@ func queue_text(next_text,next_text_key):
 	text_queue.push_back([next_text,next_text_key])
 
 func hide_textbox():
+	textbox_container.mouse_filter = MOUSE_FILTER_IGNORE
 	audio_radio_constant.stop()
 	start_symbol.text = ""
 	end_symbol.text = ""
@@ -77,6 +87,7 @@ func hide_textbox():
 
 func show_textbox():
 	grab_focus()
+	textbox_container.mouse_filter = MOUSE_FILTER_STOP
 	audio_radio_constant.play()
 	start_symbol.text = "*"
 	show()
@@ -122,3 +133,6 @@ func _on_Textbox_visibility_changed():
 		$MarginContainer.mouse_filter = Control.MOUSE_FILTER_STOP
 	else:
 		$MarginContainer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
+

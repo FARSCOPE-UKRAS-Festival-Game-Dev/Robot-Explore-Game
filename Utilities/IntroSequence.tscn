@@ -10,7 +10,6 @@
 [sub_resource type="Animation" id=1]
 resource_name = "scene1"
 length = 15.0
-step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Scene1/Image1:visible")
 tracks/0/interp = 1
@@ -125,7 +124,6 @@ tracks/8/keys = {
 [sub_resource type="Animation" id=2]
 resource_name = "scene2"
 length = 15.0
-step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Scene1/Image1:visible")
 tracks/0/interp = 1
@@ -389,13 +387,12 @@ __meta__ = {
 }
 
 [node name="Image1" type="TextureRect" parent="Scene1"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -344.0
-margin_top = -168.0
-margin_right = -3.0
-margin_bottom = 32.0
+margin_left = -211.467
+margin_top = -121.613
+margin_right = 23.0333
+margin_bottom = 16.38
 rect_rotation = 0.0795862
 texture = ExtResource( 2 )
 expand = true
@@ -411,9 +408,10 @@ anchor_bottom = 1.0
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -208.0
-margin_right = 451.0
-margin_bottom = 56.0
+margin_left = -63.9
+margin_top = -143.627
+margin_right = 238.473
+margin_bottom = 33.28
 texture = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -429,12 +427,13 @@ __meta__ = {
 }
 
 [node name="Image3" type="TextureRect" parent="Scene3"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 143.06
-margin_top = 83.8356
-margin_right = -143.06
-margin_bottom = -83.8356
+margin_left = 210.233
+margin_top = 123.2
+margin_right = -210.233
+margin_bottom = -123.2
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 1
@@ -445,7 +444,7 @@ __meta__ = {
 [node name="Blackout" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

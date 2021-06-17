@@ -46,12 +46,16 @@ func isolate_panel(panel_name):
 	Globals.joystick.set_visible(false)
 	hud.move_child(iso_panel,hud.get_child_count()-1)
 	hud.move_child(panel,hud.get_child_count()-1)
+	
 	hud.get_node("IsolatingPanel").show()
 
 func remove_isolate_panel():
 	isolating_panel= false
 	var iso_panel = hud.get_node("IsolatingPanel")
+	
+	hud.move_child($HUD/CompassPanel,hud.get_child_count())
 	hud.move_child($HUD/ButtonContainer,hud.get_child_count())
+
 	iso_panel.mouse_filter = Control.MOUSE_FILTER_PASS
 	iso_panel.hide()
 	Globals.joystick.set_visible(true)

@@ -1,5 +1,6 @@
 extends Node
 
+var INTRO_SCENE = preload("res://Utilities/IntroSequence.tscn")
 var off_texture = preload("res://Assets/Images/animated_static.tres")
 
 
@@ -20,6 +21,7 @@ func init_heatmap():
 	Globals.robot.get_node("Robot/TempRight").calibrate_from_body(calibration_body)
 
 func start_tutorial():
+	
 	init_heatmap()
 	robot_control_panel = Globals.robot.get_node("ControlPanel")
 	cam_panel = robot_control_panel.get_node("HUD/CameraPanel")
@@ -28,18 +30,17 @@ func start_tutorial():
 	var skip = false
 	
 	if not skip:
-		Globals.control_panel_ui.set_enable_fade_overlay(true)
 		Globals.joystick.hide()
-		
+		var intro_sequence = INTRO_SCENE.instance()
+		Globals.control_panel_ui.add_child(intro_sequence)
+		Globals.control_panel_ui.set_enable_fade_overlay(true)
 
+		
 		for panel in [cam_panel,lidar_panel,whisker_panel]:
 			panel.enabled = false
 			panel._render_texture_to_hud(off_texture)
-		
-		
-		Globals.queue_dialog("tutorial_start")
-		yield(Globals,"all_dialog_finished")
-	#
+		yield(intro_sequence,"intro_finished")
+		yield(get_tree().create_timer(0.1), "timeout")
 		Globals.control_panel_ui.fade_in()
 		
 		yield(get_tree().create_timer(1.0), "timeout")

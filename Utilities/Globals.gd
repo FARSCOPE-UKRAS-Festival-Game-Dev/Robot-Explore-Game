@@ -7,7 +7,7 @@ const LOADING_ANIMATION = preload("res://Utilities/Misc/LoadingAnimation.tscn")
 #### Debug tools
 var debug_mode = true
 var show_triggers = false
-var fast_hint = true
+var fast_hint = false
 var camera_trigger_debug = false
 
 var temp_debug = false
