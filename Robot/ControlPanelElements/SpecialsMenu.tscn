@@ -35,14 +35,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-ratio = 0.25
+ratio = 0.33
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer"]
-margin_left = 437.0
-margin_right = 587.0
+margin_left = 413.0
+margin_right = 611.0
 margin_bottom = 600.0
 mouse_filter = 2
 __meta__ = {
@@ -50,7 +50,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer"]
-margin_right = 150.0
+margin_right = 198.0
 margin_bottom = 600.0
 mouse_filter = 2
 size_flags_vertical = 9
@@ -60,43 +60,43 @@ __meta__ = {
 }
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer"]
-margin_right = 150.0
-margin_bottom = 454.0
+margin_right = 198.0
+margin_bottom = 397.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 4.0
-ratio = 0.33
+size_flags_stretch_ratio = 2.0
+ratio = 0.5
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TopOnlyBackground" type="Panel" parent="AspectRatioContainer/MarginContainer/VBoxContainer/AspectRatioContainer"]
-margin_left = 0.0899963
-margin_right = 149.91
-margin_bottom = 454.0
+margin_top = 0.5
+margin_right = 198.0
+margin_bottom = 396.5
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/AspectRatioContainer"]
-margin_left = 0.0899963
-margin_right = 149.91
-margin_bottom = 454.0
+margin_top = 0.5
+margin_right = 198.0
+margin_bottom = 396.5
 custom_constants/margin_right = 5
 custom_constants/margin_top = 0
 custom_constants/margin_left = 5
 
 [node name="ButtonContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer"]
 margin_left = 5.0
-margin_right = 144.0
-margin_bottom = 454.0
+margin_right = 193.0
+margin_bottom = 396.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TakeSampleButtom" type="TextureButton" parent="AspectRatioContainer/MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer/ButtonContainer"]
-margin_right = 139.0
-margin_bottom = 148.0
+margin_right = 188.0
+margin_bottom = 196.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 group = SubResource( 1 )
@@ -109,9 +109,10 @@ __meta__ = {
 }
 
 [node name="DrillSampleButton" type="TextureButton" parent="AspectRatioContainer/MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer/ButtonContainer"]
-margin_top = 152.0
-margin_right = 139.0
-margin_bottom = 301.0
+visible = false
+margin_top = 101.0
+margin_right = 140.0
+margin_bottom = 198.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 group = SubResource( 1 )
@@ -124,9 +125,9 @@ __meta__ = {
 }
 
 [node name="TakeHighResPictureButton" type="TextureButton" parent="AspectRatioContainer/MarginContainer/VBoxContainer/AspectRatioContainer/MarginContainer/ButtonContainer"]
-margin_top = 305.0
-margin_right = 139.0
-margin_bottom = 454.0
+margin_top = 200.0
+margin_right = 188.0
+margin_bottom = 396.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 group = SubResource( 1 )
@@ -139,12 +140,11 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer"]
-margin_top = 458.0
-margin_right = 150.0
+margin_top = 401.0
+margin_right = 198.0
 margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.25
 custom_constants/margin_right = 5
 custom_constants/margin_top = 1
 custom_constants/margin_left = 5
@@ -153,8 +153,8 @@ custom_constants/margin_bottom = 1
 [node name="OpenSpecialsButton" type="TextureButton" parent="AspectRatioContainer/MarginContainer/VBoxContainer/MarginContainer"]
 margin_left = 5.0
 margin_top = 1.0
-margin_right = 145.0
-margin_bottom = 141.0
+margin_right = 193.0
+margin_bottom = 198.0
 size_flags_horizontal = 3
 size_flags_vertical = 15
 size_flags_stretch_ratio = 1.33

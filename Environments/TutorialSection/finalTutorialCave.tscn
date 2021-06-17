@@ -420,7 +420,7 @@ visible = false
 display_text = "Use whiskers on the rock"
 disable_on_complete = true
 on_complete_dialogue = "tutorial_use_whiskers_complete"
-next_objective_enable = NodePath("../UseDrill")
+next_objective_enable = NodePath("../CollectSample")
 
 [node name="Hint" parent="TutorialMission/UseWhiskers" instance=ExtResource( 20 )]
 transform = Transform( 17, 0, 2.27374e-13, 0, 10, 0, -3.41061e-13, 0, 30, -10.3821, 3.74428, 1.01815 )
@@ -431,23 +431,23 @@ transform = Transform( 4, 0, -9.9476e-14, 0, 1, 0, 9.9476e-14, 0, 4, -4.29455, -
 must_whisker = NodePath("../../InterestingRock")
 enabled = true
 
-[node name="UseDrill" parent="TutorialMission" instance=ExtResource( 15 )]
+[node name="CollectSample" parent="TutorialMission" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, 11.3, -3.99262, -16.2845 )
 visible = false
-display_text = "Take a sample of the rock using a drill"
+display_text = "Take a sample of the rock using a the sampling instrument"
 disable_on_complete = true
-on_complete_dialogue = "tutorial_use_drill_complete"
+on_complete_dialogue = "tutorial_sample_complete"
 next_objective_enable = NodePath("../EnterCave")
 
-[node name="Trigger" parent="TutorialMission/UseDrill" instance=ExtResource( 18 )]
+[node name="Trigger" parent="TutorialMission/CollectSample" instance=ExtResource( 18 )]
 transform = Transform( 3.5, 0, 3.45857e-09, 0, 1, 0, -3.45857e-09, 0, 3.5, -1.1369, 0, 0.0395441 )
-must_action = 2
+must_action = 3
 enabled = true
 
-[node name="Hint" parent="TutorialMission/UseDrill" instance=ExtResource( 20 )]
+[node name="Hint" parent="TutorialMission/CollectSample" instance=ExtResource( 20 )]
 transform = Transform( 17, 0, 0, 0, 10, 0, 0, 0, 25, -9.34228, 3.74428, 14.9517 )
 visible = false
-first_hint_dialog_key = "tutorial_drill_hint1"
+first_hint_dialog_key = "tutorial_sample_hint1"
 
 [node name="CaveGateTrigger" parent="TutorialMission" instance=ExtResource( 18 )]
 transform = Transform( -0.983293, 0, -1.27421, 0, 6, 0, 0.18203, 0, -6.88305, -5.03897, -1.99597, -39.8285 )
@@ -766,9 +766,9 @@ omni_range = 19.2568
 
 [connection signal="on_enable" from="TutorialMission/TurnOnCamera" to="TutorialMission/TutorialScripts" method="_on_TurnOnCamera_on_enable"]
 [connection signal="on_enable" from="TutorialMission/TurnOnWhiskers" to="TutorialMission/TutorialScripts" method="_on_TurnOnWhiskers_on_enable"]
-[connection signal="on_disable" from="TutorialMission/UseDrill" to="TutorialMission/TutorialScripts" method="_on_UseDrill_on_disable"]
-[connection signal="on_enable" from="TutorialMission/UseDrill" to="TutorialMission/TutorialScripts" method="_on_UseDrill_on_enable"]
-[connection signal="on_objective_complete" from="TutorialMission/UseDrill" to="TutorialMission/TutorialScripts" method="_on_UseDrill_on_objective_complete"]
+[connection signal="on_disable" from="TutorialMission/CollectSample" to="TutorialMission/TutorialScripts" method="_on_CollectSample_on_disable"]
+[connection signal="on_enable" from="TutorialMission/CollectSample" to="TutorialMission/TutorialScripts" method="_on_CollectSample_on_enable"]
+[connection signal="on_objective_complete" from="TutorialMission/CollectSample" to="TutorialMission/TutorialScripts" method="_on_CollectSample_on_objective_complete"]
 [connection signal="on_trigger" from="TutorialMission/CaveGateTrigger" to="TutorialMission/TutorialScripts" method="_on_CaveGateTrigger_on_trigger"]
 [connection signal="on_enable" from="TutorialMission/TurnOnLidar" to="TutorialMission/TutorialScripts" method="_on_TurnOnLidar_on_enable"]
 [connection signal="on_disable" from="TutorialMission/PhotoRobot" to="TutorialMission/TutorialScripts" method="_on_PhotoRobot_on_disable"]

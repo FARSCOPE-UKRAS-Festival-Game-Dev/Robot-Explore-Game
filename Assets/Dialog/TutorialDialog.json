@@ -76,51 +76,51 @@
 		]
 	},
 	"tutorial_use_whiskers_complete": {
-		"dialog": "Am I reading that correctly!? That rock is made of MATERIAL X!? We can't leave without it! Can you grab us a sample using the drill?"
+		"dialog": "Am I reading that correctly!? That rock is made of MATERIAL X!? We can't leave without it! Can you grab us a sample?"
 	},
-	"tutorial_drill_fail": {
+	"tutorial_sample_fail": {
 		"dialog": "I think you're too far from the rock to collect the sample.",
-		"next_dialog": "tutorial_drill_failb"
+		"next_dialog": "tutorial_sample_failb"
 	},
-	"tutorial_drill_failb": {
-		"dialog": "You'll need to be really close to the rock for the drill to work."
+	"tutorial_sample_failb": {
+		"dialog": "You'll need to be really close to the rock for the sample instrument to work."
 	},
-	"tutorial_drill_hint1": {
-		"dialog": "Drilling can be used to take samples of rocks. Try collecting a sample from the rock we saw earlier.",
+	"tutorial_sample_hint1": {
+		"dialog": "The sample instrument can be used to take samples of objects. Try collecting a sample from the rock we saw earlier.",
 		"wait_time": 60,
 		"next_hint": [
-			"tutorial_drill_hint1",
-			"tutorial_drill_hint2",
-			"tutorial_drill_hint3"
+			"tutorial_sample_hint1",
+			"tutorial_sample_hint2",
+			"tutorial_sample_hint3"
 		]
 	},
-	"tutorial_drill_hint2": {
-		"dialog": "To collect the sample we'll need to be really close and use the robot's drill.",
+	"tutorial_sample_hint2": {
+		"dialog": "To collect the sample we'll need to be really close and use the robot's sample instrument",
 		"wait_time": 60,
 		"next_hint": [
-			"tutorial_drill_hint1",
-			"tutorial_drill_hint2",
-			"tutorial_drill_hint3"
+			"tutorial_sample_hint1",
+			"tutorial_sample_hint2",
+			"tutorial_sample_hint3"
 		]
 	},
-	"tutorial_drill_hint3": {
-		"dialog": "The drill can be activated from the special actions menu. This is located to the left of the whiskers.",
-		"next_dialog": "tutorial_drill_hint3b",
+	"tutorial_sample_hint3": {
+		"dialog": "The sample instrument can be activated from the special actions menu. This is located to the left of the whiskers.",
+		"next_dialog": "tutorial_sample_hint3b",
 		"wait_time": 60,
 		"next_hint": [
-			"tutorial_drill_hint1",
-			"tutorial_drill_hint2",
-			"tutorial_drill_hint3"
+			"tutorial_sample_hint1",
+			"tutorial_sample_hint2",
+			"tutorial_sample_hint3"
 		]
 	},
-	"tutorial_drill_hint3b": {
-		"dialog": "You'll need to be close to the object you're trying to drill."
+	"tutorial_sample_hint3b": {
+		"dialog": "You'll need to be close to the object you're trying to sample."
 	},
-	"tutorial_use_drill_complete": {
+	"tutorial_sample_complete": {
 		"dialog": "Great, can't wait to get this back to the lab!",
-		"next_dialog": "tutorial_use_drill_complete_b"
+		"next_dialog": "tutorial_sample_complete_b"
 	},
-	"tutorial_use_drill_complete_b": {
+	"tutorial_sample_complete_b": {
 		"dialog": "Speaking of which, I guess we should take a look for that robot? Our initial explorations found a network of caverns and tunnels leading deeper into the cave system. If you're ready to take a look you, can head towards the tunnel over there."
 	},
 	"tutorial_gate_leave_attempt": {
@@ -132,7 +132,7 @@
 	"tutorial_gate_doing_whiskers": {
 		"dialog": "The rock looked interesting, let's see what our tactile whiskers say its made of."
 	},
-	"tutorial_gate_doing_drill": {
+	"tutorial_gate_doing_sample": {
 		"dialog": "We should collect a sample of that rock before we go."
 	},
 	"tutorial_dark_cave_entrance": {

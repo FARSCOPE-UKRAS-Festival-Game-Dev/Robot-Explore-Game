@@ -8,7 +8,7 @@ var cam_panel
 var lidar_panel
 var whisker_panel
 
-var drill_attempts = 0
+var sample_attempts = 0
 const robot_action = preload("res://Robot/Robot_with_sensors.gd").robot_action
 onready var calibration_body = get_node("../../TemperatureCalibrationBody")
 
@@ -80,21 +80,21 @@ func whiskers_turned_on(event):
 		
 		robot_control_panel.remove_isolate_panel()
 
-func _on_UseDrill_on_enable():
+func _on_CollectSample_on_enable():
 	if Globals.robot != null:
-		Globals.robot.connect("action_failed",self,"trigger_drill_hint")
-		drill_attempts = 0
+		Globals.robot.connect("action_failed",self,"trigger_sample_hint")
+		sample_attempts = 0
 	
-func _on_UseDrill_on_disable():
+func _on_CollectSample_on_disable():
 	if Globals.robot != null:
-		Globals.robot.disconnect("action_failed",self,"trigger_drill_hint")
+		Globals.robot.disconnect("action_failed",self,"trigger_sample_hint")
 
-func trigger_drill_hint(action):
-	if action == robot_action.DRILL_SAMPLE:
-		drill_attempts+=1
-		if drill_attempts > 5:
-			Globals.queue_dialog("tutorial_drill_fail")
-			drill_attempts = 0
+func trigger_sample_hint(action):
+	if action == robot_action.COLLECT_SAMPLE:
+		sample_attempts+=1
+		if sample_attempts > 5:
+			Globals.queue_dialog("tutorial_sample_fail")
+			sample_attempts = 0
 
 func _on_TurnOnLidar_on_enable():
 	robot_control_panel.isolate_panel("LidarPanel")
@@ -116,9 +116,10 @@ func lidar_turned_on(event):
 
 var cave_gate_debounce = false
 
-func _on_UseDrill_on_objective_complete(ObjectiveBase):
+func _on_CollectSample_on_objective_complete(ObjectiveBase):
 	get_node("../CaveGate").queue_free()
 	get_node("../CaveGateTrigger").queue_free()
+	
 func _on_CaveGateTrigger_on_trigger():
 	print("gate triggered!")
 	if not cave_gate_debounce:
@@ -129,8 +130,8 @@ func _on_CaveGateTrigger_on_trigger():
 			Globals.queue_dialog("tutorial_gate_doing_rock")
 		elif not get_node("../UseWhiskers").complete:
 			Globals.queue_dialog("tutorial_gate_doing_whiskers")
-		elif not get_node("../UseDrill").complete:
-			Globals.queue_dialog("tutorial_gate_doing_drill")
+		elif not get_node("../CollectSample").complete:
+			Globals.queue_dialog("tutorial_gate_doing_sample")
 		yield(get_tree().create_timer(30),"timeout")
 		cave_gate_debounce = false
 
@@ -154,6 +155,9 @@ func photo_fail_hint(action):
 
 func _on_LeaveLevelTrigger_on_trigger():
 	Globals.control_panel_ui.fade_out()
-	yield(get_tree().create_timer(1.0), "timeout")
+	Globals.robot.immobilise = true
+	yield(get_tree().create_timer(5.0), "timeout")
 	Globals.load_new_scene("res://Environments/finalMissionCave.tscn")
 	
+
+
