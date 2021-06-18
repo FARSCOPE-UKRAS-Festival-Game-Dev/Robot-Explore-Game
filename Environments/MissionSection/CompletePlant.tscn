@@ -73,7 +73,7 @@ material/0 = null
 script = ExtResource( 2 )
 type = 9
 value = ExtResource( 5 )
-texture_name = "Plant Species 1"
+texture_name = "Indirhops afluentipes"
 
 [connection signal="on_trigger" from="SampleTrigger" to="." method="Sample_on_trigger"]
 [connection signal="on_trigger" from="PhotoTrigger" to="." method="Photo_on_trigger"]

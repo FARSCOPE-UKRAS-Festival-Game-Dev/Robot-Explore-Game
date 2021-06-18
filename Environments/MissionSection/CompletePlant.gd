@@ -15,6 +15,14 @@ const enum_to_letter = ["A","B","C","D","E"]
 export(PlantType) var plant_type = PlantType.A setget set_plant_type
 var plant_group = null
 
+const enum_to_name = {
+	PlantType.A: "Indirhops afluentipes",
+	PlantType.B: "Xerorhops psaroscapus",
+	PlantType.C: "Argentrhops culumpomus",
+	PlantType.D: "Solariphytum mairies",
+	PlantType.E: "Undulatphytum anthemis"
+}
+
 var plant_type_photoed = false
 var plant_type_sampled = false
 enum PlantNodeState {
@@ -205,6 +213,7 @@ func _on_WhiskerTrigger_on_trigger():
 	print("Plant has been whiskered")
 	if node_whiskered == false:
 		if not is_plant_group_complete():
+			Globals.queue_raw_dialog("Plant_Whisker_Trigger", "Whiskers have identified the plant as a '%s'" % enum_to_name[plant_type])
 			Globals.queue_dialog(whisker_on_complete_dialogue)
 	node_whiskered = true
 	
@@ -219,6 +228,7 @@ func Photo_on_trigger():
 	print("Plant has been photo")
 	if not plant_type_photoed:
 		plant_type_photoed = true
+		Globals.queue_raw_dialog("Plant_Photo_Trigger", "Taken a photo of %s" % enum_to_name[plant_type])
 		Globals.queue_dialog(photo_on_complete_dialogue)
 		get_tree().call_group(plant_group, "on_plant_group_photoed")
 		if is_plant_group_complete():
@@ -232,6 +242,7 @@ func Sample_on_trigger():
 	print("Plant has been sampled")
 	if not plant_type_sampled:
 		plant_type_sampled = true
+		Globals.queue_raw_dialog("Plant_Sample_Trigger", "Taken a sample of %s" % enum_to_name[plant_type])
 		Globals.queue_dialog(sample_on_complete_dialogue)
 		get_tree().call_group(plant_group, "on_plant_group_sampled")
 		if is_plant_group_complete():

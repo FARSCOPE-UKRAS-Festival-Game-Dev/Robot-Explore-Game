@@ -61,7 +61,7 @@ func handle_selection(_current_selection):
 	elif _current_selection == 2:
 		get_tree().change_scene(CREDITS_SCENE)
 	elif _current_selection == 3:
-		get_tree().quit()
+		$FeedbackDialog.visible = true
 
 func set_current_selection(_current_selection):
 	if not in_options:
@@ -116,3 +116,10 @@ func _on_ShowSensorButton_pressed():
 func _on_AboutSensorCloseButton_pressed():
 	$AboutSensor.visible = false
 	pass # Replace with function body.
+
+func leave_feedback():
+	OS.shell_open("https://docs.google.com/forms/d/e/1FAIpQLSc2FomKHxIWh-J3w9nZ6f4RHcSYCkvTtYPYxsWKJw9PH9CmQg/viewform?usp=sf_link")
+	exit_game()
+
+func exit_game():
+	get_tree().quit()

@@ -262,6 +262,14 @@ func queue_dialog(dialog_key):
 	if dialog_data.has("next_dialog"):
 		queue_dialog(dialog_data["next_dialog"])
 
+func queue_raw_dialog(dialog_reference, raw_dialog):
+	displaying_dialog = true
+	robot.immobilise = true
+	dialog_popup.queue_text(raw_dialog, dialog_reference)
+	
+	if book_overlay:
+		book_overlay.add_journal_entry(raw_dialog)
+	
 func show_mission_complete_popup(mission):
 	yield(get_tree().create_timer(1.0), "timeout")
 	if displaying_dialog:

@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Images/Camera.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Fonts/NormalTextFont.tres" type="DynamicFont" id=3]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Dissapear"
 tracks/0/type = "value"
 tracks/0/path = NodePath("MarginContainer:custom_constants/margin_right")
@@ -81,8 +81,7 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Flash"
+[sub_resource type="Animation" id=2]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:color")
@@ -223,7 +222,6 @@ margin_bottom = 500.0
 mouse_filter = 0
 expand = true
 stretch_mode = 6
-flip_h = true
 flip_v = true
 
 [node name="Label" type="Label" parent="MarginContainer/Image"]
@@ -255,7 +253,7 @@ __meta__ = {
 
 [node name="AnimateImage" type="AnimationPlayer" parent="."]
 method_call_mode = 1
-anims/Dissapear = SubResource( 2 )
-anims/Flash = SubResource( 1 )
+anims/Dissapear = SubResource( 1 )
+anims/Flash = SubResource( 2 )
 
 [connection signal="gui_input" from="MarginContainer" to="." method="_on_MarginContainer_gui_input"]
