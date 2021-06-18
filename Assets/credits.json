@@ -7,6 +7,7 @@
         "Story",
         "Modellers",
         "Administration",
+        "External Sounds",
         "With thanks to"
     ],
     "RoC-Ex Robot Cave Explorer": [],
@@ -55,7 +56,29 @@
         "FARSCOPE",
         "University of Bristol",
         "University of West England",
-        "Bristol Robotics Laboratory"
+        "Bristol Robotics Laboratory",
+        "UKRAS Robotics Festival 2021"
+    ],
+    "External Sounds": [
+        "The following are from freesound.org",
+        "Cthulhu growl.wav: cylon8472",
+        "Lens Zooming in and out.wav: Snapper4298",
+        "Radio Static: GowlerMusic",
+        "Static_Radio.wav: kMoon",
+        "End Radio Transmission: ReadeOnly",
+        "computer startup.wav: squashy555",
+        "light switch click on and off: SomeoneCool15",
+        "3beeps.wav: pera",
+        "Warning sound: satchdev",
+        "Camera_snap1.wav: thecheeseman",
+        "Rubber mallet, claw hammer: This_Is_A_Hoax",
+        "FOOT_STEPS_SNOW_HEAVY.wav: alexo400",
+        "Drill.aif: olliehahn12",
+        "Water Cave: Klangkobold",
+        "Water drips in the cave HQ.wav: tosha73",
+        "rocks falling in cave.wav: 150134",
+        "wind and trees and snow.WAV: tim.kahn",
+        "Soft Wind: florianreichelt"
     ]
 
 }

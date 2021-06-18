@@ -6,12 +6,14 @@ const BUTTON_NORMAL  = preload("res://Assets/Images/Misc/down_arrow.png")
 const BUTTON_PRESSED = preload("res://Assets/Images/Misc/down_arrow_pressed.png")
 
 const section_time := 2.0
-const line_time := 0.8
-const base_speed := 100
+const line_time := 0.7
+const base_speed := 120
 const speed_up_multiplier := 10.0
 const title_color := Color.khaki
 const text_colour := Color.white
-const text_size := 60
+const normal_text_size := 50
+const external_text_size := 30
+var text_size = normal_text_size
 
 var scroll_speed := base_speed
 var speed_up := false
@@ -57,6 +59,10 @@ func _process(delta):
 				started = true
 #				section = credits.pop_front()
 				section_header = credits_order[section_id]
+				if 'External' in section_header:
+					text_size = external_text_size
+				else:
+					text_size = normal_text_size
 				section = [section_header.to_upper()] + credits_json[section_header]
 				section_id += 1
 				curr_line = 0
