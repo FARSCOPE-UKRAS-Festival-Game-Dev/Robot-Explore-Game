@@ -4,7 +4,7 @@
 [ext_resource path="res://Utilities/Overlays/BookElements/LogEntry.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Utilities/Overlays/BookOverlay.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Images/ControlPanel/Controls_Page/Control_Panel3.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Images/ControlPanel/Sensors_Page/Sensors.png" type="Texture" id=5]
+[ext_resource path="res://Utilities/Overlays/AboutSensors.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Fonts/NormalTextFont.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Utilities/OptionsPanel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Images/ControlPanel/Controls_Page/Control_Panel2.png" type="Texture" id=8]
@@ -145,36 +145,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Sensors"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
-custom_constants/margin_bottom = 10
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ScrollContainer" type="ScrollContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Sensors/MarginContainer"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 982.0
-margin_bottom = 512.0
-
-[node name="TextureRect" type="TextureRect" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Sensors/MarginContainer/ScrollContainer"]
-margin_right = 972.0
-margin_bottom = 1900.0
-rect_min_size = Vector2( 0, 1900 )
-size_flags_horizontal = 3
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="MarginContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Sensors" instance=ExtResource( 5 )]
 
 [node name="Controls" type="Panel" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer"]
 visible = false
