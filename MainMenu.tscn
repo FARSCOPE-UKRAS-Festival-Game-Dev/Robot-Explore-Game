@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/Fonts/Born2bSportyV2.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://MainMenu.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Utilities/OptionsPanel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Images/AnimatedBackground/2.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Fonts/NormalTextFont.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Assets/Audio/music/main_menu_background.mp3" type="AudioStream" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -69,6 +70,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Background"]
 position = Vector2( 512, 300 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="DebugNode" type="Control" parent="."]
@@ -515,6 +517,11 @@ text = "EXIT"
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -5.0
+autoplay = true
 
 [connection signal="pressed" from="MainMenu/MainPage/VBoxContainer/StartHBoxContainer/Option/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MainMenu/MainPage/VBoxContainer/OptionsHBoxContainer/Option/Button2" to="." method="_on_Button2_pressed"]

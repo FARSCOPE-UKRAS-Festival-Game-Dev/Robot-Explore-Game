@@ -29,14 +29,14 @@ func _ready():
 
 #	$CenterContainer/VBoxContainer/VBoxContainer/CenterContainer/Label.text = game_name
 	hide_options()
-	if !globals.debug_mode:
-		$DebugNode.visible = false
-
+	
 	for maps in scene_locations:
 		$DebugNode/MarginContainer/MapChoice.add_item(maps[0])
 	$VersionLabel.text = str(ProjectSettings.get("application/config/version_tag"))
 
 func _process(_delta):
+	$DebugNode.visible = Globals.debug_mode
+	
 	if Input.is_action_just_pressed("ui_down") and current_selection < 3:
 		Globals.play_sound('switch_on')
 		current_selection += 1
