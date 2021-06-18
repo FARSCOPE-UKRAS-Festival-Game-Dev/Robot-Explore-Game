@@ -109,3 +109,10 @@ func _on_BackButton_pressed():
 	Globals.play_sound('switch_off')
 	hide_options()
 
+func _on_ShowSensorButton_pressed():
+	$AboutSensor.visible = true
+	pass # Replace with function body.
+
+func _on_AboutSensorCloseButton_pressed():
+	$AboutSensor.visible = false
+	pass # Replace with function body.
