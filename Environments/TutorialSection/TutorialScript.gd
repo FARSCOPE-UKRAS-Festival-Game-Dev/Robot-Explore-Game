@@ -33,7 +33,7 @@ func start_tutorial():
 
 	
 	if not skip:
-		Globals.joystick.hide()
+		Globals.joystick.set_visible(false)
 		Globals.control_panel_ui.set_enable_fade_overlay(true)
 
 		
@@ -50,6 +50,7 @@ func start_tutorial():
 	else:
 		Globals.robot.global_transform = get_node("/root/TutorialMission/RobotStartLocationDebug").global_transform 
 		get_node("../LeaveLevel").enabled = true
+	Globals.joystick.set_visible(true)
 	print("intro complete")
 
 func _on_TurnOnCamera_on_enable():
