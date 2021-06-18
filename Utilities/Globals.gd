@@ -115,7 +115,7 @@ func dialog_finished(dialog_key):
 	emit_signal("dialog_finished",dialog_key)
 	
 func all_dialog_finished():
-	play_sound("radio_on")
+	play_sound("radio_on", -10.0)
 	displaying_dialog = false
 
 	if robot != null:
@@ -252,7 +252,7 @@ func queue_dialog(dialog_key):
 		dialog_key = "dialog_not_found"
 	
 	if len(dialog_popup.text_queue) == 0:
-		play_sound("radio_off")
+		play_sound("radio_off", -10.0)
 	
 	var dialog_data = dialog_JSON_data[dialog_key]
 	dialog_popup.queue_text(dialog_data["dialog"],dialog_key)
