@@ -35,7 +35,6 @@ _global_script_classes=[ {
 "path": "res://Scripting/TriggeredResource.gd"
 } ]
 _global_script_class_icons={
-"GitAPI": "",
 "Joystick": "",
 "MultiObjective": "",
 "ObjectiveBase": "",

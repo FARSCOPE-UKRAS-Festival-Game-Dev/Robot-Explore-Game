@@ -3,11 +3,11 @@ extends Node
 var INTRO_SCENE = preload("res://Utilities/IntroSequence.tscn")
 var off_texture = preload("res://Assets/Images/animated_static.tres")
 
-
 var robot_control_panel
 var cam_panel
 var lidar_panel
 var whisker_panel
+var skip
 
 var sample_attempts = 0
 const robot_action = preload("res://Robot/Robot_with_sensors.gd").robot_action
@@ -15,6 +15,7 @@ onready var calibration_body = get_node("../../TemperatureCalibrationBody")
 
 func _ready():
 	get_node("/root/TutorialMission").connect("finished_loading",self,"start_tutorial")
+	skip = Globals.skip_tutorial
 
 func init_heatmap():
 	Globals.robot.get_node("Robot/TempLeft").calibrate_from_body(calibration_body)
@@ -27,7 +28,7 @@ func start_tutorial():
 	cam_panel = robot_control_panel.get_node("HUD/CameraPanel")
 	lidar_panel = robot_control_panel.get_node("HUD/LidarPanel")
 	whisker_panel = robot_control_panel.get_node("HUD/WhiskerPanel")
-	var skip = true
+
 	
 	if not skip:
 		Globals.joystick.hide()

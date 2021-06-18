@@ -15,13 +15,14 @@ func init_heatmap():
 	print("Calibrated...")
 func start_mission():
 	init_heatmap()
-	var skip = false
-
+	var skip = Globals.debug_skip_mission1
+	Globals.init_control_panel()
+	
 	if skip:
 		Globals.robot.global_transform = get_node("/root/MissionSection/RobotStartLocationDebug").global_transform 
 	else:
-		#Globals.control_panel_ui.set_enable_fade_overlay(true)
-		#Globals.control_panel_ui.fade_in()
+		Globals.control_panel_ui.set_enable_fade_overlay(true)
+		Globals.control_panel_ui.fade_in()
 		Globals.robot.immobilise = false
 		Globals.joystick.show()
 		
@@ -113,7 +114,7 @@ func end_game():
 	mission.complete_mission()
 	yield(get_tree().create_timer(8),"timeout")
 
-	Globals.quit_to_main_menu()
+	Globals.quit_to_credits()
 
 
 func _side_mission_complete_check():

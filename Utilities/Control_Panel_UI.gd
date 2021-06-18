@@ -22,6 +22,7 @@ func set_enable_fade_overlay(value):
 	else:
 		fade_overlay.hide()
 		fade_overlay.mouse_filter = Control.MOUSE_FILTER_PASS
+		
 func fade_out():
 	set_enable_fade_overlay(true)
 	anim.play_backwards("fade_in")

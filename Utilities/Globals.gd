@@ -2,6 +2,7 @@ extends Node
 
 #### Constants
 const MAIN_MENU_PATH = "res://MainMenu.tscn"
+const CREDITS_PATH = "res://Utilities/GodotCredits.tscn"
 const LOADING_ANIMATION = preload("res://Utilities/Misc/LoadingAnimation.tscn")
 
 #### Debug tools
@@ -13,6 +14,10 @@ var camera_trigger_debug = false
 var temp_debug = false
 var trigger_debug = false
 var follow_camera =  false
+
+var skip_tutorial = false
+var debug_skip_mission1 = false
+var asynchronous_loading = true
 
 ##### Control Interface
 var control_panel_ui_scene_pl = preload('res://Utilities/Control_Panel_UI.tscn')
@@ -107,16 +112,17 @@ func show_error():
 	print('ERROR OCCURED ON LOADING')
 
 func dialog_finished(dialog_key):
-	
 	emit_signal("dialog_finished",dialog_key)
+	
 func all_dialog_finished():
-	play_audio_radio_off()
+	play_sound("radio_on")
 	displaying_dialog = false
 
 	if robot != null:
 		if robot.get_node("ControlPanel").isolating_panel == false:
 			robot.immobilise = false
 	emit_signal("all_dialog_finished")
+	
 func on_options_updated():
 	emit_signal("options_updated")
 	
@@ -172,30 +178,35 @@ func load_new_scene(new_scene_path):
 			sound.queue_free()
 	created_audio.clear()
 	
-	goto_scene(new_scene_path)
-#	get_tree().change_scene(new_scene_path)
+	if asynchronous_loading:
+		goto_scene(new_scene_path)
+	else:
+		get_tree().change_scene(new_scene_path)
 
 func quit_to_main_menu():
+	free_game()	
+	load_new_scene(MAIN_MENU_PATH)
+
+func quit_to_credits():
+	free_game()
+	load_new_scene(CREDITS_PATH)
+
+func free_game():
 	# Remove all missions
 	for mission_node in get_tree().get_nodes_in_group("Missions"):
 		mission_node.queue_free()
-	
-	# Remove control panel ui
-	control_panel_ui.queue_free()
 	
 	# Remove the robot
 	robot.queue_free()
 	robot = null
 		
 	free_control_panel()
-	
-	load_new_scene(MAIN_MENU_PATH)
 
 func free_control_panel():
-
 	control_panel_ui.queue_free()
 	control_panel_loaded = false
 	print("control_panel_gone")
+	
 func init_control_panel():
 	
 	if not control_panel_loaded:
@@ -206,8 +217,8 @@ func init_control_panel():
 		root.add_child(control_panel_ui)
 		
 		joystick = control_panel_ui.get_node('MarginContainer/Joystick')
-		if not OS.has_touchscreen_ui_hint() and joystick.visibility_mode == joystick.VisibilityMode.TOUCHSCREEN_ONLY:
-			is_joystick_enabled = false
+#		if not OS.has_touchscreen_ui_hint() and joystick.visibility_mode == joystick.VisibilityMode.TOUCHSCREEN_ONLY:
+#			is_joystick_enabled = false
 		
 		book_overlay = control_panel_ui.get_node('BookOverlay')
 		set_book_visible(false)
@@ -239,7 +250,7 @@ func queue_dialog(dialog_key):
 		dialog_key = "dialog_not_found"
 	
 	if len(dialog_popup.text_queue) == 0:
-		play_audio_radio_on()
+		play_sound("radio_off")
 	
 	var dialog_data = dialog_JSON_data[dialog_key]
 	dialog_popup.queue_text(dialog_data["dialog"],dialog_key)
@@ -285,8 +296,3 @@ func play_sound(sound_name, volume_db=0.0, loop_sound=false, sound_position=null
 	else:
 		print ("ERROR: cannot play sound that does not exist in audio_clips!")
 
-func play_audio_radio_on():
-	dialog_popup.audio_radio_on.play()
-
-func play_audio_radio_off():
-	dialog_popup.audio_radio_off.play()
