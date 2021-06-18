@@ -40,6 +40,7 @@ func play_current_scene():
 		$AnimationPlayer.play(scene)
 		Globals.queue_dialog(ANIMATION_TO_DIALOG[scene])
 	else:
+		yield(get_tree().create_timer(2.0), "timeout")
 		exit_intro()
 
 func play_next_scene():
