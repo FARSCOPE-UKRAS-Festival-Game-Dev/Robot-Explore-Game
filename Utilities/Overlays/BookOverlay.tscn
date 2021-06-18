@@ -132,6 +132,7 @@ margin_right = 992.0
 margin_bottom = 312.0
 
 [node name="Sensors" type="Panel" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -164,7 +165,7 @@ margin_right = 982.0
 margin_bottom = 512.0
 
 [node name="TextureRect" type="TextureRect" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Sensors/MarginContainer/ScrollContainer"]
-margin_right = 960.0
+margin_right = 972.0
 margin_bottom = 1900.0
 rect_min_size = Vector2( 0, 1900 )
 size_flags_horizontal = 3
