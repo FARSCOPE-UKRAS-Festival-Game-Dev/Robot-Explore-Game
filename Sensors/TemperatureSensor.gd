@@ -58,8 +58,8 @@ func get_temperature():
 		
 		#If the robot goes outside of the texture then the closest edge pixels will be returned
 		var heatmap_pos = texture_pos
-		heatmap_pos.x = clamp(heatmap_pos.x,0,temperature_heatmap.get_width())
-		heatmap_pos.y = clamp(heatmap_pos.y,0,temperature_heatmap.get_height())
+		heatmap_pos.x = clamp(heatmap_pos.x,0,temperature_heatmap.get_width()-1)
+		heatmap_pos.y = clamp(heatmap_pos.y,0,temperature_heatmap.get_height()-1)
 		
 		#Access heatmap at the postion the robot is at within the heatmap	
 		temperature_heatmap.lock()

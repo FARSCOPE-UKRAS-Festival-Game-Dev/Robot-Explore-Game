@@ -27,7 +27,7 @@ func start_tutorial():
 	cam_panel = robot_control_panel.get_node("HUD/CameraPanel")
 	lidar_panel = robot_control_panel.get_node("HUD/LidarPanel")
 	whisker_panel = robot_control_panel.get_node("HUD/WhiskerPanel")
-	var skip = false
+	var skip = true
 	
 	if not skip:
 		Globals.joystick.hide()
@@ -153,12 +153,17 @@ func photo_fail_hint(action):
 			Globals.queue_dialog("tutorial_photo_robot_fail")
 			photo_attempts = 0
 
-
+func _on_LeaveLevel_on_enable():
+	get_node("../LeaveLevelTrigger").enabled = true
+	
 func _on_LeaveLevelTrigger_on_trigger():
 	Globals.control_panel_ui.fade_out()
 	Globals.robot.immobilise = true
 	yield(get_tree().create_timer(5.0), "timeout")
-	Globals.load_new_scene("res://Environments/finalMissionCave.tscn")
+	Globals.load_new_scene("res://Environments/MissionSection/finalMissionCave.tscn")
 	
+
+
+
 
 

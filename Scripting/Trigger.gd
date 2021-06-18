@@ -118,14 +118,15 @@ func trigger():
 			debounce_timer.start()
 			
 func _on_TriggerArea_body_entered(body):
-	if body.get_name() == ("Robot"):
+	if body.get_name() == ("Robot") and Globals.robot != null:
 		in_area = true
-		print("Print connecting... %s" % get_parent().name + "/" +name)
+		#print("Print connecting... %s" % get_parent().name + "/" +name)
 		Globals.robot.connect("doing_action",self,"_on_robot_action")
 		if must_whisker_enable:
 			whisker_obj = get_node(must_whisker)
 			var whisker_obj_info = whisker_obj.get_node_or_null("TactileInfo")
-			whisker_obj_info.connect("sensed_by_whiskers",self,"on_whisker_object_sensed")
+			if whisker_obj_info != null:
+				whisker_obj_info.connect("sensed_by_whiskers",self,"on_whisker_object_sensed")
 		trigger()
 		if enable_must_see_timer:
 			must_see_timer.start()
@@ -138,13 +139,13 @@ func _on_robot_action(action):
 
 
 func _on_TriggerArea_body_exited(body):
-	if body.get_name() == ("Robot"):
+	if body.get_name() == ("Robot") and Globals.robot != null:
 		in_area = false
 		Globals.robot.disconnect("doing_action",self,"_on_robot_action")
 		if must_whisker_enable:
 			whisker_obj = get_node(must_whisker)
 			var whisker_obj_info = whisker_obj.get_node_or_null("TactileInfo")
-			if whisker_obj_info == null:
+			if whisker_obj_info != null:
 				whisker_obj_info.disconnect("sensed_by_whiskers",self,"on_whisker_object_sensed")
 		if enable_must_see_timer:
 			must_see_timer.stop()

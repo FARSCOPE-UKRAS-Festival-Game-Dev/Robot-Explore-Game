@@ -16,11 +16,13 @@ content_margin_bottom = 0.0
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 20.0
+content_margin_right = 20.0
 bg_color = Color( 0, 0, 0, 1 )
-border_width_left = 10
+border_width_left = 7
 border_width_top = 2
-border_width_right = 10
-border_width_bottom = 10
+border_width_right = 7
+border_width_bottom = 7
 border_color = Color( 0.0509804, 0.815686, 0.270588, 1 )
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
@@ -87,7 +89,7 @@ tracks/3/keys = {
 } ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("AspectRatioContainer/Panel/TextPanel/DisplayText:visible_characters")
+tracks/4/path = NodePath("AspectRatioContainer/Panel/CenterContainer/TextPanel/DisplayText:visible_characters")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -99,7 +101,7 @@ tracks/4/keys = {
 "values": [  ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("AspectRatioContainer/Panel/TextPanel/DisplayText:percent_visible")
+tracks/5/path = NodePath("AspectRatioContainer/Panel/CenterContainer/TextPanel/DisplayText:percent_visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -111,7 +113,7 @@ tracks/5/keys = {
 "values": [ 0.75, 1.0, 1.0, 0.75, 1.0, 1.0, 0.75, 1.0, 1.0, 0.0, 1.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("AspectRatioContainer/Panel/TextPanel/DisplayText:text")
+tracks/6/path = NodePath("AspectRatioContainer/Panel/CenterContainer/TextPanel/DisplayText:text")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -125,7 +127,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id=4]
 tracks/0/type = "value"
-tracks/0/path = NodePath("AspectRatioContainer/Panel/TextPanel/DisplayText:text")
+tracks/0/path = NodePath("AspectRatioContainer/Panel/CenterContainer/TextPanel/DisplayText:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -137,7 +139,7 @@ tracks/0/keys = {
 "values": [ "Acquiring" ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AspectRatioContainer/Panel/TextPanel/DisplayText:percent_visible")
+tracks/1/path = NodePath("AspectRatioContainer/Panel/CenterContainer/TextPanel/DisplayText:percent_visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -353,24 +355,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextPanel" type="PanelContainer" parent="AspectRatioContainer/Panel"]
-anchor_left = 0.044
-anchor_top = 0.83
-anchor_right = 0.538
-anchor_bottom = 0.975
+[node name="CenterContainer" type="CenterContainer" parent="AspectRatioContainer/Panel"]
+anchor_left = 0.024
+anchor_top = 0.814
+anchor_right = 0.598
+anchor_bottom = 0.968
+size_flags_horizontal = 9
+size_flags_vertical = 9
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextPanel" type="PanelContainer" parent="AspectRatioContainer/Panel/CenterContainer"]
+margin_left = 94.0
+margin_top = 2.0
+margin_right = 272.0
+margin_bottom = 43.0
 custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DisplayText" type="Label" parent="AspectRatioContainer/Panel/TextPanel"]
-margin_left = 10.0
+[node name="DisplayText" type="Label" parent="AspectRatioContainer/Panel/CenterContainer/TextPanel"]
+margin_left = 20.0
 margin_top = 2.0
-margin_right = 306.16
+margin_right = 158.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.0666667, 0.811765, 0.278431, 1 )
-text = "Analysing..."
+text = "Analysing... "
 align = 1
 valign = 1
 __meta__ = {

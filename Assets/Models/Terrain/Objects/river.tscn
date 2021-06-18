@@ -55,7 +55,7 @@ transform = Transform( 3.49063, 0, 0, 0, 1, 0, 0, 0, 5.80275, 0, 0, 0 )
 physics_material_override = SubResource( 1 )
 
 [node name="RiverbedCollision" type="CollisionShape" parent="RiverbedPhysics"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0679016, 0 )
 shape = SubResource( 2 )
 disabled = true
 

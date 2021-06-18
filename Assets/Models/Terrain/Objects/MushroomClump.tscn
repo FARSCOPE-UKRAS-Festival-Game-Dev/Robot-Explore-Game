@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Models/Terrain/Objects/mushroom_1.tscn" type="PackedScene" id=1]
+
+[node name="MushroomClump" type="Spatial"]
+
+[node name="mushyClump1" type="Spatial" parent="."]
+
+[node name="mushroom_1" parent="mushyClump1" instance=ExtResource( 1 )]
+transform = Transform( 1.39658, 0.0955582, 0.0209591, -0.0978297, 1.36415, 0.299204, 0, -0.299937, 1.36749, -0.00437617, -0.0760379, 0.135893 )
+
+[node name="mushroom_3" parent="mushyClump1" instance=ExtResource( 1 )]
+transform = Transform( 0.798044, 0.0546047, 0.0119766, -0.0559027, 0.779514, 0.170974, -7.45058e-10, -0.171393, 0.781425, -0.184476, -0.0760379, -0.306627 )
+
+[node name="mushroom_4" parent="mushyClump1" instance=ExtResource( 1 )]
+transform = Transform( 0.111618, 0.0603936, 0.78987, -0.278714, 0.749664, -0.0179339, -0.741526, -0.272682, 0.125635, 0.172124, -0.0760379, -0.187716 )
+
+[node name="mushroom_2" parent="mushyClump1" instance=ExtResource( 1 )]
+transform = Transform( 0.365927, -0.197667, -0.909409, 0.0890048, 0.980137, -0.177227, 0.926378, -0.0160898, 0.376252, -0.252677, -0.0760379, 0.135893 )

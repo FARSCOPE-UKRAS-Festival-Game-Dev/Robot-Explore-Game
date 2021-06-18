@@ -23,7 +23,9 @@ func _ready():
 	on_options_updated()
 
 	Globals.connect("options_updated",self,"on_options_updated")
-
+func _exit_tree():
+	Globals.free_control_panel()
+	
 func on_options_updated():
 	if not Globals.debug_mode:
 		$DebugTools.visible = false

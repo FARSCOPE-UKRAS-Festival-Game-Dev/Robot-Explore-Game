@@ -686,7 +686,6 @@ debounce_time = 5.0
 
 [node name="LeaveLevelTrigger" parent="TutorialMission" instance=ExtResource( 18 )]
 transform = Transform( 1.59768, 0, 3.66707, 0, 1, 0, -3.66707, 0, 1.59768, -50.8184, -5.06413, -85.9381 )
-enabled = true
 
 [node name="InterestingRock" parent="TutorialMission" instance=ExtResource( 27 )]
 transform = Transform( 0.766852, 0, 0.641824, 0, 1, 0, -0.641824, 0, 0.766852, 11.1718, -3.48231, -16.1671 )
@@ -725,7 +724,7 @@ stream = ExtResource( 26 )
 volume_db = -10.0
 
 [node name="RobotStartLocationDebug" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -112.266, 2.27443, 32.4596 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -101.601, -5.22009, 45.7316 )
 
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.192103, 8.09912, -0.671001 )
@@ -773,4 +772,5 @@ omni_range = 19.2568
 [connection signal="on_enable" from="TutorialMission/TurnOnLidar" to="TutorialMission/TutorialScripts" method="_on_TurnOnLidar_on_enable"]
 [connection signal="on_disable" from="TutorialMission/PhotoRobot" to="TutorialMission/TutorialScripts" method="_on_PhotoRobot_on_disable"]
 [connection signal="on_enable" from="TutorialMission/PhotoRobot" to="TutorialMission/TutorialScripts" method="_on_PhotoRobot_on_enable"]
+[connection signal="on_enable" from="TutorialMission/LeaveLevel" to="TutorialMission/TutorialScripts" method="_on_LeaveLevel_on_enable"]
 [connection signal="on_trigger" from="TutorialMission/LeaveLevelTrigger" to="TutorialMission/TutorialScripts" method="_on_LeaveLevelTrigger_on_trigger"]

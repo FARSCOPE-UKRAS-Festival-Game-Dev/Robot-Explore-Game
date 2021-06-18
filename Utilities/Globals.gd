@@ -112,10 +112,11 @@ func dialog_finished(dialog_key):
 func all_dialog_finished():
 	play_audio_radio_off()
 	displaying_dialog = false
-	emit_signal("all_dialog_finished")
+
 	if robot != null:
 		if robot.get_node("ControlPanel").isolating_panel == false:
 			robot.immobilise = false
+	emit_signal("all_dialog_finished")
 func on_options_updated():
 	emit_signal("options_updated")
 	
@@ -141,6 +142,9 @@ func goto_scene(path):
 	set_process(true)
 	
 	current_scene.queue_free()
+	if robot != null:
+		robot.queue_free()
+		
 	get_node("animation").play("loading")
 	
 	wait_frames = 1
@@ -183,11 +187,17 @@ func quit_to_main_menu():
 	robot.queue_free()
 	robot = null
 		
-	control_panel_loaded = false
+	free_control_panel()
 	
 	load_new_scene(MAIN_MENU_PATH)
 
+func free_control_panel():
+
+	control_panel_ui.queue_free()
+	control_panel_loaded = false
+	print("control_panel_gone")
 func init_control_panel():
+	
 	if not control_panel_loaded:
 		
 		var root = get_tree().get_root()
