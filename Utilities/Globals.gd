@@ -244,7 +244,9 @@ func set_book_visible(value):
 	 
 func queue_dialog(dialog_key):
 	displaying_dialog = true
-	robot.immobilise = true
+	if robot:
+		robot.immobilise = true 
+		
 	if not dialog_JSON_data.has(dialog_key):
 		print("ERROR - dialog key: \"%s\" not in JSON file" % dialog_key)
 		dialog_key = "dialog_not_found"

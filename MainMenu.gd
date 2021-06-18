@@ -3,7 +3,7 @@ extends Control
 export (String) var game_name = "The Best Robot Sensor Exploration Game"
 
 export(Array, Array, String) var scene_locations = [
-
+	["Intro Cutscene", "res://Utilities/IntroSequence.tscn"],
 	["Tutorial - Final Environment", "res://Environments/TutorialSection/finalTutorialCave.tscn"],
 	["Mission 1 - Final Environment", "res://Environments/MissionSection/finalMissionCave.tscn"],
 #	["Cave Y Junction", "res://Environments/Cave_Y_Junction.tscn"],

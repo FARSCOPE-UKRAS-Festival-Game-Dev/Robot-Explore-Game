@@ -1,6 +1,6 @@
 extends Control
 
-export var NEXT_SCENE = "res://Environments/TutorialSection/TutorialSection.tscn"
+export var NEXT_SCENE = "res://Environments/TutorialSection/finalTutorialCave.tscn"
 export var DIALOG_FILE = "res://Assets/Dialog/TutorialDialog.json"
 
 const ANIMATION_ORDER = [ 
@@ -19,7 +19,7 @@ var current_scene_id = 0
 signal intro_finished
 # Called when the node enters the scene tree for the first time.
 func _ready():	
-	#Globals.load_dialog_from_file(DIALOG_FILE)
+	Globals.load_dialog_from_file(DIALOG_FILE)
 	Globals.connect("all_dialog_finished", self, "play_next_scene")
 	Globals.dialog_popup = get_node('DialogPopup')
 	Globals.dialog_popup.connect("dialog_finished",Globals,"dialog_finished")
@@ -70,5 +70,5 @@ func _on_Timer2_timeout():
 
 func exit_intro():
 	emit_signal("intro_finished")
-	Globals.dialog_popup = Globals.control_panel_ui.get_node('DialogPopup')
 	queue_free()
+	Globals.load_new_scene(NEXT_SCENE)

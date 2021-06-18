@@ -2,6 +2,7 @@ extends Node
 
 var INTRO_SCENE = preload("res://Utilities/IntroSequence.tscn")
 var off_texture = preload("res://Assets/Images/animated_static.tres")
+const DIALOG_FILE  = "res://Assets/Dialog/DefaultDialog.json"
 
 var robot_control_panel
 var cam_panel
@@ -14,6 +15,7 @@ const robot_action = preload("res://Robot/Robot_with_sensors.gd").robot_action
 onready var calibration_body = get_node("../../TemperatureCalibrationBody")
 
 func _ready():
+	Globals.load_dialog_from_file(DIALOG_FILE)
 	get_node("/root/TutorialMission").connect("finished_loading",self,"start_tutorial")
 	skip = Globals.skip_tutorial
 
@@ -32,15 +34,12 @@ func start_tutorial():
 	
 	if not skip:
 		Globals.joystick.hide()
-		var intro_sequence = INTRO_SCENE.instance()
-		Globals.control_panel_ui.add_child(intro_sequence)
 		Globals.control_panel_ui.set_enable_fade_overlay(true)
 
 		
 		for panel in [cam_panel,lidar_panel,whisker_panel]:
 			panel.enabled = false
 			panel._render_texture_to_hud(off_texture)
-		yield(intro_sequence,"intro_finished")
 		yield(get_tree().create_timer(0.1), "timeout")
 		Globals.control_panel_ui.fade_in()
 		
