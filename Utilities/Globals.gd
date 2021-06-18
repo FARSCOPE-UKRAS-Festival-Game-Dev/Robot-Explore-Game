@@ -6,7 +6,7 @@ const CREDITS_PATH = "res://Utilities/GodotCredits.tscn"
 const LOADING_ANIMATION = preload("res://Utilities/Misc/LoadingAnimation.tscn")
 
 #### Debug tools
-var debug_mode = true
+var debug_mode = false
 var show_triggers = false
 var fast_hint = false
 var camera_trigger_debug = false
