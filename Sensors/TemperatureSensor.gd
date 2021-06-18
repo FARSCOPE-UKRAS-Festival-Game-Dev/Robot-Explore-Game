@@ -18,6 +18,8 @@ var CALLIBRATION_MATRIX = Transform.IDENTITY
 #The range of temperature values, maps between pixel values and temperatures
 export var TEMPERATURE_LIMITS = Vector2(0,100)
 
+const AMBIENT_TEMPERATURE = 10
+
 #The size of the heatmap in pixels
 var HEATMAP_RESOLUTION = Vector2(0,0)
 
@@ -68,7 +70,7 @@ func get_temperature():
 		
 		#Convert pixel value to temperature
 		heatmap_value = float(heatmap_value)*(TEMPERATURE_LIMITS.y-TEMPERATURE_LIMITS.x) - TEMPERATURE_LIMITS.x
-		return heatmap_value
+		return min(TEMPERATURE_LIMITS.y, heatmap_value + AMBIENT_TEMPERATURE)
 	else:
 		return TEMPERATURE_LIMITS.x
 
