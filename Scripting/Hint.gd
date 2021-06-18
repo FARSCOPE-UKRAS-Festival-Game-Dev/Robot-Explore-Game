@@ -31,7 +31,7 @@ func set_first_hint_dialog_key(key):
 func set_current_hint_key(key):
 	current_hint_key = key
 	set_hint_timer(current_hint_key)
-#	print("%s set current hint ket to %s "%[get_parent().name + "/"+name,current_hint_key])
+	#print("%s set current hint ket to %s "%[get_parent().name + "/"+name,current_hint_key])
 func set_enabled(value):
 	enabled = value
 
@@ -59,8 +59,9 @@ func check_dialog_finished(dialog_key):
 func get_hint_data(hint_dialog_key):
 
 	if not Globals.dialog_JSON_data.has(hint_dialog_key):
-		print("ERROR %s hint key is not in JSON file" % hint_dialog_key)
-		assert(true , "Error %s is not in JSON file" % hint_dialog_key)
+		#print("ERROR %s hint key is not in JSON file" % hint_dialog_key)
+
+		#assert(true , "Error %s is not in JSON file" % hint_dialog_key)
 		if Globals.dialog_JSON_data.has(first_hint_dialog_key):
 			hint_dialog_key =  first_hint_dialog_key
 		else:

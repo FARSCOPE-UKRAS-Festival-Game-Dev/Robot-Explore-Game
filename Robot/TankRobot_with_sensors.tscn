@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Robot/TankDriveRobot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Robot/Control_Panel.tscn" type="PackedScene" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://Sensors/TemperatureSensor.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sensors/CompassSensor.tscn" type="PackedScene" id=8]
 
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.468293, 0.393602, 0.662442 )
+
 [node name="TankRobot_with_sensors" type="Spatial"]
 script = ExtResource( 6 )
 __meta__ = {
@@ -18,18 +21,11 @@ __meta__ = {
 [node name="ControlPanel" parent="." instance=ExtResource( 2 )]
 
 [node name="Robot" parent="." instance=ExtResource( 1 )]
+input_ray_pickable = false
 collision_layer = 5
 
 [node name="ForwardCameraSensor" parent="Robot" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.727983, -0.65265 )
-
-[node name="SpotLight" type="SpotLight" parent="Robot/ForwardCameraSensor/Body/CameraPosition" index="0"]
-transform = Transform( 5, 0, 1.02141e-12, 0, 5, 0, -1.02141e-12, 0, 5, 0, 0, 0 )
-light_energy = 3.0
-spot_range = 2.19143
-spot_attenuation = 0.999999
-spot_angle = 43.9
-spot_angle_attenuation = 0.840894
+transform = Transform( 1, 0, 0, 0, 0.969914, 0.243446, 0, -0.243446, 0.969914, 0, 0.727983, -0.65265 )
 
 [node name="Lidar" parent="Robot" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19031, -0.948806 )
@@ -46,7 +42,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.292629, -0.685635 )
 [node name="CompassSensor" parent="Robot" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44274, 0 )
 
+[node name="CollisionShape2" type="CollisionShape" parent="Robot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.883987, -0.43977 )
+shape = SubResource( 1 )
+
 [node name="SuccessActionTimeout" type="Timer" parent="."]
 one_shot = true
-
-[editable path="Robot/ForwardCameraSensor"]

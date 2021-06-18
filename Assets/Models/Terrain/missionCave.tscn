@@ -6,4 +6,5 @@
 [node name="cave1_15" instance=ExtResource( 1 )]
 
 [node name="Cube" parent="CubePhysics/CubeCollision" index="0"]
+use_in_baked_light = true
 material/0 = ExtResource( 2 )

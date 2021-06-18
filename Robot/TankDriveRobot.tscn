@@ -55,10 +55,11 @@ enabled = true
 cast_to = Vector3( 0, -2, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0116794, -0.241771, 0.0116794 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0116794, -0.0319352, 0.0116794 )
 shape = SubResource( 4 )
 
 [node name="CameraBase" type="Spatial" parent="."]
+visible = false
 
 [node name="Camera" type="Camera" parent="CameraBase"]
 script = ExtResource( 2 )

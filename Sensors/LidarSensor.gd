@@ -33,6 +33,11 @@ onready var raygeom = $LidarBody/Head/RayCasts/RayCast/ImmediateGeometry
 onready var robot_sprite: Image = load("res://Assets/Images/lidar_robot_sprite.png").get_data()
 onready var fov_cone: Image = load("res://Assets/Images/lidar_fov_cone_with_measurements.png").get_data()
 
+var pixel_rect = Rect2(0,0,3,3)
+var pixel_green = Image.new()
+var pixel_black = Image.new()
+
+var overlay_img = Image.new()
 func scanning(ray: RayCast):
 	# update raycast
 	ray.force_raycast_update()
@@ -46,7 +51,15 @@ func scanning(ray: RayCast):
 		#print(ray.get_collider().name)
 	return [flag,hit]
 
-
+func create_dot_img(img):
+	img.create(3,3, false, Image.FORMAT_RGBA8)
+	img.lock()
+	for x in range(3):
+		for y in range(3):
+			var greenness = 1.0 - (0.4 * abs(1 - x)) - (0.4 * (abs(1 - y)))
+			img.set_pixel(x, y, Color(0,greenness,0,1))
+	img.unlock()
+	return img
 func _ready():
 	$Viewport.size = lidar_resolution
 	
@@ -62,12 +75,22 @@ func _ready():
 	texture_image.create(lidar_resolution.x,lidar_resolution.y, false, Image.FORMAT_RGBA8)
 	texture.create_from_image(texture_image)
 	$Viewport/LidarPlot.texture = texture
-	reset_lidar_background()
+	
 
 	$Viewport/LidarPlot.flip_v = true
 	head_location = $LidarBody/Head.global_transform.origin
+	
+	pixel_black.create(3,3, false, Image.FORMAT_RGBA8)
+	pixel_black.fill(Color(0,0,0,0))
+	
+	pixel_green = create_dot_img(pixel_green)
 
-
+	overlay_img.create(lidar_resolution.x,lidar_resolution.y, false, Image.FORMAT_RGBA8)
+	overlay_img.blend_rect(fov_cone, Rect2(Vector2(0,0), fov_cone.get_size()), sensor_pixel - Vector2(14,-5) - ((fov_cone.get_size() / 2.0)))
+	overlay_img.blend_rect(robot_sprite, Rect2(Vector2(0,0), robot_sprite.get_size()), sensor_pixel - Vector2(robot_sprite.get_width()/2, 0))
+	
+	reset_lidar_background()
+	
 func _process(_delta):
 	# draw ray relative to sensor location
 	raygeom.clear()
@@ -125,30 +148,30 @@ func _physics_process(delta):
 
 # Method to draw a dot at a certain point on the image
 func draw_pixels(position: Vector2):
-	var size = occupancy_map.get_size()
-	occupancy_map.lock()
-	for x in range(3):
-		for y in range(3):
-			var pixel_pos = Vector2(position.x - 1 + x, position.y - 1 + y)
-			if pixel_pos.x < size.x and pixel_pos.x >= 0\
-					and pixel_pos.y < size.y and pixel_pos.y >= 0:
-				var greenness = 1.0 - (0.4 * abs(1 - x)) - (0.4 * (abs(1 - y)))
-				occupancy_map.set_pixel(pixel_pos.x, pixel_pos.y, Color(0,greenness,0,1))
-	occupancy_map.unlock()
-
+#	var size = occupancy_map.get_size()
+#	occupancy_map.lock()
+#	for x in range(3):
+#		for y in range(3):
+#			var pixel_pos = Vector2(position.x - 1 + x, position.y - 1 + y)
+#			if pixel_pos.x < size.x and pixel_pos.x >= 0\
+#					and pixel_pos.y < size.y and pixel_pos.y >= 0:
+#				var greenness = 1.0 - (0.4 * abs(1 - x)) - (0.4 * (abs(1 - y)))
+#				occupancy_map.set_pixel(pixel_pos.x, pixel_pos.y, Color(0,greenness,0,1))
+#	occupancy_map.unlock()
+	occupancy_map.blit_rect(pixel_green,pixel_rect,Vector2(position.x-1,position.y-1))
 
 # Method to clear a dot at a certain point on the image
 func clear_pixels(position: Vector2):
-	var size = occupancy_map.get_size()
-	occupancy_map.lock()
-	for x in range(3):
-		for y in range(3):
-			var pixel_pos = Vector2(position.x - 1 + x, position.y - 1 + y)
-			if pixel_pos.x < size.x and pixel_pos.x >= 0\
-					and pixel_pos.y < size.y and pixel_pos.y >= 0:
-				occupancy_map.set_pixel(pixel_pos.x, pixel_pos.y, Color(0,0,0,0))
-	occupancy_map.unlock()
-
+#	var size = occupancy_map.get_size()
+#	occupancy_map.lock()
+#	for x in range(3):
+#		for y in range(3):
+#			var pixel_pos = Vector2(position.x - 1 + x, position.y - 1 + y)
+#			if pixel_pos.x < size.x and pixel_pos.x >= 0\
+#					and pixel_pos.y < size.y and pixel_pos.y >= 0:
+#				occupancy_map.set_pixel(pixel_pos.x, pixel_pos.y, Color(0,0,0,0))
+#	occupancy_map.unlock()
+	occupancy_map.blit_rect(pixel_black,pixel_rect,Vector2(position.x-1,position.y-1))
 
 # Reset the LIDAR image background and update info
 func reset_lidar_background():
@@ -157,8 +180,7 @@ func reset_lidar_background():
 
 
 func update_texture_image():
-	texture_image.blend_rect(fov_cone, Rect2(Vector2(0,0), fov_cone.get_size()), sensor_pixel - Vector2(14,-5) - ((fov_cone.get_size() / 2.0)))
-	texture_image.blend_rect(robot_sprite, Rect2(Vector2(0,0), robot_sprite.get_size()), sensor_pixel - Vector2(robot_sprite.get_width()/2, 0))
+	texture_image.blend_rect(overlay_img, Rect2(Vector2(0,0), overlay_img.get_size()), Vector2(0, 0))
 	texture_image.blend_rect(occupancy_map, Rect2(Vector2(0,0), occupancy_map.get_size()), Vector2(0, 0))
 
 

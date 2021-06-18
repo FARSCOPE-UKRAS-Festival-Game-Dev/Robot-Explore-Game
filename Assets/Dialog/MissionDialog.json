@@ -30,11 +30,23 @@
 		"next_dialog": "mission_start_6"
 	},
 	"mission_start_6": {
-		"dialog": "Let's keep looking for it's memory unit. If we recover it we can find out what happend down here"
+		"dialog": "Let's keep looking for it's memory core. If we recover it we can find out what happend down here"
 	},
 	"mission_find_robot_item2": {
-		"dialog": "Aha first robot definitely travelled through here",
+		"dialog": "Aha the first robot definitely travelled through here",
 		"next_dialog": "mission_geo_spring_collect_sample_start"
+	},
+	"mission_find_robot_item3": {
+		"dialog": "Another part of the robot...What could of done this?"
+	},
+	"mission_find_robot_item4": {
+		"dialog": "Another robot part... We're definitely on the right track"
+	},
+	"mission_find_robot_item5": {
+		"dialog": "Roasted robot anyone?"
+	},
+	"mission_other_mission_complete": {
+		"dialog": "We should resume the search for the robot's memory core... it must be in this cave system somewhere"
 	},
 	"mission_find_robot_discover_yeti_cave": {
 		"dialog": "There looks to be some kind of structure further in. Is that… a fire?"
@@ -61,7 +73,7 @@
 	},
 	"mission_geo_spring_hint": {
 		"dialog": "If we're going to find the source of these heat readings the thermometers on each side of the robot should tell us whether its hotter to the left or to the right!",
-		"wait_time": 100,
+		"wait_time": 180,
 		"next_hint": [
 			"mission_geo_spring_hint"
 		]
@@ -82,6 +94,17 @@
 	},
 	"mission_fauna_got_start2": {
 		"dialog": "Make sure to collect images and samples for the scientific team while still looking for our robot."
+	},
+	"mission_fauna_general_hint": {
+		"dialog": "These plants are very interesting! We should document them... For science!",
+		"next_dialog": "mission_fauna_general_hint_b",
+		"wait_time": 120,
+		"next_hint": [
+			"mission_fauna_general_hint",
+		]
+	},
+	"mission_fauna_general_hint_b": {
+		"dialog": "Use the whiskers to identify the plant species, then take a sample and a photo to document it"
 	},
 	"mission_fauna_got_sample1": {
 		"dialog": "We'll get this back to the lab for analysis!"
@@ -110,6 +133,7 @@
 	"mission_fauna_got_whiskers3": {
 		"dialog": "Hmmm didn't expect to find that species here"
 	},
+
 	"mission_fauna_need_photo_sample1": {
 		"dialog": "Let's take a photo and sample of the plant",
 		"wait_time": 30,
@@ -226,6 +250,7 @@
 	"mission_fauna_completed_all": {
 		"dialog": "Well done you have documented all the unique plants in the cave"
 	},
+	
 	"yeti_shorts_on_discover": {
 		"dialog": "Is this... clothing?"
 	},

@@ -10,11 +10,11 @@ enum material{
 	RockType1,
 	RobotPart,
 	CaveWall,
-	PlantSpecies1,
-	PlantSpecies2,
-	PlantSpecies3,
-	PlantSpecies4,
-	PlantSpecies5,
+	PlantSpeciesA,
+	PlantSpeciesB,
+	PlantSpeciesC,
+	PlantSpeciesD,
+	PlantSpeciesE,
 	Mushroom,
 	Grass,
 	Firewood
@@ -22,21 +22,21 @@ enum material{
 }
 var material_dict = {
 	material.InterestingRock : ["res://Assets/Models/Textures/Rock015_1K_Color.png", "Material X"],
-	material.YetiShorts : ["res://Assets/Images/TactileInfoImages/YetiShorts.jpg", "Clothing?"],
-	material.YetiPainting : ["res://Assets/Images/TactileInfoImages/YetiPainting.jpg", "Painting?"],
+	material.YetiShorts : ["res://Assets/Models/Terrain/Objects/1024px-Polka_dots.svg.png", "Clothing?"],
+	material.YetiPainting : ["res://Assets/Models/Textures/Rock008_1K_Color.jpg", "Painting?"], #Do we need a separate asset for this?
 	material.Water : ["res://Assets/Models/Textures/Ice002_1K_Color.jpg", "Liquid"],
 	material.Vines : ["res://Assets/Models/Terrain/Objects/VineWall/vineWallTex.jpg", "Vine"],
 	material.RockType1 : ["res://Assets/Models/Textures/Rock008_1K_Color.jpg", "Granite"],
 	material.CaveWall : ["res://Assets/Models/Textures/Rock008_1K_Color.jpg", "Granite"],
 	material.RobotPart : ["res://Assets/Models/Textures/Robot/PaintedMetal007_1K_Color.jpg", "Titanium"],
-	material.PlantSpecies1 : ["res://Assets/Images/TactileInfoImages/PlantSpecies1.jpg", "Plant Species 1"],
-	material.PlantSpecies2 : ["res://Assets/Images/TactileInfoImages/PlantSpecies2.jpg", "Plant Species 2"],
-	material.PlantSpecies3 : ["res://Assets/Images/TactileInfoImages/PlantSpecies3.jpg", "Plant Species 3"],
-	material.PlantSpecies4 : ["res://Assets/Images/TactileInfoImages/PlantSpecies4.jpg", "Plant Species 1"],
-	material.PlantSpecies5 : ["res://Assets/Images/TactileInfoImages/PlantSpecies5.jpg", "Plant Species 2"],
+	material.PlantSpeciesA : ["res://Assets/Images/TactileInfoImages/PlantSpeciesA.jpg", "Indirhops afluentipes"],
+	material.PlantSpeciesB : ["res://Assets/Images/TactileInfoImages/PlantSpeciesB.jpg", "Xerorhops psaroscapus"],
+	material.PlantSpeciesC : ["res://Assets/Images/TactileInfoImages/PlantSpeciesC.jpg", "Argentrhops culumpomus"],
+	material.PlantSpeciesD : ["res://Assets/Images/TactileInfoImages/PlantSpeciesD.jpg", "Solariphytum mairies"],
+	material.PlantSpeciesE : ["res://Assets/Images/TactileInfoImages/PlantSpeciesE.jpg", "Undulatphytum anthemis"],
 	material.Mushroom : ["res://Assets/Images/TactileInfoImages/Mushroom.jpg", "Mushroom"],
-	material.Grass : ["res://Assets/Images/TactileInfoImages/Grass.jpg", "Grass"],
-	material.Firewood : ["res://Assets/Images/TactileInfoImages/FireWood.jpg", "Burnt Wood"]
+	material.Grass : ["res://Assets/Images/TactileInfoImages/Grass.jpg", "Grass"], #NOT implimented
+	material.Firewood : ["res://Assets/Images/TactileInfoImages/FireWood.jpg", "Burnt Wood"]#NOT implimented
 }
 
 export(material) var type = material.Custom setget set_type

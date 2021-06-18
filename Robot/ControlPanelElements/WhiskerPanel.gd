@@ -12,7 +12,7 @@ onready var lights = [
 
 onready var texture_display = $AspectRatioContainer/Panel/Display
 onready var whisker_anim = $AnimationPlayer
-onready var display_text = $AspectRatioContainer/Panel/TextPanel/DisplayText
+onready var display_text = $AspectRatioContainer/Panel/CenterContainer/TextPanel/DisplayText
 
 
 var sensor_class = null
@@ -46,7 +46,7 @@ func set_enabled(value):
 func _ready():
 
 	texture_display.texture = null
-	display_text.text = ""
+	display_text.text = "            "
 	
 	overlay_format.create(DISPLAY_RESOLUTION.x,DISPLAY_RESOLUTION.y,false,Image.FORMAT_RGBA8)
 	texture_output.create_from_image(overlay_format)
@@ -91,7 +91,7 @@ func on_sense_new():
 func on_sense_none():
 	if enabled:
 		texture_display.texture = null
-	display_text.text = ""
+	display_text.text = "            "
 	whisker_anim.stop()#stop all animations other wise previously queued animations might play on top of each over
 	whisker_anim.clear_queue()
 	reset_analyse_anim()

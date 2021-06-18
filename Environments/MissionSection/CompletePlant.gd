@@ -12,7 +12,7 @@ enum PlantType {
 	E
 } 
 const enum_to_letter = ["A","B","C","D","E"]
-export(PlantType) var plant_type = PlantType.A
+export(PlantType) var plant_type = PlantType.A setget set_plant_type
 var plant_group = null
 
 var plant_type_photoed = false
@@ -42,6 +42,32 @@ var sample_on_complete_dialogue
 var whisker_on_complete_dialogue
 var whisker_already_completed_dialogue
 
+
+var material = preload("res://Sensors/TactileInfo.gd").material
+
+func set_plant_type(type):
+	plant_type = type
+	var plant_colour = Color(1.0,1.0,1.0)
+	var tactile_mat
+	match plant_type:
+		PlantType.A:
+			plant_colour = Color(0.5,0.0,0.5)
+			tactile_mat = material.PlantSpeciesA
+		PlantType.B:
+			plant_colour = Color(1.0,0.0,0.0)
+			tactile_mat = material.PlantSpeciesB
+		PlantType.C:
+			plant_colour = Color(0.0,1.0,0.0)
+			tactile_mat = material.PlantSpeciesC
+		PlantType.D:
+			plant_colour = Color(0.0,0.0,1.0)
+			tactile_mat = material.PlantSpeciesD
+		PlantType.E:
+			plant_colour = Color(0.0,0.5,1.0)
+			tactile_mat = material.PlantSpeciesE
+	if is_inside_tree():
+		$Plant/TactileInfo.type = tactile_mat
+		
 func complete_objective():
 	.complete_objective()
 	
@@ -58,38 +84,39 @@ func set_already_done_hint(hint_key):
 
 
 func set_enable(value):
-	.set_enable(value)
-	if enabled:
-		node_state = PlantNodeState.ENABLED_NOT_WHISKERED
-	else:
-		node_state = PlantNodeState.NOT_ENABLED
-	if is_inside_tree():
-		update_plant_node_logic()
+	if not Engine.editor_hint:
+		.set_enable(value)
+		if enabled:
+			node_state = PlantNodeState.ENABLED_NOT_WHISKERED
+		else:
+			node_state = PlantNodeState.NOT_ENABLED
+		if is_inside_tree():
+			update_plant_node_logic()
 		
 func _ready():
-
-	if plant_object == null:
-		plant_object = "Plant"
-		if get_node_or_null(plant_object) == null:
-			print("%s plant objective as no plant object" % name)
+	if not Engine.editor_hint:
+		if plant_object == null:
+			plant_object = "Plant"
+			if get_node_or_null(plant_object) == null:
+				print("%s plant objective as no plant object" % name)
+			else:
+				plant_object = "../Plant"
+		whisker_trigger.must_whisker = plant_object
+		photo_trigger.must_see = plant_object
+		photo_trigger.must_see_enable = true
+		whisker_trigger.must_whisker_enable = true
+		
+		plant_group  = "flora_mission_plant_grp_%d" % plant_type
+		add_to_group(plant_group)
+		
+		if enabled:
+			node_state = PlantNodeState.ENABLED_NOT_WHISKERED
 		else:
-			plant_object = "../Plant"
-	whisker_trigger.must_whisker = plant_object
-	photo_trigger.must_see = plant_object
-	photo_trigger.must_see_enable = true
-	whisker_trigger.must_whisker_enable = true
-	
-	plant_group  = "flora_mission_plant_grp_%d" % plant_type
-	add_to_group(plant_group)
-	
-	if enabled:
-		node_state = PlantNodeState.ENABLED_NOT_WHISKERED
-	else:
-		node_state = PlantNodeState.NOT_ENABLED 
-	update_plant_node_logic()
-	
-	init_dialog()
-	
+			node_state = PlantNodeState.NOT_ENABLED 
+		update_plant_node_logic()
+		set_plant_type(plant_type)
+		init_dialog()
+		
 func init_dialog():
 	if plant_dialog_set == null:
 		plant_dialog_set = randi()%NUM_DIALOG_SETS + 1
@@ -102,7 +129,7 @@ func init_dialog():
 	on_complete_dialogue = "mission_fauna_completed_plant%s" % enum_to_letter[plant_type]
 	
 func change_sample_photo_state():
-	print("enabled %s whiskered %s photo %s sampled %s" % [enabled,node_whiskered,plant_type_photoed,plant_type_sampled])
+	#print("enabled %s whiskered %s photo %s sampled %s" % [enabled,node_whiskered,plant_type_photoed,plant_type_sampled])
 	if not plant_type_photoed and not plant_type_sampled and node_whiskered and enabled:
 		node_state = PlantNodeState.NOT_PHOTOED_NOT_SAMPLED
 	elif plant_type_photoed and not plant_type_sampled:
@@ -113,7 +140,7 @@ func change_sample_photo_state():
 		node_state = PlantNodeState.GROUP_COMPLETE
 		
 func update_plant_node_logic():
-	print("Plant state changing to : %d " % node_state)
+	#print("Plant state changing to : %d " % node_state)
 	match node_state:
 		
 		PlantNodeState.NOT_ENABLED:
@@ -130,6 +157,7 @@ func update_plant_node_logic():
 			photo_trigger.enabled = false
 			sample_trigger.enabled = false
 			hint_already_done.enabled = false
+			set_action_hint("mission_fauna_need_photo_sample1")
 			hint_action.enabled = false
 			
 		PlantNodeState.NOT_PHOTOED_NOT_SAMPLED:

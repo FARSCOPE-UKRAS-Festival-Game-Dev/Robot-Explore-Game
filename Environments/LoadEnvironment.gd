@@ -13,8 +13,11 @@ func _ready():
 	globals.robot = robotclone
 	var scene_root = get_parent()
 	scene_root.add_child(robotclone)
-
+	
+#	var overlay_panel = globals.control_panel_ui
+#	scene_root.move_child(robotclone)
 
 
 	robotclone.global_transform = $RobotStartLocation.global_transform
 	emit_signal("finished_loading")
+
