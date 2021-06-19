@@ -142,17 +142,21 @@
 		"dialog": "It's getting darker and darker: let's switch on the LIDAR. It should help you to navigate in low-light conditions and identify dead ends. "
 	},
 	"tutorial_lidar_on_complete": {
-		"dialog": "The LIDAR can detect walls and other obstacles, which are displayed in green on the LIDAR screen. Let's drive carefully, and use this information to see if we can get to the other side."
+		"dialog": "The LIDAR can detect walls and other obstacles, which are displayed in green on the LIDAR screen. Let's drive carefully, and use this information to see if we can get to the other side.",
+		"next_dialog": "tutorial_lidar_on_complete_2"
+	},
+	"tutorial_lidar_on_complete_2": {
+		"dialog": "LIDAR works best when you are still or moving slowly. Try look carefully for anomalies in the cave wall which might indicate connecting tunnels."
 	},
 	"tutorial_in_cave_reenter_old_cave": {
 		"dialog": "Hmmm... this is the cave we've just been in! There must be another way through that dark cave"
 	},
 	"tutorial_dead_end1": {
-		"dialog": "Hmm... the readings from the LIDAR seem to suggest that there’s just a cave wall ahead.",
+		"dialog": "Hmm... the readings from the LIDAR seem to suggest that there’s just rocks and cave wall ahead.",
 		"next_dialog": "tutorial_dead_end2"
 	},
 	"tutorial_dead_end2": {
-		"dialog": "It must be a dead end. Maybe we should keep looking for another way through."
+		"dialog": "This must be a dead end. Maybe we should keep looking for another way through. The exit must be behind us somewhere."
 	},
 	"tutorial_in_cave_obstacle": {
 		"dialog": "There seems to be a large number of obstructions in the cavern ahead. Looks like you'll have to drive carefully through here."
@@ -181,6 +185,11 @@
 	},
 	"tutorial_navigate_dark_cave_complete4": {
 		"dialog": "Or whats left of it..."
+	},
+	"tutorial_navigate_dark_cave_hint": {
+		"dialog": "Hmm.. there must be a way out somewhere. The previous operator said something about the exit being to the right of the entering tunnel. Remember to check your journal for previous messages",
+		"wait_time": 150,
+		"next_hint": ["tutorial_navigate_dark_cave_hint"]
 	},
 	"tutorial_find_robot_complete": {
 		"dialog": "Oh no! This looks like a piece of the previous robot! Let's confirm this by verifying the material using the whiskers."
@@ -232,6 +241,9 @@
 	"tutorial_leave_level_wrong_way": {
 		"dialog": "This is the way we came. The robot must have left by a different route."
 	},
+	"tutorial_leave_level_next_to_waterfall": {
+		"dialog": "The LIDAR readings from the waterfall are strange, is that empty space behind it? The robot can't have gone through the waterfall... could it?"
+	},
 	"tutorial_leave_level_close": {
 		"dialog": "It looks like there’s some kind of tunnel behind here!"
 	},
@@ -244,7 +256,7 @@
 		]
 	},
 	"tutorial_leave_level_hint2": {
-		"dialog": "The LIDAR readings from the waterfall are strange, should we try getting closer? ",
+		"dialog": "Hmm... what exits could there be, we don't want to go back the way we came... is there a hidden exit somewhere?",
 		"wait_time": 100,
 		"next_hint": [
 			"tutorial_leave_level_hint1",
