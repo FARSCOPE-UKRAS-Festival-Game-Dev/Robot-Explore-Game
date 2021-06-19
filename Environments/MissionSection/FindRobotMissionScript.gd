@@ -107,12 +107,16 @@ func end_game():
 
 	Globals.control_panel_ui.fade_out()
 	yield(get_tree().create_timer(2),"timeout")
-
+	
+	Globals.queue_raw_dialog("Final Dialog", "...well that explains what happened to the last robot. What on earth do we do now?!")
+	yield(Globals,"all_dialog_finished")
+	
 	Globals.control_panel_ui.move_child(Globals.control_panel_ui.get_node("ObjectivePopup"),Globals.control_panel_ui.get_child_count())
 	var mission = get_parent()
 
 	mission.complete_mission()
 	yield(get_tree().create_timer(8),"timeout")
+
 
 	Globals.quit_to_credits()
 

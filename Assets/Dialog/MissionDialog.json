@@ -33,17 +33,17 @@
 		"dialog": "Let's keep looking for it's memory core. If we recover it we can find out what happend down here"
 	},
 	"mission_find_robot_item2": {
-		"dialog": "Aha the first robot definitely travelled through here",
+		"dialog": "AHA! The first robot definitely came through here, although it's worrying that we are only seeing parts...",
 		"next_dialog": "mission_geo_spring_collect_sample_start"
 	},
 	"mission_find_robot_item3": {
 		"dialog": "Another part of the robot...What could of done this?"
 	},
 	"mission_find_robot_item4": {
-		"dialog": "Another robot part... We're definitely on the right track"
+		"dialog": "Another robot part... We're definitely on the right track...\n\n *cough* sorry bad pun..."
 	},
 	"mission_find_robot_item5": {
-		"dialog": "Roasted robot anyone?"
+		"dialog": "What.... or Who lives here? ...and did they eat the last robot?"
 	},
 	"mission_other_mission_complete": {
 		"dialog": "We should resume the search for the robot's memory core... it must be in this cave system somewhere"
@@ -52,28 +52,28 @@
 		"dialog": "There looks to be some kind of structure further in. Is that… a fire?"
 	},
 	"mission_find_robot_discover_robot": {
-		"dialog": "Oh no! Sweet robot friend – it looks like it’s been attacked by some kind of animal!"
+		"dialog": "Oh my! What happened to the previous robot?? – it looks like it’s been attacked by some kind of animal!"
 	},
 	"mission_find_robot_discover_robot2": {
 		"dialog": "... What was that?"
 	},
 	"mission_geo_spring_collect_sample_start": {
-		"dialog": "This stream has an unusually high temperature reading, that’s unusual...",
+		"dialog": "There's also unusually high temperature readings here... I think its coming from the stream of water within the rocks in front.",
 		"next_dialog": "mission_geo_spring_collect_sample_start2"
 	},
 	"mission_geo_spring_collect_sample_start2": {
-		"dialog": "We should investigate. Let’s start by collecting a sample"
+		"dialog": "Its... certainly unique - we should investigate. Let’s start by collecting a sample of the water."
 	},
 	"mission_geo_spring_collect_first_sample1": {
 		"dialog": "Hmm these readings match the last data we received from the previous robot, perhaps the robot will be near the source of these temperature readings",
 		"next_dialog": "mission_geo_spring_collect_first_sample2"
 	},
 	"mission_geo_spring_collect_first_sample2": {
-		"dialog": " We should be able to use the thermometers to follow this hot stream it its source"
+		"dialog": "Lets follow this stream to its source. We should be able to use the robots two mounted thermometers to do this."
 	},
 	"mission_geo_spring_hint": {
 		"dialog": "If we're going to find the source of these heat readings the thermometers on each side of the robot should tell us whether its hotter to the left or to the right!",
-		"wait_time": 180,
+		"wait_time": 300,
 		"next_hint": [
 			"mission_geo_spring_hint"
 		]
@@ -93,18 +93,23 @@
 		"next_dialog": "mission_fauna_got_start2"
 	},
 	"mission_fauna_got_start2": {
-		"dialog": "Make sure to collect images and samples for the scientific team while still looking for our robot."
+		"dialog": "Make sure to collect images and samples for the scientific team while still looking for our robot.",
+		"next_dialog": "mission_fauna_got_start3"
+	},
+	"mission_fauna_got_start3": {
+		"dialog": "First identify and analyse a plant with the whisker sensor so we know what we are dealing with. Then take a sample and a photo of the plant."
 	},
 	"mission_fauna_general_hint": {
-		"dialog": "These plants are very interesting! We should document them... For science!",
+		"dialog": "These plants are very interesting! Check in your journal to see which plants you have already analysed!",
 		"next_dialog": "mission_fauna_general_hint_b",
-		"wait_time": 120,
+		"wait_time": 150,
 		"next_hint": [
 			"mission_fauna_general_hint",
+			"mission_fauna_general_hint_b"
 		]
 	},
 	"mission_fauna_general_hint_b": {
-		"dialog": "Use the whiskers to identify the plant species, then take a sample and a photo to document it"
+		"dialog": "Remember to complete an analyse on a plant with the whisker sensor before sampling or taking a picture."
 	},
 	"mission_fauna_got_sample1": {
 		"dialog": "We'll get this back to the lab for analysis!"
@@ -125,7 +130,7 @@
 		"dialog": "Good job!"
 	},
 	"mission_fauna_got_whiskers1": {
-		"dialog": "I don't speak latin... Must be a rare plant"
+		"dialog": "I don't speak latin... this must be a rare plant"
 	},
 	"mission_fauna_got_whiskers2": {
 		"dialog": "I don't think we've got that one on the books!"

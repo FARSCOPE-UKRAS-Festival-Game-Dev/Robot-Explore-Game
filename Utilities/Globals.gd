@@ -15,7 +15,7 @@ var temp_debug = false
 var trigger_debug = false
 var follow_camera =  false
 
-var skip_tutorial = false
+var skip_tutorial = false 
 var debug_skip_mission1 = false
 var asynchronous_loading = true
 
