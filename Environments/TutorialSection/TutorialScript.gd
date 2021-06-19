@@ -160,7 +160,15 @@ func _on_LeaveLevel_on_enable():
 func _on_LeaveLevelTrigger_on_trigger():
 	Globals.control_panel_ui.fade_out()
 	Globals.robot.immobilise = true
-	yield(get_tree().create_timer(5.0), "timeout")
+	
+	Globals.queue_raw_dialog("Tutorial End", "*Static* ...He...o? ...lo!? Are you still there!?... Wh...")
+	yield(Globals, "all_dialog_finished")
+	
+	var mission = get_parent()
+	mission.complete_mission()
+	yield(get_tree().create_timer(8),"timeout")
+	
+#	yield(get_tree().create_timer(5.0), "timeout")
 	Globals.load_new_scene("res://Environments/MissionSection/finalMissionCave.tscn")
 	
 

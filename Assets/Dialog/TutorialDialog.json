@@ -121,7 +121,15 @@
 		"next_dialog": "tutorial_sample_complete_b"
 	},
 	"tutorial_sample_complete_b": {
-		"dialog": "Speaking of which, I guess we should take a look for that robot? Our initial explorations found a network of caverns and tunnels leading deeper into the cave system. If you're ready to take a look you, can head towards the tunnel over there."
+		"dialog": "Speaking of which, I guess we should take a look for that robot?",
+		"next_dialog": "tutorial_sample_complete_c"
+	},
+	"tutorial_sample_complete_c": {
+		"dialog": "Our initial explorations found a network of caverns and tunnels leading deeper into the cave system. If you're ready to take a look you, can head towards the tunnel over there.",
+		"next_dialog": "tutorial_sample_complete_d"
+	},
+	"tutorial_sample_complete_d": {
+		"dialog": "If you get stuck, remember our conversations and your objectives are saved in the journal. The journal can be accessed by the button in the bottom left. Good luck!"
 	},
 	"tutorial_gate_leave_attempt": {
 		"dialog": "We need to get our systems online before we go exploring the rest of the cave."
