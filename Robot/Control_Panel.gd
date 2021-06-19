@@ -23,9 +23,14 @@ func _ready():
 	on_options_updated()
 
 	Globals.connect("options_updated",self,"on_options_updated")
+
+func _process(delta):
+	var speed = Globals.robot.get_node("Robot").velocity.length()
+	$HUD/Speedometer/Label.text = "%.1f m/s" % speed
+
 func _exit_tree():
 	Globals.free_control_panel()
-	
+
 func on_options_updated():
 	if not Globals.debug_mode:
 		$DebugTools.visible = false
