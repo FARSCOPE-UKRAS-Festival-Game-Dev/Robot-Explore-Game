@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Utilities/Misc/ShowHighResPhoto.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/Camera.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Fonts/NormalTextFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Utilities/Overlays/ObjectivePopup.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Dissapear"
@@ -229,6 +230,7 @@ anchor_left = 0.0464744
 anchor_top = 0.06
 anchor_right = 0.939103
 anchor_bottom = 0.14
+margin_right = -6.10352e-05
 custom_fonts/font = ExtResource( 3 )
 text = "Picture Label"
 __meta__ = {
@@ -242,6 +244,8 @@ margin_right = 824.0
 margin_bottom = 500.0
 texture = ExtResource( 2 )
 expand = true
+
+[node name="ObjectivePopup" parent="." instance=ExtResource( 4 )]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0

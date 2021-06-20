@@ -17,6 +17,9 @@ var camera_transform
 var snapshot
 var play_animation = true
 
+var enable_add_to_journal = true
+var added_to_journal = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Viewport.set_update_mode(Viewport.UPDATE_ALWAYS)
@@ -40,6 +43,10 @@ func _process(delta):
 				$AnimateImage.play("Flash")
 				play_animation = false
 			
+			if enable_add_to_journal and (not added_to_journal) and Globals.book_overlay:
+				Globals.book_overlay.add_journal_image_entry(imtext)
+				$ObjectivePopup.display_text("Picture added to journal")
+				added_to_journal = true
 			
 	if take_picture:
 		camera.global_transform = camera_transform
@@ -60,10 +67,12 @@ func take_picture(_camera_transform, _duration_on_screen):
 	camera_transform = _camera_transform
 	duration_on_screen = _duration_on_screen
 	take_picture = true
+	added_to_journal = false
 	
 	image.get_node("Label").text = \
 		"Location: x = %s, y = %s" \
 		% [camera_transform.origin.x, camera_transform.origin.y]
+
 
 func stop():
 	$AnimateImage.play("Dissapear")

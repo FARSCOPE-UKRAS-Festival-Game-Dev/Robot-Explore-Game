@@ -46,7 +46,7 @@ _global_script_class_icons={
 
 config/name="RoCeX - Robot Cave Explorer"
 run/main_scene="res://MainMenu.tscn"
-boot_splash/image="res://HTML/splash_screen.png"
+boot_splash/image="res://Assets/Images/AnimatedBackground/cave_concept.png"
 config/icon="res://icon.png"
 config/version_tag="V1.0.3"
 

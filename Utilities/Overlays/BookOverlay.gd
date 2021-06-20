@@ -56,7 +56,15 @@ func add_journal_entry(text):
 	var entry = log_entry.instance()
 	journal_vbox.add_child(entry)
 	journal_vbox.move_child(entry, 0) 
-	entry.text = text
+	entry.set_title("From: Mission Control")
+	entry.set_text(text)
+	
+func add_journal_image_entry(image_texture):
+	var entry = log_entry.instance()
+	journal_vbox.add_child(entry)
+	journal_vbox.move_child(entry, 0)
+	entry.set_title("Taken Picture")
+	entry.set_texture(image_texture)
 	
 func _on_EscapeButton_pressed():
 	book_button.pressed = false
