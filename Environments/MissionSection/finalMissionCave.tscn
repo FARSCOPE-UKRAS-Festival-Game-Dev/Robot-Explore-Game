@@ -110,7 +110,7 @@ environment = ExtResource( 1 )
 transform = Transform( 0.609135, 0, 0.793066, 0, 1, 0, -0.793066, 0, 0.609135, 46.4993, -4.09357, 43.8564 )
 
 [node name="RobotStartLocationDebug" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9411, -1.52588e-05, -1.4712 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.6033, -1.52588e-05, 46.5754 )
 
 [node name="DebugOmni" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.365, 5.94936, -1.68166 )
@@ -506,6 +506,9 @@ transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -38.4943, -0.388211, 59.
 [node name="rockFlora17" parent="rockFlori" instance=ExtResource( 14 )]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -45.9681, -0.0728387, 69.0905 )
 
+[node name="rockFlora30" parent="rockFlori" instance=ExtResource( 14 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -38.141, 0.288696, 106.513 )
+
 [node name="rockFlora18" parent="rockFlori" instance=ExtResource( 14 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -37.4077, 1.38858, 88.4635 )
 
@@ -631,40 +634,21 @@ transform = Transform( -0.222122, -0.0128185, 0.0334969, 0.0105995, -0.224213, -
 
 [node name="YetiPainting" parent="CavePaintings" instance=ExtResource( 27 )]
 transform = Transform( -0.998707, 0.0498905, -0.0097646, -1.67919e-08, -0.192077, -0.98138, -0.0508371, -0.980111, 0.191828, -10.036, -0.016358, 105.904 )
-visible = false
 
 [node name="CavePainting" type="Spatial" parent="CavePaintings/YetiPainting"]
 transform = Transform( -0.999907, 4.47035e-08, 0.0136478, -0.0133937, -0.192076, -0.981289, 0.00262137, -0.98138, 0.192058, 0.103894, 1.05643, 0.16469 )
 
-[node name="Painting" type="RigidBody" parent="CavePaintings/YetiPainting/CavePainting"]
-mode = 1
-physics_material_override = SubResource( 1 )
-gravity_scale = 3.0
-
-[node name="CollisionShape" type="CollisionShape" parent="CavePaintings/YetiPainting/CavePainting/Painting"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.164236, 0.0366287, 0.85762 )
-shape = SubResource( 2 )
-
-[node name="TactileInfo" type="Node" parent="CavePaintings/YetiPainting/CavePainting/Painting"]
-script = ExtResource( 31 )
-type = 3
-value = ExtResource( 33 )
-texture_name = "Painting?"
-
 [node name="DialogYetiPainting" parent="CavePaintings/YetiPainting/CavePainting" instance=ExtResource( 43 )]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.00832367, 0.00303745, 0.00252342 )
+visible = false
 one_shot = true
-dialog = "yeti_paintings_discover"
+dialog = "yeti_paintings_discover_deadend"
 
 [node name="TriggerWhisker" parent="CavePaintings/YetiPainting/CavePainting/DialogYetiPainting" instance=ExtResource( 42 )]
-visible = false
-must_whisker = NodePath("../../Painting")
 enabled = true
 
 [node name="TriggerPhoto" parent="CavePaintings/YetiPainting/CavePainting/DialogYetiPainting" instance=ExtResource( 42 )]
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
-visible = false
-must_see = NodePath("../../Painting")
 must_action = 1
 on_trigger_action_is_success = false
 enabled = true
@@ -697,17 +681,16 @@ texture_name = "Painting?"
 
 [node name="DialogYetiPainting" parent="CavePaintings/CP_TEST/CavePainting" instance=ExtResource( 43 )]
 transform = Transform( 0.999999, 0, 2.98023e-08, -9.31323e-10, 1, 0, -2.98023e-08, -7.45058e-09, 0.999999, -0.0130978, -0.898292, 0.0420914 )
+visible = false
 one_shot = true
 dialog = "yeti_paintings_discover"
 
 [node name="TriggerWhisker" parent="CavePaintings/CP_TEST/CavePainting/DialogYetiPainting" instance=ExtResource( 42 )]
-visible = false
 must_whisker = NodePath("../../Painting")
 enabled = true
 
 [node name="TriggerPhoto" parent="CavePaintings/CP_TEST/CavePainting/DialogYetiPainting" instance=ExtResource( 42 )]
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
-visible = false
 must_see = NodePath("../../Painting")
 must_action = 1
 on_trigger_action_is_success = false
@@ -720,11 +703,68 @@ enabled = true
 [node name="mazeArrow" parent="CavePaintings" instance=ExtResource( 51 )]
 transform = Transform( -0.639192, -0.759488, -0.120883, 0.128333, -0.26032, 0.956956, -0.758264, 0.596165, 0.263862, -13.0099, 1.18216, 60.2465 )
 
+[node name="DialogYetiPainting2" parent="CavePaintings/mazeArrow" instance=ExtResource( 43 )]
+transform = Transform( -0.888446, 0.128334, -0.900087, -0.960297, -0.260321, 0.783352, -0.142084, 0.956956, 0.333803, -0.28278, 1.78016, -1.10801 )
+visible = false
+one_shot = true
+dialog = "yeti_paintings_arrow1"
+
+[node name="TriggerWhisker" parent="CavePaintings/mazeArrow/DialogYetiPainting2" instance=ExtResource( 42 )]
+enabled = true
+
+[node name="TriggerPhoto" parent="CavePaintings/mazeArrow/DialogYetiPainting2" instance=ExtResource( 42 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
+must_action = 1
+on_trigger_action_is_success = false
+enabled = true
+
+[node name="TriggerSample" parent="CavePaintings/mazeArrow/DialogYetiPainting2" instance=ExtResource( 42 )]
+must_action = 3
+enabled = true
+
 [node name="mazeArrows2" parent="CavePaintings" instance=ExtResource( 50 )]
 transform = Transform( -0.997534, -0.0651083, 0.0262226, -0.0388723, 0.201376, -0.978742, 0.0584437, -0.977348, -0.203411, -28.1776, -0.580814, 86.5252 )
 
+[node name="DialogYetiPainting" parent="CavePaintings/mazeArrows2" instance=ExtResource( 43 )]
+transform = Transform( -0.719082, 0.0433719, -0.0762487, -0.0921697, -0.194751, 0.613223, 0.013507, 0.980069, 0.125229, -1.07885, 1.43964, -0.380068 )
+visible = false
+one_shot = true
+dialog = "yeti_paintings_arrow2"
+
+[node name="TriggerWhisker" parent="CavePaintings/mazeArrows2/DialogYetiPainting" instance=ExtResource( 42 )]
+enabled = true
+
+[node name="TriggerPhoto" parent="CavePaintings/mazeArrows2/DialogYetiPainting" instance=ExtResource( 42 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
+must_action = 1
+on_trigger_action_is_success = false
+enabled = true
+
+[node name="TriggerSample" parent="CavePaintings/mazeArrows2/DialogYetiPainting" instance=ExtResource( 42 )]
+must_action = 3
+enabled = true
+
 [node name="mazeArrows3" parent="CavePaintings" instance=ExtResource( 52 )]
 transform = Transform( -0.969633, 0.243937, -0.0175156, 0.0180632, 7.88246e-06, -0.999837, -0.243897, -0.969791, -0.00441393, -39.8182, -0.0136114, 106.46 )
+
+[node name="DialogYetiPainting2" parent="CavePaintings/mazeArrows3" instance=ExtResource( 43 )]
+transform = Transform( 0.771636, -0.668242, -8.14907e-10, 0.365229, 1.41183, 4.65661e-09, 6.98492e-10, -1.72295e-08, 0.484623, 0.231943, 1.41609, -0.583021 )
+visible = false
+one_shot = true
+dialog = "yeti_paintings_deadend_actual"
+
+[node name="TriggerWhisker" parent="CavePaintings/mazeArrows3/DialogYetiPainting2" instance=ExtResource( 42 )]
+enabled = true
+
+[node name="TriggerPhoto" parent="CavePaintings/mazeArrows3/DialogYetiPainting2" instance=ExtResource( 42 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
+must_action = 1
+on_trigger_action_is_success = false
+enabled = true
+
+[node name="TriggerSample" parent="CavePaintings/mazeArrows3/DialogYetiPainting2" instance=ExtResource( 42 )]
+must_action = 3
+enabled = true
 
 [node name="StartingLights" type="Spatial" parent="."]
 __meta__ = {
@@ -855,6 +895,11 @@ omni_range = 13.2902
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.67805, 7.62939e-05, -3.22439 )
 light_color = Color( 0.945098, 0.694118, 0.996078, 1 )
 omni_range = 8.93463
+
+[node name="OmniLightRockFauna14" type="OmniLight" parent="MazeLights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76017, 0.382398, 34.1096 )
+light_color = Color( 0.945098, 0.694118, 0.996078, 1 )
+omni_range = 3.0
 
 [node name="OmniLightRockFauna6" type="OmniLight" parent="MazeLights"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.18293, -0.574921, 13.9353 )

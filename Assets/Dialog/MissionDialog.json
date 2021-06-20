@@ -262,7 +262,19 @@
 		"dialog": "Is this... clothing?"
 	},
 	"yeti_paintings_discover": {
-		"dialog": "Is this... a painting?"
+		"dialog": "Is this... grafiti? ...Who's Michael??"
+	},
+	"yeti_paintings_discover_deadend": {
+		"dialog": "...Why is this pointing in the opposite direction?"
+	},
+	"yeti_paintings_arrow1": {
+		"dialog": "Why are these arrows here?"
+	},
+	"yeti_paintings_arrow2": {
+		"dialog": "...What is this arrow pointing towards?"
+	},
+	"yeti_paintings_deadend_actual": {
+		"dialog": "...Someone was here before us..."
 	},
 	"debug_hint1": {
 		"dialog": "debug hint 1",
