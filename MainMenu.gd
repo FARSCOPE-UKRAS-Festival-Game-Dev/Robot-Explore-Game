@@ -123,3 +123,9 @@ func leave_feedback():
 
 func exit_game():
 	get_tree().quit()
+
+func _on_GoToGithubButton_pressed():
+	OS.shell_open("https://github.com/FARSCOPE-UKRAS-Festival-Game-Dev/Robot-Explore-Game")
+	
+func _on_SeeRoboticsBtn_pressed():
+	OS.shell_open("https://www.bristolroboticslab.com/")

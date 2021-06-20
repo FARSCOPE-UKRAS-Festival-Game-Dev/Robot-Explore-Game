@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Fonts/Born2bSportyV2.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://MainMenu.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Images/AnimatedBackground/2.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Fonts/NormalTextFont.tres" type="DynamicFont" id=10]
 [ext_resource path="res://Assets/Audio/music/main_menu_background.mp3" type="AudioStream" id=11]
+[ext_resource path="res://Assets/Images/logo/GitHubLogo.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -70,6 +71,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Background"]
 position = Vector2( 512, 300 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="DebugNode" type="Control" parent="."]
@@ -77,10 +79,10 @@ anchor_left = 1.0
 anchor_top = 0.723
 anchor_right = 1.0
 anchor_bottom = 0.723
-margin_left = -387.0
-margin_top = -21.8
-margin_right = -8.0
-margin_bottom = 15.2
+margin_left = -416.0
+margin_top = -113.8
+margin_right = -37.0
+margin_bottom = -76.8
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -402,10 +404,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -152.285
-margin_top = -41.87
-margin_right = -10.285
-margin_bottom = -9.87
+margin_left = -256.0
+margin_top = -48.0
+margin_right = -77.9999
+margin_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
 custom_fonts/font = ExtResource( 10 )
@@ -415,16 +417,42 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AboutSensorButton" type="Button" parent="."]
-anchor_left = 0.773438
-anchor_top = 0.84
+[node name="SeeRoboticsBtn" type="Button" parent="."]
+anchor_left = 0.702148
+anchor_top = 0.810527
+anchor_right = 0.995117
+anchor_bottom = 0.877194
+margin_left = -1.0
+margin_top = 3.05176e-05
+margin_right = -1.0
+custom_fonts/font = ExtResource( 10 )
+text = "See Some Real Robotics"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AboutSensorsBtn" type="Button" parent="."]
+anchor_left = 0.75
+anchor_top = 0.706667
 anchor_right = 0.994141
-anchor_bottom = 0.906667
+anchor_bottom = 0.773333
 margin_top = 3.05176e-05
 custom_fonts/font = ExtResource( 10 )
 text = "About Sensors"
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchor_left = 0.945313
+anchor_top = 0.906667
+anchor_right = 0.992188
+anchor_bottom = 0.986667
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
 }
 
 [node name="AboutSensor" type="PanelContainer" parent="."]
@@ -527,7 +555,9 @@ autoplay = true
 [connection signal="pressed" from="MainMenu/MainPage/VBoxContainer/CreditsHBoX/Option/Button4" to="." method="_on_Button4_pressed"]
 [connection signal="pressed" from="MainMenu/MainPage/VBoxContainer/ExitHBoxContainer/Option/Button3" to="." method="_on_Button3_pressed"]
 [connection signal="pressed" from="MainMenu/OptionPage/BackButtonLabel/BackButton" to="." method="_on_BackButton_pressed"]
-[connection signal="pressed" from="AboutSensorButton" to="." method="_on_ShowSensorButton_pressed"]
+[connection signal="pressed" from="SeeRoboticsBtn" to="." method="_on_SeeRoboticsBtn_pressed"]
+[connection signal="pressed" from="AboutSensorsBtn" to="." method="_on_ShowSensorButton_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_GoToGithubButton_pressed"]
 [connection signal="pressed" from="AboutSensor/Panel/AboutSensorCloseButton" to="." method="_on_AboutSensorCloseButton_pressed"]
 [connection signal="pressed" from="FeedbackDialog/LeaveFeedbackButton" to="." method="leave_feedback"]
 [connection signal="pressed" from="FeedbackDialog/ActualExitButton" to="." method="exit_game"]
