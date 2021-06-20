@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://Environments/MissionSection/MissionSection.tres" type="Environment" id=1]
 [ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=2]
@@ -49,6 +49,9 @@
 [ext_resource path="res://Environments/MissionSection/MissionGeothermalSpringScript.gd" type="Script" id=47]
 [ext_resource path="res://Assets/Models/Textures/Ice002_1K_Color.jpg" type="Texture" id=48]
 [ext_resource path="res://Assets/Models/Terrain/Objects/Waterfall/Waterfall.tscn" type="PackedScene" id=49]
+[ext_resource path="res://Assets/Models/Terrain/Objects/CavePaintings/mazeArrow2.tscn" type="PackedScene" id=50]
+[ext_resource path="res://Assets/Models/Terrain/Objects/CavePaintings/mazeArrow1.tscn" type="PackedScene" id=51]
+[ext_resource path="res://Assets/Models/Terrain/Objects/CavePaintings/deadEndSign.tscn" type="PackedScene" id=52]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -713,6 +716,15 @@ enabled = true
 [node name="TriggerSample" parent="CavePaintings/CP_TEST/CavePainting/DialogYetiPainting" instance=ExtResource( 42 )]
 must_action = 3
 enabled = true
+
+[node name="mazeArrow" parent="CavePaintings" instance=ExtResource( 51 )]
+transform = Transform( -0.639192, -0.759488, -0.120883, 0.128333, -0.26032, 0.956956, -0.758264, 0.596165, 0.263862, -13.0099, 1.18216, 60.2465 )
+
+[node name="mazeArrows2" parent="CavePaintings" instance=ExtResource( 50 )]
+transform = Transform( -0.997534, -0.0651083, 0.0262226, -0.0388723, 0.201376, -0.978742, 0.0584437, -0.977348, -0.203411, -28.1776, -0.580814, 86.5252 )
+
+[node name="mazeArrows3" parent="CavePaintings" instance=ExtResource( 52 )]
+transform = Transform( -0.969633, 0.243937, -0.0175156, 0.0180632, 7.88246e-06, -0.999837, -0.243897, -0.969791, -0.00441393, -39.8182, -0.0136114, 106.46 )
 
 [node name="StartingLights" type="Spatial" parent="."]
 __meta__ = {
