@@ -10,7 +10,7 @@
 		]
 	},
 	"mission_start_1": {
-		"dialog": "Phew... I thought we'd lost you. There must of glitch on our end because it appeared that the robot drove through that waterfall! Ha Ha",
+		"dialog": "Phew... I thought we'd lost you. There must have been a glitch on our end because it appeared that the robot drove through that waterfall! Ha Ha.",
 		"next_dialog": "mission_start_2"
 	},
 	"mission_start_2": {
@@ -30,20 +30,20 @@
 		"next_dialog": "mission_start_6"
 	},
 	"mission_start_6": {
-		"dialog": "Let's keep looking for it's memory core. If we recover it we can find out what happend down here"
+		"dialog": "Let's keep looking for its memory core. If we recover it we can find out what happened down here."
 	},
 	"mission_find_robot_item2": {
 		"dialog": "AHA! The first robot definitely came through here, although it's worrying that we are only seeing parts...",
 		"next_dialog": "mission_geo_spring_collect_sample_start"
 	},
 	"mission_find_robot_item3": {
-		"dialog": "Another part of the robot...What could of done this?"
+		"dialog": "Another part of the robot...What could have done this?"
 	},
 	"mission_find_robot_item4": {
 		"dialog": "Another robot part... We're definitely on the right track...\n\n*cough* sorry bad pun..."
 	},
 	"mission_find_robot_item5": {
-		"dialog": "What.... or Who lives here? ...and did they eat the last robot?"
+		"dialog": "What.... or who lives here? ...and did they eat the last robot?"
 	},
 	"mission_other_mission_complete": {
 		"dialog": "We should resume the search for the robot's memory core... it must be in this cave system somewhere"
@@ -58,21 +58,21 @@
 		"dialog": "... What was that?"
 	},
 	"mission_geo_spring_collect_sample_start": {
-		"dialog": "There's also unusually high temperature readings here... I think its coming from the stream of water within the rocks in front.",
+		"dialog": "There's also unusually high temperature readings here... I think it's coming from the stream of water within the rocks in front.",
 		"next_dialog": "mission_geo_spring_collect_sample_start2"
 	},
 	"mission_geo_spring_collect_sample_start2": {
-		"dialog": "Its... certainly unique - we should investigate. Let’s start by collecting a sample of the water."
+		"dialog": "It's... certainly unique - we should investigate. Let’s start by collecting a sample of the water."
 	},
 	"mission_geo_spring_collect_first_sample1": {
-		"dialog": "Hmm these readings match the last data we received from the previous robot, perhaps the robot will be near the source of these temperature readings",
+		"dialog": "Hmm these readings match the last data we received from the previous robot, perhaps the robot will be near the source of these temperature readings.",
 		"next_dialog": "mission_geo_spring_collect_first_sample2"
 	},
 	"mission_geo_spring_collect_first_sample2": {
-		"dialog": "Lets follow this stream to its source. We should be able to use the robots two mounted thermometers to do this."
+		"dialog": "Let's follow this stream to its source. We should be able to use the robot's two mounted thermometers to do this."
 	},
 	"mission_geo_spring_hint": {
-		"dialog": "If we're going to find the source of these heat readings the thermometers on each side of the robot should tell us whether its hotter to the left or to the right!",
+		"dialog": "If we're going to find the source of these heat readings, the thermometers on each side of the robot should tell us whether it's hotter to the left or to the right!",
 		"wait_time": 300,
 		"next_hint": [
 			"mission_geo_spring_hint"
@@ -83,7 +83,7 @@
 		"next_dialog": "mission_geo_spring_find_spring2"
 	},
 	"mission_geo_spring_find_spring2": {
-		"dialog": "it must be the source of the stream we crossed earlier! Let’s grab another sample to compare"
+		"dialog": "It must be the source of the stream we crossed earlier! Let’s grab another sample to compare."
 	},
 	"mission_geo_spring_complete": {
 		"dialog": "They are the same! The robot must be nearby..."
@@ -93,32 +93,37 @@
 		"next_dialog": "mission_fauna_got_start2"
 	},
 	"mission_fauna_got_start2": {
-		"dialog": "Make sure to collect images and samples for the scientific team while still looking for our robot.",
+		"dialog": "[Side Objective] We should try to collect some images and samples for the scientific team while we are here.",
 		"next_dialog": "mission_fauna_got_start3"
 	},
 	"mission_fauna_got_start3": {
-		"dialog": "First identify and analyse a plant with the whisker sensor so we know what we are dealing with. Then take a sample and a photo of the plant."
+		"dialog": "[Side Objective] First identify and analyse a plant with the whisker sensor so we know what we are dealing with. Then take a sample and a photo of the plant."
 	},
 	"mission_fauna_general_hint": {
 		"dialog": "These plants are very interesting! Check in your journal to see which plants you have already analysed!",
 		"next_dialog": "mission_fauna_general_hint_b",
-		"wait_time": 150,
+		"wait_time": 250,
 		"next_hint": [
 			"mission_fauna_general_hint",
 			"mission_fauna_general_hint_b"
 		]
 	},
 	"mission_fauna_general_hint_b": {
-		"dialog": "Remember to complete an analyse on a plant with the whisker sensor before sampling or taking a picture."
+		"dialog": "Remember to complete an analysis on a plant with the whisker sensor before sampling or taking a picture.",
+		"wait_time": 250,
+		"next_hint": [
+			"mission_fauna_general_hint",
+			"mission_fauna_general_hint_b"
+		]
 	},
 	"mission_fauna_got_sample1": {
 		"dialog": "We'll get this back to the lab for analysis!"
 	},
 	"mission_fauna_got_sample2": {
-		"dialog": "An excellent sample, the scientists at the lab are gonna love this"
+		"dialog": "An excellent sample, the scientists at the lab are gonna love this."
 	},
 	"mission_fauna_got_sample3": {
-		"dialog": "Good sample collecting"
+		"dialog": "Good sample collecting."
 	},
 	"mission_fauna_got_photo1": {
 		"dialog": "Nice photo!"
@@ -130,58 +135,55 @@
 		"dialog": "Good job!"
 	},
 	"mission_fauna_got_whiskers1": {
-		"dialog": "I don't speak latin... this must be a rare plant"
+		"dialog": "I don't speak Latin... this must be a rare plant."
 	},
 	"mission_fauna_got_whiskers2": {
 		"dialog": "I don't think we've got that one on the books!"
 	},
 	"mission_fauna_got_whiskers3": {
-		"dialog": "Hmmm didn't expect to find that species here"
+		"dialog": "Hmmm didn't expect to find that species here."
 	},
 
 	"mission_fauna_need_photo_sample1": {
-		"dialog": "Let's take a photo and sample of the plant",
-		"wait_time": 30,
+		"dialog": "Let's take a photo and sample of the plant.",
+		"wait_time": 0,
 		"next_hint": [
-			"mission_fauna_need_photo_sample1",
-			"mission_fauna_need_photo_sample2"
+			"mission_fauna_need_photo_sample1"
 		]
 	},
 	"mission_fauna_need_photo_sample2": {
 		"dialog": "This plant is of interest to our scientists. Snap a picture of the plant and collect a sample",
-		"wait_time": 30,
+		"wait_time": 0,
 		"next_hint": [
 			"mission_fauna_need_photo_sample1",
 			"mission_fauna_need_photo_sample2"
 		]
 	},
 	"mission_fauna_just_need_photo1": {
-		"dialog": "We just need a photo now",
-		"wait_time": 30,
+		"dialog": "We just need a photo now.",
+		"wait_time": 0,
 		"next_hint": [
-			"mission_fauna_just_need_photo1",
-			"mission_fauna_just_need_photo2"
+			"mission_fauna_just_need_photo1"
 		]
 	},
 	"mission_fauna_just_need_photo2": {
 		"dialog": "Just grab a photo and then we're all done!",
-		"wait_time": 30,
+		"wait_time": 0,
 		"next_hint": [
 			"mission_fauna_just_need_photo1",
 			"mission_fauna_just_need_photo2"
 		]
 	},
 	"mission_fauna_just_need_sample1": {
-		"dialog": "Just need to grab a sample and we'll be finished with this plant",
-		"wait_time": 30,
+		"dialog": "Just need to grab a sample and we'll be finished with this plant.",
+		"wait_time": 0,
 		"next_hint": [
-			"mission_fauna_just_need_sample1",
-			"mission_fauna_just_need_sample2"
+			"mission_fauna_just_need_sample1"
 		]
 	},
 	"mission_fauna_just_need_sample2": {
-		"dialog": "The scientists are begging for samples of these plants, lets make their day and collect one",
-		"wait_time": 30,
+		"dialog": "The scientists are begging for samples of these plants, let's make their day and collect one.",
+		"wait_time": 0,
 		"next_hint": [
 			"mission_fauna_just_need_sample1",
 			"mission_fauna_just_need_sample2"
@@ -202,58 +204,58 @@
 		]
 	},
 	"mission_fauna_plant_already_done1": {
-		"dialog": "We've got enougth data about this type of plant.",
+		"dialog": "We've got enough data about this type of plant.",
 		"next_dialog": "mission_fauna_plant_already_done1b",
-		"wait_time": 30,
+		"wait_time": 0,
 		"next_hint": [
 			"mission_fauna_plant_already_done1",
 			"mission_fauna_plant_already_done2"
 		]
 	},
 	"mission_fauna_plant_already_done1b": {
-		"dialog": "Let's keep looking for a different type of plant"
+		"dialog": "Let's keep looking for a different type of plant."
 	},
 	"mission_fauna_plant_already_done2": {
-		"dialog": "No need to collect any more information about this type of plant",
+		"dialog": "No need to collect any more information about this type of plant.",
 		"next_dialog": "mission_fauna_plant_already_done2b",
-		"wait_time": 30,
+		"wait_time": 0,
 		"next_hint": [
 			"mission_fauna_plant_already_done1",
 			"mission_fauna_plant_already_done2"
 		]
 	},
 	"mission_fauna_whiskered_plant_already_done1": {
-		"dialog": "According to the whiskers we've already collected information about this type of plant",
+		"dialog": "According to the whiskers, we've already collected information about this type of plant.",
 		"next_dialog": "mission_fauna_plant_already_done2b"
 	},
 	"mission_fauna_whiskered_plant_already_done2": {
-		"dialog": "The whiskers are indicating we've got all the information we need about this type of plant",
+		"dialog": "The whiskers are indicating we've got all the information we need about this type of plant.",
 		"next_dialog": "mission_fauna_plant_already_done2b"
 	},
 	"mission_fauna_whiskered_plant_already_done3": {
-		"dialog": "Looks like we've already documented this type of plant",
+		"dialog": "Looks like we've already documented this type of plant.",
 		"next_dialog": "mission_fauna_plant_already_done2b"
 	},
 	"mission_fauna_plant_already_done2b": {
-		"dialog": "There should be more types of plant in this system"
+		"dialog": "There should be more types of plant in this system."
 	},
 	"mission_fauna_completed_plantA": {
-		"dialog": "Documenting complete. The scientists will be very happy"
+		"dialog": "Documenting complete. The scientists will be very happy."
 	},
 	"mission_fauna_completed_plantB": {
-		"dialog": "Would you beleaf it. Another wonderous plant documented"
+		"dialog": "Would you beleaf it. Another wonderous plant documented."
 	},
 	"mission_fauna_completed_plantC": {
-		"dialog": "I was rooting for you. You have fully documented this plant"
+		"dialog": "I was rooting for you. You have fully documented this plant."
 	},
 	"mission_fauna_completed_plantD": {
-		"dialog": "Tremendous work! Another plant documented"
+		"dialog": "Tremendous work! Another plant documented."
 	},
 	"mission_fauna_completed_plantE": {
 		"dialog": "All done, another plant documented. For science!"
 	},
 	"mission_fauna_completed_all": {
-		"dialog": "Well done you have documented all the unique plants in the cave"
+		"dialog": "Well done! You've documented all the unique plants in the cave."
 	},
 
 	"yeti_shorts_on_discover": {

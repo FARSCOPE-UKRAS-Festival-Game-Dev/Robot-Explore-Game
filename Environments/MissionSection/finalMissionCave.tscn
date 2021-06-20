@@ -1156,6 +1156,7 @@ num_must_complete = 5
 transform = Transform( 14, 0, 0, 0, 1, 0, 0, 0, 18, -25.5624, 0, -12.185 )
 visible = false
 first_hint_dialog_key = "mission_fauna_general_hint"
+enabled = false
 
 [node name="CompletePlantA1" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2714, -0.981407, -20.9488 )

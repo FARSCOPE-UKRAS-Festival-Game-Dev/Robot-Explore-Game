@@ -173,16 +173,14 @@ func update_plant_node_logic():
 			hint_action.enabled = true
 			sample_trigger.enabled = true
 			photo_trigger.enabled = true
-	
 		
 		PlantNodeState.PHOTOED_NOT_SAMPLED:
-			hint_action.set_current_hint_key("debug_hint1")
 			set_action_hint("mission_fauna_just_need_sample1")
 			set_already_done_hint("mission_fauna_plant_already_photoed")
 			hint_action.enabled = true
 			hint_already_done.enabled = true
+			
 		PlantNodeState.SAMPLED_NOT_PHOTOED:
-			set_action_hint("debug_hint2")	
 			set_action_hint("mission_fauna_just_need_photo1")
 			set_already_done_hint("mission_fauna_plant_already_sampled")
 			hint_action.enabled = true

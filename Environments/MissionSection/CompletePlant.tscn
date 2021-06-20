@@ -29,12 +29,14 @@ visible = false
 first_hint_dialog_key = "mission_fauna_need_photo_sample1"
 use_next_hint = true
 enabled = false
+oneshot = true
 
 [node name="AlreadyDoneHint" parent="." instance=ExtResource( 4 )]
 transform = Transform( 3, 0, -8.94067e-08, 0, 1, 0, 8.94067e-08, 0, 3, 0, 0, 0 )
 visible = false
 use_next_hint = true
 enabled = false
+oneshot = true
 disable_timer = true
 
 [node name="SampleTrigger" parent="." instance=ExtResource( 1 )]
