@@ -50,7 +50,7 @@ func isolate_panel(panel_name):
 	var iso_panel = hud.get_node("IsolatingPanel")
 	iso_panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	
-	Globals.joystick.set_visible(false)
+#	Globals.joystick.set_visible(false)
 	hud.move_child(iso_panel,hud.get_child_count()-1)
 	hud.move_child(panel,hud.get_child_count()-1)
 	
@@ -65,7 +65,7 @@ func remove_isolate_panel():
 
 	iso_panel.mouse_filter = Control.MOUSE_FILTER_PASS
 	iso_panel.hide()
-	Globals.joystick.set_visible(true)
+#	Globals.joystick.set_visible(true)
 	if Globals.displaying_dialog == false:
 		Globals.robot.immobilise = false
 	

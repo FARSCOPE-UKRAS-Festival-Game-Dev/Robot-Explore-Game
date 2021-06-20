@@ -302,39 +302,49 @@ transform = Transform( 2.82686, 0.0157186, -0.707487, 0.0389147, 3.99934, 0.0152
 
 [node name="vineWall5" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 2.48442, 0.0237073, -0.783705, 0.0389147, 3.99934, 0.0152715, 3.13467, -0.0684384, 0.620945, -58.9116, 2.01385, -45.2329 )
+visible = false
 
 [node name="vineWall6" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 2.48442, 0.0237073, -0.783705, 0.0389147, 3.99934, 0.0152715, 3.13467, -0.0684384, 0.620945, -58.3463, 4.93949, -44.5956 )
 
 [node name="vineWall7" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 3.03271, 0.0103281, -0.652042, 0.0389147, 3.99934, 0.0152715, 2.6079, -0.0716881, 0.758029, -62.4322, 2.01385, -48.4499 )
+visible = false
 
 [node name="vineWall8" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 3.03271, 0.0103281, -0.652042, 0.0389147, 3.99934, 0.0152715, 2.6079, -0.0716881, 0.758029, -62.4881, 4.93949, -48.5085 )
 
 [node name="vineWall9" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 3.13588, 0.00741519, -0.620795, 0.0389147, 3.99934, 0.0152715, 2.48289, -0.0720477, 0.783824, -60.8864, 2.01385, -42.151 )
+visible = false
 
 [node name="vineWall11" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 3.54907, -0.00635255, -0.461254, 0.0389147, 3.99934, 0.0152715, 1.84462, -0.0721491, 0.887137, -65.0498, 2.01385, -44.477 )
+visible = false
 
 [node name="vineWall12" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 3.54907, -0.00635255, -0.461254, 0.0389147, 3.99934, 0.0152715, 1.84462, -0.0721491, 0.887137, -65.1177, 4.93949, -44.5212 )
+visible = false
 
 [node name="vineWall13" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 3.92208, -0.0261692, -0.196309, 0.0389147, 3.99934, 0.0152715, 0.784707, -0.0675354, 0.980423, -70.1509, 2.01385, -45.9164 )
+visible = false
 
 [node name="vineWall14" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 3.92208, -0.0261692, -0.196309, 0.0389147, 3.99934, 0.0152715, 0.784707, -0.0675354, 0.980423, -69.3076, 4.93949, -45.7957 )
+visible = false
 
 [node name="vineWall15" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 3.99971, -0.0384763, -0.0072338, 0.0389147, 3.99934, 0.0152715, 0.0283436, -0.0613631, 0.999857, -74.9167, 2.01385, -46.0939 )
+visible = false
 
 [node name="vineWall17" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 3.52738, -1.88538, -0.0134812, 1.88594, 3.52726, 0.0101884, 0.0283436, -0.0613631, 0.999857, -79.3489, 2.02593, -46.0939 )
+visible = false
 
 [node name="vineWall16" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 3.99971, -0.0384763, -0.0072338, 0.0389147, 3.99934, 0.0152715, 0.0283436, -0.0613631, 0.999857, -74.9972, 4.93949, -46.1025 )
+visible = false
 
 [node name="vineWall38" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 2.48846, 0.0236188, -0.782903, 0.0389147, 3.99934, 0.0152715, 3.13146, -0.068469, 0.621957, -65.7893, 2.01385, -39.2234 )
@@ -365,15 +375,17 @@ transform = Transform( 3.09517, 0.0085836, -0.633435, 0.0389147, 3.99934, 0.0152
 
 [node name="vineWall32" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 3.99887, -0.0375747, -0.0218563, 0.0389147, 3.99934, 0.0152715, 0.0868376, -0.0619193, 0.999644, -68.6948, 2.01385, -44.7312 )
+visible = false
 
 [node name="vineWall33" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 3.99887, -0.0375747, -0.0218563, 0.0389147, 3.99934, 0.0152715, 0.0868376, -0.0619193, 0.999644, -68.7753, 4.93949, -44.741 )
+visible = false
 
 [node name="vineWall34" parent="fukkinVinesm8" instance=ExtResource( 12 )]
-transform = Transform( 3.86523, -0.053314, 0.257044, 0.0389147, 3.99934, 0.0152715, -1.02882, -0.0490251, 0.966279, -73.9071, 2.01385, -43.7688 )
+transform = Transform( 3.86523, -0.053314, 0.257044, 0.0389147, 3.99934, 0.0152715, -1.02882, -0.0490251, 0.966279, -74.5054, 2.01385, -43.3721 )
 
 [node name="vineWall35" parent="fukkinVinesm8" instance=ExtResource( 12 )]
-transform = Transform( 3.86523, -0.053314, 0.257044, 0.0389147, 3.99934, 0.0152715, -1.02882, -0.0490251, 0.966279, -73.0972, 4.93949, -44.0332 )
+transform = Transform( 3.86523, -0.053314, 0.257044, 0.0389147, 3.99934, 0.0152715, -1.02882, -0.0490251, 0.966279, -74.5118, 4.93949, -43.2401 )
 
 [node name="vineWall36" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 3.60071, -0.0616279, 0.435251, 0.0389147, 3.99934, 0.0152715, -1.74166, -0.0380506, 0.90018, -78.2609, 2.01385, -41.8226 )
@@ -401,18 +413,21 @@ transform = Transform( 1.272, 0.0455435, -0.948022, 0.0389147, 3.99934, 0.015271
 
 [node name="vineWall43" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 1.27571, 0.0454884, -0.947711, 0.0389147, 3.99934, 0.0152715, 3.79092, -0.0563619, 0.318765, -70.9395, 2.01385, -57.1338 )
+visible = false
 
 [node name="vineWall44" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 1.272, 0.0455435, -0.948022, 0.0389147, 3.99934, 0.0152715, 3.79216, -0.0563174, 0.317838, -70.6235, 4.93949, -56.3427 )
 
 [node name="vineWall45" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 0.994103, 0.0495014, -0.968546, 0.0389147, 3.99934, 0.0152715, 3.87431, -0.0528721, 0.248365, -71.3761, 2.01385, -59.5042 )
+visible = false
 
 [node name="vineWall46" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 0.990316, 0.0495531, -0.968789, 0.0389147, 3.99934, 0.0152715, 3.87527, -0.0528237, 0.247418, -71.119, 4.93949, -58.692 )
 
 [node name="vineWall47" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 0.994103, 0.0495014, -0.968546, 0.0389147, 3.99934, 0.0152715, 3.87431, -0.0528721, 0.248365, -72.8682, 2.01385, -65.2178 )
+visible = false
 
 [node name="vineWall49" parent="fukkinVinesm8" instance=ExtResource( 12 )]
 transform = Transform( 0.0717323, -0.00880834, -0.999837, 2.15654, 3.36873, 0.00781509, 3.36812, -2.15674, 0.0162902, -73.4988, 2.86758, -68.0596 )
@@ -1157,6 +1172,7 @@ transform = Transform( 14, 0, 0, 0, 1, 0, 0, 0, 18, -25.5624, 0, -12.185 )
 visible = false
 first_hint_dialog_key = "mission_fauna_general_hint"
 enabled = false
+oneshot = true
 
 [node name="CompletePlantA1" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2714, -0.981407, -20.9488 )
