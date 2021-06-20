@@ -6,6 +6,7 @@
 [node name="JournalEntry" type="PanelContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -16,6 +17,7 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 1017.0
 margin_bottom = 593.0
+mouse_filter = 1
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -30,6 +32,7 @@ margin_bottom = 576.0
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 margin_right = 990.0
 margin_bottom = 32.0
+mouse_filter = 1
 
 [node name="LogTitle" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer"]
 margin_right = 990.0

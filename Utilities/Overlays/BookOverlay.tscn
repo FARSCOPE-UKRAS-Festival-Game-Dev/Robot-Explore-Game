@@ -110,22 +110,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScrollContainer" type="ScrollContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Journal"]
+[node name="MarginContainer" type="MarginContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Journal"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Journal/MarginContainer"]
+margin_right = 992.0
+margin_bottom = 522.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="JournalVBox" type="VBoxContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Journal/ScrollContainer"]
+[node name="JournalVBox" type="VBoxContainer" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Journal/MarginContainer/ScrollContainer"]
 margin_right = 992.0
 margin_bottom = 522.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="JournalEntry" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Journal/ScrollContainer/JournalVBox" instance=ExtResource( 2 )]
+[node name="JournalEntry" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Journal/MarginContainer/ScrollContainer/JournalVBox" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 992.0
@@ -244,13 +251,13 @@ __meta__ = {
 [node name="OptionsPanel" parent="OverlayTabs/PanelContainer/MarginContainer/TabContainer/Options" instance=ExtResource( 7 )]
 
 [node name="EscapeButton" type="Button" parent="."]
-margin_left = 941.0
+margin_left = 923.769
 margin_top = 5.0
-margin_right = 1006.0
+margin_right = 997.769
 margin_bottom = 43.0
 rect_scale = Vector2( 1.2, 1.2 )
 custom_fonts/font = ExtResource( 6 )
-text = "Exit"
+text = "Close"
 __meta__ = {
 "_edit_use_anchors_": false
 }

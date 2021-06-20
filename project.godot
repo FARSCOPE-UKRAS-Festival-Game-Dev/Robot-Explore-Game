@@ -48,7 +48,7 @@ config/name="RoCeX - Robot Cave Explorer"
 run/main_scene="res://MainMenu.tscn"
 boot_splash/image="res://HTML/splash_screen.png"
 config/icon="res://icon.png"
-config/version_tag="V1.0.2"
+config/version_tag="V1.0.3"
 
 [autoload]
 
@@ -139,6 +139,7 @@ dialog_skip={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+pointing/emulate_mouse_from_touch=false
 
 [physics]
 

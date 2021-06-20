@@ -456,6 +456,7 @@ margin_top = 128.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_rotation = 0.0439192
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
