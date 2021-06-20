@@ -30,7 +30,8 @@ func start_tutorial():
 	cam_panel = robot_control_panel.get_node("HUD/CameraPanel")
 	lidar_panel = robot_control_panel.get_node("HUD/LidarPanel")
 	whisker_panel = robot_control_panel.get_node("HUD/WhiskerPanel")
-
+	
+	get_parent().get_node("Audio/AnimationPlayer").play("Fadeinaudio")
 	
 	if not skip:
 		Globals.joystick.set_visible(false)

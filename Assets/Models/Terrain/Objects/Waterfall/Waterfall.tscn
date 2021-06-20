@@ -31,5 +31,5 @@ animations = [ {
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 pixel_size = 0.02
 frames = SubResource( 1 )
-frame = 13
+frame = 6
 playing = true

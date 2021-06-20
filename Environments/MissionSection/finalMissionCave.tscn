@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://Environments/MissionSection/MissionSection.tres" type="Environment" id=1]
 [ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=2]
@@ -52,6 +52,12 @@
 [ext_resource path="res://Assets/Models/Terrain/Objects/CavePaintings/mazeArrow2.tscn" type="PackedScene" id=50]
 [ext_resource path="res://Assets/Models/Terrain/Objects/CavePaintings/mazeArrow1.tscn" type="PackedScene" id=51]
 [ext_resource path="res://Assets/Models/Terrain/Objects/CavePaintings/deadEndSign.tscn" type="PackedScene" id=52]
+[ext_resource path="res://Assets/Audio/effects/waterfall.wav" type="AudioStream" id=53]
+[ext_resource path="res://Assets/Audio/effects/fire-crackle.wav" type="AudioStream" id=54]
+[ext_resource path="res://Assets/Audio/effects/electronic_beep.wav" type="AudioStream" id=55]
+[ext_resource path="res://Assets/Audio/effects/wind.wav" type="AudioStream" id=56]
+[ext_resource path="res://Assets/Audio/effects/creepy_cave.wav" type="AudioStream" id=57]
+[ext_resource path="res://Assets/Audio/music/main_menu_background.mp3" type="AudioStream" id=58]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -286,7 +292,14 @@ transform = Transform( -0.389549, 0, 0.313451, 0, 0.5, 0, -0.313451, 0, -0.38954
 transform = Transform( 0.891066, -0.059378, 0.449973, 0.0788439, 0.996583, -0.0246236, -0.446973, 0.0574189, 0.892702, -61.8479, 0.0282879, 12.4759 )
 
 [node name="waterfall" parent="cave1_15" instance=ExtResource( 49 )]
-transform = Transform( 0.346626, 0, 0.499063, 0, 0.4, 0, -0.199625, 0, 0.866566, 0.0124054, 0, -1.30065 )
+transform = Transform( 0.346626, 0, 0.499063, 0, 0.4, 0, -0.199625, 0, 0.866566, 2.35666, 0.328285, 0.575069 )
+
+[node name="AudioWaterfall3D" type="AudioStreamPlayer3D" parent="cave1_15/waterfall"]
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 1.49012e-07, 0, 1, 0, -7.69784, 0 )
+stream = ExtResource( 53 )
+unit_size = 15.0
+autoplay = true
+max_distance = 100.0
 
 [node name="fukkinVinesm8" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.525, -2, 48 )
@@ -1368,6 +1381,44 @@ script = ExtResource( 31 )
 type = 2
 value = ExtResource( 37 )
 texture_name = "Clothing?"
+
+[node name="Audio" type="Spatial" parent="."]
+
+[node name="AudioFire3D" type="AudioStreamPlayer3D" parent="Audio"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.651806, -0.897173, 97.6411 )
+stream = ExtResource( 54 )
+unit_size = 10.0
+autoplay = true
+emission_angle_enabled = true
+
+[node name="AudioCreepy3D" type="AudioStreamPlayer3D" parent="Audio"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5202, -2.38419e-07, 92.2627 )
+stream = ExtResource( 57 )
+unit_size = 15.0
+max_db = -3.0
+autoplay = true
+
+[node name="AudioWind3D" type="AudioStreamPlayer3D" parent="Audio"]
+transform = Transform( 0.925838, 0, 0.377922, 0, 1, 0, -0.377922, 0, 0.925838, -25.5202, -2.38419e-07, 111.196 )
+stream = ExtResource( 56 )
+unit_size = 10.0
+max_db = -1.0
+autoplay = true
+
+[node name="AudioRobotBeep3D" type="AudioStreamPlayer3D" parent="Audio"]
+transform = Transform( 0.925838, 0, 0.377922, 0, 1, 0, -0.377922, 0, 0.925838, -26.2803, -2.38419e-07, 100.924 )
+stream = ExtResource( 55 )
+attenuation_model = 1
+unit_size = 8.0
+max_db = 5.0
+autoplay = true
+
+[node name="AudioWindCaveDrips3D" type="AudioStreamPlayer3D" parent="Audio"]
+transform = Transform( 0.925838, 0, 0.377922, 0, 1, 0, -0.377922, 0, 0.925838, -26.9488, -1.28334, -0.331662 )
+stream = ExtResource( 58 )
+unit_size = 4.0
+max_db = -3.0
+autoplay = true
 
 [node name="TemperatureCalibrationBody" type="StaticBody" parent="."]
 transform = Transform( 85, 0, 0, 0, 1, 0, 0, 0, 85, -1.536, 0, 35.0576 )

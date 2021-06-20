@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/creepy_cave.wav-9e9eee8302409e0a940d6b081fc2fc58.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/effects/creepy_cave.wav"
+dest_files=[ "res://.import/creepy_cave.wav-9e9eee8302409e0a940d6b081fc2fc58.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
