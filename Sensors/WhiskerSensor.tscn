@@ -20,6 +20,7 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="SenseArea" type="Area" parent="SensorWhiskers"]
+transform = Transform( 2.47789, 0, 0, 0, 1, 0, 0, 0, 1.93167, 0, 0, 0 )
 input_ray_pickable = false
 collision_layer = 0
 
@@ -30,7 +31,7 @@ shape = SubResource( 1 )
 [node name="Whiskers" type="Spatial" parent="SensorWhiskers"]
 
 [node name="Left_Mid_Whisker" type="MeshInstance" parent="SensorWhiskers/Whiskers"]
-transform = Transform( -5.89977e-10, -1.34971, -0.006548, 0.015, -6.55671e-08, -2.9786e-16, -2.77987e-10, -0.63596, 0.013585, -1.781, 0, -0.221 )
+transform = Transform( -3.82629e-10, -0.575304, -0.0119387, 0.015, -4.92191e-08, -5.1301e-11, -5.35322e-10, -0.967939, 0.00709587, -0.976856, -0.00496912, -0.27503 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -43,7 +44,7 @@ transform = Transform( 1, 5.55111e-17, 2.64698e-22, -5.55112e-17, 1, 4.76837e-06
 shape = SubResource( 3 )
 
 [node name="Left_Top_Whisker" type="MeshInstance" parent="SensorWhiskers/Whiskers"]
-transform = Transform( -7.22927e-10, -1.65386, 0.000392193, 0.015, -6.55671e-08, 0, -2.45419e-10, -0.561454, 0.0137377, -2.589, 0, -0.142 )
+transform = Transform( -5.10841e-10, -0.97308, -0.00688818, 0.015, -5.45938e-08, -5.70817e-16, -4.1103e-10, -0.782955, 0.00856084, -1.40629, 0, -0.0109436 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -55,7 +56,7 @@ material/0 = null
 shape = SubResource( 3 )
 
 [node name="Left_Bottom_Whisker" type="MeshInstance" parent="SensorWhiskers/Whiskers"]
-transform = Transform( -3.15943e-06, -0.799163, -0.0142941, 0.015, -4.7076e-08, -6.69892e-06, 3.49637e-06, -0.721948, 0.0158229, -0.92074, 0, -0.320771 )
+transform = Transform( -2.28825e-11, -0.0296645, -0.0209872, 0.015, -3.71547e-08, 0, -6.55271e-10, -0.849482, 0.000732887, -0.5, 0, -0.522 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -67,7 +68,7 @@ material/0 = null
 shape = SubResource( 3 )
 
 [node name="Right_Mid_Whisker" type="MeshInstance" parent="SensorWhiskers/Whiskers"]
-transform = Transform( -5.93127e-10, -1.34968, 0.00639356, 0.015, -6.52174e-08, 0, 2.79471e-10, 0.635946, 0.0135692, 1.781, 0, -0.221 )
+transform = Transform( -4.07488e-10, -0.626615, 0.0116484, 0.015, -4.94853e-08, 4.99026e-11, 5.16451e-10, 0.942861, 0.00774141, 1.00402, 0, -0.263126 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -79,7 +80,7 @@ material/0 = null
 shape = SubResource( 3 )
 
 [node name="Right_Top_Whisker" type="MeshInstance" parent="SensorWhiskers/Whiskers"]
-transform = Transform( -6.20871e-10, -1.65428, 0.00450038, 0.015, -7.63638e-08, 0, 2.10769e-10, 0.561584, 0.0132569, 2.589, 0, -0.142 )
+transform = Transform( -5.37554e-10, -0.903562, 0.00799786, 0.015, -5.02864e-08, 3.14201e-11, 3.77187e-10, 0.712065, 0.0101487, 1.48438, 0, -0.0156242 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -91,7 +92,7 @@ material/0 = null
 shape = SubResource( 3 )
 
 [node name="Right_Bottom_Whisker" type="MeshInstance" parent="SensorWhiskers/Whiskers"]
-transform = Transform( 3.15846e-06, -0.799184, 0.0140773, 0.015, -4.70772e-08, -6.59734e-06, 3.49725e-06, 0.721966, 0.015583, 0.921, 0, -0.321 )
+transform = Transform( -2.28825e-11, -0.0296645, 0.0209872, 0.015, -3.71547e-08, 0, 6.55271e-10, 0.849482, 0.000732887, 0.5, 0, -0.504 )
 mesh = SubResource( 2 )
 material/0 = null
 

@@ -83,7 +83,7 @@ shape = SubResource( 1 )
 transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 0 )
 
 [node name="CameraPosition" type="Spatial" parent="Body"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.33648, 0.33944, -0.85957 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.336, 0.339, 0 )
 
 [node name="Viewport" type="Viewport" parent="Body"]
 size = Vector2( 500, 300 )
