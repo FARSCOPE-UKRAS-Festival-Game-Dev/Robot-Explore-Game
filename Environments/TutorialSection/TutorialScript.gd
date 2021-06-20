@@ -170,9 +170,4 @@ func _on_LeaveLevelTrigger_on_trigger():
 	
 #	yield(get_tree().create_timer(5.0), "timeout")
 	Globals.load_new_scene("res://Environments/MissionSection/finalMissionCave.tscn")
-	
-
-
-
-
 

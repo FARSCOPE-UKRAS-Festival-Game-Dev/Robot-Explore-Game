@@ -887,7 +887,7 @@ omni_range = 2.42879
 [node name="MissionFindRobot" parent="." instance=ExtResource( 41 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 49.191, 0, 46.0174 )
 mission_name = "Find what happened to the missing robot"
-mission_desc = "Find and locate the missing robot so we can retrieve the memory core. Go deeper into the cave, and follow the trail of broken pieces: the whiskers sensor can be used to distinguish robot pieces from rocks and other structures."
+mission_desc = "Find and locate the missing robot so we can retrieve the memory core. Go deeper into the cave, and follow the trail of broken pieces. The whiskers sensor can be used to distinguish robot pieces from rocks and other structures."
 
 [node name="FindRobotMissionScript" type="Node" parent="MissionFindRobot"]
 script = ExtResource( 32 )
@@ -1086,7 +1086,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 49.191,
 visible = false
 enabled = false
 mission_name = "Find the source of the strange heat readings"
-mission_desc = "Follow the increase in temperature to locate the source of these mystifying readings"
+mission_desc = "Follow the increase in temperature to locate the source of these mystifying readings."
 
 [node name="MissionGeothermalSpringScript" type="Node" parent="MissionGeothermalSpring"]
 script = ExtResource( 47 )
@@ -1159,7 +1159,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.82576, 0, 6.5737 )
 visible = false
 enabled = false
 mission_name = "[Side Objective] Collect 5 Fauna Samples For Further Study"
-mission_desc = "Identify 5 different plants. First analyse the plant using the whisker sensor, followed by collecting a sample and a photograph."
+mission_desc = "Identify 5 different plants. First analyse the plant using the whisker sensor, then collect a sample and a photograph."
 on_complete_dialogue = "mission_fauna_completed_all"
 
 [node name="MultiObjectivePlants" parent="MissionCollectFauna" instance=ExtResource( 39 )]
