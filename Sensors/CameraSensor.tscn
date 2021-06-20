@@ -14,11 +14,11 @@ shader_type canvas_item;
 // The original shader contains these variables below with `#define` but since we don't have access to that we just declare them as uniforms instead.
 
 // The amount of grain to apply to the night vision.
-uniform float noise = 5;
+uniform float noise = 3;
 // The amount that the screen should flicker.
 uniform float flicker = 0.02;
 // Affects how bright the night vision effect is.
-uniform float luminance = 0.5;
+uniform float luminance = 0.7;
 
 // `mainImage` is always `fragment` in Godot and it takes no arguments.
 void fragment() {
