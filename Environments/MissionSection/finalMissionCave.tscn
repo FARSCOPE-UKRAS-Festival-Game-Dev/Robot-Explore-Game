@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://Environments/MissionSection/MissionSection.tres" type="Environment" id=1]
 [ext_resource path="res://Robot/TankRobot_with_sensors.tscn" type="PackedScene" id=2]
@@ -48,6 +48,7 @@
 [ext_resource path="res://Environments/MissionSection/MissionCollectFauna.gd" type="Script" id=46]
 [ext_resource path="res://Environments/MissionSection/MissionGeothermalSpringScript.gd" type="Script" id=47]
 [ext_resource path="res://Assets/Models/Textures/Ice002_1K_Color.jpg" type="Texture" id=48]
+[ext_resource path="res://Assets/Models/Terrain/Objects/Waterfall/Waterfall.tscn" type="PackedScene" id=49]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -278,17 +279,11 @@ transform = Transform( 0.808093, 0, -0.589055, 0, 1, 0, 0.589055, 0, 0.808093, -
 [node name="rock18" parent="cave1_15" instance=ExtResource( 7 )]
 transform = Transform( -0.389549, 0, 0.313451, 0, 0.5, 0, -0.313451, 0, -0.389549, -50.997, 0.200374, 35.5006 )
 
-[node name="rock2_large8" parent="cave1_15" instance=ExtResource( 8 )]
-transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 4.49657, -2, -3.24126 )
-
-[node name="rock2_large9" parent="cave1_15" instance=ExtResource( 8 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.31742, -2, -0.640392 )
-
-[node name="rock2_large10" parent="cave1_15" instance=ExtResource( 8 )]
-transform = Transform( 1.28841, 0, -1.52971, 0, 2, 0, 1.52971, 0, 1.28841, 6.02044, -2.31689, 6.8454 )
-
 [node name="rock19" parent="cave1_15" instance=ExtResource( 6 )]
 transform = Transform( 0.891066, -0.059378, 0.449973, 0.0788439, 0.996583, -0.0246236, -0.446973, 0.0574189, 0.892702, -61.8479, 0.0282879, 12.4759 )
+
+[node name="waterfall" parent="cave1_15" instance=ExtResource( 49 )]
+transform = Transform( 0.346626, 0, 0.499063, 0, 0.4, 0, -0.199625, 0, 0.866566, 0.0124054, 0, -1.30065 )
 
 [node name="fukkinVinesm8" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.525, -2, 48 )
