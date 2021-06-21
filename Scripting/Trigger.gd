@@ -48,6 +48,7 @@ func set_debounce(value):
 		debounce_timer.stop()
 	
 func on_whisker_object_sensed():
+	print("On whisker sensed")
 	var whisker_panel =  Globals.robot.get_node("ControlPanel/HUD/WhiskerPanel")
 	yield(whisker_panel,"reveal_animation_finished")
 	if Globals.robot.get_node("Robot/WhiskerSensor").get_current_sense_obj() == whisker_obj:
@@ -120,12 +121,14 @@ func trigger():
 func _on_TriggerArea_body_entered(body):
 	if body.get_name() == ("Robot") and Globals.robot != null:
 		in_area = true
-		#print("Print connecting... %s" % get_parent().name + "/" +name)
+		print("Print connecting... %s" % get_parent().name + "/" +name)
 		Globals.robot.connect("doing_action",self,"_on_robot_action")
 		if must_whisker_enable:
+
 			whisker_obj = get_node(must_whisker)
 			var whisker_obj_info = whisker_obj.get_node_or_null("TactileInfo")
 			if whisker_obj_info != null:
+				print("Print connecting whisker ... %s" % get_parent().name + "/" +name)
 				whisker_obj_info.connect("sensed_by_whiskers",self,"on_whisker_object_sensed")
 		trigger()
 		if enable_must_see_timer:
@@ -146,6 +149,7 @@ func _on_TriggerArea_body_exited(body):
 			whisker_obj = get_node(must_whisker)
 			var whisker_obj_info = whisker_obj.get_node_or_null("TactileInfo")
 			if whisker_obj_info != null:
+				print("Print disconnecting whisker ... %s" % get_parent().name + "/" +name)
 				whisker_obj_info.disconnect("sensed_by_whiskers",self,"on_whisker_object_sensed")
 		if enable_must_see_timer:
 			must_see_timer.stop()

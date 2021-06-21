@@ -116,7 +116,7 @@ environment = ExtResource( 1 )
 transform = Transform( 0.609135, 0, 0.793066, 0, 1, 0, -0.793066, 0, 0.609135, 46.4993, -4.09357, 43.8564 )
 
 [node name="RobotStartLocationDebug" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.6033, -1.52588e-05, 46.5754 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4062, -1.52588e-05, -12.4815 )
 
 [node name="DebugOmni" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.365, 5.94936, -1.68166 )
@@ -595,9 +595,6 @@ transform = Transform( 0.790676, -0.204211, -0.577173, 0.0899132, 0.971242, -0.2
 
 [node name="bulbPlant4" parent="Flora of Interest" instance=ExtResource( 17 )]
 transform = Transform( 0.0414515, 0.0313747, -0.193125, -0.0265225, 0.196491, 0.0262288, 0.193851, 0.0201747, 0.0448849, -33.9846, -0.977669, -0.226826 )
-
-[node name="bulbPlant5" parent="Flora of Interest" instance=ExtResource( 17 )]
-transform = Transform( 0.0621773, 0.0470621, -0.289688, -0.0397838, 0.294736, 0.0393432, 0.290777, 0.0302621, 0.0673273, -22.1235, -1.52532, 6.86241 )
 
 [node name="spikyPlant1" parent="Flora of Interest" instance=ExtResource( 19 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -13.6436, -0.766532, -10.9991 )
@@ -1226,7 +1223,6 @@ enabled = true
 
 [node name="MissionCollectFauna" parent="." instance=ExtResource( 41 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.82576, 0, 6.5737 )
-visible = false
 enabled = false
 mission_name = "[Side Objective] Collect 5 Fauna Samples For Further Study"
 mission_desc = "Identify 5 different plants. First analyse the plant using the whisker sensor, then collect a sample and a photograph."
@@ -1245,86 +1241,86 @@ enabled = false
 oneshot = true
 
 [node name="CompletePlantA1" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2714, -0.981407, -20.9488 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2714, -0.103634, -20.9488 )
 
 [node name="CompletePlantA3" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4141, -0.981407, -9.21363 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4141, -0.425464, -9.21363 )
 
 [node name="CompletePlantA4" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4374, -0.981407, -17.6101 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4374, -0.103634, -17.6101 )
 
 [node name="CompletePlantA5" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.924, -0.981148, -14.0168 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.924, -0.103375, -14.0168 )
 
 [node name="CompletePlantA6" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.9024, -0.982109, -14.7608 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.9024, -0.104336, -14.7608 )
 
 [node name="CompletePlantA7" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1199, -0.972282, -15.305 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1199, -0.0945087, -15.305 )
 
 [node name="CompletePlantA8" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.1069, -0.981407, 2.57664 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.1069, -0.103634, 2.57664 )
 
 [node name="CompletePlantA9" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.1069, -0.981407, 2.57664 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.1069, -0.103634, 2.57664 )
 
 [node name="CompletePlantA10" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4928, -0.981407, -1.44622 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4928, -0.103634, -1.44622 )
 
 [node name="CompletePlantB1" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.8073, -0.981407, -2.12768 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.8073, -0.103634, -2.12768 )
 plant_type = 1
 
 [node name="CompletePlantB2" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.4137, -0.981407, -8.52583 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.4137, -0.389705, -8.52583 )
 plant_type = 1
 
 [node name="CompletePlantB3" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.8946, -0.981407, -11.9984 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.8946, -0.103634, -11.9984 )
 plant_type = 1
 
 [node name="CompletePlantC1" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.891, -0.981407, -24.1184 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7941, -0.103634, -24.0861 )
 plant_type = 2
 
 [node name="CompletePlantC2" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.9593, -0.981407, -16.3046 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.9593, -0.103634, -16.3046 )
 plant_type = 2
 
 [node name="CompletePlantC3" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 0.941817, 0, -0.336126, 0, 1, 0, 0.336126, 0, 0.941817, -22.1396, -1.08405, -26.6944 )
+transform = Transform( 0.941817, 0, -0.336126, 0, 1, 0, 0.336126, 0, 0.941817, -21.7521, -0.206277, -27.1142 )
 plant_type = 2
 
 [node name="CompletePlantC4" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.8152, -0.981407, -13.2477 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.8152, -0.103634, -13.2477 )
 plant_type = 2
 
 [node name="CompletePlantD1" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3754, -0.981407, -13.4676 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3754, -0.103634, -13.4676 )
 plant_type = 3
 
 [node name="CompletePlantD2" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0854, -0.982063, -16.6112 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0854, -0.10429, -16.6112 )
 plant_type = 3
 
 [node name="CompletePlantD3" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.6769, -0.972099, -18.5395 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.6769, -0.0943257, -18.5395 )
 plant_type = 3
 
 [node name="CompletePlantE1" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8644, -0.972099, -26.8569 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8644, -0.0943257, -26.8569 )
 plant_type = 4
 
 [node name="CompletePlantE2" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4096, -0.977226, -20.4919 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4096, -0.0994527, -20.4919 )
 plant_type = 4
 
 [node name="CompletePlantE3" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6156, -0.972099, 0.483366 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6156, -0.509834, 0.483366 )
 plant_type = 4
 
 [node name="CompletePlantE4" parent="MissionCollectFauna/MultiObjectivePlants" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5829, -0.972099, -15.6579 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5829, -0.247448, -15.6579 )
 plant_type = 4
 
 [node name="MissionCollectFauna" type="Node" parent="MissionCollectFauna"]

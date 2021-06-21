@@ -240,7 +240,7 @@
 		"dialog": "There should be more types of plant in this system."
 	},
 	"mission_fauna_completed_plantA": {
-		"dialog": "Documenting complete. The scientists will be very happy."
+		"dialog": "Documentation complete for this species. The scientists will be very happy."
 	},
 	"mission_fauna_completed_plantB": {
 		"dialog": "Would you beleaf it. Another wonderous plant documented."

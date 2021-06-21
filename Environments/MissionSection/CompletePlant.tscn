@@ -30,6 +30,7 @@ first_hint_dialog_key = "mission_fauna_need_photo_sample1"
 use_next_hint = true
 enabled = false
 oneshot = true
+disable_timer = true
 
 [node name="AlreadyDoneHint" parent="." instance=ExtResource( 4 )]
 transform = Transform( 3, 0, -8.94067e-08, 0, 1, 0, 8.94067e-08, 0, 3, 0, 0, 0 )
@@ -41,6 +42,7 @@ disable_timer = true
 
 [node name="SampleTrigger" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0 )
+visible = false
 must_action = 3
 enabled = true
 
@@ -51,7 +53,9 @@ must_action = 1
 enabled = true
 
 [node name="WhiskerTrigger" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0 )
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
+visible = false
+must_whisker = NodePath("../Plant")
 enabled = true
 enable_debounce_timer = true
 debounce_time = 60.0
