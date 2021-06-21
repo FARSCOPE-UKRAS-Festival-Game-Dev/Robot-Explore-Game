@@ -164,7 +164,7 @@ func _on_LeaveLevelTrigger_on_trigger():
 	
 	Globals.queue_raw_dialog("Tutorial End", "*Static* ...He...o? ...lo!? Are you still there!?... Wh...")
 	yield(Globals, "all_dialog_finished")
-	
+	Globals.robot.immobilise = true
 	var mission = get_parent()
 	mission.complete_mission()
 	yield(get_tree().create_timer(8),"timeout")
