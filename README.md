@@ -18,6 +18,17 @@ This game is build using the [Godot Engine](https://godotengine.org/). Simply cl
 ## License
 This project is licensed under the MIT License. See [License](License) for further details. We just ask that you link back to the original game! 
 
+## Screenshots
+
+<p float="left">
+  <img src="/Assets/Screenshots/Expedition.png" width="400" />
+  <img src="/Assets/Screenshots/MushroomTactile.png" width="400" /> 
+</p>
+<p float="left">
+  <img src="/Assets/Screenshots/StartingCave.png" width="400" />
+  <img src="/Assets/Screenshots/Waterfall.png" width="400" /> 
+</p>
+
 ## Credits
 
 ### Producers
@@ -60,7 +71,7 @@ This project is licensed under the MIT License. See [License](License) for furth
 * Paul Harper,
 * Michael Secker,
 * Aneta Taylor,
-* Jonathan Rossitor,
+* Prof Jonathan Rossiter,
 * Claire Asher,
 * UKRAS Robotics Festival 2021, ESPRC, FARSCOPE, University of Bristol, University of West England, Bristol Robotics Laboratory
 * Made with Godot - godotengine.org/license
