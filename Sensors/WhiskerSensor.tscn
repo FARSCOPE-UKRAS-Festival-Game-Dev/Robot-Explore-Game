@@ -25,7 +25,7 @@ input_ray_pickable = false
 collision_layer = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="SensorWhiskers/SenseArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.532601 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5 )
 shape = SubResource( 1 )
 
 [node name="Whiskers" type="Spatial" parent="SensorWhiskers"]

@@ -95,9 +95,10 @@ func choose_next_hint(hint_dialog_key):
 		print("WARNING - %s has invalid next_hint field" % current_hint_key)
 func set_hint_timer(hint_dialog_key):
 	if not disable_timer and is_inside_tree():
-		hint_timer.stop()
-		hint_timer.wait_time = get_hint_wait_period(hint_dialog_key)
-		hint_timer.start()
+		#if get_hint_wait_period(hint_dialog_key) > 0:
+			hint_timer.stop()
+			hint_timer.wait_time = get_hint_wait_period(hint_dialog_key)
+			hint_timer.start()
 #		print("%s timer set" % get_parent().name + "/"+name)
 func _ready():
 	visible = visible and Globals.show_triggers
@@ -106,7 +107,7 @@ func _ready():
 func show_hint():
 #	print("%s enabled %s showing hint %s "%[get_parent().name + "/"+name,enabled,current_hint_key])
 	set_hint_timer(current_hint_key)
-	if Globals.displaying_dialog:
+	if Globals.displaying_dialog and not disable_timer:
 	#	print("reseting due to dialog %s "%current_hint_key)
 		set_hint_timer(current_hint_key)
 		return

@@ -20,6 +20,7 @@ func start_mission():
 	
 	if skip:
 		Globals.robot.global_transform = get_node("/root/MissionSection/RobotStartLocationDebug").global_transform 
+		get_node("../../MissionCollectFauna").enabled = true
 	else:
 		Globals.control_panel_ui.set_enable_fade_overlay(true)
 		Globals.control_panel_ui.fade_in()

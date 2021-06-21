@@ -3,7 +3,8 @@ extends ObjectiveBase
 export(int) var plant_dialog_set = null
 const NUM_DIALOG_SETS = 3
 
-export(NodePath) var plant_object = null
+export(NodePath) var plant_object_path = null
+var plant_object
 enum PlantType {
 	A,
 	B,
@@ -103,14 +104,15 @@ func set_enable(value):
 		
 func _ready():
 	if not Engine.editor_hint:
-		if plant_object == null:
-			plant_object = "Plant"
-			if get_node_or_null(plant_object) == null:
+		if plant_object_path == null:
+			plant_object_path = "Plant"
+			if get_node_or_null(plant_object_path) == null:
 				print("%s plant objective as no plant object" % name)
 			else:
-				plant_object = "../Plant"
-		whisker_trigger.must_whisker = plant_object
-		photo_trigger.must_see = plant_object
+				plant_object = get_node(plant_object_path)
+				plant_object_path = "../Plant"
+		whisker_trigger.must_whisker = plant_object_path
+		photo_trigger.must_see = plant_object_path
 		photo_trigger.must_see_enable = true
 		whisker_trigger.must_whisker_enable = true
 		
@@ -173,7 +175,7 @@ func update_plant_node_logic():
 			hint_action.enabled = true
 			sample_trigger.enabled = true
 			photo_trigger.enabled = true
-		
+
 		PlantNodeState.PHOTOED_NOT_SAMPLED:
 			set_action_hint("mission_fauna_just_need_sample1")
 			set_already_done_hint("mission_fauna_plant_already_photoed")
@@ -213,13 +215,15 @@ func _on_WhiskerTrigger_on_trigger():
 		if not is_plant_group_complete():
 			Globals.queue_raw_dialog("Plant_Whisker_Trigger", "Whiskers have identified the plant as a '%s'" % enum_to_name[plant_type])
 			Globals.queue_dialog(whisker_on_complete_dialogue)
+			
 	node_whiskered = true
 	
 	change_sample_photo_state()
 	update_plant_node_logic()
 	if is_plant_group_complete():
 		Globals.queue_dialog(whisker_already_completed_dialogue)
-		
+	elif can_see_plant():
+		hint_action.show_hint()
 
 func Photo_on_trigger():
 
@@ -231,9 +235,12 @@ func Photo_on_trigger():
 		get_tree().call_group(plant_group, "on_plant_group_photoed")
 		if is_plant_group_complete():
 			complete_objective()
+			
+		elif can_see_plant():
+			on_plant_group_photoed()
+			hint_action.show_hint()
 		return
-	if node_whiskered and plant_type_photoed:
-		print("OLA")
+	if node_whiskered and plant_type_photoed and can_see_plant():
 		hint_already_done.show_hint()
 
 func Sample_on_trigger():
@@ -245,9 +252,16 @@ func Sample_on_trigger():
 		get_tree().call_group(plant_group, "on_plant_group_sampled")
 		if is_plant_group_complete():
 			complete_objective()
+		elif can_see_plant():
+			on_plant_group_sampled()
+			hint_action.show_hint()
 		return
 		
-	if node_whiskered and plant_type_sampled:
+	if node_whiskered and plant_type_sampled and can_see_plant():
 		hint_already_done.show_hint()
 		print("showing akready done hint")
 
+func can_see_plant():
+	var can_see = Globals.robot.get_node("Robot/ForwardCameraSensor").can_see(plant_object)
+	print("Can see plant? %s" % can_see)
+	return can_see
