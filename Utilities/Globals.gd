@@ -259,7 +259,6 @@ func queue_dialog(dialog_key):
 	
 	if book_overlay:
 		book_overlay.add_journal_entry(dialog_data["dialog"])
-	
 
 	if dialog_data.has("next_dialog"):
 		queue_dialog(dialog_data["next_dialog"])
