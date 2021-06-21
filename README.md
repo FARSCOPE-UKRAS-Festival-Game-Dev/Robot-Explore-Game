@@ -1,3 +1,5 @@
+![banner](Assets/banner.jpg)
+
 # RoC-eX: Robotic Cave Explorer
 **Unearth the truth about what happened in cave system #0393**
 
@@ -51,13 +53,14 @@ This project is licensed under the MIT License. See [License](License) for furth
 * Alex Smith,
 * Wong Weijie
 
-### Administration
+### Testing
+* Liam Fletcher
+
+### Thanks to
 * Paul Harper,
 * Michael Secker,
 * Aneta Taylor,
 * Jonathan Rossitor,
-* Claire Asher
-
-### Thanks to
+* Claire Asher,
 * UKRAS Robotics Festival 2021, ESPRC, FARSCOPE, University of Bristol, University of West England, Bristol Robotics Laboratory
 * Made with Godot - godotengine.org/license
