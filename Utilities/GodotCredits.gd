@@ -92,8 +92,8 @@ func finish():
 		finished = true
 		# NOTE: This is called when the credits finish
 		# - Hook up your code to return to the relevant scene here, eg...
-		get_tree().change_scene("res://MainMenu.tscn")
-
+		#get_tree().change_scene("res://MainMenu.tscn")
+		Globals.goto_scene("res://MainMenu.tscn")
 func duplicate_line(_line):
 	var new_line = _line.duplicate()
 	var line_font = _line.get("custom_fonts/font")

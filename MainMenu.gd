@@ -59,7 +59,7 @@ func handle_selection(_current_selection):
 	elif _current_selection == 1:
 		show_options()
 	elif _current_selection == 2:
-		get_tree().change_scene(CREDITS_SCENE)
+		Globals.load_new_scene(CREDITS_SCENE)
 	elif _current_selection == 3:
 		$FeedbackDialog.visible = true
 

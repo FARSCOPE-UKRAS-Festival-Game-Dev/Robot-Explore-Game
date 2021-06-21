@@ -139,7 +139,7 @@ transform = Transform( 0.877315, 0.42409, 0.224648, -0.404995, 0.905378, -0.1275
 transform = Transform( 0.753501, 0.25148, -0.607449, -0.404995, 0.905378, -0.127549, 0.517895, 0.342123, 0.784051, -19.3476, -2.89876, -41.151 )
 
 [node name="mushroom_4" parent="cave1_15" instance=ExtResource( 5 )]
-transform = Transform( 0.699472, 0.437373, -0.565193, -0.590868, 0.798801, -0.113097, 0.402011, 0.413063, 0.817169, -41.1245, -0.245176, -45.6014 )
+transform = Transform( 0.699472, 0.437373, -0.565193, -0.590868, 0.798801, -0.113097, 0.402011, 0.413063, 0.817169, -41.1245, 0.184641, -45.6014 )
 
 [node name="rock1" parent="cave1_15" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.91972, -22 )
@@ -643,10 +643,10 @@ transform = Transform( -0.222122, -0.0128185, 0.0334969, 0.0105995, -0.224213, -
 [node name="CavePaintings" type="Spatial" parent="."]
 
 [node name="YetiPainting" parent="CavePaintings" instance=ExtResource( 27 )]
-transform = Transform( -0.998707, 0.0498905, -0.0097646, -1.67919e-08, -0.192077, -0.98138, -0.0508371, -0.980111, 0.191828, -10.036, -0.016358, 105.904 )
+transform = Transform( 0.99845, -0.054232, -0.0124857, 0.0226406, 0.190897, 0.981349, -0.0508371, -0.980111, 0.191828, -10.036, -0.016358, 105.904 )
 
 [node name="CavePainting" type="Spatial" parent="CavePaintings/YetiPainting"]
-transform = Transform( -0.999907, 4.47035e-08, 0.0136478, -0.0133937, -0.192076, -0.981289, 0.00262137, -0.98138, 0.192058, 0.103894, 1.05643, 0.16469 )
+transform = Transform( 0.993097, 0.0226406, -0.115094, -0.1173, 0.190896, -0.974577, -9.38782e-05, 0.981349, 0.192236, -0.00953484, 0.922302, -0.550657 )
 
 [node name="DialogYetiPainting" parent="CavePaintings/YetiPainting/CavePainting" instance=ExtResource( 43 )]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.00832367, 0.00303745, 0.00252342 )
@@ -655,6 +655,7 @@ one_shot = true
 dialog = "yeti_paintings_discover_deadend"
 
 [node name="TriggerWhisker" parent="CavePaintings/YetiPainting/CavePainting/DialogYetiPainting" instance=ExtResource( 42 )]
+must_whisker = NodePath("../../Painting")
 enabled = true
 
 [node name="TriggerPhoto" parent="CavePaintings/YetiPainting/CavePainting/DialogYetiPainting" instance=ExtResource( 42 )]
@@ -666,6 +667,22 @@ enabled = true
 [node name="TriggerSample" parent="CavePaintings/YetiPainting/CavePainting/DialogYetiPainting" instance=ExtResource( 42 )]
 must_action = 3
 enabled = true
+
+[node name="Painting" type="RigidBody" parent="CavePaintings/YetiPainting/CavePainting"]
+transform = Transform( 1, 0, 0, -2.79397e-09, 1, 0, -1.49012e-08, -7.45058e-09, 1, -0.00830841, -0.349602, 0.0153427 )
+mode = 1
+physics_material_override = SubResource( 1 )
+gravity_scale = 3.0
+
+[node name="CollisionShape" type="CollisionShape" parent="CavePaintings/YetiPainting/CavePainting/Painting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.164236, 0.0366287, 0.85762 )
+shape = SubResource( 2 )
+
+[node name="TactileInfo" type="Node" parent="CavePaintings/YetiPainting/CavePainting/Painting"]
+script = ExtResource( 31 )
+type = 3
+value = ExtResource( 33 )
+texture_name = "Painting?"
 
 [node name="CP_TEST" parent="CavePaintings" instance=ExtResource( 28 )]
 transform = Transform( -0.978513, 0.206076, -0.00700511, -0.0243326, -0.149141, -0.988516, -0.204754, -0.967104, 0.15095, -15.9106, 0.421047, 87.6648 )
@@ -719,17 +736,8 @@ visible = false
 one_shot = true
 dialog = "yeti_paintings_arrow1"
 
-[node name="TriggerWhisker" parent="CavePaintings/mazeArrow/DialogYetiPainting2" instance=ExtResource( 42 )]
-enabled = true
-
-[node name="TriggerPhoto" parent="CavePaintings/mazeArrow/DialogYetiPainting2" instance=ExtResource( 42 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
-must_action = 1
-on_trigger_action_is_success = false
-enabled = true
-
-[node name="TriggerSample" parent="CavePaintings/mazeArrow/DialogYetiPainting2" instance=ExtResource( 42 )]
-must_action = 3
+[node name="Trigger" parent="CavePaintings/mazeArrow/DialogYetiPainting2" instance=ExtResource( 42 )]
+transform = Transform( 1, 2.84217e-14, 0, 3.12639e-13, 1, 6.82121e-13, 7.45058e-09, 0, 1, -2.76473, -2.98023e-07, -0.741493 )
 enabled = true
 
 [node name="mazeArrows2" parent="CavePaintings" instance=ExtResource( 50 )]
@@ -742,10 +750,12 @@ one_shot = true
 dialog = "yeti_paintings_arrow2"
 
 [node name="TriggerWhisker" parent="CavePaintings/mazeArrows2/DialogYetiPainting" instance=ExtResource( 42 )]
+must_whisker = NodePath("../../Painting")
 enabled = true
 
 [node name="TriggerPhoto" parent="CavePaintings/mazeArrows2/DialogYetiPainting" instance=ExtResource( 42 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
+transform = Transform( 2, -8.73115e-10, 1.49012e-08, -1.74623e-10, 1, 0, -1.49012e-08, 1.86265e-09, 2, -1.17001, 0.00935006, 1.25394 )
+must_see = NodePath("../../Painting")
 must_action = 1
 on_trigger_action_is_success = false
 enabled = true
@@ -754,20 +764,38 @@ enabled = true
 must_action = 3
 enabled = true
 
+[node name="Painting" type="RigidBody" parent="CavePaintings/mazeArrows2"]
+transform = Transform( 0.995073, 0.0911703, 0.0389504, 0.0387253, 0.00423817, -0.999241, -0.0912663, 0.995827, 0.000688449, -0.0788651, 0.830086, 0.260866 )
+mode = 1
+physics_material_override = SubResource( 1 )
+gravity_scale = 3.0
+
+[node name="CollisionShape" type="CollisionShape" parent="CavePaintings/mazeArrows2/Painting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.164236, 0.0366287, 0.85762 )
+shape = SubResource( 2 )
+
+[node name="TactileInfo" type="Node" parent="CavePaintings/mazeArrows2/Painting"]
+script = ExtResource( 31 )
+type = 3
+value = ExtResource( 33 )
+texture_name = "Painting?"
+
 [node name="mazeArrows3" parent="CavePaintings" instance=ExtResource( 52 )]
 transform = Transform( -0.969633, 0.243937, -0.0175156, 0.0180632, 7.88246e-06, -0.999837, -0.243897, -0.969791, -0.00441393, -39.8182, -0.0136114, 106.46 )
 
 [node name="DialogYetiPainting2" parent="CavePaintings/mazeArrows3" instance=ExtResource( 43 )]
-transform = Transform( 0.771636, -0.668242, -8.14907e-10, 0.365229, 1.41183, 4.65661e-09, 6.98492e-10, -1.72295e-08, 0.484623, 0.231943, 1.41609, -0.583021 )
+transform = Transform( 0.771636, -0.668242, -2.91038e-10, 0.365229, 1.41183, 4.19095e-09, 2.56114e-09, -1.81608e-08, 0.484623, 0.222338, 1.41608, -0.0516976 )
 visible = false
 one_shot = true
 dialog = "yeti_paintings_deadend_actual"
 
 [node name="TriggerWhisker" parent="CavePaintings/mazeArrows3/DialogYetiPainting2" instance=ExtResource( 42 )]
+must_whisker = NodePath("../../Painting")
 enabled = true
 
 [node name="TriggerPhoto" parent="CavePaintings/mazeArrows3/DialogYetiPainting2" instance=ExtResource( 42 )]
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
+must_see = NodePath("../../Painting")
 must_action = 1
 on_trigger_action_is_success = false
 enabled = true
@@ -775,6 +803,22 @@ enabled = true
 [node name="TriggerSample" parent="CavePaintings/mazeArrows3/DialogYetiPainting2" instance=ExtResource( 42 )]
 must_action = 3
 enabled = true
+
+[node name="Painting" type="RigidBody" parent="CavePaintings/mazeArrows3"]
+transform = Transform( 0.999286, -0.0371613, -0.00676323, -0.00675029, 0.000474209, -0.999976, 0.0371635, 0.999309, 0.000223018, -0.00865936, 0.913002, 0.015348 )
+mode = 1
+physics_material_override = SubResource( 1 )
+gravity_scale = 3.0
+
+[node name="CollisionShape" type="CollisionShape" parent="CavePaintings/mazeArrows3/Painting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.164236, 0.0366287, 0.85762 )
+shape = SubResource( 2 )
+
+[node name="TactileInfo" type="Node" parent="CavePaintings/mazeArrows3/Painting"]
+script = ExtResource( 31 )
+type = 3
+value = ExtResource( 33 )
+texture_name = "Painting?"
 
 [node name="StartingLights" type="Spatial" parent="."]
 __meta__ = {
@@ -1224,7 +1268,7 @@ enabled = true
 [node name="MissionCollectFauna" parent="." instance=ExtResource( 41 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.82576, 0, 6.5737 )
 enabled = false
-mission_name = "[Side Objective] Collect 5 Fauna Samples For Further Study"
+mission_name = "[Side Objective] Collect 5 Flora Samples For Further Study"
 mission_desc = "Identify 5 different plants. First analyse the plant using the whisker sensor, then collect a sample and a photograph."
 on_complete_dialogue = "mission_fauna_completed_all"
 
