@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Fonts/NormalTextFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Images/reddot.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Images/Whiskers.png" type="Texture" id=3]
 [ext_resource path="res://Robot/ControlPanelElements/WhiskerPanel.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Images/WhiskerPanel.tres" type="Texture" id=5]
+[ext_resource path="res://Assets/Audio/effects/whisker1.wav" type="AudioStream" id=6]
 [ext_resource path="res://Robot/ControlPanelElements/WhiskerRevealImport.gd" type="Script" id=20]
 [ext_resource path="res://Assets/Images/WhiskerWipe.png" type="Texture" id=22]
 
@@ -123,6 +124,20 @@ tracks/6/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ "Analysing..." ]
+}
+tracks/7/type = "audio"
+tracks/7/path = NodePath("AudioStreamPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=4]
@@ -367,9 +382,9 @@ __meta__ = {
 }
 
 [node name="TextPanel" type="PanelContainer" parent="AspectRatioContainer/Panel/CenterContainer"]
-margin_left = 94.0
+margin_left = 99.0
 margin_top = 2.0
-margin_right = 272.0
+margin_right = 267.0
 margin_bottom = 43.0
 custom_styles/panel = SubResource( 2 )
 __meta__ = {
@@ -379,11 +394,11 @@ __meta__ = {
 [node name="DisplayText" type="Label" parent="AspectRatioContainer/Panel/CenterContainer/TextPanel"]
 margin_left = 20.0
 margin_top = 2.0
-margin_right = 158.0
+margin_right = 148.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.0666667, 0.811765, 0.278431, 1 )
-text = "Analysing... "
+text = "Analysing..."
 align = 1
 valign = 1
 __meta__ = {
@@ -407,3 +422,7 @@ __meta__ = {
 anims/whisker_analyse = SubResource( 3 )
 anims/whisker_reveal = SubResource( 4 )
 next/whisker_analyse = "WhiskerAnalyse"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 0.8
