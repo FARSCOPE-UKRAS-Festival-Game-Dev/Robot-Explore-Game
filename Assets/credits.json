@@ -1,89 +1,96 @@
 {
-    "order": [
-        "RoC-Ex Robot Cave Explorer",
-        "Producers",
-        "Game Development",
-        "Game Design",
-        "Story",
-        "Modellers",
-        "Administration",
-        "External Sounds",
-        "With thanks to"
-    ],
-    "RoC-Ex Robot Cave Explorer": [],
-    "Producers": [
-        "Mickey Li",
-        "Julian Hird",
-        "Gabriella Miles"
-    ],
-    "Game Development": [
-        "Julian Hird",
-        "Mickey Li",
-        "Wong Weijie",
-        "Arturs Elksnis",
-        "Kirsty Aquilina",
-        "Peter Wharton",
-        "Hendrik Eichhorn",
-        "Zhun Chen Yek",
-        "Mihai Anca"
-    ],
-    "Game Design": [
-        "Gabriella Miles",
-        "Valentina Lo Gatto",
-        "Alex Smith",
-        "Vimbai Gore-Strachan"
-    ],
-    "Story": [
-        "Gabriella Miles",
-        "Valentina Lo Gatto",
-        "Alex Smith",
-        "Julian Hird"
-    ],
-    "Modellers": [
-        "Gabriella Miles",
-        "Alex Smith",
-        "Wong Weijie"
-    ],
-    "Administration": [
-        "Paul Harper",
-        "Michael Secker",
-        "Aneta Taylor",
-        "Jonathan Rossitor",
-        "Claire Asher"
-    ],
-    "With thanks to": [
-        "EPSRC",
-        "FARSCOPE",
-        "University of Bristol",
-        "University of West England",
-        "Bristol Robotics Laboratory",
-        "UKRAS Robotics Festival 2021"
-    ],
-    "External Sounds": [
-        "The following are from freesound.org",
-        "Cthulhu growl.wav: cylon8472",
-        "Lens Zooming in and out.wav: Snapper4298",
-        "Radio Static: GowlerMusic",
-        "Static_Radio.wav: kMoon",
-        "End Radio Transmission: ReadeOnly",
-        "computer startup.wav: squashy555",
-        "light switch click on and off: SomeoneCool15",
-        "3beeps.wav: pera",
-        "Warning sound: satchdev",
-        "Camera_snap1.wav: thecheeseman",
-        "Rubber mallet, claw hammer: This_Is_A_Hoax",
-        "FOOT_STEPS_SNOW_HEAVY.wav: alexo400",
-        "Drill.aif: olliehahn12",
-        "Water Cave: Klangkobold",
-        "Water drips in the cave HQ.wav: tosha73",
-        "rocks falling in cave.wav: 150134",
-        "wind and trees and snow.WAV: tim.kahn",
-        "Soft Wind: florianreichelt",
-        "Electronic Beeping Machine: Beetlemuse",
-        "Wind, Realistic, A.wav: InspectorJ",
-        "Cave Drone: EminYILDRIM",
-        "fire crackling: daenerys",
-        "Waterfall: nsmusic"
-    ]
-
+	"order": [
+		"RoC-Ex Robot Cave Explorer",
+		"Producers",
+		"Game Development",
+		"Game Design",
+		"Story",
+		"Modellers",
+		"Administration",
+		"External Assets",
+		"With thanks to",
+		"Made with Godot"
+	],
+	"RoC-Ex Robot Cave Explorer": [],
+	"Producers": [
+		"Mickey Li",
+		"Julian Hird",
+		"Gabriella Miles"
+	],
+	"Game Development": [
+		"Julian Hird",
+		"Mickey Li",
+		"Wong Weijie",
+		"Arturs Elksnis",
+		"Kirsty Aquilina",
+		"Peter Wharton",
+		"Hendrik Eichhorn",
+		"Zhun Chen Yek",
+		"Mihai Anca"
+	],
+	"Game Design": [
+		"Gabriella Miles",
+		"Valentina Lo Gatto",
+		"Alex Smith",
+		"Vimbai Gore-Strachan"
+	],
+	"Story": [
+		"Gabriella Miles",
+		"Valentina Lo Gatto",
+		"Alex Smith",
+		"Julian Hird"
+	],
+	"Modellers": [
+		"Gabriella Miles",
+		"Alex Smith",
+		"Wong Weijie"
+	],
+	"Administration": [
+		"Paul Harper",
+		"Michael Secker",
+		"Aneta Taylor",
+		"Jonathan Rossitor",
+		"Claire Asher"
+	],
+	"External Assets": [
+		"The following are from freesound.org",
+		"Cthulhu growl.wav: cylon8472",
+		"Lens Zooming in and out.wav: Snapper4298",
+		"Radio Static: GowlerMusic",
+		"Static_Radio.wav: kMoon",
+		"End Radio Transmission: ReadeOnly",
+		"computer startup.wav: squashy555",
+		"light switch click on and off: SomeoneCool15",
+		"3beeps.wav: pera",
+		"Warning sound: satchdev",
+		"Camera_snap1.wav: thecheeseman",
+		"Rubber mallet, claw hammer: This_Is_A_Hoax",
+		"FOOT_STEPS_SNOW_HEAVY.wav: alexo400",
+		"Drill.aif: olliehahn12",
+		"Water Cave: Klangkobold",
+		"Water drips in the cave HQ.wav: tosha73",
+		"rocks falling in cave.wav: 150134",
+		"wind and trees and snow.WAV: tim.kahn",
+		"Soft Wind: florianreichelt",
+		"Electronic Beeping Machine: Beetlemuse",
+		"Wind, Realistic, A.wav: InspectorJ",
+		"Cave Drone: EminYILDRIM",
+		"fire crackling: daenerys",
+		"Waterfall: nsmusic",
+		"100% synthesis : unfa",
+		"Success.wav : Kagateni",
+		"",
+		"Other Assets",
+		"Icons from Flaticon.com",
+		"Brown Mushroom In The Woods by Egor Kamelev from www.pexels.com"
+	],
+	"With thanks to": [
+		"EPSRC",
+		"FARSCOPE",
+		"University of Bristol",
+		"University of West England",
+		"Bristol Robotics Laboratory",
+		"UKRAS Robotics Festival 2021"
+	],
+	"Made with Godot": ["godotengine.org/license"]
 }

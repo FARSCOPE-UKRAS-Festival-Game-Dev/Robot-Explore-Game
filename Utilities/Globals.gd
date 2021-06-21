@@ -146,8 +146,8 @@ func goto_scene(path):
 		show_error()
 		return
 	set_process(true)
-	
-	current_scene.queue_free()
+	if current_scene != null and is_instance_valid(current_scene):
+		current_scene.queue_free()
 	if robot != null:
 		robot.queue_free()
 		

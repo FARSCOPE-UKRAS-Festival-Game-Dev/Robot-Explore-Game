@@ -48,7 +48,7 @@ config/name="RoCeX - Robot Cave Explorer"
 run/main_scene="res://MainMenu.tscn"
 boot_splash/image="res://Assets/Images/AnimatedBackground/cave_concept.png"
 config/icon="res://icon.png"
-config/version_tag="V1.0.5"
+config/version_tag="V1.0.6"
 
 [autoload]
 
