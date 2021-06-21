@@ -1,35 +1,54 @@
-# Robot-Explore-Game
+RoC-eX: Robotic Cave Explorer
+Unearth the truth about what happened in cave system #0393
 
-## Contributors 
+Dive into the experience of piloting a robotic scout through what appears to be an ancient cave system leading down to the centre of the Earth. With the help of advanced sensors, guide your robot explorer along dark tunnels and caverns, avoiding obstacles, collecting relics of aeons past and, hopefully, discover what happened to its predecessor. 
 
-* Game Developers
+We hope playing the game will teach you about how sensors work, how they are used in reality and perhaps give a glimpse into the mind of the robot. With luck, this can show how exciting it can be to work in robotics! 
 
-  * Mickey Li
+The game is current hosted on [this website](https://www.farscope.bris.ac.uk/game) as part of the [UKRAS festival of Robotics 2021](https://www.ukras.org/robotics-week/)
 
-  * Arturs Elksnis 
+# Credits
 
-  * Kirsty Aquilina 
+## Producers
+* Mickey Li,
+* Julian Hird,
+* Gabriella Miles
 
-  * Peter Wharton 
+## Game Development
+* Julian Hird,
+* Mickey Li,
+* Wong Weijie,
+* Arturs Elksnis,
+* Kirsty Aquilina,
+* Peter Wharton,
+* Hendrik Eichhorn,
+* Zhun Chen Yek,
+* Mihai Anca
 
-  * Julian Hird 
+## Game Design
+* Gabriella Miles,
+* Valentina Lo Gatto,
+* Alex Smith,
+* Vimbai Gore-Strachan
 
-  * Hendrik Eichhorn 
+## Story
+* Gabriella Miles,
+* Valentina Lo Gatto,
+* Alex Smith,
+* Julian Hird
 
-  * Wong Weijie
+## Modellers
+* Gabriella Miles,
+* Alex Smith,
+* Wong Weijie
 
-  * Mihai Anca 
+## Administration
+* Paul Harper,
+* Michael Secker,
+* Aneta Taylor,
+* Jonathan Rossitor,
+* Claire Asher
 
-
-
-* Game Design
-
-  * Gabriella Miles
-
-  * Valentina Lo Gatto 
-
-  * Alex Smith
-
-
-
-
+## Thanks to
+* UKRAS Robotics Festival 2021, ESPRC, FARSCOPE, University of Bristol, University of West England, Bristol Robotics Laboratory
+* Made with Godot - godotengine.org/license
