@@ -42,6 +42,9 @@ The game is current hosted on [this website](https://www.farscope.bris.ac.uk/gam
 * Alex Smith,
 * Wong Weijie
 
+## Testers
+* Liam Fletcher
+
 ## Administration
 * Paul Harper,
 * Michael Secker,
