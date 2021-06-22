@@ -205,6 +205,12 @@ func free_game():
 func free_control_panel():
 	control_panel_ui.queue_free()
 	control_panel_loaded = false
+	
+	book_overlay = null
+	joystick = null
+	dialog_popup = null
+	objective_popup = null
+	mission_popup  = null
 	print("control_panel_gone")
 	
 func init_control_panel():
