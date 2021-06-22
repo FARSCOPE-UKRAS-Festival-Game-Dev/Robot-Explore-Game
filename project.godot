@@ -45,10 +45,11 @@ _global_script_class_icons={
 [application]
 
 config/name="RoCeX - Robot Cave Explorer"
+config/description="A game about exploring caves using  sensors and searching for lost robots"
 run/main_scene="res://MainMenu.tscn"
 boot_splash/image="res://Assets/Images/AnimatedBackground/cave_concept.png"
 config/icon="res://icon.png"
-config/version_tag="V1.0.6"
+config/version_tag="V1.0.7"
 
 [autoload]
 
