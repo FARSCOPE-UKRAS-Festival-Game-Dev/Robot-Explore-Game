@@ -32,46 +32,46 @@ This project is licensed under the MIT License. See [License](License) for furth
 ## Credits
 
 ### Producers
-* Mickey Li,
-* Julian Hird,
+* Mickey Li
+* Julian Hird
 * Gabriella Miles
 
 ### Game Development
-* Julian Hird,
-* Mickey Li,
-* Wong Weijie,
-* Arturs Elksnis,
-* Kirsty Aquilina,
-* Peter Wharton,
-* Hendrik Eichhorn,
-* Zhun Chen Yek,
+* Julian Hird
+* Mickey Li
+* Wong Weijie
+* Arturs Elksnis
+* Kirsty Aquilina
+* Peter Wharton
+* Hendrik Eichhorn
+* Zhun Chen Yek
 * Mihai Anca
 
 ### Game Design
-* Gabriella Miles,
-* Valentina Lo Gatto,
-* Alex Smith,
+* Gabriella Miles
+* Valentina Lo Gatto
+* Alex Smith
 * Vimbai Gore-Strachan
 
 ### Story
-* Gabriella Miles,
-* Valentina Lo Gatto,
-* Alex Smith,
+* Gabriella Miles
+* Valentina Lo Gatto
+* Alex Smith
 * Julian Hird
 
 ### Modellers
-* Gabriella Miles,
-* Alex Smith,
+* Gabriella Miles
+* Alex Smith
 * Wong Weijie
 
 ### Testing
 * Liam Fletcher
 
 ### Thanks to
-* Paul Harper,
-* Michael Secker,
-* Aneta Taylor,
-* Prof Jonathan Rossiter,
-* Claire Asher,
+* Paul Harper
+* Michael Secker
+* Aneta Taylor
+* Prof Jonathan Rossiter
+* Claire Asher
 * UKRAS Robotics Festival 2021, ESPRC, FARSCOPE, University of Bristol, University of West England, Bristol Robotics Laboratory
 * Made with Godot - godotengine.org/license

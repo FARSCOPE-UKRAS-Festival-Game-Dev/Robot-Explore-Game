@@ -55,11 +55,6 @@ func _ready():
 	
 	reset_analyse_anim()
 
-
-	#this fixes a bug with the animated texture, texture must play through at some point for one_shot to work correctly
-	#make texture invisible and let it play
-	whisker_reveal.texture.pause = false
-	whisker_reveal.visible = false
 	
 
 func set_sensor_class(sclass):
@@ -129,15 +124,11 @@ func reset_analyse_anim():
 	whisker_analyse.texture = texture_output
 	whisker_wipe.visible = false
 	whisker_analyse.visible = false
-	whisker_reveal.texture.pause = true
-	whisker_reveal.texture.current_frame = 0
-	whisker_reveal.texture.fps = 16
+
 	remove_key_points()
 
 func play_analyse_anim():
 	reset_analyse_anim()
-	whisker_reveal.visible = true
-	whisker_reveal.texture.pause = false
 	whisker_anim.stop()#stop all animations other wise previously queued animations might play on top of each over
 	whisker_anim.clear_queue()
 	whisker_anim.play("whisker_reveal")
