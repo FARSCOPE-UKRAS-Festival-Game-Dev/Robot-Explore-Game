@@ -49,7 +49,7 @@ config/description="A game about exploring caves using  sensors and searching fo
 run/main_scene="res://MainMenu.tscn"
 boot_splash/image="res://Assets/Images/AnimatedBackground/cave_concept.png"
 config/icon="res://icon.png"
-config/version_tag="V1.0.7"
+config/version_tag="V1.1.0"
 
 [autoload]
 

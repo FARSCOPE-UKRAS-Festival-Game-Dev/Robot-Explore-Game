@@ -2,22 +2,20 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Ground028_1K_Color.jpg-c390e0216856bb5d4ccbb68217d55d60.s3tc.stex"
-path.etc="res://.import/Ground028_1K_Color.jpg-c390e0216856bb5d4ccbb68217d55d60.etc.stex"
+path="res://.import/Ground028_1K_Color.jpg-c390e0216856bb5d4ccbb68217d55d60.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Models/Terrain/Objects/Ground028_1K_Color.jpg"
-dest_files=[ "res://.import/Ground028_1K_Color.jpg-c390e0216856bb5d4ccbb68217d55d60.s3tc.stex", "res://.import/Ground028_1K_Color.jpg-c390e0216856bb5d4ccbb68217d55d60.etc.stex" ]
+dest_files=[ "res://.import/Ground028_1K_Color.jpg-c390e0216856bb5d4ccbb68217d55d60.stex" ]
 
 [params]
 
-compress/mode=2
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.4
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

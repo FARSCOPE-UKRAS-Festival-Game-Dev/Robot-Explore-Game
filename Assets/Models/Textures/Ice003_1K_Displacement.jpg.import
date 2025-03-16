@@ -14,8 +14,8 @@ dest_files=[ "res://.import/Ice003_1K_Displacement.jpg-99e3ec6f4c5ad745d5e1e52e4
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.4
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/whisker2.wav-f6be94f6cb06bc6b47d5e0e1788a2f19.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/effects/whisker2.wav"
+dest_files=[ "res://.import/whisker2.wav-f6be94f6cb06bc6b47d5e0e1788a2f19.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

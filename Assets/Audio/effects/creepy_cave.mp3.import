@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/creepy_cave.mp3-d85419038a1f8f5e174be0b75afff3c5.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/effects/creepy_cave.mp3"
+dest_files=[ "res://.import/creepy_cave.mp3-d85419038a1f8f5e174be0b75afff3c5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

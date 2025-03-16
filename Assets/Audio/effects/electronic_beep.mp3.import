@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/electronic_beep.mp3-f83e0de37a9bc26294536a08766ec038.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/effects/electronic_beep.mp3"
+dest_files=[ "res://.import/electronic_beep.mp3-f83e0de37a9bc26294536a08766ec038.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

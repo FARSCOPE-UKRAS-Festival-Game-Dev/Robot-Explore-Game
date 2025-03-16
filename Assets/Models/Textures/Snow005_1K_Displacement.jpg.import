@@ -14,8 +14,8 @@ dest_files=[ "res://.import/Snow005_1K_Displacement.jpg-dff2ff81c26c10d29378f134
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.3
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

@@ -2,22 +2,20 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Ice003_1K_Normal.jpg-46ad24475724ffedf2fc193a8125986f.s3tc.stex"
-path.etc="res://.import/Ice003_1K_Normal.jpg-46ad24475724ffedf2fc193a8125986f.etc.stex"
+path="res://.import/Ice003_1K_Normal.jpg-46ad24475724ffedf2fc193a8125986f.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Models/Textures/Ice003_1K_Normal.jpg"
-dest_files=[ "res://.import/Ice003_1K_Normal.jpg-46ad24475724ffedf2fc193a8125986f.s3tc.stex", "res://.import/Ice003_1K_Normal.jpg-46ad24475724ffedf2fc193a8125986f.etc.stex" ]
+dest_files=[ "res://.import/Ice003_1K_Normal.jpg-46ad24475724ffedf2fc193a8125986f.stex" ]
 
 [params]
 
-compress/mode=2
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.4
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=1

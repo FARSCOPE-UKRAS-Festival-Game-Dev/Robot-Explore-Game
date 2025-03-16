@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/waterfall.mp3-bbd489ccbebe291f4caa27d0405533f1.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/effects/waterfall.mp3"
+dest_files=[ "res://.import/waterfall.mp3-bbd489ccbebe291f4caa27d0405533f1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

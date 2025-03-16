@@ -52,11 +52,11 @@
 [ext_resource path="res://Assets/Models/Terrain/Objects/CavePaintings/mazeArrow2.tscn" type="PackedScene" id=50]
 [ext_resource path="res://Assets/Models/Terrain/Objects/CavePaintings/mazeArrow1.tscn" type="PackedScene" id=51]
 [ext_resource path="res://Assets/Models/Terrain/Objects/CavePaintings/deadEndSign.tscn" type="PackedScene" id=52]
-[ext_resource path="res://Assets/Audio/effects/waterfall.wav" type="AudioStream" id=53]
+[ext_resource path="res://Assets/Audio/effects/waterfall.mp3" type="AudioStream" id=53]
 [ext_resource path="res://Assets/Audio/effects/fire-crackle.wav" type="AudioStream" id=54]
-[ext_resource path="res://Assets/Audio/effects/electronic_beep.wav" type="AudioStream" id=55]
+[ext_resource path="res://Assets/Audio/effects/electronic_beep.mp3" type="AudioStream" id=55]
 [ext_resource path="res://Assets/Audio/effects/wind.wav" type="AudioStream" id=56]
-[ext_resource path="res://Assets/Audio/effects/creepy_cave.wav" type="AudioStream" id=57]
+[ext_resource path="res://Assets/Audio/effects/creepy_cave.mp3" type="AudioStream" id=57]
 [ext_resource path="res://Assets/Audio/music/main_menu_background.mp3" type="AudioStream" id=58]
 
 [sub_resource type="BoxShape" id=1]
@@ -130,7 +130,7 @@ omni_range = 146.118
 transform = Transform( -2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -29.7469, -1.04336, -1.54361 )
 
 [node name="cave1_15" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.4828, -1.76123, 47.5945 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.9429, -1.68315, 48.0625 )
 
 [node name="mushroom_1" parent="cave1_15" instance=ExtResource( 5 )]
 transform = Transform( 0.912834, 0.40833, 0, -0.40833, 0.912834, 0, 0, 0, 1, -19.6535, -2.93284, -41.8509 )
