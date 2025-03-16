@@ -9,7 +9,9 @@ We hope playing the game will teach you about how sensors work, how they are use
 
 ## Playing the game
 
-The game is currently hosted on [this website](https://www.farscope.bris.ac.uk/game) as part of the [UKRAS festival of Robotics 2021](https://www.ukras.org/robotics-week/)
+The game is currently hosted on itch.io as part of the [UKRAS festival of Robotics 2021](https://www.ukras.org/robotics-week/)
+
+- [https://mickeyli.itch.io/roc-ex-robotic-cave-explorer](https://mickeyli.itch.io/roc-ex-robotic-cave-explorer)
 
 ## Extending the game
 
