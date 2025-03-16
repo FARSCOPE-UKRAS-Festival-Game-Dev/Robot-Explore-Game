@@ -17,6 +17,8 @@ The game is currently hosted on itch.io as part of the [UKRAS festival of Roboti
 
 This game is build using the [Godot Engine](https://godotengine.org/). Simply clone or download the zip of the project and open up using the godot editor. 
 
+> Note this was developed in 2021 with v3.3 stable of godot
+
 ## License
 This project is licensed under the MIT License. See [License](License) for further details. We just ask that you link back to the original game! 
 
